@@ -1,0 +1,626 @@
+\chapter{Teoretický úvod} \label{k:teorie}
+
+Cílem této kapitoly je podat čtenáři ucelený přehled relevantní fyziky, abychom mohli v pozdějších kapitolách odvodit a obhájit matematický popis experimentu --- k čemu \emph{přesně} se vztahují čísla na displejích lockinů?
+I v tomto ohledu již vzdělaný čtenář si možná přijde na své, protože v některých směrech volíme mírně nestandardní přístup:
+\begin{itemize}
+\item
+Stokesovy parametry a Muellerovy matice --- elegantní a názorný popis polarizace a jejich změn po působení polarizačních prvků.
+Oproti standardně používanému formalismu Jonesových vektorů a matic mají kromě názornosti ještě jednu velkou výhodu: Stokesovy parametry jsou zobecněné intenzity.
+V experimentu\footnote{kterému se věnuje tato práce} reálně vždy měříme pouze intenzitu, takže měřený signál je lineární v Stokesových parametrech (oproti kvadratickým formám v Jonesových vektorech).
+S Muellerovými maticemi je popis měřící aparatury velice přirozený a názorný, a práce v laboratoři snadnější a přijemnější.
+\item
+K výpočtu transmisních a reflexních matic anizotropních planárních struktur se v magnetooptice tradičně\cite{Berremanperturb} využívá Yehův formalismus\cite{Yeh}, který vychází z vlnové rovnice pro $\E$ -- vektorové diferenciální rovnice \emph{druhého} řádu. 
+Magnetooptika se často zajímá o materiály, které jsou téměř izotropní, a předmětem zájmu jsou malé odchylky od izotropie. 
+Yehova metoda v sobě jako klíčový krok zahrnuje řešení kvartických rovnic a výpočet vlastních vektorů, tyto dvě operace se však nejhůře chovají právě v takových situacích, v okolí degenerací jsou dokonce singulární\cite{Yehsing1}.
+Do problému jsou zavedené uměle, měřitelné transmisní a reflexní matice žádnými takovými problémy netrpí.
+Pro počítačové výpočty konkrétních situací význam nemá, ale výpočet analytických vzorců nutných pro pochopení a interpretaci experimentu je tím výrazně ztížen\cite{Vispolar}.
+Berremanův formalismus založený přímo na Maxwellových rovnicích \emph{prvního} řádu se obloukem vyhýbá všem problémům spojených s Yehovým formalismem.
+\end{itemize}
+
+V rovnicích velice často využíváme úspornosti zápisu pomocí implicitního maticové násobení. 
+Sloupcové vektory značíme tlustým písmem a řádkové vektory pomocí transpozice (či hermitovského sdružení) sloupcového vektoru.
+Maticovou povahu každého objektu vždy definujeme v textu, ale dále explicitně nezdůrazňujeme speciální notací. 
+Užitečnou zásadou při čtení této práce je o každém objektu (i o číslech) předpokládat, že se jedná o matici (násobek jednotkové matice).
+Většina čísel jsou navíc komplexní, což také nezdůrazňujeme notací.
+Při pochybách odkazujeme na dodatek \ref{k:dodatek konvence}
+
+Pokud v názvu oddílu uvádíme odkaz na literaturu, vycházíme v něm z uvedeného zdroje, avšak notaci a konvence přizpůsobujeme konvencím této práce.
+
+\section{Maxwellovy rovnice \cite{Bornwolf}}
+Práce se zabývá pouze jevy, které lze popsat klasickou lineární optikou, používáme makroskopické Maxwellovy rovnice.
+Pracujeme ve frekvenčním obraze, uvažujeme elektromagnetické pole harmonické v čase s konvencí $\E(t,\vec{r})=\Re\left\lbrace\E(\w,\vec{r}) e^{-i\w t}\right\rbrace$ a stejně pro ostatní pole.
+
+Materiály popisujeme fenomenologicky lokální\footnote{tzv. dipólová aproximace} lineární odezvou. 
+Navíc pokládáme magnetickou susceptibilitu na optických frekvencích rovnou 0: $\M(\w)=0$, což kromě speciálních metamateriálů platí bez výjimky\cite{muvac1}.
+Materiály jsou za těchto podmínek plně popsány komplexními frekvenčně závislými tenzory ($3\times 3$ matice) relativní permitivity  $\e'$ a vodivosti $\sigma$
+\begin{align}
+\D(\w,\vec{r})=\evac\e'(\w,\vec{r})\E(\w,\vec{r}) \,, \label{e:materialyD} \\
+\j(\w,\vec{r})=\sigma(\w,\vec{r})\E(\w,\vec{r}) \,, \\
+\B(\w,\vec{r})=\muvac \H(\w,\vec{r}) \label{e:materialyB} \,.
+\end{align}
+Pro přehlednost budeme dále vynechávat argument $\w$ a $\vec{r}$ s vyrozuměním, že vztahy platí pro všechna $\w$ a $\vec{r}$.
+
+Jedinou výjimkou, kdy vynechání argumentu nebude znamenat složku na frekvenci $\w$ (jako např. $\E\equiv\E(\w)$), bude statická magnetizace $\M\equiv\M(\w=0)$ a statické externí pole, které značíme $\Hext\equiv\H(\w=0)$.
+
+Maxwellovy rovnice v uvedené situaci mají v SI tvar 
+\begin{align}
+\rot \E&=i\w\B \,, \\
+\rot \B&=\muvac \left( \sigma - i\w \evac\e' \right) \E \equiv -i\w\frac{1}{c^2}\e \E \,. \label{e:MaxwellrotB}
+\end{align}
+Zbylé dvě divergenční Maxwellovy rovnice neuvádíme, protože pro $\w\neq0$ nejsou nezávislé od uvedených dvou rotačních\cite{Visvlakna}.
+Je vidno, že v rovnicích nevystupují $\e'$ a $\sigma$ nezávisle, ale pouze v kombinaci patrné z první rovnosti \eqref{e:MaxwellrotB}, což souvisí to s tím, že rozdělení proudů na volné a vázané je do jisté míry arbitrární.
+Zavádíme proto efektivní relativní permitivitu $\e$ vztahem 
+\begin{equation}
+\evac \e=\evac\e'+i\sigma/\w \,,
+\end{equation}
+která v sobě zahrnuje vliv všech uvažovaných proudů.
+Komplexní $3\times 3$ matici $\e$ dále nazýváme zkrátka permitivitou a jedná se o jediný materiálový parametr charakterizující optické vlastnosti na dané frekvenci.
+V rovnici \eqref{e:MaxwellrotB} jsme také užili rychlost světla ve vakuu $c=1/\sqrt{\muvac\evac}$.
+
+Maxwellovy rovnice je výhodné vyjádřit místo v polích $\E$ a $\B$ v polích $\E$ a $c\B$
+\begin{align}
+\left(-i\frac{c}{\w}\rot\right) \E&=c\B \,, \label{e:rotE}\\
+\left(-i\frac{c}{\w}\rot\right) c\B&=-\e \E \,. \label{e:rotB}
+\end{align}
+
+V homogenním prostředí ($\e(\vec{r})$ nezávisí na poloze), jsou řešením rovinné vlny (vlastní módy), jejichž prostorová závislost je dána $\E(\vec{r})=\E e^{i \vec{k}\cdot\vec{r}}$ a podobně pro $\B$ se stejným (komplexním) vlnovým vektorem $\vec{k}$.
+Označíme normovaný vlnový vektor $\N=\vec{k} c/\w=-ic/\w\nabla$, pak rovnice pro vlastní módy jsou
+\begin{align}
+\N \times \E = c\B \,, \label{e:NE}\\
+\N \times c\B = -\e \E \,. \label{e:NB}
+\end{align}
+
+Na ostrém rozhraní dvou materiálů, kde dochází ke skokové změně permitivity, platí, že tečné složky $\E$ a $\H$ (a tedy i $\B$ a $c\B$ díky \eqref{e:materialyB}) jsou při přechodu přes rozhraní spojité\cite{Bornwolf}.
+
+
+\section{Popis polarizace}
+V izotropním prostředí ($\e$ je násobek jednotkové matice) díky \eqref{e:NB} platí $\N \cdot \E_0=0$, dosazením \eqref{e:NE} do \eqref{e:NB} dostaneme rovnici pro přípustná $\N$
+\begin{equation}
+\N \cdot \N =\e \,.
+\end{equation}
+Vektor $\N$ obecně může být ve speciálních případech komplexní i pro nedisipativní prostředí (reálné $\e$, např. evanescentní vlny) a proto $\N \cdot \N$ není obecně rovno normě $|\N|^2$.
+
+Pro popis světla ve volném prostoru ($\e=1$) se dále omezíme na reálné $\N$.
+Zvolíme osu $z$ proti směru šíření, tedy $\N=(0,0,-1)^\T$.
+Řešením jsou pole charakterizovaná libovolnými komplexními amplitudami $E_x$ a $E_{y}$, které udávají polarizaci vlny.
+$\B_0$ je pak dáno rovnicí \eqref{e:NE}.
+
+Výkon přenášený rovinou vlnou je dán časově středovaným Poyntingovým vektorem $\vec{S}$
+\begin{equation} \label{e:intenzita}
+\langle \vec{S}(t)\rangle_t=\langle\E(t)\times\H(t)\rangle_t=\frac{\evac}{2\muvac}\N \left( E_{0x}^*E_{0x}+E_{0y}^*E_{0y} \right) \equiv \frac{\evac}{2\muvac}\N I\,,
+\end{equation}
+kde jsme definovali intenzitu $I=E_{0x}^*E_{0x}+E_{0y}^*E_{0y}$.
+
+Existuje několik přístupů, jak popisovat stav světla. Jako první uvedeme elipsometrické parametry, které jsou názorné, ale nejsou vhodné pro výpočty.
+Formalismus Jonesových vektorů pracuje přímo s komplexními amplitudami polí, a je proto užitečný při počítání transmisních a reflexních koeficientů.
+Poslední, který popíšeme, je popis pomocí Stokesových parametrů a Muellerových matic, který pracuje s intenzitami v různých projekcích Jonesových vektorů, tj. intenzitami po myšleném průchodu vhodným ideálním polarizátorem.
+
+Vektor $\E(t)$ v čase opisuje v rovině $xy$ elipsu, případně úsečku nebo kruh\cite{Bornwolf}.
+Polarizační elipsa je pak popsána elipsometrickými parametry: $\beta$ - úhel natočení hlavní poloosy a $\chi$ - elipticita\footnote{Uvedené $\chi$ se někdy nazývá úhel elipticity, název elipticita pak nese jiná veličina.}.
+K úplnému popisu polarizačního světla ekvivalentního popisu pomocí $E_{0x}$ a $E_{0y}$ je nutné přidat celkovou intenzitu $I$ a fázový posun $\delta$, určující v jakém bodě elipsy se $\E(t)$ nachází v čase $t=0$; $\E(t)$ protíná hlavní poloosu v čase $t=\w \delta$.
+Jediný zbylý neurčený parametr je smysl obíhání elipsy, který popíšeme znaménkem $\chi$, viz diskuze na konci dalšího oddílu.
+Konvenci točivosti světla používáme podle pohledu od zdroje: pravotočivé světlo obíhá na obr. \ref{f:pol_elipsa} po směru hodinových ručiček.
+
+\begin{figure}\centering
+\includegraphics[width=0.5\linewidth]{./img/t1.png}
+\caption{Polarizační elipsa. Obrázek je kreslen z pohledu od zdroje, pokud vektor $\E$ obíhá vyznačeným směrem, pak ho označujeme za pravotočivé a v této souřadné soustavě $\chi>0$.}\label{f:pol_elipsa}
+\end{figure}
+
+\subsection{Jonesovy vektory a matice \cite{Jones}}
+Jonesovy vektory jsou tvořeny komplexními amplitudami polí v rovině kolmé na vektor šíření
+\begin{equation}
+\J=\begin{pmatrix} E_{x} \\ E_{y} \end{pmatrix} \,.
+\end{equation}
+Prostor Jonesových vektorů je přirozeně normovaný intenzitou \eqref{e:intenzita}, která je dána skalárním součinem
+\begin{equation}
+\J_1^\dagger \J_2=
+\begin{pmatrix}
+J_{1x}^* & J_{1y}^*
+\end{pmatrix}
+\begin{pmatrix}
+J_{2x} \\ J_{2y}
+\end{pmatrix}
+\,, \qquad I(\J)=\J^\dagger \J
+\end{equation}
+Dvě polarizace/Jonesovy vektory jsou "ortogonální" ($\J_1^\dagger \J_2=0$), pokud je celková intenzita prostý součet intenzit v obou polarizacích.
+
+Akci každého lineární polarizačního prvku (nevyužívá nelineární optické jevy), lze popsat jako lineární transformaci Jonesova vektoru.
+Pro každý takový prvek existuje $2\times 2$ komplexní matice $T$ (Jonesova matice), taková, že pokud je příchozí polarizace dána libovolným $\J_{\textrm{in}}$, tak odchozí po působení prvku je dána $\J_{\textrm{out}}$ splňujícím
+\begin{equation}
+\J_{\textrm{out}}=T \J_{\textrm{in}} \,.
+\end{equation}
+Postupnou akci více prvků lze popsat maticí, která je součinem matic jednotlivých prvků.
+Jonesovy matice lze použít i např. v případě polarizačního děliče, každé rameno pak má vlastní matici.
+
+Významné postavení mezi optickými prvky mají takové, které zachovávají intenzitu (např. fázové retardační destičky).
+Zachování intenzity pro všechny příchozí polarizace
+\begin{equation}
+\J_{\textrm{in}}^*\J_{\textrm{in}}=I_{\textrm{in}}=I_{\textrm{out}}=\left(T \J_{\textrm{in}}\right)^* \left(T \J_{\textrm{in}}\right)=\J_{\textrm{in}}^* T^\dagger T \J_{\textrm{in}}
+\end{equation}
+dává pro matici $T$ podmínku $T^\dagger T=1$, a tedy $T$ musí být unitární.
+
+Jonesův vektor, který odpovídá elipsometrickým parametrům $\beta$, $\chi$, $\delta$, $I$ je
+\begin{equation} \label{e:jones uhly}
+\J=\sqrt{I} e^{i\delta} \begin{pmatrix}
+\cos \chi \cos \beta + i \sin \chi \sin \beta \\
+\cos \chi \sin \beta - i \sin \chi \cos \beta
+\end{pmatrix} \,.
+\end{equation}
+Tento vztah platí pro směr šíření $\vec{k} \parallel -x \times y$ jako na obr. \ref{f:pol_elipsa}.
+Pozdeji však budeme stejné souřadnice $x,y$ používat i pro světlo v opačném směru, aby byla reflexní matice při kolmém dopadu jednotková matice.
+Ve skutečnosti $\beta$, $\chi$ i $\delta$ definujeme vzhledem ke vztažné soustavě Jonesových vektorů.
+$\beta$ definujeme vzhledem k $J_x$, s rostoucím úhlem ve směru $+J_y$. 
+$\delta$ je dáno počátkem času $t=0$ a vztah mezi znaménkem $\chi$ a točivostí je dán následující poučkou: pokud $J_x J_y \vec{k}$ tvoří levotočivý systém jako na obr. \ref{f:pol_elipsa}, pak $\chi>0$ odpovídá pravotočivé polarizaci. 
+Pro pravotočivý systém jsou znaménka prohozena.
+
+\subsection{Stokesovy parametry a Muellerovy matice \cite{JonesMueller}} \label{k:stokes}
+Stokesovy parametry obecně mohou narozdíl od Jonesových vektorů popsat i nepolarizované nebo částečně polarizované světlo.
+V této práci si však vystačíme s úplně polarizovaným světlem a proto je nebudeme definovat obecně, ale pomocí Jonesových vektorů
+\begin{align}
+s_0 \equiv J_x^* J_x+J_y^* J_y\equiv \J^\dagger \sigma_0 \J &= I \,,\\
+s_1 \equiv J_x^* J_x-J_y^* J_y\equiv \J^\dagger \sigma_1 \J &= I \cos 2\chi \cos 2\beta \,,  \\
+s_2 \equiv J_x^* J_y+J_y^* J_x\equiv \J^\dagger \sigma_2 \J &= I \cos 2\chi \sin 2\beta \,, \\
+s_3 \equiv i J_x^* J_y-i J_y^* J_x  \equiv \J^\dagger \sigma_3 \J &= I \sin 2\chi \,.
+\end{align}
+Stokesovy parametry je možné vyjádřit jako střední hodnoty vhodných $2\times 2$ hermitovských matic $\sigma_{i}$, jak je vyjádřeno druhými rovnostmi. Ty jsou
+\begin{align}
+\sigma_0=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} ,\, 
+\sigma_1=\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} ,\,
+\sigma_2=\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} ,\, 
+\sigma_3=\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} 
+\end{align}
+které můžeme rozeznat jako jednotkovou matici a přerovnané Pauliho matice. 
+Tvoří bázi všech $2\times 2$ hermitovských matic: každou $2\times 2$ hermitovskou matici lze napsat jako lineární kombinaci $\sigma_i$ s reálnými koeficienty.
+Obecné (ne nutně hermitovské) komplexní $2\times 2$ matice mají také jednoznačný rozklad do báze $\sigma_i$, tentokrát však s komplexními parametry.
+
+Tato vlastnost má možná neintuitivní důsledek, že každý optický prvek, který je lineární v Jonesových vektorech, je zároveň lineární ve Stokesových parametrech.
+\begin{equation} \label{e:muellerova matice}
+S^\textrm{out}_i=\J^\dagger T^\dagger \sigma_i T \J\equiv\J^\dagger \left(\sum_{j=0}^{3} M_{ij} \sigma_j \right) \J=\sum_{j=0}^{3} M_{ij} S^\textrm{in}_j \,,
+\end{equation}
+kde reálná $4\times 4$ matice $M$ je dána právě rozkladem hermitovských matic $T^\dagger \sigma_i T$ do báze $\sigma_j$. 
+Matice $M$ charakterizující optický prvek se nazývá Muellerova matice, a sloupcový vektor složený ze Stokesových parametrů se nazývá Stokesův vektor.
+Složky Muellerovy matice příslušející Jonesově matici $T$ je možné počítat přímo z rozkladu \eqref{e:muellerova matice} díky vlastnosi, která se nazývá trace-ortogonalita $\operatorname{Tr}\lbrace\sigma_j\sigma_i\rbrace=2\delta_{ji}$
+\begin{equation} \label{e:mueller rozklad}
+M_{ij}=\frac{1}{2}\operatorname{Tr}\lbrace \sigma_j T^\dagger \sigma_i T \rbrace \,.
+\end{equation}
+
+Podobně jako elipsometrické parametry, Stokesovy vektory nejsou úplně ekvivalentní Jonesovým vektorům, protože ztrácí informaci o časovém zpoždění $\delta$.
+Navíc aby daný Stokesův vektor popisoval fyzikální stav světla, je nutné aby splňoval určité podmínky. 
+Pro úplně polarizované světlo nejsou jeho složky nezávislé, platí totiž
+\begin{equation} \label{e:norma S}
+S_0=\sqrt{S_1^2+S_2^2+S_3^2}
+\end{equation}
+a tedy nám k vyjádření stačí tři parametry $S_1, S_2, S_3$.
+Ty už mohou být libovolná reálná čísla a zobrazují se v třírozměrném prostoru.
+Délka tohoto třírozměrného vektoru udává intenzitu a směr udává polarizaci.
+Polarizace s jednotkovou intenzitou se zobrazují na tzv. Poincarého sféře jako na obr. \ref{f:poincareho sfera}.
+Ortogonální polarizace jsou zobrazeny na body středově souměrné podle počátku.
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{./img/t2.png}\centering
+\caption{Poincarého sféra.}\label{f:poincareho sfera}
+\end{figure}
+
+Zachování \eqref{e:norma S} pro všechny Stokesovy vektory klade podmínku na Muellerovy matice.
+Přestože libovolná myslitelná 4x4 reálná matice je dána 16 reálnými parametry, nedepolarizační (také nazývaná čistá\footnote{Ve smyslu čistého (nesmíšeného, angl. pure) stavu v kvantové mechanice.}) Muellerova matice je dána pouze 7 reálnými čisly\footnote{Jonesova matice je dána 4 komplexními čísly --- 8 reálných parametrů, ale při přechodu k Muellerově matici ztratíme informaci o celkové fázi Jonesovy matice.}. \cite{Muellerdiff}
+
+\subsection{Charakteristické elipsoidy \cite{Muellergeom}}
+
+Nyní se zaměříme na to, jakým způsobem působí obecné Muellerovy matice.
+Muellerovy matice mají jednoduchý geometrický význam, který se graficky vyjadřuje pomocí tzv. charakteristických elipsoidů.
+Charakteristický elipsoid Muellerovy matice $M$ je množina bodů v třírozměrném prostoru $(s_1, s_2, s_3)^T$, které vzniknou akcí $M$ na body ležící na Poincarého sféře.
+Jinými slovy, každá Muellerova matice způsobí deformaci Poincarého sféry, výsledkem je vždy elipsoid.
+V charakteristickém elipsoidu držíme i informaci o tom, na které body se transformují které body Poincarého sféry - např. fázové destičky mají za následek pouze rotaci Poincarého sféry. 
+
+Pro popis plně polarizovaného světla se omezíme na případ čistých Muellerových matic, které vzniknou rozkladem \eqref{e:mueller rozklad} z nějaké Jonesovy matice.
+Zaměříme se na dva případy: prvky reprezentované unitární Jonesovou maticí $U$ a prvky reprezentované hermitovskou pozitivně semidefinitní Jonesovou maticí $H$.
+
+Záminku, proč zkoumat tyto dva případy $U$ a $H$, nám poskytuje věta z lineární algebry o polárním rozkladu matice\cite{pestujemealgebru}, která tvrdí, že pro každou komplexní matici $T$ existují jednoznačné rozklady $T=U H_1$ a $T=H_2 U$.\footnote{$U$ je v obou rozkladech stejné, $H_1$ a $H_2$ nemusí.}
+
+\subsubsection*{Obecná retardační destička}
+
+Prvek je reprezentovaný unitární Jonesovou maticí $U$.
+Zachování intenzity má za důsledek $M_{00}=1$, $M_{0i}=M_{j0}=0$ pro $i,j=1,2,3$ a navíc podmatice $M{ij}$ musí zachovávat normu 3-vektoru $(S_1, S_2, S_3)$, tedy být ortonormální.
+Jediné takové matice jsou 3D rotační matice, případně složené se zrcadlením.
+Vzhledem k tomu, že $U$ je unitární, má dvě ortogonální vlastní polarizace $\J_1$, $\J_2$ s vlastními čísly, které jsou pouze fázové faktory. Je možné ji diagonalizovat\footnote{Ve vzorci vystupuje dyadický součin Jonesových vektorů $\J_1\J_1^\dagger$, což je ortogonální projektor na $\J_1$, ne skalární součin, který by byl psaný $\J_1^\dagger\ J_1$.}
+\begin{equation}
+U=e^{i\Delta_1} \J_1 \J_1^\dagger + e^{i\Delta_2} \J_2 \J_2^\dagger\,.
+\end{equation}
+Tyto dva vlastní módy mají po průchodu prvkem stejný polarizační stav, takže musí být i vlastními vektory Muellerovy matice, prochází jimi osa zmíněné rotace.
+Úhel rotace je daný fázovým zpožděním mezi vlastními módy $\Delta_1-\Delta_2$, viz obr. \ref{f:akce muelleru} (a).
+
+\subsubsection*{Obecný polarizátor}
+
+Prvek je reprezentovaný pozitivně semidefinitní hermitovskou Jonesovou maticí $H$.
+To znamená, že pro ně existují dvě ortogonální vlastní polarizace $J_1$, $J_2$ s reálnými nezápornými vlastními čísly. 
+Normalizací matice tak, že větší z vlastních čísel se rovná 1, lze psát s reálným nezáporným $\eta$
+\begin{equation}
+H=J_1 J_1^* + \eta J_2 J_2^* \,.
+\end{equation}
+Znamená to, že prvek je obecný polarizátor, který $J_1$ propustí zcela a $J_2$ propustí s amplitudovou propustností $\eta$.
+Ve speciálním případě, kdy polarizátor propouští lineární polarizaci v ose $x$: $J_1=(1,0)^\T$ a $J_1=(0,1)^\T$, je Jonesova a Muellerova matice
+\begin{equation}
+H=\begin{pmatrix}
+1 & 0 \\ 0 & \eta
+\end{pmatrix} \,, \qquad
+M_H=\begin{pmatrix}
+\frac{1+\eta^2}{2} & \frac{1-\eta^2}{2} & 0 & 0 \\ \frac{1-\eta^2}{2} & \frac{1+\eta^2}{2} & 0 & 0 \\
+0 & 0 & \eta & 0 \\ 0 & 0 & 0 & \eta 
+\end{pmatrix} \,.
+\end{equation}
+
+Pro výpočet charakteristického elipsoidu dosadíme $S_0^{\textrm{in}}=1$ a dostaneme
+\begin{align}
+    S_1^{\textrm{out}}&=\frac{1+\eta^2}{2} S_1^{\textrm{in}}+\frac{1-\eta^2}{2} \\
+    S_2^{\textrm{out}}&=\eta S_2^{\textrm{in}} \\
+    S_3^{\textrm{out}}&=\eta S_3^{\textrm{in}} 
+\end{align}
+Jedná se tedy o kontrakci v rovině $S_2S_3$ faktorem $\eta$, ve směru $S_1$ faktorem $(1+\eta^2)/2$ a zároveň posunutím o $(1-\eta^2)/2$. 
+Nebo ekvivalentně kontrakcí stejným faktorem se středem v $S_3=1$. Viz obr. \ref{f:akce muelleru} (b).
+
+\begin{figure}\centering
+\includegraphics[width=\linewidth]{./img/t3.png}
+\caption{Grafické zobrazení akce (a) obecné retardační destičky a (b) obecného polarizátoru.}\label{f:akce muelleru}
+\end{figure}
+
+Shrneme-li uvedené poznatky, akce libovolného nedepolarizačního optického prvku je ekvivalentní postupnému působení obecného polarizátoru (zploštění a posunutí ve směru vlastního vektoru $H$ jako na obr. \ref{f:akce muelleru} (b)) a obecné fázové retardační destičky (rotace podle směru vlastního vektoru $U$ jako na obr. \ref{f:akce muelleru} (a)), případně v opačném pořadí.
+
+\section{Optika v anizotropních multivrstvách \cite{Berreman}}
+
+Cílem tohoto oddílu je představit teorii výpočtu transmisních a reflexních koeficientů (Jonesových matic průchodu a odrazu) obecných vrstevnatých struktur popsaných stupňovitým profilem tenzoru $\e$. 
+Vrstevnatou strukturou rozumíme takovou, která je homogenní v rovině kolmé na jednu osu, tu zvolíme jako $z$, a rovina homogenity a všech rozhraní bude $xy$, viz obr. \ref{f:vrstevnate prostredi}.
+Stupňovitým profilem zase rozumíme, že struktura je složená z konečného počtu vrstev, ve kterých je $\e$ konstantní.
+
+\begin{figure}\centering
+\includegraphics[width=0.3\linewidth]{./img/t4.png}
+\caption{Vrstevnaté prostředí}\label{f:vrstevnate prostredi}
+\end{figure}
+
+Budou nás zajímat řešení Maxwellových rovnic \eqref{e:rotE} a \eqref{e:rotB}.
+Vzhledem k homogenitě v rovině $xy$ lze psát
+\begin{equation} \label{e:kxy}
+\E(x,y,z)=\E(z) e^{i(k_xx+k_yy)} \,, \qquad c\B(x,y,z)=c\B(z) e^{i(k_xx+k_yy)} \,,
+\end{equation}
+kde $k_x$ a $k_y$ jsou konstantní podél celé struktury i mimo ní.
+Uvnitř každé vrstvy bude existovat i třetí složka $k_z$, bude se ale lišit v různých vrstvách.
+Obecný postup je tedy řešit Maxwellovy rovnice zvlášť v každém prostředí, a řešení následně svázat pomocí okrajových podmínek, které říkají, že na rozhraních vrstev jsou tečné složky $E_x, E_y, cB_x, cB_y$ spojité.
+
+Budeme následovat řešení Berremanovou maticovou metodou\cite{Berreman}.
+Rovnice \eqref{e:NE} a \eqref{e:NB} mají v maticovém zápisu tvar
+\begin{equation}
+\begin{pmatrix}
+0 & -N_z & N_y & -1 & 0 & 0 \\
+N_z & 0 & -N_x & 0 & -1 & 0 \\
+-N_y & N_x & 0 & 0 & 0 & -1 \\
+\varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} & 0 & -N_z & N_y \\
+\varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} & N_z & 0 & -N_x \\
+\varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} & -N_y & N_x & 0
+\end{pmatrix}
+\begin{pmatrix}
+E_x \\ E_y \\ E_z \\ cB_x \\ cB_y \\ cB_z
+\end{pmatrix} = \begin{pmatrix}
+0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0
+\end{pmatrix} \,.
+\end{equation}
+Jedinou neznámou je zde $N_z$. Matice uměrná $N_z$ nemá plnou hodnost, dvě rovnice jsou lineárně závislé, a proto je můžeme vyřešit a dosadit do ostatních.
+Zvolíme pro tento účel třetí a šestou rovnici (pro $E_z$ a $cB_z$), které neobsahují $N_z$ a zároveň se nezachovávají na rozhraní.
+Nejdříve ale zavedeme úsporný blokově maticový zápis
+\begin{align} \label{e:Berreman 6x6}
+E^\perp = \begin{pmatrix}E_x \\ E_y\end{pmatrix}
+\,, \, cB^\perp = \begin{pmatrix}cB_x \\ cB_y\end{pmatrix}
+\,, \qquad N^\vert = \begin{pmatrix} N_y \\ -N_x \end{pmatrix}
+\,, \, N^- = \begin{pmatrix} -N_y & N_x\end{pmatrix} 
+\,, \\ \varepsilon^\perp=\begin{pmatrix}\varepsilon_{11} & \varepsilon_{12} \\ \varepsilon_{21} & \varepsilon_{22}\end{pmatrix} 
+\,, \, \varepsilon^\vert=\begin{pmatrix} \varepsilon_{13} \\ \varepsilon_{23} \end{pmatrix}
+\,, \, \varepsilon^-=\begin{pmatrix} \varepsilon_{31} & \varepsilon_{32} \end{pmatrix}
+\,, \qquad \rho = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}
+\,.
+\end{align}
+Třetí a šestá rovnice mají tvar
+\begin{equation}
+N^- E^\perp - cB_z=0 \,, \qquad \varepsilon^- E^\perp + \varepsilon_{33} E_z + N^- cB^\perp=0 \,,
+\end{equation}
+vyřešením a dosazením do \eqref{e:Berreman 6x6} dostáváme\footnote{Každý blok je $2\times 2$, 1 zde značí jednotkovou $2\times 2$ matici.}
+\begin{equation}
+\begin{pmatrix}
+N_z \rho -\frac{N^\vert \varepsilon^-}{\varepsilon_{33}} & -1 - \frac{N^\vert N^- }{\varepsilon_{33}} \\
+\varepsilon^\perp-\frac{\varepsilon^\vert \varepsilon^-}{\varepsilon_{33}}+N^\vert N^- & N_z \rho - \frac{\varepsilon^\vert N^-}{\varepsilon_{33}}
+\end{pmatrix} 
+\begin{pmatrix} E^\perp \\ cB^\perp \end{pmatrix} = 0 \,,
+\end{equation}
+což lze přeformulovat jako vlastní úlohu
+\begin{equation} \label{e:tvar N_z}
+\begin{pmatrix}
+\rho & 0 \\ 0 & \rho
+\end{pmatrix}
+\begin{pmatrix}
+-\frac{N^\vert \varepsilon^-}{\varepsilon_{33}} & -1 - \frac{N^\vert N^- }{\varepsilon_{33}} \\
+\varepsilon^\perp-\frac{\varepsilon^\vert \varepsilon^-}{\varepsilon_{33}}+N^\vert N^- & - \frac{\varepsilon^\vert N^-}{\varepsilon_{33}}
+\end{pmatrix} 
+\begin{pmatrix} E^\perp \\ cB^\perp \end{pmatrix}
+=N_z \begin{pmatrix} E^\perp \\ cB^\perp \end{pmatrix}
+\end{equation}
+Uvnitř dané vrstvy s konstantním $\e$ je závislost polí na souřadnici $z$ daná pomocí maticové exponenciály této $4\times 4$ matice
+\begin{equation} \label{e:N_z exponenciala}
+\begin{pmatrix} E^\perp(z_2) \\ cB^\perp(z_2) \end{pmatrix} = e^{ik_z(z_2-z_1)} \begin{pmatrix} E^\perp(z_1) \\ cB^\perp(z_1) \end{pmatrix} =
+e^{iN_z\frac{\w(z_2-z_1)}{c}} \begin{pmatrix} E^\perp(z_1) \\ cB^\perp(z_1) \end{pmatrix}
+\end{equation}
+pro libovolné $z_1$, $z_2$ uvnitř vrstvy.
+Složky polí $E^\perp(z_2)$ a $cB^\perp(z_2)$ jsou právě tečné složky, které jsou na rozhraní spojité, takže po vypočtení maticové exponenciály \eqref{e:N_z exponenciala} pro každou vrstvu dostaneme maticový vztah polí na začátku a na konci multivrstvy.
+
+Matice \eqref{e:tvar N_z} má obecně 4 komplexní vlastní čísla a lze ji diagonalizovat pomocí vlastních vektorů\footnote{Matice není normální a proto vlastní vektory nejsou navzájem kolmé. Striktně vzato nemusí být matice diagonalizovatelná, praktické potíže to však nečiní.}, které lze rozdělit do dvou skupin s fyzikálním významem, že jde o dva módy šířící se ve směru $+z$ a dva v $-z$. Pro dva z nich platí\footnote{Třetí složka Poyntingova vektoru je dána právě tečnými složkami $S_z\propto E_xH_y-E_yH_x$} $\Re\lbrace N_z \rbrace\geq0$, $\Im\lbrace N_z \rbrace\geq0$, $S_z\geq0$ a šíří se ve směru $+z$, zbylé dva se šíří ve směru $-z$ a platí pro ně opačné nerovnice.
+
+\subsection*{Odraz a průchod}
+
+Předpokládejme, že se nám díky \eqref{e:N_z exponenciala} podařilo najít matici $M$, která svazuje příčná pole na začátku ($l$) a na konci $(r)$ multivrstvy, viz obr. \ref{f:odraz a pruchod} (a)
+\begin{equation}
+\begin{pmatrix} E^\perp_l \\ cB^\perp_l \end{pmatrix}=M \begin{pmatrix} E^\perp_r \\ cB^\perp_r \end{pmatrix}
+\end{equation}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{./img/t5a.png}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{./img/t5b.png}
+\end{minipage}
+\caption{Odraz a průchod}\label{f:odraz a pruchod}
+\end{figure}
+
+Úloha průchodu a odrazu je typicky zadána tak, že na strukturu posvítíme svazkem s definovaným $\N$, a nikdo jiný z žádné strany nesvítí.
+Zvolíme si, že svítíme z levé strany (takže se záporným $N_z$).
+Druhá podmínka znamená, že amplitudy všech zbylých módů, které přinášejí energii směrem ke struktuře, jsou nulové; to jsou dva módy na pravé straně s kladným $k_z$.
+Na každé straně nám tedy zbývají dva módy, jejichž amplitudy zvýbá určit.
+
+Vstupní a výstupní prostředí je nutné v tomto kontextu definovat jako to první, u kterého již nelze zpětné odrazy považovat za koherentní s dopadajícím svazkem (např. kvůli prostorovému oddělení).
+Pokud zkoumáme odraz od vzorku s \SI{1}{\meter} tlustou nadvrstvou skla, musíme jako vstupní prostředí považovat právě tuto vrstvu skla, ikdyž je náš laser ve skutečnosti umístěn ve vzduchu ještě před sklem.
+Podobně musíme činit i pokud je tlustá vrstva skla z druhé strany.
+
+Na obou stranách si zvolíme pro $-z$ i $+z$ šířící se módy bázi lineárních polarizací, kterými definujeme Jonesovi vektory pro příslušné svazky
+\begin{equation}
+\begin{pmatrix} E^\perp_l \\ cB^\perp_l \end{pmatrix}=D_l \begin{pmatrix} J^-_l \\ J^+_l \end{pmatrix} \,, \, 
+\begin{pmatrix} E^\perp_r \\ cB^\perp_r \end{pmatrix}=D_r \begin{pmatrix} J^-_r \\ J^+_r \end{pmatrix}
+\end{equation}
+$4\times 4$ matice $D$, která svazuje amplitudy jednotlivých módů s jejich příčnými poli, se nazývá \emph{dynamická matice}.
+$D$ není jednoznačné, což souvisí s nejednoznačností ve volbě souřadné soustavy v rovině kolmé na směr šíření --- volbou $D$ volíme bázi Jonesových vektorů.
+Častá volba, kterou představíme, ale později opustíme, je báze lineárního příčného (TE, s-polarizace) a podélného (TM, p-polarizace) módu.
+Zde ji uvedeme tak, abychom byli konzistentní s přístupem, který zvolíme později, nese to však s sebou přechod do báze odraženého světla s opačnou točivostí.
+Pravotočivá kruhová polarizace (RCP) s $\chi=1$ se nám při kolmém dopadu odrazí zase jako $\chi=1$, kvůli opačné točivosti báze jde však o levotočivé LCP.
+Opačný přístup volí opačné znaménko odražené p-polarizace, čímž se zachová točivost (viz např. Ref \cite{Silber}).
+
+Souřadnou soustavu volíme tak, aby rovina dopadu byla rovnoběžná s jednou ze souřadných os, zde zvolíme $yz$, takže $N_x=0$, $N_y=\sin \alpha$, kde $\alpha$ je úhel dopadu.
+Jako bázi módů volíme lineární polarizace příčné $J_s$ a podélné $J_p$ k rovině dopadu, viz. obr. \ref{f:odraz a pruchod}.
+Dynamická matice má v této situaci explicitně tvar
+\begin{equation}
+\begin{pmatrix} E_x \\ E_y \\ cB_x \\ cB_y \end{pmatrix}
+=\begin{pmatrix}
+1 & 0 & 1 & 0 \\
+0 & \cos\alpha & 0 & \cos\alpha \\
+0 & 1 & 0 & -1 \\
+-\cos\alpha & 0 & \cos\alpha & 0
+\end{pmatrix}
+\begin{pmatrix}
+J^-_{s} \\ J^-_{p} \\ J^+_s \\ J^+_{p} \,,
+\end{pmatrix}
+\end{equation}
+kde můžeme rozpoznat ve sloupcích příčná pole jednotlivých módů (např. první sloupec jsou příčná pole $-z$ šířícího se s-polarizovaného módu: $E_y=0$, $cB_x=0$).
+
+Při řešení průchodu a odrazu tedy pokládáme $J^+_r=0$ a snažíme se vyjádřit zbylé prošlé $J^-_r \equiv J^\text{trans}$ a odražené $J^+_l \equiv J^\textrm{refl}$ vyjádřit pomocí známého dopadajícího $J^-_l\equiv J^\textrm{inc}$, což lze pomocí matic $M$ a $D$ jednoduše z
+\begin{equation}
+\begin{pmatrix} J^\textrm{inc} \\ J^\textrm{refl} \end{pmatrix}
+=D_l^{-1} M D_r \begin{pmatrix}
+J^\text{trans} \\ 0
+\end{pmatrix} \,,
+\end{equation}
+což vede na Jonesovy transmisní a reflexní matice Fresnelových koeficientů v bázi s- a p-polarizací
+\begin{equation}
+\begin{pmatrix} J^\textrm{refl}_s \\ J^\textrm{refl}_p \end{pmatrix}
+=\begin{pmatrix}
+r_{ss} & r_{sr} \\ r_{ps} & r_{pp}
+\end{pmatrix}
+\begin{pmatrix} J^\textrm{inc}_s \\ J^\textrm{inc}_p \end{pmatrix} \,, \qquad
+\begin{pmatrix} J^\textrm{trans}_s \\ J^\textrm{trans}_p \end{pmatrix}
+=\begin{pmatrix}
+t_{ss} & t_{sp} \\ t_{ps} & t_{pp}
+\end{pmatrix}
+\begin{pmatrix} J^\textrm{inc}_s \\ J^\textrm{inc}_p \end{pmatrix} \,.
+\end{equation}
+
+Multivrstva složená pouze z izotropních vrstev nemíchá s- a p-polarizaci, mimodiagonální členy jsou nulové.
+Pokud je jedna nebo více vrstev pouze slabě anizotropní, projeví se to malými nenulovými mimodiagonálními členy.
+Při dopadu s-polarizace pak prošlé a odražené světlo nabyde i malé amplitudy p-polarizace, podobně pro dopadající p-polarizaci.
+V elipsometrických parametrech se to projeví stočením hlavní roviny polarizace $\Delta \beta$ a elipticitou $\chi$, které se pro odražené světlo společně popisují komplexním stočením \cite{Silber}
+\begin{equation}\label{e:komplexni rotace}
+\Psi_s \equiv \Delta \beta_s - i \chi_s \approx \frac{r_{ps}}{r_{ss}} \,, \qquad \Psi_p \equiv \Delta \beta_p - i \chi_p \approx -\frac{r_{sp}}{r_{pp}} \,,
+\end{equation}
+kde jsme kvůli přechodu k opačné točivosti použili $-i\chi$, abychom se vyhnuli komplexnímu sdružení reflexních koeficientů. 
+V transmisním komplexním stočení jsou reflexní koeficienty nahrazeny transmisními a druhý člen je $+i\chi$, protože nedochází k přechodu k bázi s opačnou točivostí.
+Komplexní parametr stočení se používá při popisu magnetooptických Kerrových jevů.
+
+\section{Magnetooptické tenzory \cite{Visbible}}
+
+Všechny magnetooptické jevy lze v principu vysvětlit závislostí optických parametrů na magnetickém stavu\cite{Silber}.
+V našem popisu materiálů je jediným materiálovým parametrem tenzor relativní permitivity $\e$, jeho závislost na magnetickém stavu značíme $\e(\M)$.
+Obecně je možné rozdělit závislost do tří příspěvků
+\begin{equation}
+\e(M)=\e^0 + \e^{-}(\M) + \e^{+}(\M) \,,
+\end{equation}
+kde $\e^0\equiv \e(0)$ je nemagnetická/strukturální permitivita, $\e^-(\M)=-\e^-(-\M)$ je permitivita lichá v magnetizaci a $\e^+(\M)=\e^+(-\M)$, $\e^+(0)=0$ je permitivita sudá v magnetizaci.
+
+Z termodynamických úvah plynou Onsagerovy relace reciprocity\cite{Onsager} pro $\e(M)$
+\begin{equation}
+\varepsilon_{ij}(\M)=\varepsilon_{ji}(-\M) \,,
+\end{equation}
+z kterých plyne, že $\e^0$ a $\e^+$ jsou symetrické, zatímco $\e^-$ je antisymetrický.
+
+Magnetická závislost permitivity se obvykle rozvíjí do mocninné řady v $\M$
+\begin{align} \label{e:MO tenzory}
+\varepsilon_{ij}(\M)&=\e^0_{ij} + \sum_{k=1}^{3}\left[ \frac{\partial \varepsilon_{ij}}{\partial M_k}\right]_{\M=0} M_k + \sum_{k,l=1}^{3} \frac{1}{2}\left[ \frac{\partial^2 \varepsilon_{ij}}{\partial M_k \partial M_l}\right]_{\M=0} M_k M_l + \dots \\
+&=\e^0_{ij} + \sum_{k=1}^{3}K_{ijk} M_k + \sum_{k,l=1}^{3} G_{ijkl} M_k M_l + \dots=\e^0_{ij} +\e^1_{ij} +\e^2_{ij} + \dots
+\end{align}
+kde jsme explicitně uvedli první dva řády, které definují \emph{lineární magnetooptický tenzor} $K$ a \emph{kvadratický magnetooptický tenzor} $G$. \cite{Visbible}
+
+Vyšší řády se většinou zanedbávají, neboť nikdy nebyly pozorovány\footnote{Lépe řečeno jejich příspěvek nikdy nebyl prokázán}.
+Je dobré mít na paměti, že zakončením rozvoje na určitém řádu nejen snižujeme přesnost, ale také uměle zvyšujeme symetrii závislosti $\e(\M)$ \cite{Silber}. 
+To je nejlépe nahlédnout např. u materiálu se šesterečnou symetrií v rovině $xy$ -- $G$ tenzor je v rovině $xy$ isotropní, ale permitivita 6. řádu už má "správnou" šesterečnou symetrii; magnetooptické tenzory $K$ a $G$ nedokáží popsat šesterečnou symetrii Voigtova jevu\footnote{Při saturované magnetizaci}!
+Proto je třeba mít se na pozoru a v případě takového kvalitativního důkazu do rozvoje přidat další členy.
+
+Magnetooptické tenzory se musí podřizovat stejným symetriím jako materiál, který popisují.
+To je spolu s Onsagerovými relacemi poměrně silně omezuje.
+Tvar $K$ a $G$ pro všechny krystalografické třídy je uveden v \cite{Visbible}.
+Dále uvedeme magnetooptické tenzory pro izotropní a kubický (krystalové třídy $\bar{4}3m, 432, m3m$) materiál s krystalografickými osami ve směrech souřadných os.
+Izotropní i kubický materiál mají izotropní nemagnetickou permitivitu
+\begin{equation}
+\e^0=\begin{pmatrix}
+\varepsilon^0 & 0 & 0 \\ 0 & \varepsilon^0 & 0 \\ 0 & 0 & \varepsilon^0
+\end{pmatrix} \,,
+\end{equation}
+oba také mají izotropní $K$ tenzor (ale neizotropní permitivitu 1. řádu)
+\begin{equation}
+\begin{pmatrix}
+\varepsilon^1_{yz}=-\varepsilon^1_{zy} \\ \varepsilon^1_{zx}=-\varepsilon^1_{xz} \\ \varepsilon^1_{xy}=-\varepsilon^1_{yx}\end{pmatrix}
+=\begin{pmatrix}
+K & 0 & 0 \\ 0 & K & 0 \\ 0 & 0 & K
+\end{pmatrix}\begin{pmatrix}M_x \\ M_y \\ M_z\end{pmatrix} \,, \,\, \e^1= K \begin{pmatrix}
+0 & M_z & -M_y \\
+-M_z & 0 & M_x \\
+M_y & -M_x & 0
+\end{pmatrix}
+\end{equation}
+ale v druhém řádu už se liší. Pro kubický materiál platí (používáme 2-indexovou notaci jako \cite{Hamrlova})
+\begin{equation}
+\begin{pmatrix}
+\varepsilon^2_{xx} \\ \varepsilon^2_{yy} \\ \varepsilon^2_{zz} \\ \varepsilon^2_{yz}=\varepsilon^2_{zy} \\ \varepsilon^2_{zx}=\varepsilon^1_{xz} \\ \varepsilon^1_{xy}=\varepsilon^1_{yx}\end{pmatrix}
+=\begin{pmatrix}
+G_{11} & G_{12} & G_{12} & 0 & 0 & 0 \\
+G_{12} & G_{11} & G_{12} & 0 & 0 & 0 \\
+G_{12} & G_{12} & G_{11} & 0 & 0 & 0 \\
+0 & 0 & 0 & 2G_{44} & 0 & 0 \\
+0 & 0 & 0 & 0 & 2G_{44} & 0 \\
+0 & 0 & 0 & 0 & 0 & 2G_{44} 
+\end{pmatrix}\begin{pmatrix}M_x^2 \\ M_y^2 \\ M_z^2 \\ M_y M_z \\ M_z M_x \\ M_x M_y \end{pmatrix} \,,
+\end{equation}
+pro isotropní navíc $\Delta G \equiv G_{11}-G_{12}-2G_{44}=0$.
+Pro pozdější použití pro speciální případ $M_z=0$
+\begin{align}
+\e^2=
+G_{12} |\M|^2 +& \frac{G_{11}-G_{12}+2G_{44}}{2}\begin{pmatrix}
+M_x^2 & M_x M_y & 0 \\ M_x M_y & M_y^2 & 0 \\ 0 & 0 & 0
+\end{pmatrix}\\
++& \frac{\Delta G}{2} \begin{pmatrix}
+M_x^2 & -M_xM_y & 0\\ -M_xM_y & M_y^2 & 0 \\ 0 & 0 & 0
+\end{pmatrix}
+\end{align}
+Pro úplnost připomeneme, že složky magnetooptických tenzorů jsou stejně jako relativní permitivita $\e$ komplexní, bezrozměrné a frekvenčně závislé.
+
+Uvedený přístup není možné použít v případě, že osvětlované místo vzorku není tvořené homogenním $\M$, ale je tvořené více doménami, ve kterých se liší.
+$\M$ je ve více-doménovém stavu dané průměrem přes domény.
+Pro lineární permitivitu to nečiní problém, protože průměrná permitivita je pak dána pomocí stejného $K$ tenzoru pouze dosazením průměrné magnetizace, ale kvadratická permitivita už není jednoznačně daná pouze průměrným $\M$: kvadratický $G$ tenzor je možné používat pouze v jedno-doménovém stavu, případně pro každou doménu zvlášť.
+
+Pokud je materiál dobře popsaný magnetooptickými tenzory, lze pro libovolné $\M$ dosazením do \eqref{e:MO tenzory} získat $\e$, aplikovat metodu z předchozího oddílu a tak spočítat všechny myslitelné transmisní a reflexní koeficienty.
+Tím je přímá úloha magnetooptiky formálně vyřešena, v praxi je však častější obrácená úloha -- z pozorovaných usuzovat o magnetooptických tenzorech, čemuž se věnujeme v dalších kapitolách.
+
+\section{Magnetická anizotropie}
+
+Magnetizace $\M$ materiálu není veličina, která by se dala v experimentu přímo ovládat.
+V experimentu můžeme aplikovat vnější pole $\Hext$ a materiál si sám najde rovnovážnou polohu $\M$.
+Na druhou stranu magnetooptické vlastnosti, jak je patrné z předchozího oddílu, záleží na $\M$.
+Tento oddíl se věnuje vztahu mezi $\M$ a $\Hext$.
+
+Zanedbáme problémy spojené s demagnetizačními poli a budeme pro ilustraci uvažovat systém s homogenní magnetizací. 
+Pokud je udržovaný na teplotě $T$, udává jeho termodynamické vlastnosti hustota volné energie\footnote{Materiál ve skutečnosti udržujeme zároveň i na konstantním tlaku, takže bychom správně měli používat Gibbsův potenciál.} $F(T,\M)$ \cite{Callen}.
+Aby mohl být systém v rovnováze při konkrétním $\M$, musí externí pole jakožto přidružený intenzivní parametr splňovat
+\begin{equation} \label{e:Hext=gradF}
+\muvac\Hext(\M) = \nabla_{\vec{M}} F(\vec{M})
+\end{equation}
+Radši bychom ale znali závislost rovnovážného $\M$ v situaci, kdy je systém obklopen magnetickým polem $\Hext$ tvořeným např. cívkami elektromagnetu. 
+Mezi magnetem a studovaným systémem dochází k výměně energie prostřednictvím magnetického pole, systém je v kontaktu s "magnetickým rezervoárem" a v rovnováze proto dochází k minimalizaci \emph{celkové} volné energie. 
+V souladu s teorií termodynamických potenciálů tedy přejdeme k Legendrově transformaci v $\Hext$ -- "magnetické entalpii"\footnote{Někdy označované jako magnetický Gibbsův potenciál.} systému\cite{magentalpie}
+\begin{equation} \label{e:mag entalpie}
+\Omega(T,\Hext)= -\muvac\Hext\cdot\M(\Hext)+F\left(\M(\Hext)\right) \,.
+\end{equation}
+Princip minima termodynamických potenciálů nám říká, že v takové situaci $\M(\Hext)$ nabývá takové hodnoty, která minimalizuje magnetickou entalpii pro pevnou hodnotu $\Hext$.
+Tímto způsobem tvar $F(\M)$ určuje, jakých $\M$ bude systém nabývat při všech možných $\Hext$.
+
+V obecné situaci, kdy magnetizace není homogenní a jednotlivá místa systému spolu interagují, může volná energie být obecným nelokálním funkcionálem prostorového rozložení magnetizace.
+Hustota $F(\M)$ z předchozího odstavce se proto nazývá \emph{funkcionál volné energie}.
+
+Široce používaný model feromagnetů v jedno-doménovém stavu je tzv. Stonerův-Wohlfarthův model\cite{StonerWohlfarth}.
+Předpokládá, že funkcionál $F(\M)$ má význam pouze lokální hustoty a $\M$ je tedy dána minimalizací \eqref{e:mag entalpie}. 
+Ve formě, v jaké SW model budeme používat, zahrnujeme do volné energie 4 příspěvky\cite{Reichlova}\cite{Janda}\cite{Kucharik}
+\begin{equation}
+F=F^\textrm{exchange} + F^\textrm{magnetocrystalline} + F^\textrm{shape} + F^\textrm{strain}
+\end{equation}
+První člen, způsobený výměnnou interakcí, má na svědomí feromagnetismus; závisí na celkové velikosti magnetizace $|\M|$ a má ostré minimum, když jsou všechny mikroskopické magnetické momenty orientované stejným směrem a magnetizace je saturovaná $|\M|=M_S$.
+Magnetokrystalická anizotropie $F^\textrm{magnetocrystalline}$ popisuje interakci s krystalickou mřížkou, tvarová anizotropie $F^\textrm{shape}$ popisuje vliv tvaru vzorku a strainová anizotropie $F^\textrm{strain}$ popisuje anizotropie způsobené mechanickým napětím (např. když je vzorek nanesen na substrátu s jinou mřížkovou konstantou).
+
+Dále se omezíme na situaci relevantní pro tuto práci.
+Vzorek je feromagnetický, výměnná interakce způsobuje, že vždy $|\M|=M_S$.
+Vzorek je kubický tenký film s krystalografickými směry [100], [010] a [001] shodnými s kladnými poloosami $x$, $y$ a $z$.
+Tvarová anizotropie způsobí vymizení out-of-plane magnetizace $\M_z=0$
+\begin{equation} \label{e:magnetizace v rovine}
+\M=\begin{pmatrix}
+M_x \\ M_y \\ M_z
+\end{pmatrix} = M_S \begin{pmatrix}
+\cos \phim \\ \sin \phim \\ 0
+\end{pmatrix} \,.
+\end{equation}
+Magnetokrystalickou anizotropii rozvineme do mocninné řady v $\M$ a ponecháme pouze nejnižší člen respektující kubickou symetrii, s uvážením \eqref{e:magnetizace v rovine}
+\begin{equation}
+\frac{F^\textrm{magnetocrystalline}}{M_S}=k_4 \sin^2 \phim \cos^2 \phim \,,
+\end{equation}
+čímž jsme definovali kubickou anizotropní konstantu $k_4$.
+Pro $k_4>0$ má minima (snadné osy), ve směrech [100] a [010] (tj. $\phim=\SI{0}{\degree}$, \SI{90}{\degree}), pro $k_4<0$ jsou to [110] a [1-10] (tj. $\phim=\SI{45}{\degree}$, \SI{135}{\degree}).
+
+Navíc povolíme uniaxiální strainovou anizotropii. 
+Také jí rozvineme do řady a se zkušeností, že mívají často uniaxiální charakter, ponecháme pouze první člen a opět vydělíme $M_S$ pro definici uniaxiální anizotropní konstanty $k_u$ a směru $\phiu$.
+\begin{equation}
+\frac{F^\textrm{strain}}{M_S}=k_u \sin^2\left( \phim-\phiu  \right) \,.
+\end{equation}
+$\phiu$ je takto definováno vzhledem ke krystalografickému směru [100].
+Je dostačující omezit se na $k_u\geq 0$, snadné směry jsou pak ve $\phim=\phiu, \phiu+\SI{180}{\degree}$.
+Obě hodnoty $\phiu$ a $\phiu+\SI{180}{\degree}$ popisují stejné $F^\textrm{strain}$, takže pokud v konkrétním případě nemáme důvod konat jinak, omezujeme se na $\phiu \in [\SI{0}{\degree}, \SI{180}{\degree}]$.
+
+Kanonický tvar funkcionálu volné energie tenkého kubického filmu v rovině $xy$ orientovaného $[100]=x$ tedy píšeme
+\begin{equation} \label{e:F}
+\frac{F(\phim)}{M_S}=k_4 \sin^2 \phim \cos^2 \phim + k_u \sin^2\left( \phim-\phiu  \right) \,.
+\end{equation}
+
+Když se omezíme na $\Hext$ v rovině $xy$
+\begin{equation}
+\Hext =\Hx \begin{pmatrix} \cos \phih \\ \sin \phih \\ 0 \end{pmatrix}
+\end{equation}
+pak závislost $\phim(\phih)$ je dána minimalizací hustoty magnetické entalpie (vydělené konstantním $M_S$)
+\begin{equation}
+\frac{\Omega}{M_S}=-\muvac \Hx \cos \left(\phim-\phih \right) + k_4 \sin^2 \phim \cos^2 \phim + k_u \sin^2\left( \phim-\phiu  \right)
+\end{equation}
+Dělení $M_S$ zavádíme, aby anizotropní konstanty $k_4$ a $k_u$ měly dimenzi magnetického pole a byly přímo porovnatelné s experimentálně ovladatelným $\muvac\Hx$, bez nutnosti znalosti $M_S$.
+
+Pro praktické účely je výhodné vyjádřit \eqref{e:F} ekvivalentním způsobem pro vzorek obecně natočený v rovině $xy$ o úhel $\gamma$, tzn. [100] je ve směru vektoru $(\cos\gamma, \sin\gamma, 0)$.
+Pak až na bezvýznamnou aditivní konstantu
+\begin{align}
+\frac{F(\phim)}{M_S}&=-\frac{k_4}{8} \cos 4(\phim-\gamma)-\frac{k_u}{2} \cos 2(\phim-\phiu-\gamma) \\
+&=-\frac{k_{4x}}{8} \cos 4\phim - \frac{k_{4y}}{8} \sin 4\phim - \frac{k_{ux}}{2} \cos 2 \phim - \frac{k_{uy}}{2} \sin 2 \phim \,,
+\end{align}
+kde
+\begin{eqnarray}
+k_{4x}=k_4 \cos 4\gamma \,, & k_{ux}=k_u \cos 2 \left(\phiu+\gamma\right)\\
+k_{4y}=k_4 \sin 4\gamma \,, & k_{uy}=k_u \sin 2 \left(\phiu+\gamma\right)
+\end{eqnarray}
+
+
+Existence volné energie má netriviální důsledek na tvar závislosti $\M(\Hext)$.
+Pro relevantní situaci saturované in-plane magnetizace a rotujícího vnějšího pole konstantní velikosti má tvar
+\begin{equation} \label{e:M integracni konstanta}
+\muvac\Hx M_S \int_{0}^{2\pi}  \frac{\text{d}\phim}{\text{d}\phih} \sin\left(\phim-\phih\right) \text{d}\phih=0 \,,
+\end{equation}
+za podmínky, že $\phim$ je spojitou funkcí $\phih$ - nedochází k přeskokům magnetizace.
+
+Důsledkem je např. intuitivní fakt, že z myslitelných průběhů $\phim(\phih)=\phih+c$ je jediný možný ten, pro který $c=0$. 
+Není tedy možné, aby magnetizace konzistentně "předbíhala" nebo se "opožďovala" za přiloženým polem. 
+Pokud z experimentu dokážeme určit pouze $\text{d}\phim/\text{d}\phih$, podmínka \eqref{e:M integracni konstanta} nám dovoluje určit integrační konstantu.
+
+Obecný tvar a podrobnosti jsou uvedeny v dodatku \ref{k:dodatek volna energie}.

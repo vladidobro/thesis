@@ -1,0 +1,99 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage{dpstyle}
+
+
+
+
+\usepackage[autostyle]{csquotes}
+
+\usepackage[
+    backend=biber,
+    sortlocale=numeric,
+    natbib=true,
+    url=false, 
+    doi=true,
+    eprint=false
+]{biblatex}
+\bibliography{./literatura.bib}
+
+\usepackage{amsmath}
+\usepackage{xcolor}
+\input{./tex/metadata}
+
+\overfullrule=1mm
+\usepackage{siunitx}
+\sisetup{range-phrase=--,range-units=single}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\newcommand{\cita}[1][?]{[#1]}
+\newcommand{\poznamka}[1]{\footnote{poznamka:#1}}
+\newcommand{\chybi}[1]{chybi:#1}
+
+
+\newcommand{\ten}[1]{\vec{#1}}
+\newcommand{\E}{\vec{E}}
+\newcommand{\D}{\vec{D}}
+\renewcommand{\B}{\vec{B}}
+\renewcommand{\H}{\vec{H}}
+\renewcommand{\M}{\vec{M}}
+\renewcommand{\j}{\vec{j}}
+\newcommand{\N}{\vec{N}}
+\newcommand{\e}{\varepsilon}
+\newcommand{\w}{\omega}
+\newcommand{\J}{\vec{J}}
+\newcommand{\rot}{\nabla\times}
+\newcommand{\muvac}{\mu_{\textrm{vac}}}
+\newcommand{\evac}{\e_{\textrm{vac}}}
+\renewcommand{\Re}{\operatorname{\mathfrak{Re}}}
+\renewcommand{\Im}{\operatorname{\mathfrak{Im}}}
+\newcommand{\T}{T}
+\newcommand{\Hext}{\H^{\textrm{ext}}}
+\newcommand{\phim}{\varphi_M}
+\newcommand{\phiu}{\varphi_u}
+\newcommand{\Hx}{H^\textrm{ext}}
+\newcommand{\phih}{\varphi_H}
+\newcommand{\PMLD}{P^\textrm{Voigt}}
+
+\begin{document}
+\include{./tex/title}
+
+\include{./tex/introduction}
+
+\tableofcontents
+
+\include{./tex/chap_teorie}
+
+\include{./tex/chap_magnetooptika}
+
+\include{./tex/chap_vzorky}
+
+\include{./tex/chap_metoda}
+
+\include{./tex/chap_vysledky}
+
+\include{./tex/conclusion}
+
+\printbibliography
+\label{bibliography}
+
+%\listoffigures
+
+%\listoftables
+
+\appendix
+\chapter{Attachments}
+
+\section{Přehled použitých konvencí}\label{k:dodatek konvence}
+
+\section{Poruchová teorie reflexních a transmisních koeficientů}\label{k:dodatek vypocet}
+
+\section{Vztah mezi $\PMLD$ a materiálovými parametry}
+
+\input{./tex/dodatek_volnaenergie}
+
+\section{Detaily statistického zpracování}
+
+\openright
+\end{document}

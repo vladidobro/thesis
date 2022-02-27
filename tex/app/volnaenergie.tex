@@ -1,0 +1,38 @@
+\section{Teorém o nutné podmínce magnetické anizotropie pro existenci volné energie}\label{k:dodatek volna energie}
+
+
+
+Zvolíme-li uzavřenou křivku v $\M$ prostoru, a budeme podél ní integrovat \eqref{e:Hext=gradF}, dostaneme
+\begin{equation} \label{e:mag integral 1}
+\oint \muvac\Hext(\M) \cdot \text{d}\M = \oint \nabla_{\M} F \cdot \text{d}\M = F(\M_\textrm{start})-F(\M_\textrm{end})=0 \,.
+\end{equation}
+Přechodem k experimentálně ovladatelným souřadnicím $\Hext$
+\begin{equation} \label{e:substituce M}
+\text{d}\M=\begin{pmatrix}\text{d}M_x \\ \text{d}M_y \\ \text{d}M_z \end{pmatrix}
+=\begin{pmatrix}
+\frac{\partial M_x}{\partial \Hx_x} & \frac{\partial M_x}{\partial \Hx_y} & \frac{\partial M_x}{\partial \Hx_z} \\
+\frac{\partial M_y}{\partial \Hx_x} & \frac{\partial M_y}{\partial \Hx_y} & \frac{\partial M_y}{\partial \Hx_z} \\
+\frac{\partial M_z}{\partial \Hx_x} & \frac{\partial M_z}{\partial \Hx_y} & \frac{\partial M_z}{\partial \Hx_z} \\
+\end{pmatrix}
+\begin{pmatrix}\text{d}\Hx_x \\ \text{d}\Hx_y \\ \text{d}\Hx_z \end{pmatrix}
+\equiv\left( \frac{\text{d}\M}{\text{d}\Hext} \right) \text{d}\Hext
+\end{equation}
+dostáváme z \eqref{e:mag integral 1} podmínku na průběh $\M(\Hext)$ po uzavřené křivce $\Hext$ 
+\begin{equation}
+\oint \muvac\Hext \cdot \left( \frac{\text{d}\M}{\text{d}\Hext} \right) \text{d}\Hext = 0 \,,
+\end{equation}
+která platí, pokud jsme mohli provést substituci \eqref{e:substituce M}, tj. pokud je na ní $\M(\Hext)$ spojité, nedochází k přeskokům.
+Striktně vzato bychom ji mohli použít i v případě, kdy dochází k vratným\footnote{Ve smyslu vratného termodynamického procesu.} přeskokům, tj. výchozí i koncové $\M$ mají stejnou volnou energii; nedochází k hysterezi.
+
+Přímým dosazením pro případ, kdy se $\Hext$ otočí v rovině $xy$ o \SI{360}{\degree} s konstantní amplitudou a $\M$ je dáno \eqref{e:magnetizace v rovine}
+\begin{equation}
+    \left( \frac{\text{d}\M}{\text{d}\Hext} \right) \text{d}\Hext=\begin{pmatrix}
+    -\sin \phim \\ \cos \phim \\ 0
+    \end{pmatrix} \frac{\text{d}\phim}{\text{d}\phih}  \text{d}\phih \,,
+\end{equation}
+
+dostáváme
+
+\begin{equation} \label{e:M integracni konstanta dodatek}
+\muvac\Hx M_S \int_{0}^{2\pi}  \frac{\text{d}\phim}{\text{d}\phih} \sin\left(\phih-\phim\right) \text{d}\phih=0
+\end{equation}
