@@ -1,56 +1,55 @@
-%%% Title page of the thesis and other mandatory pages
+%%% Titulní strana práce a další povinné informační strany
 
-%%% Title page of the thesis
+%%% Titulní strana práce
 
 \pagestyle{empty}
 \hypersetup{pageanchor=false}
+
 \begin{center}
 
-\centerline{\mbox{\includegraphics[width=166mm]{./img/logo-en.pdf}}}
+\centerline{\mbox{\includegraphics[width=166mm]{img/static/logo.pdf}}}
 
 \vspace{-8mm}
 \vfill
 
-{\bf\Large MASTER THESIS}
+{\bf\Large DIPLOMOVÁ PRÁCE}
 
 \vfill
 
-{\LARGE\ThesisAuthor}
+{\LARGE\AutorPrace}
 
 \vspace{15mm}
 
-{\LARGE\bfseries\ThesisTitle}
+{\LARGE\bfseries\NazevPrace}
 
 \vfill
 
-\Department
+\Katedra
 
 \vfill
 
 {
 \centerline{\vbox{\halign{\hbox to 0.45\hsize{\hfil #}&\hskip 0.5em\parbox[t]{0.45\hsize}{\raggedright #}\cr
-Supervisor of the master thesis:&\Supervisor \cr
+Vedoucí diplomové práce:&\Vedouci \cr
 \noalign{\vspace{2mm}}
-Study programme:&\StudyProgramme \cr
+Studijní program:&\StudijniProgram \cr
 \noalign{\vspace{2mm}}
-Study branch:&\StudyBranch \cr
+Studijní obor:&\StudijniObor \cr
 }}}}
 
 \vfill
 
 % Zde doplňte rok
-Prague \YearSubmitted
+Praha \RokOdevzdani
 
 \end{center}
 
 \newpage
 
-%%% Here should be a bound sheet included -- a signed copy of the "master
-%%% thesis assignment". This assignment is NOT a part of the electronic
-%%% version of the thesis. DO NOT SCAN.
-This is not a~part of the electronic version of the thesis, do not scan!
+%%% Následuje vevázaný list -- kopie podepsaného "Zadání diplomové práce".
+%%% Toto zadání NENÍ součástí elektronické verze práce, nescanovat.
 
-%%% A page with a solemn declaration to the master thesis
+%%% Strana s čestným prohlášením k diplomové práci
 
 \openright
 \hypersetup{pageanchor=true}
@@ -59,37 +58,37 @@ This is not a~part of the electronic version of the thesis, do not scan!
 \vglue 0pt plus 1fill
 
 \noindent
-I declare that I carried out this master thesis independently, and only with the cited
-sources, literature and other professional sources. It has not been used to obtain another
-or the same degree.
+Prohlašuji, že jsem tuto diplomovou práci vypracoval(a) samostatně a výhradně
+s~použitím citovaných pramenů, literatury a dalších odborných zdrojů.
+Tato práce nebyla využita k získání jiného nebo stejného titulu.
 
 \medskip\noindent
-I understand that my work relates to the rights and obligations under the Act No.~121/2000 Sb.,
-the Copyright Act, as amended, in particular the fact that the Charles
-University has the right to conclude a license agreement on the use of this
-work as a school work pursuant to Section 60 subsection 1 of the Copyright~Act.
+Beru na~vědomí, že se na moji práci vztahují práva a povinnosti vyplývající
+ze zákona č. 121/2000 Sb., autorského zákona v~platném znění, zejména skutečnost,
+že Univerzita Karlova má právo na~uzavření licenční smlouvy o~užití této
+práce jako školního díla podle §60 odst. 1 autorského zákona.
 
 \vspace{10mm}
 
 \hbox{\hbox to 0.5\hsize{%
-In \hbox to 6em{\dotfill} date \hbox to 6em{\dotfill}
+V \hbox to 6em{\dotfill} dne \hbox to 6em{\dotfill}
 \hss}\hbox to 0.5\hsize{\dotfill\quad}}
 \smallskip
-\hbox{\hbox to 0.5\hsize{}\hbox to 0.5\hsize{\hfil Author's signature\hfil}}
+\hbox{\hbox to 0.5\hsize{}\hbox to 0.5\hsize{\hfil Podpis autora\hfil}}
 
 \vspace{20mm}
 \newpage
 
-%%% Dedication
+%%% Poděkování
 
 \openright
 
 \noindent
-\Dedication
+\Podekovani
 
 \newpage
 
-%%% Mandatory information page of the thesis
+%%% Povinná informační strana diplomové práce
 
 \openright
 
@@ -97,23 +96,45 @@ In \hbox to 6em{\dotfill} date \hbox to 6em{\dotfill}
 \setlength\parindent{0mm}
 \setlength\parskip{5mm}
 
+Název práce:
+\NazevPrace
+
+Autor:
+\AutorPrace
+
+\TypPracoviste:
+\Katedra
+
+Vedoucí diplomové práce:
+\Vedouci, \KatedraVedouciho
+
+Abstrakt:
+\Abstrakt
+
+Klíčová slova:
+\KlicovaSlova
+
+\vss}\nobreak\vbox to 0.49\vsize{
+\setlength\parindent{0mm}
+\setlength\parskip{5mm}
+
 Title:
-\ThesisTitle
+\NazevPraceEN
 
 Author:
-\ThesisAuthor
+\AutorPrace
 
-\DeptType:
-\Department
+\TypPracovisteEN:
+\KatedraEN
 
 Supervisor:
-\Supervisor, \SupervisorsDepartment
+\Vedouci, \KatedraVedoucihoEN
 
 Abstract:
-\Abstract
+\AbstraktEN
 
 Keywords:
-\Keywords
+\KlicovaSlovaEN
 
 \vss}
 
