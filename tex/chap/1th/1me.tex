@@ -1,0 +1,46 @@
+\section{Maxwellovy rovnice \cite{Bornwolf}}
+
+Práce se zabývá pouze jevy, které lze popsat klasickou lineární optikou, používáme makroskopické Maxwellovy rovnice.
+Pracujeme ve frekvenčním obraze, uvažujeme elektromagnetické pole harmonické v čase s konvencí $\E(t,\vec{r})=\Re\left\lbrace\E(\w,\vec{r}) e^{-i\w t}\right\rbrace$ a stejně pro ostatní pole.
+
+Materiály popisujeme fenomenologicky lokální\footnote{tzv. dipólová aproximace} lineární odezvou.
+Navíc pokládáme magnetickou susceptibilitu na optických frekvencích rovnou 0: $\M(\w)=0$, což kromě speciálních metamateriálů platí bez výjimky\cite{muvac1}.
+Materiály jsou za těchto podmínek plně popsány komplexními frekvenčně závislými tenzory ($3\times 3$ matice) relativní permitivity  $\e'$ a vodivosti $\sigma$
+\begin{align}
+\D(\w,\vec{r})=\evac\e'(\w,\vec{r})\E(\w,\vec{r}) \,, \label{e:materialyD} \\
+\j(\w,\vec{r})=\sigma(\w,\vec{r})\E(\w,\vec{r}) \,, \\
+\B(\w,\vec{r})=\muvac \H(\w,\vec{r}) \label{e:materialyB} \,.
+\end{align}
+Pro přehlednost budeme dále vynechávat argument $\w$ a $\vec{r}$ s vyrozuměním, že vztahy platí pro všechna $\w$ a $\vec{r}$.
+
+Jedinou výjimkou, kdy vynechání argumentu nebude znamenat složku na frekvenci $\w$ (jako např. $\E\equiv\E(\w)$), bude statická magnetizace $\M\equiv\M(\w=0)$ a statické externí pole, které značíme $\Hext\equiv\H(\w=0)$.
+
+Maxwellovy rovnice v uvedené situaci mají v SI tvar
+\begin{align}
+\rot \E&=i\w\B \,, \\
+\rot \B&=\muvac \left( \sigma - i\w \evac\e' \right) \E \equiv -i\w\frac{1}{c^2}\e \E \,. \label{e:MaxwellrotB}
+\end{align}
+Zbylé dvě divergenční Maxwellovy rovnice neuvádíme, protože pro $\w\neq0$ nejsou nezávislé od uvedených dvou rotačních\cite{Visvlakna}.
+Je vidno, že v rovnicích nevystupují $\e'$ a $\sigma$ nezávisle, ale pouze v kombinaci patrné z první rovnosti \eqref{e:MaxwellrotB}, což souvisí to s tím, že rozdělení proudů na volné a vázané je do jisté míry arbitrární.
+Zavádíme proto efektivní relativní permitivitu $\e$ vztahem
+\begin{equation}
+\evac \e=\evac\e'+i\sigma/\w \,,
+\end{equation}
+která v sobě zahrnuje vliv všech uvažovaných proudů.
+Komplexní $3\times 3$ matici $\e$ dále nazýváme zkrátka permitivitou a jedná se o jediný materiálový parametr charakterizující optické vlastnosti na dané frekvenci.
+V rovnici \eqref{e:MaxwellrotB} jsme také užili rychlost světla ve vakuu $c=1/\sqrt{\muvac\evac}$.
+
+Maxwellovy rovnice je výhodné vyjádřit místo v polích $\E$ a $\B$ v polích $\E$ a $c\B$
+\begin{align}
+\left(-i\frac{c}{\w}\rot\right) \E&=c\B \,, \label{e:rotE}\\
+\left(-i\frac{c}{\w}\rot\right) c\B&=-\e \E \,. \label{e:rotB}
+\end{align}
+
+V homogenním prostředí ($\e(\vec{r})$ nezávisí na poloze), jsou řešením rovinné vlny (vlastní módy), jejichž prostorová závislost je dána $\E(\vec{r})=\E e^{i \vec{k}\cdot\vec{r}}$ a podobně pro $\B$ se stejným (komplexním) vlnovým vektorem $\vec{k}$.
+Označíme normovaný vlnový vektor $\N=\vec{k} c/\w=-ic/\w\nabla$, pak rovnice pro vlastní módy jsou
+\begin{align}
+\N \times \E = c\B \,, \label{e:NE}\\
+\N \times c\B = -\e \E \,. \label{e:NB}
+\end{align}
+
+Na ostrém rozhraní dvou materiálů, kde dochází ke skokové změně permitivity, platí, že tečné složky $\E$ a $\H$ (a tedy i $\B$ a $c\B$ díky \eqref{e:materialyB}) jsou při přechodu přes rozhraní spojité\cite{Bornwolf}.

@@ -1,26 +1,26 @@
 \documentclass[singleside]{thesis}
 
-\usepackage
-
   \input{./tex/metadata}
 
   \hypersetup{unicode}
   \hypersetup{breaklinks=true}
-  \begin{document}
+
+
+\begin{document}
 
 
 \include{./tex/titlelist}
 \tableofcontents
 
-  %\include{./tex/introduction}
+  \include{./tex/introduction}
 
-  %\include{./tex/chap/teorie}
-  %\include{./tex/chap/magnetooptika}
-  %\include{./tex/chap/vzorky}
-  %\include{./tex/chap/metoda}
-  %\include{./tex/chap/vysledky}
+  \include{./tex/chap/1th.tex}
+  \include{./tex/chap/2mo.tex}
+  \include{./tex/chap/3vz.tex}
+  \include{./tex/chap/4ex.tex}
+  \include{./tex/chap/5rs.tex}
 
-  %\include{./tex/conclusion}
+  \include{./tex/conclusion}
 
 %bibliografie??
 
@@ -28,10 +28,9 @@
   \chapter{Přílohy}
   \section{Přehled použitých konvencí}\label{k:dodatek konvence}
   \section{Poruchová teorie reflexních a transmisních koeficientů}\label{k:dodatek vypocet}
-  \section{Vztah mezi $PMLD$ a materiálovými parametry}
+  \section{Vztah mezi $P$ a materiálovými parametry}
   %\input{./tex/app/dodatek_volnaenergie}
   \section{Detaily statistického zpracování}
-Ahoj tt vasdo
 
 \openright
 \end{document}
