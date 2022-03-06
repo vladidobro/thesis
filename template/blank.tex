@@ -1,0 +1,37 @@
+\documentclass{mffthesis}
+
+\includeonly{
+  ./tex/introduction,
+  ./tex/chap1,
+  ./tex/conclusion,
+  ./tex/appendix
+}
+
+
+\author{Vladislav Wohlrath}
+\title{Laserová spektroskopie spintronických materiálů}
+%\supervisor{Petr Němec}
+%\department{}
+
+\begin{document}
+
+  \maketitle
+
+  \frontmatter
+    \makedeclaration
+    \makededication
+    \makemetapage
+
+  \mainmatter
+    \tableofcontents
+
+    \include{./tex/introduction}
+
+    \include{./tex/chap1}
+
+    \include{./tex/conclusion}
+
+    \appendix
+      \include{./tex/appendix}
+
+\end{document}

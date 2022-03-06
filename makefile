@@ -1,7 +1,11 @@
 LATEX=latexmk --pdf
 THESIS=thesis.pdf
 ABSTRACT=abstract/abstract.pdf
+TEMPLATE=template/blank.tex
 
+template: template/blank.tex template/mffthesis.cls
+	$(LATEX) $(TEMPLATE)
+	zathura blank.pdf
 
 all: $(THESIS) $(ABSTRACT) ## compile everything
 see: thesis ## update and see thesis
