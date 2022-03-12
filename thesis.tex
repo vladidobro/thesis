@@ -1,57 +1,43 @@
-\documentclass[singleside]{thesis}
+\documentclass{mffthesis}
 
-  \input{./tex/metadata}
+\input{./tex/metadata}
 
-  \usepackage[a-2u]{pdfx}
-
-  \usepackage[czech]{babel}
-  \usepackage{lmodern}
-  \usepackage[T1]{fontenc}
-
-  \usepackage[utf8]{inputenc}
-
-  \usepackage{graphicx}
-	#indentfirst
-	#icomma
-  \usepackage{todonotes}
-  \usepackage{siunitx}
-  \usepackage{amsmath}
-  \usepackage{amssymb}
-  \usepackage{amsthm}
-  \usepackage{xcolor}
-  \usepackage{tikz}
-  \usepackage{booktabs}
-  
-  \usepackage{hyperref}
-  \hypersetup{unicode}
-  \hypersetup{breaklinks=true}
-
+\includeonly{
+  ./tex/introduction,
+  ./tex/chap1,
+  ./tex/chap2,
+  ./tex/chap3,
+  ./tex/chap4,
+  ./tex/chap5,
+  ./tex/conclusion,
+  ./tex/appendix
+}
 
 \begin{document}
 
+  \maketitle
 
-\include{./tex/titlelist}
-\tableofcontents
+  \frontmatter
+    \makedeclaration
+    \makededication
+    \makemetapage
 
-  \include{./tex/introduction}
+  \mainmatter
+    \tableofcontents
 
-  \include{./tex/chap/1th.tex}
-  \include{./tex/chap/2mo.tex}
-  \include{./tex/chap/3vz.tex}
-  \include{./tex/chap/4ex.tex}
-  \include{./tex/chap/5rs.tex}
+    \include{./tex/introduction}
 
-  \include{./tex/conclusion}
+    \include{./tex/chap1}
+    \include{./tex/chap2}
+    \include{./tex/chap3}
+    \include{./tex/chap4}
+    \include{./tex/chap5}
 
-%bibliografie??
+    \include{./tex/conclusion}
 
-\appendix
-  \chapter{Přílohy}
-  \section{Přehled použitých konvencí}\label{k:dodatek konvence}
-  \section{Poruchová teorie reflexních a transmisních koeficientů}\label{k:dodatek vypocet}
-  \section{Vztah mezi $P$ a materiálovými parametry}
-  %\input{./tex/app/dodatek_volnaenergie}
-  \section{Detaily statistického zpracování}
+    \bibliography{bib/original,bib/calibre,bib/zotero}    
 
-\openright
+    \appendix
+      \include{./tex/appendix}
+
 \end{document}

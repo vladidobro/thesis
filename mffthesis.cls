@@ -54,9 +54,6 @@
 \newcommand{\frontmatter}{\pagenumbering{roman}}
 \newcommand{\mainmatter}{\pagenumbering{arabic}}
 
-%%% title, declaration, dedication, metadata
-\input{frontmatter.def}
-
 %%% chapter names typesetting
 \renewcommand{\@makechapterhead}[1]{
   {\parindent \z@ \raggedright \normalfont
@@ -73,3 +70,124 @@
 
 %%% automatic figure centering
 \g@addto@macro\@floatboxreset\centering
+
+
+%%% title, declaration, dedication, metadata
+\renewcommand{\maketitle}{
+  \begin{titlepage}
+    \centering
+
+      \makebox[\columnwidth]{\includegraphics[width=166mm]{\@logopath}}
+
+    \vspace{-8mm}
+    \vfill
+
+      {\bfseries\Large \@thesistype}
+
+    \vfill
+
+      {\LARGE\@author}
+
+    \vspace{15mm}
+
+      {\LARGE\bfseries\@titleCS}
+
+    \vfill
+
+      \@departmentCS
+
+    \vfill
+
+      \begin{tabular}{rl}
+        Vedoucí diplomové práce:&\@supervisor \\
+        Studijní program:&\@studyprogramme \\
+        Studijní obor:&\@studybranch
+      \end{tabular}
+
+    \vfill
+
+      Praha \@yearsubmitted
+  \end{titlepage}
+}
+
+\newcommand{\makedeclaration}{
+  \vglue 0pt plus 1fill
+
+  \noindent
+  Prohlašuji, že jsem tuto diplomovou práci vypracoval(a) samostatně a výhradně
+  s~použitím citovaných pramenů, literatury a dalších odborných zdrojů.
+  Tato práce nebyla využita k získání jiného nebo stejného titulu.
+
+  \medskip\noindent
+  Beru na~vědomí, že se na moji práci vztahují práva a povinnosti vyplývající
+  ze zákona č. 121/2000 Sb., autorského zákona v~platném znění, zejména skutečnost,
+  že Univerzita Karlova má právo na~uzavření licenční smlouvy o~užití této
+  práce jako školního díla podle §60 odst. 1 autorského zákona.
+
+  \vspace{10mm}
+
+    \hbox{\hbox to 0.5\hsize{%
+    V \hbox to 6em{\dotfill} dne \hbox to 6em{\dotfill}
+    \hss}\hbox to 0.5\hsize{\dotfill\quad}}
+    \smallskip
+    \hbox{\hbox to 0.5\hsize{}\hbox to 0.5\hsize{\hfil Podpis autora\hfil}}
+
+  \vspace{20mm}
+  \clearpage
+}
+
+\newcommand{\makededication}{
+  \noindent
+  \@dedication
+  \clearpage
+}
+
+\newcommand{\makemetapage}{
+  \vbox to 0.5\vsize{
+  \setlength\parindent{0mm}
+  \setlength\parskip{5mm}
+
+  Název práce:
+  \@titleCS
+
+  Autor:
+  \@author
+
+  Katedra:
+  \@departmentCS
+
+  Vedoucí diplomové práce:
+  \@supervisor, \@supervisordepartmentCS
+
+  Abstrakt:
+  \@abstractCS
+
+  Klíčová slova:
+  \@keywordsCS
+
+  \vss}\nobreak\vbox to 0.49\vsize{
+  \setlength\parindent{0mm}
+  \setlength\parskip{5mm}
+
+  Title:
+  \@titleEN
+
+  Author:
+  \@author
+
+  Department:
+  \@departmentEN
+
+  Supervisor:
+  \@supervisor, \@supervisordepartmentEN
+
+  Abstract:
+  \@abstractEN
+
+  Keywords:
+  \@keywordsEN
+
+  \vss}
+  \clearpage
+}
+

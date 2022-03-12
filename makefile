@@ -17,10 +17,10 @@ cleanaux: ## clean auxiliary files
 	rm -f $(call allsuffix,tex bib img abstract template,log dvi aux toc lof lot out bbl blg xmpi synctex.gz fdb_latexmk fls bcf run.xml)
 
 cleanimg: ## clean compiled images
-
+cleanpdf: ## clean output pdfs
+	rm -f thesis.pdf abstract.pdf
 mostlyclean: ## clean but not images 
-
-clean: ## clean everything
+clean: cleanaux cleanpdf ## clean everything
 
 
 thesis.pdf: thesis.tex thesis.xmpdata mffthesis.cls $(call rsuffixes,tex,tex) $(call rsuffixes,bib,bib)
