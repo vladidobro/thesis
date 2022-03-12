@@ -1,3 +1,5 @@
 all:
-	latexmk --pdf blank
-	zathura blank.pdf
+	latexmk --pdf template
+	zathura template.pdf
+clean:
+	latexmk -C

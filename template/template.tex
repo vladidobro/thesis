@@ -1,17 +1,13 @@
 \documentclass{mffthesis}
 
+\input{metadata}
+
 \includeonly{
   ./tex/introduction,
   ./tex/chap1,
   ./tex/conclusion,
   ./tex/appendix
 }
-
-
-\author{Vladislav Wohlrath}
-\title{Laserová spektroskopie spintronických materiálů}
-%\supervisor{Petr Němec}
-%\department{}
 
 \begin{document}
 
@@ -28,8 +24,10 @@
     \include{./tex/introduction}
 
     \include{./tex/chap1}
-
+    
     \include{./tex/conclusion}
+
+    \bibliography{bibliography}    
 
     \appendix
       \include{./tex/appendix}

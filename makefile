@@ -1,30 +1,36 @@
 LATEX=latexmk --pdf
-THESIS=thesis.pdf
-ABSTRACT=abstract/abstract.pdf
-TEMPLATE=template/blank.tex
 
-template: template/blank.tex template/mffthesis.cls
-	$(LATEX) $(TEMPLATE)
-	zathura blank.pdf
 
-all: $(THESIS) $(ABSTRACT) ## compile everything
-see: thesis ## update and see thesis
-	zathura $(THESIS)
+rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d)) #https://blog.jgc.org/2011/07/gnu-make-recursive-wildcard-function.html
+allsuffix=$(foreach dir,$1,$(call rwildcard,$(dir),$(foreach ext,$2,*.$(ext)))) $(wildcard $(foreach ext,$2,*.$(ext)))
 
-$(THESIS): $(THESIS:.pdf=.tex) $(THESIS:.pdf=.xmpdata)
-	$(LATEX) $(THESIS:.pdf=.tex)
 
-$(ABSTRACT): $(ABSTRACT:.pdf=.tex) $(ABSTRACT:.pdf=.xmpdata)
-	$(LATEX) $(ABSTRACT:.pdf=.tex)
 
-thesis: $(THESIS) ## compile thesis
+all: thesis abstract ## compile everything
+see: thesis ## see thesis
+	zathura thesis.pdf
 
-abstract: $(ABSTRACT) ## compile abstract
+thesis: thesis.pdf ## compile thesis
+abstract: abstract.pdf ## compile abstract
 
-clean: ## clean latex auxiliary files as well as pdf output
-	rm -f *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *.xmpi *.fdb_latexmk *.fls
-	rm -f thesis.pdf abstract.pdf
+cleanaux: ## clean auxiliary files
+	rm -f $(call allsuffix,tex bib img abstract template,log dvi aux toc lof lot out bbl blg xmpi synctex.gz fdb_latexmk fls bcf run.xml)
+
+cleanimg: ## clean compiled images
+
+mostlyclean: ## clean but not images 
+
+clean: ## clean everything
+
+
+thesis.pdf: thesis.tex thesis.xmpdata mffthesis.cls $(call rsuffixes,tex,tex) $(call rsuffixes,bib,bib)
+	$(LATEX) thesis.tex
+
+abstract.pdf: abstract/abstract.tex abstract/abstract.xmpdata
+	$(LATEX) abstract/abstract.tex
 
 help: # http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 	@grep -P '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
-.PHONY: help
+
+.PHONY: help all see thesis abstract clean mostlyclean cleanaux cleanimg
+

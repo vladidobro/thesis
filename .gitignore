@@ -7,10 +7,16 @@ img/*
 !version/*
 
 *.log
-*.out
+*.dvi
 *.aux
 *.toc
+*.lof
+*.lot
+*.out
+*.bbl
+*.blg
 *.xmpi
 *.synctex.gz
 *.fdb_latexmk
 *.fls
+*.bcf
