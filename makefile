@@ -24,10 +24,13 @@ cleanpdf: ## clean output pdfs
 mostlyclean: ## clean but not images 
 clean: cleanaux cleanpdf ## clean everything
 
-version: ## release major version
+version: thesis.pdf ## release major version
 ifeq ($(GITSTATUS),)
 ifeq ($(GITBRANCH),master)
-	echo "tag"
+	cp thesis.pdf version/DP_Wohlrath_$(VERSION).pdf
+	git add version/DP_Wohlrath_$(VERSION).pdf
+	git commit -m "$(VERSION) release"
+	git tag -a $(VERSION) -m "$(VERSION) release"
 else
 	echo "aborted, not on master branch"
 endif
