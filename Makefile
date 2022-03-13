@@ -6,8 +6,8 @@ GITSTATUS=$(shell git status -s)
 CLEANAUXWC=*.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *.xmpi *.synctex.gz *.fdb_latexmk *.fls *.bcf *.run.xml
 CLEANAUXDIR=tex bib abstract
 
-rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d)) #https://blog.jgc.org/2011/07/gnu-make-recursive-wildcard-function.html
-
+# https://blog.jgc.org/2011/07/gnu-make-recursive-wildcard-function.html
+rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d)) 
 
 .PHONY: help echoes all see thesis abstract version clean mostlyclean cleanaux cleanimg cleanpdf
 
