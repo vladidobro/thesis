@@ -1,6 +1,6 @@
 LATEX=latexmk --pdf
 
-VERSION=$(shell git tag | awk 'BEGIN{v=0;FIELDWIDTHS="1 2"}/^v[0-9]{2}/{vn=$$2;if(vn>v){v=vn}}END{v++; printf "v%02d",v}')
+VERSION=$(shell git tag | awk -v FIELDWIDTHS="1 2" '/^v[0-9]{2}/{vn=$$2;if(vn>v){v=vn}}END{v++; printf "v%02d",v}')
 GITBRANCH=$(shell git branch --show-current)
 GITSTATUS=$(shell git status -s)
 CLEANAUXWC=*.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *.xmpi *.synctex.gz *.fdb_latexmk *.fls *.bcf *.run.xml
