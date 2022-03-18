@@ -1,9 +1,10 @@
+SHELL=/usr/bin/zsh
 LATEX=latexmk --pdf
 
 VERSION=$(shell git tag | awk -v FIELDWIDTHS="1 2" '/^v[0-9]{2}/{vn=$$2;if(vn>v){v=vn}}END{v++; printf "v%02d",v}')
 GITBRANCH=$(shell git branch --show-current)
 GITSTATUS=$(shell git status -s)
-CLEANAUXWC=*.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *.xmpi *.synctex.gz *.fdb_latexmk *.fls *.bcf *.run.xml
+AUX=log dvi aux toc lof lot out bbl blg xmpi synctexz synctex.gz fdb_latexmk fls bcf run.xml
 CLEANAUXDIR=tex bib abstract
 
 # https://blog.jgc.org/2011/07/gnu-make-recursive-wildcard-function.html
@@ -11,12 +12,19 @@ rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst 
 
 .PHONY: help echoes all see thesis abstract version clean mostlyclean cleanaux cleanimg cleanpdf
 
+default: thesis
+
+update:
+	awk -i inplace -v p=1 '/#end aux/{p=1} {if (p) print} /#begin aux/{p=0; $$0="$(AUX)"; for(i=1;i<=NF;i++){printf "*.%s\n",$$i}}' .gitignore
+	awk -i inplace '/let NERDTreeIgnore=/ {$$0="$(AUX)"; OFS=", "; for(i=1;i<=NF;i++){$$i=sprintf("\047\\.%s$$\047",$$i)}; printf "let NERDTreeIgnore=[%s]",$$0}' .vimlocal
+
 all: thesis abstract ## compile everything
-see: thesis ## see thesis
-	zathura thesis.pdf
 
 thesis: thesis.pdf ## compile thesis
 abstract: abstract.pdf ## compile abstract
+
+see: ## see thesis
+	zathura thesis.pdf &
 
 version: thesis ## release major version
 ifeq ($(GITSTATUS),)
@@ -44,7 +52,7 @@ cleanpdf: ## clean output pdfs
 
 
 # concrete recipes
-thesis.pdf: thesis.tex thesis.xmpdata mffthesis.cls $(call rsuffixes,tex,tex) $(call rsuffixes,bib,bib)
+thesis.pdf: thesis.tex thesis.xmpdata mffthesis.cls tex/*.tex
 	$(LATEX) thesis.tex
 
 abstract.pdf: abstract/abstract.tex abstract/abstract.xmpdata
