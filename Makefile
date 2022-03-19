@@ -1,4 +1,4 @@
-# git
+#git
 VERSION=$(shell git tag | awk -v FIELDWIDTHS="1 2" '/^v[0-9]{2}/{vn=$$2;if(vn>v){v=vn}}END{v++; printf "v%02d",v}')
 GITBRANCH=$(shell git branch --show-current)
 GITSTATUS=$(shell git status -s)
@@ -17,9 +17,9 @@ PYIMG=$(foreach f,$(shell awk '/^## makes /{sub("^## makes ","",$$0);print}' $(P
 PYMAKE=$(PYDIR)/makefile
 
 # make
-.DEFAULT_GOAL:= help
+.DEFAULT_GOAL:= thesis
 SHELL=/usr/bin/zsh
-LATEX=latexmk --pdf
+LATEX=latexmk -pdf -pdflatex="pdflatex -synctex=1"
 .PHONY: help echoes all see thesis abstract defense version clean mostlyclean cleanaux cleanimg cleanpdf
 include $(PYMAKE)
 
@@ -30,7 +30,7 @@ abstract: abstract.pdf ## compile abstract
 defense:
 
 see: thesis ## see thesis
-	zathura thesis.pdf &
+	1>/dev/null zathura -x 'nvrsynctex %{line} %{input}' --synctex-forward :: thesis.pdf & disown
 
 version: thesis ## *release major version
 	if [ ! $(GITSTATUS) =  ]; then \
@@ -80,6 +80,7 @@ echoes: ## echo make variables
 	$(info pyimg = $(PYIMG))
 	$(info tex = $(TEX))
 	$(info pymake = $(PYMAKE))
+	$(info latex = $(LATEX))
 
 help: # http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 	@grep -P '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":[^:]*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
