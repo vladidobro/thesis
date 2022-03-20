@@ -1,14 +1,17 @@
-#git
+# git
 VERSION=$(shell git tag | awk -v FIELDWIDTHS="1 2" '/^v[0-9]{2}/{vn=$$2;if(vn>v){v=vn}}END{v++; printf "v%02d",v}')
 GITBRANCH=$(shell git branch --show-current)
 GITSTATUS=$(shell git status -s)
 
 # tex
-TEX=$(shell find tex -type f -name "*.tex") 
+TEX=$(wildcard *.tex) $(shell find tex -type f -name "*.tex") 
 BIB=$(wildcard bib/*.bib)
-AUX=log dvi aux toc lof lot out bbl blg xmpi synctexz synctex.gz fdb_latexmk fls bcf run.xml
+AUX=$(shell awk '/#end clean/{p=0} {if (p) print} /#begin clean/{p=1}' .gitignore)
 AUXDIR=. $(shell find tex bib abstract -type d)
-AUXFILES=$(foreach d,$(AUXDIR),$(foreach e,$(AUX),$(wildcard $(d)/*.$(e))))
+AUXFILES=$(foreach d,$(AUXDIR),$(foreach e,$(AUX),$(wildcard $(d)/$(e))))
+
+# nvim
+NVIMSERVER=$(shell awk -F= '/let[ \t]+SynctexServerName[ \t]*=/{gsub("[\"'\'']","",$$2); print $$2}' .nvimrc)
 
 # py
 PYDIR=img/py
@@ -30,7 +33,7 @@ abstract: abstract.pdf ## compile abstract
 defense:
 
 see: thesis ## see thesis
-	1>/dev/null zathura -x 'nvrsynctex %{line} %{input}' --synctex-forward :: thesis.pdf & disown
+	synctex-forward --servername $(NVIMSERVER) thesis.pdf
 
 version: thesis ## *release major version
 	if [ ! $(GITSTATUS) =  ]; then \
@@ -57,7 +60,7 @@ cleanpdf: ## clean output pdfs
 
 
 # concrete recipes
-thesis.pdf: thesis.tex thesis.xmpdata mffthesis.cls $(TEX) $(BIB) $(PYIMG)
+thesis.pdf: $(TEX) thesis.xmpdata mffthesis.cls $(BIB) $(PYIMG)
 	$(LATEX) thesis.tex
 
 abstract.pdf: abstract/abstract.tex abstract/abstract.xmpdata
@@ -69,18 +72,16 @@ $(PYMAKE): $(PY)
 	substr(dep,1,length(dep)-1), FILENAME, substr(FILENAME,8,length(FILENAME)); dep=""}' \
 	$(PY) > $(PYMAKE)
 
-updateignore: ## * 
-	awk -i inplace -v p=1 '/#end aux/{p=1} {if (p) print} /#begin aux/{p=0; $$0="$(AUX)"; for(i=1;i<=NF;i++){printf "*.%s\n",$$i}}' .gitignore
-	awk -i inplace '/let NERDTreeIgnore=/ {$$0="$(AUX)"; OFS=", "; for(i=1;i<=NF;i++){$$i=sprintf("\047\\.%s$$\047",$$i)}; printf "let NERDTreeIgnore=[%s]",$$0}' .vimlocal
-
 # help
 echoes: ## echo make variables
 	$(info version = $(VERSION))
+	$(info aux = $(AUX))
 	$(info auxfiles = $(AUXFILES))
 	$(info pyimg = $(PYIMG))
 	$(info tex = $(TEX))
 	$(info pymake = $(PYMAKE))
 	$(info latex = $(LATEX))
+	$(info nvimserver = $(NVIMSERVER))
 
 help: # http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 	@grep -P '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":[^:]*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
