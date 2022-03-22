@@ -3,37 +3,57 @@ VERSION=$(shell git tag | awk -v FIELDWIDTHS="1 2" '/^v[0-9]{2}/{vn=$$2;if(vn>v)
 GITBRANCH=$(shell git branch --show-current)
 GITSTATUS=$(shell git status -s)
 
-# tex
-TEX=$(wildcard *.tex) $(shell find tex -type f -name "*.tex") 
-BIB=$(wildcard bib/*.bib)
-AUX=$(shell awk '/#end clean/{p=0} {if (p) print} /#begin clean/{p=1}' .gitignore)
-AUXDIR=. $(shell find tex bib abstract -type d)
-AUXFILES=$(foreach d,$(AUXDIR),$(foreach e,$(AUX),$(wildcard $(d)/$(e))))
-
 # nvim
-NVIMSERVER=$(shell awk -F= '/let[ \t]+SynctexServerName[ \t]*=/{gsub("[\"'\'']","",$$2); print $$2}' .nvimrc)
+NVIMSERVER=$(shell awk -F= '/let[ \t]+g:SynctexServerName[ \t]*=/{gsub("[\"'\'']","",$$2); print $$2}' .nvimrc)
 
-# py
-PYDIR=img/py
-PY=$(wildcard $(PYDIR)/*.py)
-PYIMG=$(foreach f,$(shell awk '/^## makes /{sub("^## makes ","",$$0);print}' $(PY)),$(PYDIR)/$(f))
-PYMAKE=$(PYDIR)/makefile
+# synctex
+STXLINE=
+STXCOL=
+STXFILE=
+
+# data
+DATADIR=data
+PY=$(wildcard $(DATADIR)/*.py)
+DATAMAKE=$(DATADIR)/makefile
+MAKESMARK=\#\#MAKES
+DATA=$(wildcard $(DATADIR)/out/*)
+
+# tikz
+TIKZDIR=img/tikz
+TIKZ=$(wildcard $(TIKZDIR)/*.tikz)
+
+# static img
+STATICDIR=img/static
+STATICIMG=$(wildcard $(STATICDIR)/*)
+
+# tex
+TEX=thesis.tex $(shell find tex -type f -name "*.tex") 
+BIB=$(wildcard bib/*.bib)
+IMG=$(PYIMG) $(TIKZ) $(STATICIMG)
+TEXAUX=$(shell awk '/#end clean/{p=0} {if (p) print} /#begin clean/{p=1}' .gitignore)
+TEXAUXDIR=. $(shell find tex bib $(TIKZDIR) abstract -type d)
+TEXAUXFILES=$(foreach d,$(TEXAUXDIR),$(foreach e,$(TEXAUX),$(wildcard $(d)/$(e))))
 
 # make
-.DEFAULT_GOAL:= thesis
 SHELL=/usr/bin/zsh
 LATEX=latexmk -pdf -pdflatex="pdflatex -synctex=1"
-.PHONY: help echoes all see thesis abstract defense version clean mostlyclean cleanaux cleanimg cleanpdf
-include $(PYMAKE)
+include $(DATAMAKE)
+
+.DEFAULT_GOAL:= thesis
+.PHONY: all thesis abstract defense
+.PHONY: synctex version 
+.PHONY: clean mostlyclean cleanimg cleanpdf cleanpy cleantex
+.PHONY: help echoes 
 
 all: thesis abstract defense ## compile everything
 
 thesis: thesis.pdf ## compile thesis
 abstract: abstract.pdf ## compile abstract
-defense:
+defense: defense.pdf ## compile defense
 
-see: thesis ## see thesis
-	synctex-forward --servername $(NVIMSERVER) thesis.pdf
+synctex: thesis ## open with synctex enabled. spawns a unique instance of zathura. usage: "make see" or "make see STXLINE=1 STXCOL=1 STXFILE=thesis.tex"
+	synctex-forward --servername $(NVIMSERVER) thesis.pdf $(STXLINE) $(STXCOL) $(STXFILE)
+
 
 version: thesis ## *release major version
 	if [ ! $(GITSTATUS) =  ]; then \
@@ -48,26 +68,27 @@ version: thesis ## *release major version
 	fi
 
 # cleaning
-clean: cleanaux cleanimg cleanpdf ## clean everything
+clean: cleantex cleanimg cleanpdf ## clean everything
 mostlyclean: cleanaux cleanpdf ## clean but not images 
-cleanaux: ## clean auxiliary files
-	rm -f $(AUXFILES) 
-cleanimg: ## clean compiled images
-	rm -f $(PYIMG)
-	rm -f $(PYMAKE)
+cleanimg: cleanpy
 cleanpdf: ## clean output pdfs
 	rm -f thesis.pdf abstract.pdf
-
+cleantex: ## clean latex auxiliary files
+	rm -f $(TEXAUXFILES) 
+cleandata: ## clean compiled images
+	rm -f $(DATA)
+	rm -f $(DATAMAKE)
+cleantikz:
 
 # concrete recipes
-thesis.pdf: $(TEX) thesis.xmpdata mffthesis.cls $(BIB) $(PYIMG)
+thesis.pdf: $(TEX) thesis.xmpdata mffthesis.cls $(BIB) $(IMG)
 	$(LATEX) thesis.tex
 
 abstract.pdf: abstract/abstract.tex abstract/abstract.xmpdata
 	$(LATEX) abstract/abstract.tex
 
 $(PYMAKE): $(PY)
-	awk '/^## makes /{for(i=3;i<=NF;i++){dep=dep sprintf("img/py/%s ",$$i)}} \
+	awk '/^$(PYMAKEMARK)/{gsub("$(PYMAKEMARK)","",$$0);for(i=1;i<=NF;i++){dep=dep sprintf("img/py/%s ",$$i)}} \
 	ENDFILE{printf "%s: %s\n\t(cd img/py && python %s)\n\n", \
 	substr(dep,1,length(dep)-1), FILENAME, substr(FILENAME,8,length(FILENAME)); dep=""}' \
 	$(PY) > $(PYMAKE)
@@ -78,10 +99,12 @@ echoes: ## echo make variables
 	$(info aux = $(AUX))
 	$(info auxfiles = $(AUXFILES))
 	$(info pyimg = $(PYIMG))
+	$(info pymark = $(PYMAKEMARK))
 	$(info tex = $(TEX))
 	$(info pymake = $(PYMAKE))
 	$(info latex = $(LATEX))
 	$(info nvimserver = $(NVIMSERVER))
+	$(info tikzmark = $(TIKZPREVMARK))
 
 help: # http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 	@grep -P '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":[^:]*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'

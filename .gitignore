@@ -2,6 +2,9 @@ untracked/*
 
 img/*
 
+data/raw/*
+data/out/*
+data/makefile
 
 *.pdf
 !version/*
