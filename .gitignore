@@ -26,4 +26,5 @@ data/makefile
 *.fls
 *.bcf
 *.run.xml
+*.rubbercache
 #end clean

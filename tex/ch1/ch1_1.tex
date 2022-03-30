@@ -1,46 +1,41 @@
-\section{Maxwellovy rovnice \cite{Bornwolf}}
+\section{Maxwellovy rovnice}
+\label{chap:maxwellovy-rovnice}
 
-Práce se zabývá pouze jevy, které lze popsat klasickou lineární optikou, používáme makroskopické Maxwellovy rovnice.
-Pracujeme ve frekvenčním obraze, uvažujeme elektromagnetické pole harmonické v čase s konvencí $\E(t,\vec{r})=\Re\left\lbrace\E(\w,\vec{r}) e^{-i\w t}\right\rbrace$ a stejně pro ostatní pole.
+Pracujeme ve frekvenčním obraze, uvažujeme elektrické pole harmonické v čase s konvencí $\vec{E}(t,\vec{r})=\Re\left\lbrace\vec{E}(\omega,\vec{r}) e^{-i\omega t}\right\rbrace$ a stejně pro ostatní časově závislé veličiny.
 
-Materiály popisujeme fenomenologicky lokální\footnote{tzv. dipólová aproximace} lineární odezvou.
-Navíc pokládáme magnetickou susceptibilitu na optických frekvencích rovnou 0: $\M(\w)=0$, což kromě speciálních metamateriálů platí bez výjimky\cite{muvac1}.
-Materiály jsou za těchto podmínek plně popsány komplexními frekvenčně závislými tenzory ($3\times 3$ matice) relativní permitivity  $\e'$ a vodivosti $\sigma$
+Látky popisujeme fenomenologicky lokální\footnote{Tzv. dipólová aproximace} lineární odezvou.
+Navíc pokládáme nulovou magnetickou susceptibilitu na optických frekvencích: $\vec{M}(\omega)=0$, což kromě speciálních metamateriálů platí bez výjimky\todocite{muvac1}.
+Materiály jsou za těchto podmínek plně popsány komplexními frekvenčně závislými tenzory ($3\times 3$ matice) relativní permitivity $\varepsilon_{\textrm{el}}$ a vodivosti $\sigma$
 \begin{align}
-\D(\w,\vec{r})=\evac\e'(\w,\vec{r})\E(\w,\vec{r}) \,, \label{e:materialyD} \\
-\j(\w,\vec{r})=\sigma(\w,\vec{r})\E(\w,\vec{r}) \,, \\
-\B(\w,\vec{r})=\muvac \H(\w,\vec{r}) \label{e:materialyB} \,.
+    \vec{D}(\omega,\vec{r})&=\varepsilon_{\textrm{vac}} \varepsilon_{\textrm{el}}(\omega,\vec{r})\vec{E}(\omega,\vec{r}) \,, \label{eqn:materialy-D} \\
+    \vec{j}(\omega,\vec{r})&=\sigma(\omega,\vec{r})\vec{E}(\omega,\vec{r}) \,, \label{eqn:materialy-J} \\
+    \vec{B}(\omega,\vec{r})&=\mu_{\textrm{vac}} \vec{H}(\omega,\vec{r})  \,. \label{eqn:materialy-B}
 \end{align}
-Pro přehlednost budeme dále vynechávat argument $\w$ a $\vec{r}$ s vyrozuměním, že vztahy platí pro všechna $\w$ a $\vec{r}$.
-
-Jedinou výjimkou, kdy vynechání argumentu nebude znamenat složku na frekvenci $\w$ (jako např. $\E\equiv\E(\w)$), bude statická magnetizace $\M\equiv\M(\w=0)$ a statické externí pole, které značíme $\Hext\equiv\H(\w=0)$.
+Pro přehlednost budeme dále vynechávat argumenty s vyrozuměním, že vztahy platí lokálně pro všechna $\omega$ a $\vec{r}$.
+Jedinou výjimkou, kdy vynechání argumentu nebude znamenat složku na frekvenci $\omega$ (jako např. $\vec{E}\equiv\vec{E}(\omega)$), bude statická magnetizace $\vec{M}\equiv\vec{M}(\omega=0)$ a statické externí pole, které značíme $\vec{H}_{\textrm{ext}}\equiv\vec{H}(\omega=0)$.
 
 Maxwellovy rovnice v uvedené situaci mají v SI tvar
 \begin{align}
-\rot \E&=i\w\B \,, \\
-\rot \B&=\muvac \left( \sigma - i\w \evac\e' \right) \E \equiv -i\w\frac{1}{c^2}\e \E \,. \label{e:MaxwellrotB}
+    \rot \vec{E}&=i\omega\vec{B} \,, \label{eqn:Maxwell-rot-E} \\
+    \rot \vec{B}&=\mu_{\textrm{vac}} \left( \sigma - i\omega \varepsilon_{\textrm{vac}}\varepsilon_{\textrm{el}} \right) \vec{E} 
+        \equiv -i\omega\frac{\varepsilon}{c^2} \vec{E} \,. \label{eqn:Maxwell-rot-B}
 \end{align}
-Zbylé dvě divergenční Maxwellovy rovnice neuvádíme, protože pro $\w\neq0$ nejsou nezávislé od uvedených dvou rotačních\cite{Visvlakna}.
-Je vidno, že v rovnicích nevystupují $\e'$ a $\sigma$ nezávisle, ale pouze v kombinaci patrné z první rovnosti \eqref{e:MaxwellrotB}, což souvisí to s tím, že rozdělení proudů na volné a vázané je do jisté míry arbitrární.
-Zavádíme proto efektivní relativní permitivitu $\e$ vztahem
+Zbylé dvě divergenční Maxwellovy rovnice neuvádíme, protože pro $\omega\neq 0$ nejsou nezávislé od uvedených dvou rotačních\todocite{Visvlakna}.
+V rovnicích nevystupují $\varepsilon_{\textrm{el}}$ a $\sigma$ nezávisle, ale pouze v kombinaci patrné z první rovnosti \eqref{eqn:Maxwell-rot-B}, což souvisí s tím, že rozdělení proudů na volné a vázané je pro $\omega\neq 0$ do jisté míry arbitrární.
+Zavádí se proto efektivní relativní permitivita $\varepsilon$ vztahem
 \begin{equation}
-\evac \e=\evac\e'+i\sigma/\w \,,
+    \varepsilon_{\textrm{vac}} \varepsilon=\varepsilon_{\textrm{vac}} \varepsilon_{\textrm{el}}+i\sigma/\omega \,,
 \end{equation}
 která v sobě zahrnuje vliv všech uvažovaných proudů.
-Komplexní $3\times 3$ matici $\e$ dále nazýváme zkrátka permitivitou a jedná se o jediný materiálový parametr charakterizující optické vlastnosti na dané frekvenci.
-V rovnici \eqref{e:MaxwellrotB} jsme také užili rychlost světla ve vakuu $c=1/\sqrt{\muvac\evac}$.
+Komplexní $3\times 3$ matici $\varepsilon$ dále nazýváme zkrátka permitivitou a jedná se o jediný materiálový parametr charakterizující optické vlastnosti na dané frekvenci.
+V rovnici \eqref{eqn:Maxwell-rot-B} jsme také užili rychlost světla ve vakuu $c=1/\sqrt{\mu_{\textrm{vac}}\varepsilon_{\textrm{vac}}}$.
 
-Maxwellovy rovnice je výhodné vyjádřit místo v polích $\E$ a $\B$ v polích $\E$ a $c\B$
-\begin{align}
-\left(-i\frac{c}{\w}\rot\right) \E&=c\B \,, \label{e:rotE}\\
-\left(-i\frac{c}{\w}\rot\right) c\B&=-\e \E \,. \label{e:rotB}
-\end{align}
+Výhodné volby rozměru rovnic dosáhneme, pokud využijeme \emph{impedanci volného prostoru} $Z_0 = \sqrt{\mu_{\textrm{vac}}/\varepsilon_{\textrm{vac}}}$ a vyjádříme Maxwellovy rovnice v poli $Z_0 \vec{H}=c \vec{B}$
+\begin{alignat}{2}
+    & \frac{1}{k_0} \left( -i \rot \right) \vec{E} &&= Z_0 \vec{H} \,, \label{eqn:rot-E}\\
+    & \frac{1}{k_0} \left( -i \rot \right) Z_0 \vec{H} &&=-\varepsilon \vec{E} \,, \label{eqn:rot-ZH}
+\end{alignat}
+kde jsme označili $k_0 = c/\omega$, vlnový vektor ve vakuu.
+V případě rovinné vlny s prostorovou závislostí $\propto e^{i \vec{k}\cdot \vec{r}}$ platí $-i \rot = \vec{k}$, a zavádíme normovaný vlnový vektor $\vec{N}=\vec{k}/k_0$.
 
-V homogenním prostředí ($\e(\vec{r})$ nezávisí na poloze), jsou řešením rovinné vlny (vlastní módy), jejichž prostorová závislost je dána $\E(\vec{r})=\E e^{i \vec{k}\cdot\vec{r}}$ a podobně pro $\B$ se stejným (komplexním) vlnovým vektorem $\vec{k}$.
-Označíme normovaný vlnový vektor $\N=\vec{k} c/\w=-ic/\w\nabla$, pak rovnice pro vlastní módy jsou
-\begin{align}
-\N \times \E = c\B \,, \label{e:NE}\\
-\N \times c\B = -\e \E \,. \label{e:NB}
-\end{align}
-
-Na ostrém rozhraní dvou materiálů, kde dochází ke skokové změně permitivity, platí, že tečné složky $\E$ a $\H$ (a tedy i $\B$ a $c\B$ díky \eqref{e:materialyB}) jsou při přechodu přes rozhraní spojité\cite{Bornwolf}.
+``Okrajové podmínky'' na rozhraní dvou materiálů, kde dochází ke skokové změně permitivity, říkají, že tečné složky $\vec{E}$ a $\vec{H}$ jsou při přechodu přes rozhraní spojité\todocite{Bornwolf}.

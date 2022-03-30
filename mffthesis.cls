@@ -1,34 +1,61 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mffthesis}[2022/02/28]
 
-
-
 \LoadClass[12pt, a4paper]{report}
 
-\RequirePackage[a-2u]{pdfx} %loads hyperref and xcolor automatically
+%%%%%%%%%%%
+% balicky %
+%%%%%%%%%%%
+
+% nahraje xcolor a hyperref automaticky
+\RequirePackage[a-2u]{pdfx}
 \hypersetup{unicode, breaklinks=true}
 
-\RequirePackage[english, czech]{babel}
-\RequirePackage{lmodern}
-\RequirePackage[T1]{fontenc}
+% kodovani a cestina
 \RequirePackage[utf8]{inputenc}
+\RequirePackage[english, czech]{babel}
 
-\RequirePackage[square,numbers]{natbib}
-\RequirePackage[nottoc]{tocbibind}
-\bibliographystyle{unsrtnat}
-\addto{\captionsczech}{\renewcommand{\bibname}{Seznam použité literatury}}
+% bibliografie
+\RequirePackage{csquotes}
+\RequirePackage{biblatex}
 
+% fonty nefungují řů s lualatexem
+%\RequirePackage[T1]{fontenc}
+%\RequirePackage{lmodern}
+
+% graphicx kvulli logu, zbytek styl
 \RequirePackage{graphicx}
 \RequirePackage{indentfirst}
 \RequirePackage{icomma}
 
-\RequirePackage{siunitx}
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
-\RequirePackage{tikz}
-\RequirePackage{booktabs}
+%%%%%%%%%%%%%%%%%%%%%
+% cislovani stranek %
+%%%%%%%%%%%%%%%%%%%%%
 
-%%% metadata
+\newcommand{\frontmatter}{\pagenumbering{roman}}
+\newcommand{\mainmatter}{\pagenumbering{arabic}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% sazeni nazvu kapitol %
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\@makechapterhead}[1]{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries \thechapter. #1
+   \par\nobreak
+   \vskip 20\p@
+}}
+\renewcommand{\@makeschapterhead}[1]{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries #1
+   \par\nobreak
+   \vskip 20\p@
+}}
+
+%%%%%%%%%%%%
+% metadata %
+%%%%%%%%%%%%
+
 \newcommand{\thesistype}[1]{\renewcommand{\@thesistype}{#1}}\newcommand{\@thesistype}{}
 \newcommand{\titleCS}[1]{\renewcommand{\@titleCS}{#1}}\newcommand{\@titleCS}{}
 \newcommand{\titleEN}[1]{\renewcommand{\@titleEN}{#1}}\newcommand{\@titleEN}{}
@@ -50,29 +77,10 @@
 
 \newcommand{\logopath}[1]{\renewcommand{\@logopath}{#1}}\newcommand{\@logopath}{./img/static/logo.pdf}
 
-%%% different page numbering
-\newcommand{\frontmatter}{\pagenumbering{roman}}
-\newcommand{\mainmatter}{\pagenumbering{arabic}}
+%%%%%%%%%%%%%%%%%%
+% uvodni stranky %
+%%%%%%%%%%%%%%%%%%
 
-%%% chapter names typesetting
-\renewcommand{\@makechapterhead}[1]{
-  {\parindent \z@ \raggedright \normalfont
-   \Huge\bfseries \thechapter. #1
-   \par\nobreak
-   \vskip 20\p@
-}}
-\renewcommand{\@makeschapterhead}[1]{
-  {\parindent \z@ \raggedright \normalfont
-   \Huge\bfseries #1
-   \par\nobreak
-   \vskip 20\p@
-}}
-
-%%% automatic figure centering
-\g@addto@macro\@floatboxreset\centering
-
-
-%%% title, declaration, dedication, metadata
 \renewcommand{\maketitle}{
   \begin{titlepage}
     \centering

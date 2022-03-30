@@ -1,0 +1,32 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{vladizlo}[2022/03/22 hlavicka k diplomce]
+
+\RequirePackage{siunitx}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage[mathscr]{eucal}
+\RequirePackage{tikz}
+\RequirePackage{booktabs}
+\RequirePackage[colorinlistoftodos]{todonotes}
+\RequirePackage{bm}
+
+\renewcommand{\vec}[1]{\bm{#1}}
+\newcommand{\rot}{\nabla\times}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\Stks}{\mathscr{S}}
+\newcommand{\M}{\mathbb{M}}
+
+\newcommand{\todocite}[1]{\todo[color=green]{vložit citaci: #1}}
+\newcommand{\todopn}[1]{\todo[color=red]{pro PN: #1}}
+\newcommand{\tododash}{\todo[color=pink]{dash}}
+
+
+\newcommand{\ten}[1]{\vec{#1}}
+\renewcommand{\Re}{\operatorname{\mathfrak{Re}}}
+\renewcommand{\Im}{\operatorname{\mathfrak{Im}}}
+\newcommand{\Hext}{\H^{\textrm{ext}}}
+\newcommand{\phim}{\varphi_M}
+\newcommand{\phiu}{\varphi_u}
+\newcommand{\Hx}{H^\textrm{ext}}
+\newcommand{\phih}{\varphi_H}
+\newcommand{\PMLD}{P^\textrm{Voigt}}

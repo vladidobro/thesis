@@ -1,31 +1,47 @@
-V této kapitole shrneme fyziku
+Celá práce se zabývá jedním typem experimentu, a to tím nejzákladnějším magneto-optickým experimentem, který je schematicky znázorněn na obr. \ref{fig:zakladni-schema}.
 
-\oddelovac 
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{schema}
+    \caption{Jednoduché schéma experimentu. 
+    Laserový svazek je vhodně upraven vstupní optikou, dále dopadá na vzorek, kterým je propuštěn/odražen, nakonec je upraven výstupní optikou (a případně rozdělen do více ramen) a je detekována jeho intenzita. 
+    Vzorek je umístěn v kryostatu a mezi rameny elektromagnetu, takže během experimentu mu vnucujeme libovolnou teplotu a magnetické pole.}
+    \label{fig:zakladni-schema}
+\end{figure}
 
-Cílem této kapitoly je podat čtenáři ucelený přehled relevantní fyziky, abychom mohli v pozdějších kapitolách odvodit a obhájit matematický popis experimentu --- k čemu \emph{přesně} se vztahují čísla na displejích lockinů?
-I v tomto ohledu již vzdělaný čtenář si možná přijde na své, protože v některých směrech volíme mírně nestandardní přístup:
-
+Tato kapitola shrnuje relevantní fyzikální modely a jevy.
+Ve zkratce:
 \begin{itemize}
-\item
-Stokesovy parametry a Muellerovy matice --- elegantní a názorný popis polarizace a jejich změn po působení polarizačních prvků.
-Oproti standardně používanému formalismu Jonesových vektorů a matic mají kromě názornosti ještě jednu velkou výhodu: Stokesovy parametry jsou zobecněné intenzity.
-V experimentu \footnote{kterému se věnuje tato práce} reálně vždy měříme pouze intenzitu, takže měřený signál je lineární v Stokesových parametrech (oproti kvadratickým formám v Jonesových vektorech).
-S Muellerovými maticemi je popis měřící aparatury velice přirozený a názorný, a práce v laboratoři snadnější a přijemnější.
-
-\item
-K výpočtu transmisních a reflexních matic anizotropních planárních struktur se v magnetooptice tradičně citeBerremanperturb využívá Yehův formalismus citeYeh, který vychází z vlnové rovnice pro $E$ -- vektorové diferenciální rovnice \emph{druhého} řádu.
-Magnetooptika se často zajímá o materiály, které jsou téměř izotropní, a předmětem zájmu jsou malé odchylky od izotropie.
-Yehova metoda v sobě jako klíčový krok zahrnuje řešení kvartických rovnic a výpočet vlastních vektorů, tyto dvě operace se však nejhůře chovají právě v takových situacích, v okolí degenerací jsou dokonce singulární cite{Yehsing1}.
-Do problému jsou zavedené uměle, měřitelné transmisní a reflexní matice žádnými takovými problémy netrpí.
-Pro počítačové výpočty konkrétních situací význam nemá, ale výpočet analytických vzorců nutných pro pochopení a interpretaci experimentu je tím výrazně ztížencite{Vispolar}.
-Berremanův formalismus založený přímo na Maxwellových rovnicích \emph{prvního} řádu se obloukem vyhýbá všem problémům spojených s Yehovým formalismem.
+    \item Světlo je popsáno Maxwellovými rovnicemi.
+        \begin{itemize}
+            \item 
+                Je monochromatické na kruhové frekvenci $\omega$. 
+                K popisu polarizačního stavu používáme Jonesovy a Stokesovy vektory.
+                Dráha svazku je rozdělena na posloupnost koherentních a nekoherentních bloků\footnote{Podle toho, jestli jsou vícenásobné odrazy koherentní a interferují s dopadajícím světlem. Např. vícenásobné odrazy mezi různými optickými prvky jsou nekoherentní, protože jsou prostorově odděleny. Naopak uvnitř vzorku složeného z tenkých vrstev je nutné vícenásobné odrazy považovat za koherentní.}.
+                Všechny optické prvky jsou lineární a nedepolarizační, takže každý koherentní blok (např. fázová destička, vzorek) je popsán Jonesovou a Muellerovou maticí.
+                Při popisu optických prvků neúnavně využíváme grafické znázornění Muellerových matic pomocí tzv. \emph{charakteristických elipsoidů}.
+            \item 
+                Interakce světla s látkou je pouze skrze vektory elektrické polarizace $\vec{P}$, magnetizace $\vec{M}$ a proudové hustoty $\vec{j}$. 
+                Odezva materiálů je lineární a lokální, a je obecně anizotropní. 
+                Navíc magnetická odezva je na vysokých optických frekvencích nulová, takže píšeme $\vec{M}(\vec{r},\omega)=0$, $\vec{D}(\vec{r},\omega)=\varepsilon{\textrm{vac}}\varepsilon_{\textrm{el}}(\vec{r},\omega)\vec{E}(\vec{r},\omega)$, $\vec{j}(\vec{r},\omega)=\sigma(\vec{r},\omega)\vec{E}(\vec{r},\omega)$, s komplexními tenzory permitivity $\varepsilon_{el}$ a vodivosti $\sigma$, které se v maxwellových rovnicích projeví souhrně jako tenzor efektivní permitivity $\varepsilon$.
+            \item
+                Uvnitř koherentního bloku (vzorek složený z planárních tenkých vrstev) je nutné řešit Maxwellovy rovnice, výsledkem je opět Jonesova a Muellerova matice.
+                Výpočet je proveden v rámci Berremanova formalismu\todocite{} $4\times 4$ přenosových matic pro anizotropní vrstevnaté prostředí, který je ekvivalentní Yehově $4\times 4$ maticové algebře\todocite{}, ale netrpí některými technickými nedostatky\todocite{}.
+        \end{itemize}
+        
+    \item 
+        Magnetické látky mají dodatečný magnetický termodynamický stupeň volnosti (parametr uspořádání).
+        Magneto-optická aktivita je modelována jako závislost efektivní permitivity $\varepsilon$ na tomto magnetickém stupni volnosti.
+        \begin{itemize}
+            \item 
+                U feromagnetů je to celková magnetizace $\vec{M}$. 
+                Feromagnety reagují na vnější magnetické pole změnou rovnovážné magnetizace, která je daná magnetickou volnou energií (magnetickou anizotropií).
+                Pro relevantní případ tenkých vzorků používáme Stonerův-Wohlfarthův model\todocite{} pro vzorek v jedno-doménovém stavu, předpokládáme konstantní velikost magnetizace a nulový průmět do osy vzorku (magnetizace je tyv. \emph{in-plane}).
+                Efektivní permitivita je funkcí $\vec{M}$ a je aproximována prvními členy Taylorovy řady, koeficienty tvoří složky lineárního $\mathbb{K}$ a kvadratického $\mathbb{G}$ magneto-optického tenzoru.
+            \item
+                U kolineárního antiferomagnetu FeRh (viz kap. \ref{chap:vzorek-ferh}) je to magnetizace podmřížky (Néelův vektor\todo{pravda?} $\vec{L}$).
+                Na vnější magnetické pole přímo nereaguje, ale polohu Néelova vektoru lze ovlivnit pomocí efektu známéno jako \emph{field cooling}, tedy chlazení při vnějším poli.
+                I antiferomagnet může být magneticky anizotropní, opět předpokládáme in-plane $\vec{L}$ o konstantní velikosti.
+                Podobně jako u feromagnetů je $\varepsilon$ funkcí $\vec{L}$, až na to, že lineární člen je zakázán symetrií\footnote{Podmřížky s opačnou magnetizací jsou ekvivalentní, což není pravda u všech antiferomagnetů.}.
+        \end{itemize}
 \end{itemize}
-
-V rovnicích velice často využíváme úspornosti zápisu pomocí implicitního maticové násobení.
-Sloupcové vektory značíme tlustým písmem a řádkové vektory pomocí transpozice (či hermitovského sdružení) sloupcového vektoru.
-Maticovou povahu každého objektu vždy definujeme v textu, ale dále explicitně nezdůrazňujeme speciální notací.
-Užitečnou zásadou při čtení této práce je o každém objektu (i o číslech) předpokládat, že se jedná o matici (násobek jednotkové matice).
-Většina čísel jsou navíc komplexní, což také nezdůrazňujeme notací.
-Při pochybách odkazujeme na dodatek refk:dodatek konvence
-
-Pokud v názvu oddílu uvádíme odkaz na literaturu, vycházíme v něm z uvedeného zdroje, avšak notaci a konvence přizpůsobujeme konvencím této práce.

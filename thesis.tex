@@ -1,37 +1,23 @@
 \documentclass{mffthesis}
-
-\newcommand{\oddelovac}{\par\noindent\rule{\textwidth}{0.4pt}}
-
-
-
+\usepackage{vladizlo}
 \input{./tex/metadata}
-
-\includeonly{
-  ./tex/introduction,
-  ./tex/chap1,
-  ./tex/chap2,
-  ./tex/chap3,
-  ./tex/chap4,
-  ./tex/chap5,
-  ./tex/conclusion,
-  ./tex/appendix
-}
+\addbibresource{bib/zotero.bib}
 
 \begin{document}
 
-  \maketitle
+  %\maketitle
 
-  \frontmatter
-    \makedeclaration
-    \makededication
-    \makemetapage
-
+  %\frontmatter
+    %\makedeclaration
+    %\makededication
+    %\makemetapage
+ 
+  \listoftodos
 
   \mainmatter
     \tableofcontents
 
-    %\include{./tex/introduction}
-
+    \include{./tex/introduction}
     \include{./tex/chap1}
     \include{./tex/chap2}
     \include{./tex/chap3}
@@ -40,8 +26,7 @@
 
     \include{./tex/conclusion}
 
-    \bibliography{bib/original,bib/calibre,bib/zotero}    
-
+    \printbibliography[heading=bibintoc, title=Seznam použité literatury]
     \appendix
       \include{./tex/appendix}
 
