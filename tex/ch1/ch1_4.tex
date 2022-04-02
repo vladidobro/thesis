@@ -1,82 +1,97 @@
-\section{Magnetooptické tenzory \cite{Visbible}}
+\section{Magneto-optické tenzory}
+\label{chap:magnetoopticke-tenzory}
 
-Všechny magnetooptické jevy lze v principu vysvětlit závislostí optických parametrů na magnetickém stavu\cite{Silber}.
-V našem popisu materiálů je jediným materiálovým parametrem tenzor relativní permitivity $\e$, jeho závislost na magnetickém stavu značíme $\e(\M)$.
+\todocite{Visbible}
+Všechny magneto-optické (MO) jevy lze v principu vysvětlit závislostí optických parametrů na magnetickém stavu\todocite{Silber}.
+V našem popisu materiálů je jediným materiálovým parametrem tenzor relativní permitivity $\varepsilon$.
+Nejdříve se zaměříme na feromagnety, závislost na magnetickém stavu značíme $\varepsilon(\vec{M})$.
 Obecně je možné rozdělit závislost do tří příspěvků
 \begin{equation}
-\e(M)=\e^0 + \e^{-}(\M) + \e^{+}(\M) \,,
+    \varepsilon(\vec{M})=\varepsilon^{(0)} + \varepsilon^{(-)}(\vec{M}) + \varepsilon^{(+)}(\vec{M}) \,,
 \end{equation}
-kde $\e^0\equiv \e(0)$ je nemagnetická/strukturální permitivita, $\e^-(\M)=-\e^-(-\M)$ je permitivita lichá v magnetizaci a $\e^+(\M)=\e^+(-\M)$, $\e^+(0)=0$ je permitivita sudá v magnetizaci.
+kde $\varepsilon^{(0)}\equiv \varepsilon(\vec{M}=0)$ je nemagnetická/strukturální permitivita,
+$\varepsilon^{(-)}(\vec{M})=-\varepsilon^{(-)}(-\vec{M})$ je permitivita lichá v magnetizaci
+a $\varepsilon^{(+)}(\vec{M})=\varepsilon^{(+)}(-\vec{M})$, $\varepsilon^+(0)=0$ je permitivita sudá v magnetizaci.
 
-Z termodynamických úvah plynou Onsagerovy relace reciprocity\cite{Onsager} pro $\e(M)$
+Z termodynamických úvah plynou Onsagerovy relace reciprocity\todocite{Onsager} pro $\varepsilon(\vec{M})$
 \begin{equation}
-\varepsilon_{ij}(\M)=\varepsilon_{ji}(-\M) \,,
+    \varepsilon_{ij}(\vec{M})=\varepsilon_{ji}(-\vec{M}) \,,
 \end{equation}
-z kterých plyne, že $\e^0$ a $\e^+$ jsou symetrické, zatímco $\e^-$ je antisymetrický.
+takže $\varepsilon^{(0)}$ a $\varepsilon^{(+)}$ jsou symetrické, zatímco $\varepsilon^{(-)}$ je antisymetrický.
 
-Magnetická závislost permitivity se obvykle rozvíjí do mocninné řady v $\M$
-\begin{align} \label{e:MO tenzory}
-\varepsilon_{ij}(\M)&=\e^0_{ij} + \sum_{k=1}^{3}\left[ \frac{\partial \varepsilon_{ij}}{\partial M_k}\right]_{\M=0} M_k + \sum_{k,l=1}^{3} \frac{1}{2}\left[ \frac{\partial^2 \varepsilon_{ij}}{\partial M_k \partial M_l}\right]_{\M=0} M_k M_l + \dots \\
-&=\e^0_{ij} + \sum_{k=1}^{3}K_{ijk} M_k + \sum_{k,l=1}^{3} G_{ijkl} M_k M_l + \dots=\e^0_{ij} +\e^1_{ij} +\e^2_{ij} + \dots
+Magnetická závislost permitivity se obvykle rozvíjí do mocninné řady v $\vec{M}$
+\begin{align} 
+\label{eqn:MO-tenzory}
+    \varepsilon_{ij}(\vec{M})&=\varepsilon^0_{ij}
+        + \sum_{k=1}^{3}\left[ \frac{\partial \varepsilon_{ij}}{\partial M_k}\right]_{\vec{M}=0} M_k 
+        + \sum_{k,l=1}^{3} \frac{1}{2}\left[ \frac{\partial^2 \varepsilon_{ij}}{\partial M_k \partial M_l}\right]_{\vec{M}=0} M_k M_l + \dots 
+    \\ &=\varepsilon^0_{ij} 
+        + \sum_{k=1}^{3}K_{ijk} M_k 
+        + \sum_{k,l=1}^{3} G_{ijkl} M_k M_l + \dots
+        =\varepsilon^{(0)}_{ij} +\varepsilon^{(1)}_{ij} +\varepsilon^{(2)}_{ij} + \dots
 \end{align}
-kde jsme explicitně uvedli první dva řády, které definují \emph{lineární magnetooptický tenzor} $K$ a \emph{kvadratický magnetooptický tenzor} $G$. \cite{Visbible}
+kde jsme explicitně uvedli první dva řády, které definují \emph{lineární MO tenzor} $\mathbb{K}$ a \emph{kvadratický MO tenzor} $\mathbb{G}$. \todocite{Visbible}
+Vyšší řády se většinou zanedbávají.
+Je dobré ale mít na paměti, že zakončením rozvoje na určitém řádu nejen snižujeme přesnost, ale také uměle zvyšujeme symetrii $\varepsilon(\M)$ \todocite{Silber}.
+To je nejlépe nahlédnout např. u materiálu se šesterečnou symetrií v rovině $xy$ --\tododash $\mathbb{G}$ tenzor je v rovině $xy$ isotropní, ale permitivita 6. řádu už má ``správnou'' šesterečnou symetrii.
+MO tenzory $\mathbb{K}$ a $\mathbb{G}$ nedokáží popsat šesterečně symetrický Voigtův jev\todo{odkaz na kapitolu}, proto je třeba mít se na pozoru a v případě takového kvalitativního důkazu do rozvoje přidat další členy.
 
-Vyšší řády se většinou zanedbávají, neboť nikdy nebyly pozorovány\footnote{Lépe řečeno jejich příspěvek nikdy nebyl prokázán}.
-Je dobré mít na paměti, že zakončením rozvoje na určitém řádu nejen snižujeme přesnost, ale také uměle zvyšujeme symetrii závislosti $\e(\M)$ \cite{Silber}.
-To je nejlépe nahlédnout např. u materiálu se šesterečnou symetrií v rovině $xy$ -- $G$ tenzor je v rovině $xy$ isotropní, ale permitivita 6. řádu už má "správnou" šesterečnou symetrii; magnetooptické tenzory $K$ a $G$ nedokáží popsat šesterečnou symetrii Voigtova jevu\footnote{Při saturované magnetizaci}!
-Proto je třeba mít se na pozoru a v případě takového kvalitativního důkazu do rozvoje přidat další členy.
-
-Magnetooptické tenzory se musí podřizovat stejným symetriím jako materiál, který popisují.
-To je spolu s Onsagerovými relacemi poměrně silně omezuje.
-Tvar $K$ a $G$ pro všechny krystalografické třídy je uveden v \cite{Visbible}.
-Dále uvedeme magnetooptické tenzory pro izotropní a kubický (krystalové třídy $\bar{4}3m, 432, m3m$) materiál s krystalografickými osami ve směrech souřadných os.
-Izotropní i kubický materiál mají izotropní nemagnetickou permitivitu
+MO tenzory se musí podřizovat stejným symetriím jako materiál, který popisují, což je spolu s Onsagerovými relacemi poměrně silně omezuje.
+Tvar $\mathbb{K}$ a $\mathbb{G}$ pro všechny krystalografické třídy je uveden v \todocite{Visbible}.
+Dále uvedeme MO tenzory pro izotropní a kubický (krystalové třídy $\bar{4}3m, 432, m3m$) materiál s krystalografickými osami ve směrech souřadných os.
+Izotropní i kubický materiál mají izotropní nemagnetickou permitivitu (index lomu $n$)
 \begin{equation}
-\e^0=\begin{pmatrix}
-\varepsilon^0 & 0 & 0 \\ 0 & \varepsilon^0 & 0 \\ 0 & 0 & \varepsilon^0
-\end{pmatrix} \,,
+    \varepsilon^{(0)}=\begin{pmatrix}
+        n^2 & 0 & 0 \\ 0 & n^2 & 0 \\ 0 & 0 & n^2
+    \end{pmatrix} \,,
 \end{equation}
-oba také mají izotropní $K$ tenzor (ale neizotropní permitivitu 1. řádu)
+oba také mají izotropní $\mathbb{K}$
 \begin{equation}
-\begin{pmatrix}
-\varepsilon^1_{yz}=-\varepsilon^1_{zy} \\ \varepsilon^1_{zx}=-\varepsilon^1_{xz} \\ \varepsilon^1_{xy}=-\varepsilon^1_{yx}\end{pmatrix}
-=\begin{pmatrix}
-K & 0 & 0 \\ 0 & K & 0 \\ 0 & 0 & K
-\end{pmatrix}\begin{pmatrix}M_x \\ M_y \\ M_z\end{pmatrix} \,, \,\, \e^1= K \begin{pmatrix}
-0 & M_z & -M_y \\
--M_z & 0 & M_x \\
-M_y & -M_x & 0
-\end{pmatrix}
+    \begin{pmatrix} \varepsilon^{(1)}_{yz}=-\varepsilon^{(1)}_{zy} \\ \varepsilon^{(1)}_{zx}=-\varepsilon^{(1)}_{xz} 
+        \\ \varepsilon^{(1)}_{xy}=-\varepsilon^{(1)}_{yx}\end{pmatrix}
+    =\begin{pmatrix} K & 0 & 0 \\ 0 & K & 0 \\ 0 & 0 & K \end{pmatrix}
+    \begin{pmatrix}M_x \\ M_y \\ M_z\end{pmatrix} 
+    \,, \,\, \varepsilon^{(1)}= K 
+    \begin{pmatrix} 0 & M_z & -M_y \\ -M_z & 0 & M_x \\ M_y & -M_x & 0 \end{pmatrix} \,,
 \end{equation}
-ale v druhém řádu už se liší. Pro kubický materiál platí (používáme 2-indexovou notaci jako \cite{Hamrlova})
+ale v druhém řádu už se liší.
+Pro kubický materiál platí (používáme 2-indexovou notaci jako \todocite{Hamrlova})
 \begin{equation}
-\begin{pmatrix}
-\varepsilon^2_{xx} \\ \varepsilon^2_{yy} \\ \varepsilon^2_{zz} \\ \varepsilon^2_{yz}=\varepsilon^2_{zy} \\ \varepsilon^2_{zx}=\varepsilon^1_{xz} \\ \varepsilon^1_{xy}=\varepsilon^1_{yx}\end{pmatrix}
-=\begin{pmatrix}
-G_{11} & G_{12} & G_{12} & 0 & 0 & 0 \\
-G_{12} & G_{11} & G_{12} & 0 & 0 & 0 \\
-G_{12} & G_{12} & G_{11} & 0 & 0 & 0 \\
-0 & 0 & 0 & 2G_{44} & 0 & 0 \\
-0 & 0 & 0 & 0 & 2G_{44} & 0 \\
-0 & 0 & 0 & 0 & 0 & 2G_{44}
-\end{pmatrix}\begin{pmatrix}M_x^2 \\ M_y^2 \\ M_z^2 \\ M_y M_z \\ M_z M_x \\ M_x M_y \end{pmatrix} \,,
+    \begin{pmatrix}
+        \varepsilon^{(2)}_{xx} \\ \varepsilon^{(2)}_{yy} \\ \varepsilon^{(2)}_{zz} 
+        \\ \varepsilon^{(2)}_{yz}=\varepsilon^{(2)}_{zy} 
+        \\ \varepsilon^{(2)}_{zx}=\varepsilon^{(2)}_{xz} 
+        \\ \varepsilon^{(2)}_{xy}=\varepsilon^{(2)}_{yx}
+    \end{pmatrix}
+    =\begin{pmatrix}
+        G_{11} & G_{12} & G_{12} & 0 & 0 & 0 \\
+        G_{12} & G_{11} & G_{12} & 0 & 0 & 0 \\
+        G_{12} & G_{12} & G_{11} & 0 & 0 & 0 \\
+        0 & 0 & 0 & 2G_{44} & 0 & 0 \\
+        0 & 0 & 0 & 0 & 2G_{44} & 0 \\
+        0 & 0 & 0 & 0 & 0 & 2G_{44}
+    \end{pmatrix}
+    \begin{pmatrix} M_x^2 \\ M_y^2 \\ M_z^2 \\ M_y M_z \\ M_z M_x \\ M_x M_y \end{pmatrix} \,,
 \end{equation}
 pro isotropní navíc $\Delta G \equiv G_{11}-G_{12}-2G_{44}=0$.
-Pro pozdější použití pro speciální případ $M_z=0$
+Pro pozdější použití uvedeme pro speciální případ $M_z=0$
 \begin{align}
-\e^2=
-G_{12} |\M|^2 +& \frac{G_{11}-G_{12}+2G_{44}}{2}\begin{pmatrix}
-M_x^2 & M_x M_y & 0 \\ M_x M_y & M_y^2 & 0 \\ 0 & 0 & 0
-\end{pmatrix}\\
-+& \frac{\Delta G}{2} \begin{pmatrix}
-M_x^2 & -M_xM_y & 0\\ -M_xM_y & M_y^2 & 0 \\ 0 & 0 & 0
-\end{pmatrix}
+    \varepsilon^{(2)} =& G_{12} |\vec{M}|^2 \\ 
+    &+ \frac{G_s}{2} \begin{pmatrix}
+        M_x^2 & M_x M_y & 0 \\ M_x M_y & M_y^2 & 0 \\ 0 & 0 & 0
+    \end{pmatrix}
+    + \frac{\Delta G}{2} \begin{pmatrix}
+        M_x^2 & -M_xM_y & 0 \\ -M_xM_y & M_y^2 & 0 \\ 0 & 0 & 0
+    \end{pmatrix}
 \end{align}
-Pro úplnost připomeneme, že složky magnetooptických tenzorů jsou stejně jako relativní permitivita $\e$ komplexní, bezrozměrné a frekvenčně závislé.
+kde $G_s=G_{11}-G_{12}+2G_{44}$.\todo{overit}
+Pro úplnost připomeneme, že složky MO tenzorů jsou stejně jako relativní permitivita $\varepsilon$ komplexní, bezrozměrné a frekvenčně závislé.
+Pokud je materiál dobře popsaný MO tenzory, lze pro libovolné $\vec{M}$ dosazením do \eqref{eqn:MO-tenzory} získat $\varepsilon$, aplikovat metodu z oddílu \ref{chap:optika-v-multivrstvach} a tak spočítat všechny myslitelné transmisní a reflexní koeficienty.
 
-Uvedený přístup není možné použít v případě, že osvětlované místo vzorku není tvořené homogenním $\M$, ale je tvořené více doménami, ve kterých se liší.
-$\M$ je ve více-doménovém stavu dané průměrem přes domény.
-Pro lineární permitivitu to nečiní problém, protože průměrná permitivita je pak dána pomocí stejného $K$ tenzoru pouze dosazením průměrné magnetizace, ale kvadratická permitivita už není jednoznačně daná pouze průměrným $\M$: kvadratický $G$ tenzor je možné používat pouze v jedno-doménovém stavu, případně pro každou doménu zvlášť.
+Uvedený přístup není možné použít v případě, že osvětlované místo vzorku není tvořené homogenním $\vec{M}$, ale je tvořené více doménami, ve kterých se liší.
+$\vec{M}$ je ve více-doménovém stavu dané průměrem přes domény.
+Pro $\mathbb{K}$ to nečiní problém, protože pro průměrné $\vec{M}$ dostaneme průměrné $\varepsilon$, ale pro $\mathbb{G}$ to již neplatí.
 
-Pokud je materiál dobře popsaný magnetooptickými tenzory, lze pro libovolné $\M$ dosazením do \eqref{e:MO tenzory} získat $\e$, aplikovat metodu z předchozího oddílu a tak spočítat všechny myslitelné transmisní a reflexní koeficienty.
-Tím je přímá úloha magnetooptiky formálně vyřešena, v praxi je však častější obrácená úloha -- z pozorovaných usuzovat o magnetooptických tenzorech, čemuž se věnujeme v dalších kapitolách.
+Antiferomagnety se popisují analogicky, jen místo magnetizace závisí $\varepsilon$ na jiném parametru uspořádání.
+V případě kolineárního antiferomagnetu FeRh (viz kap. \ref{chap:vzorek-ferh}) je to Néelův vektor $\vec{L}$,
+a protože fyzikální situace s opačnou orientací ($+\vec{L}$ a $-\vec{L}$) jsou symetrické, lineární MO tenzor je v něm nulový.

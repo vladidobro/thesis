@@ -1,174 +1,174 @@
-\section{Optika v anizotropních multivrstvách \cite{Berreman}}
+\section{Optika v anizotropních multivrstvách}
+\label{chap:optika-v-multivrstvach}
 
-Cílem tohoto oddílu je představit teorii výpočtu transmisních a reflexních koeficientů (Jonesových matic průchodu a odrazu) obecných vrstevnatých struktur popsaných stupňovitým profilem tenzoru $\e$.
-Vrstevnatou strukturou rozumíme takovou, která je homogenní v rovině kolmé na jednu osu, tu zvolíme jako $z$, a rovina homogenity a všech rozhraní bude $xy$, viz obr. \ref{f:vrstevnate prostredi}.
-Stupňovitým profilem zase rozumíme, že struktura je složená z konečného počtu vrstev, ve kterých je $\e$ konstantní.
+Cílem tohoto oddílu je představit teorii výpočtu transmisních a reflexních koeficientů (Jonesových matic průchodu a odrazu) obecných vrstevnatých struktur popsaných stupňovitým profilem tenzoru $\varepsilon$.
+Vrstevnatou strukturou rozumíme takovou, která je homogenní v rovině kolmé na jednu osu, tu zvolíme jako $z$, a rovina homogenity a všech rozhraní bude $xy$, viz obr. \ref{fig:vrstevnate-prostredi}.
+Stupňovitým profilem zase rozumíme, že struktura je složená z konečného počtu vrstev, ve kterých je $\varepsilon$ konstantní.
 
-\begin{figure}\centering
-\includegraphics[width=0.3\linewidth]{./img/t4.png}
-\caption{Vrstevnaté prostředí}\label{f:vrstevnate prostredi}
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{vrstevnate prostredi}
+    \caption{vrstevnate prostredi}
+    \label{fig:vrstevnate-prostredi}
 \end{figure}
 
-Budou nás zajímat řešení Maxwellových rovnic \eqref{e:rotE} a \eqref{e:rotB}.
+Budeme řešit Maxwellovy rovnice \eqref{eqn:rot-E}, \eqref{eqn:rot-ZH}.
 Vzhledem k homogenitě v rovině $xy$ lze psát
-\begin{equation} \label{e:kxy}
-\E(x,y,z)=\E(z) e^{i(k_xx+k_yy)} \,, \qquad c\B(x,y,z)=c\B(z) e^{i(k_xx+k_yy)} \,,
+\begin{equation} 
+\label{eqn:pricne-vlnove-vektory}
+    \vec{E}(x,y,z)=\vec{E}(z) e^{i(k_xx+k_yy)} \,, \qquad \vec{H}(x,y,z)=\vec{H}(z) e^{i(k_xx+k_yy)} \,,
 \end{equation}
-kde $k_x$ a $k_y$ jsou konstantní podél celé struktury i mimo ní.
+kde příčné složky vlnového vektoru $k_x$ a $k_y$ jsou konstantní podél celé struktury i mimo ní.
 Uvnitř každé vrstvy bude existovat i třetí složka $k_z$, bude se ale lišit v různých vrstvách.
-Obecný postup je tedy řešit Maxwellovy rovnice zvlášť v každém prostředí, a řešení následně svázat pomocí okrajových podmínek, které říkají, že na rozhraních vrstev jsou tečné složky $E_x, E_y, cB_x, cB_y$ spojité.
-
-Budeme následovat řešení Berremanovou maticovou metodou\cite{Berreman}.
-Rovnice \eqref{e:NE} a \eqref{e:NB} mají v maticovém zápisu tvar
+Obecný postup je tedy řešit Maxwellovy rovnice zvlášť v každém prostředí, a řešení následně svázat pomocí okrajových podmínek.
+ 
+Budeme následovat řešení Berremanovou metodou přenosových matic\todocite{Berreman}.
+S uvážením \eqref{eqn:pricne-vlnove-vektory} mají Maxwellovy rovnice maticový tvar
 \begin{equation}
-\begin{pmatrix}
-0 & -N_z & N_y & -1 & 0 & 0 \\
-N_z & 0 & -N_x & 0 & -1 & 0 \\
--N_y & N_x & 0 & 0 & 0 & -1 \\
-\varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} & 0 & -N_z & N_y \\
-\varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} & N_z & 0 & -N_x \\
-\varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} & -N_y & N_x & 0
-\end{pmatrix}
-\begin{pmatrix}
-E_x \\ E_y \\ E_z \\ cB_x \\ cB_y \\ cB_z
-\end{pmatrix} = \begin{pmatrix}
-0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0
-\end{pmatrix} \,.
+\label{eqn:Berreman-6x6}
+    \begin{pmatrix}
+        0 & +i\partial_z/k_0 & N_y & -1 & 0 & 0 \\
+        -i\partial_z/k_0 & 0 & -N_x & 0 & -1 & 0 \\
+        -N_y & N_x & 0 & 0 & 0 & -1 \\
+        \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} & 0 & +i\partial_z/k_0 & N_y \\
+        \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} & -i\partial_z/k_0 & 0 & -N_x \\
+        \varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} & -N_y & N_x & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        E_x \\ E_y \\ E_z \\ Z_0 H_x \\ Z_0 H_y \\ Z_0 H_z
+    \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix} \,.
 \end{equation}
-Jedinou neznámou je zde $N_z$. Matice uměrná $N_z$ nemá plnou hodnost, dvě rovnice jsou lineárně závislé, a proto je můžeme vyřešit a dosadit do ostatních.
-Zvolíme pro tento účel třetí a šestou rovnici (pro $E_z$ a $cB_z$), které neobsahují $N_z$ a zároveň se nezachovávají na rozhraní.
-Nejdříve ale zavedeme úsporný blokově maticový zápis
-\begin{align} \label{e:Berreman 6x6}
-E^\perp = \begin{pmatrix}E_x \\ E_y\end{pmatrix}
-\,, \, cB^\perp = \begin{pmatrix}cB_x \\ cB_y\end{pmatrix}
-\,, \qquad N^\vert = \begin{pmatrix} N_y \\ -N_x \end{pmatrix}
-\,, \, N^- = \begin{pmatrix} -N_y & N_x\end{pmatrix}
-\,, \\ \varepsilon^\perp=\begin{pmatrix}\varepsilon_{11} & \varepsilon_{12} \\ \varepsilon_{21} & \varepsilon_{22}\end{pmatrix}
-\,, \, \varepsilon^\vert=\begin{pmatrix} \varepsilon_{13} \\ \varepsilon_{23} \end{pmatrix}
-\,, \, \varepsilon^-=\begin{pmatrix} \varepsilon_{31} & \varepsilon_{32} \end{pmatrix}
-\,, \qquad \rho = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}
-\,.
+
+Člen prvního řádu\footnote{Prvního řádu $\partial_z$.} nemá plnou hodnost; třetí a šestou rovnici lze přímo vyřešit a dosadit do ostatních.
+Nejdříve ale zavedeme úsporný blokově maticový zápis\todo{overit vsechny rovnice odtud dolu a taky dopsat az k odstavci o odrazu}
+\begin{align}
+\label{eqn:Berreman-blokove-znaceni}
+    \rho = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}
+    \,, \qquad E^\perp = \begin{pmatrix}E_x \\ E_y\end{pmatrix}
+    \,, \, H^\perp = \rho \begin{pmatrix} H_x \\ H_y\end{pmatrix} = \begin{pmatrix} -H_y \\ H_x \end{pmatrix}
+    \,, \\ \varepsilon^\perp=\begin{pmatrix}\varepsilon_{11} & \varepsilon_{12} \\ \varepsilon_{21} & \varepsilon_{22}\end{pmatrix}
+    \,, \, \varepsilon^\vert=\begin{pmatrix} \varepsilon_{13} \\ \varepsilon_{23} \end{pmatrix}
+    \,, \, \varepsilon^-=\begin{pmatrix} \varepsilon_{31} & \varepsilon_{32} \end{pmatrix}
+    \,, \qquad N = \begin{pmatrix} N_x \\ N_y \end{pmatrix}
+    \,.
 \end{align}
+
 Třetí a šestá rovnice mají tvar
 \begin{equation}
-N^- E^\perp - cB_z=0 \,, \qquad \varepsilon^- E^\perp + \varepsilon_{33} E_z + N^- cB^\perp=0 \,,
+    N^- E^\perp - cB_z=0 \,, \qquad \varepsilon^- E^\perp + \varepsilon_{33} E_z + N^- cB^\perp=0 \,,
 \end{equation}
-vyřešením a dosazením do \eqref{e:Berreman 6x6} dostáváme\footnote{Každý blok je $2\times 2$, 1 zde značí jednotkovou $2\times 2$ matici.}
+vyřešením a dosazením do \eqref{eqn:Berreman-6x6} dostáváme
 \begin{equation}
-\begin{pmatrix}
-N_z \rho -\frac{N^\vert \varepsilon^-}{\varepsilon_{33}} & -1 - \frac{N^\vert N^- }{\varepsilon_{33}} \\
-\varepsilon^\perp-\frac{\varepsilon^\vert \varepsilon^-}{\varepsilon_{33}}+N^\vert N^- & N_z \rho - \frac{\varepsilon^\vert N^-}{\varepsilon_{33}}
-\end{pmatrix}
-\begin{pmatrix} E^\perp \\ cB^\perp \end{pmatrix} = 0 \,,
+    \begin{pmatrix}
+        N_z \rho -\frac{N^\vert \varepsilon^-}{\varepsilon_{33}} & -1 - \frac{N^\vert N^- }{\varepsilon_{33}} \\
+        \varepsilon^\perp-\frac{\varepsilon^\vert \varepsilon^-}{\varepsilon_{33}}+N^\vert N^- & N_z \rho - \frac{\varepsilon^\vert N^-}{\varepsilon_{33}}
+    \end{pmatrix}
+    \begin{pmatrix} E^\perp \\ cB^\perp \end{pmatrix} = 0 \,,
 \end{equation}
-což lze přeformulovat jako vlastní úlohu
-\begin{equation} \label{e:tvar N_z}
-\begin{pmatrix}
-\rho & 0 \\ 0 & \rho
-\end{pmatrix}
-\begin{pmatrix}
--\frac{N^\vert \varepsilon^-}{\varepsilon_{33}} & -1 - \frac{N^\vert N^- }{\varepsilon_{33}} \\
-\varepsilon^\perp-\frac{\varepsilon^\vert \varepsilon^-}{\varepsilon_{33}}+N^\vert N^- & - \frac{\varepsilon^\vert N^-}{\varepsilon_{33}}
-\end{pmatrix}
-\begin{pmatrix} E^\perp \\ cB^\perp \end{pmatrix}
-=N_z \begin{pmatrix} E^\perp \\ cB^\perp \end{pmatrix}
+což lze upravit do normálního tvaru
+\begin{equation} 
+\label{eqn:Berreman-master}
+    \partial_z \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}
+    = i k_0 \Delta \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}
+    \equiv i k_0 \begin{pmatrix}
+        1 & 0 \\ 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix} \,.
 \end{equation}
-Uvnitř dané vrstvy s konstantním $\e$ je závislost polí na souřadnici $z$ daná pomocí maticové exponenciály této $4\times 4$ matice
-\begin{equation} \label{e:N_z exponenciala}
-\begin{pmatrix} E^\perp(z_2) \\ cB^\perp(z_2) \end{pmatrix} = e^{ik_z(z_2-z_1)} \begin{pmatrix} E^\perp(z_1) \\ cB^\perp(z_1) \end{pmatrix} =
-e^{iN_z\frac{\w(z_2-z_1)}{c}} \begin{pmatrix} E^\perp(z_1) \\ cB^\perp(z_1) \end{pmatrix}
-\end{equation}
-pro libovolné $z_1$, $z_2$ uvnitř vrstvy.
-Složky polí $E^\perp(z_2)$ a $cB^\perp(z_2)$ jsou právě tečné složky, které jsou na rozhraní spojité, takže po vypočtení maticové exponenciály \eqref{e:N_z exponenciala} pro každou vrstvu dostaneme maticový vztah polí na začátku a na konci multivrstvy.
 
-Matice \eqref{e:tvar N_z} má obecně 4 komplexní vlastní čísla a lze ji diagonalizovat pomocí vlastních vektorů\footnote{Matice není normální a proto vlastní vektory nejsou navzájem kolmé. Striktně vzato nemusí být matice diagonalizovatelná, praktické potíže to však nečiní.}, které lze rozdělit do dvou skupin s fyzikálním významem, že jde o dva módy šířící se ve směru $+z$ a dva v $-z$. Pro dva z nich platí\footnote{Třetí složka Poyntingova vektoru je dána právě tečnými složkami $S_z\propto E_xH_y-E_yH_x$} $\Re\lbrace N_z \rbrace\geq0$, $\Im\lbrace N_z \rbrace\geq0$, $S_z\geq0$ a šíří se ve směru $+z$, zbylé dva se šíří ve směru $-z$ a platí pro ně opačné nerovnice.
+Čtyři složky polí $E^\perp$ a $H^\perp$ jsou právě ty, jejichž spojitost na rozhraní diktují okrajové podmínky, takže není třeba se jimi zabývat zvlášť; stačí řešit rovnici \eqref{eqn:Berreman-master}.
+Uvnitř každé vrstvy (v oblasti s konstantním $\varepsilon$ a tedy maticí $\Delta$) je řešením maticová exponenciála
+\begin{equation}
+\label{eqn:Berreman-exponenciala}
+    \begin{pmatrix} E^\perp(z_2) \\ Z_0 H^\perp(z_2) \end{pmatrix} = e^{ik_0\Delta(z_2-z_1)} \begin{pmatrix} E^\perp(z_1) \\ Z_0 H^\perp(z_1) \end{pmatrix}
+\end{equation}
+která lze spočíst diagonalizací\footnote{Obecně vzato nemusí být diagonalizovatelná, dovoluje však maximálně dvounásobnou degeneraci (dva módy postupné $+z$ a dva $-z$), takže v nejpatologičtějším případě má Jordanův tvar dvou $2\times2$ bloků.} obecně nehermitovské $4\times 4$ matice $\Delta$.
+Matice má 4 komplexní vlastní čísla odpovídající vlnovým vektorům příslušných vlastních módů, které lze rozdělit do dvou skupin:
+dva módy šířící se ve směru $+z$ mají\footnote{Podle \eqref{eqn:Poynting} $S_z \propto E_xH_y-E_yH_x$.} $\Re\lbrace N_z \rbrace\geq0$, $\Im\lbrace N_z \rbrace\geq0$, $S_z\geq0$;\todo{spravne strednik?} zbylé dva se šíří ve směru $-z$ a platí pro ně opačné nerovnice.
 
+Velmi důležitým rozdílem Berremanova přístupu oproti Yehově maticové algebře je,
+že zatímco v Yehově metodě je diagonalizace a hledání vlastních módů nedílnou součástí již definice základních pojmů formalismu (tzv. dynamické a propagační matice),
+v Berremanově metodě se uplatňuje pouze jako pomocný výpočet jinak již dobře definované maticové exponenciály \eqref{eqn:Berreman-exponenciala}.
+Diagonalizace a hledání vlastních módů jsou vysoce nelineární operace, jsou singulární v okolí degenerací (limita izotropního $\varepsilon$, či směr paprsku shodný s optickou osou) a někdy v nich dokonce selhávají\todocite{}.
+
+Tento rozdíl je zásadní v magneto-optice, kde nás často zajímají právě drobné odchylky od izotropní $\varepsilon$, a výsledky jsou vyjádřeny do prvního řádu v těchto odchylkách.
+V Yehově formalismu obtížné počítat derivace podle složek $\varepsilon$; v \eqref{eqn:Berreman-exponenciala} je to však jednoduché.
+Z uvedených důvodů v této práci používáme Berremanův formalismus, přestože magneto-optice z velké části dominuje Yehův.
+\todo{vlozit odkaz na appendix}
 \subsection*{Odraz a průchod}
 
-Předpokládejme, že se nám díky \eqref{e:N_z exponenciala} podařilo najít matici $M$, která svazuje příčná pole na začátku ($l$) a na konci $(r)$ multivrstvy, viz obr. \ref{f:odraz a pruchod} (a)
+Předpokládejme, že se nám podařilo vyřešit \eqref{eqn:Berreman-master} a tedy najít matici $\mathfrak{M}$, která svazuje příčná pole na začátku $(L)$ a na konci $(R)$ multivrstvy, viz obr. \ref{fig:odraz-pruchod}
 \begin{equation}
-\begin{pmatrix} E^\perp_l \\ cB^\perp_l \end{pmatrix}=M \begin{pmatrix} E^\perp_r \\ cB^\perp_r \end{pmatrix}
+    \begin{pmatrix} E^\perp_l \\ Z_0 H^\perp_l \end{pmatrix}=\mathfrak{M} \begin{pmatrix} E^\perp_r \\ Z_0 H^\perp_r \end{pmatrix}
 \end{equation}
 
 \begin{figure}
-\centering
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{./img/t5a.png}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{./img/t5b.png}
-\end{minipage}
-\caption{Odraz a průchod}\label{f:odraz a pruchod}
+    \centering
+    \missingfigure{nakres}
+    \caption{Odraz a průchod}
+    \label{fig:odraz-pruchod}
 \end{figure}
 
-Úloha průchodu a odrazu je typicky zadána tak, že na strukturu posvítíme svazkem s definovaným $\N$, a nikdo jiný z žádné strany nesvítí.
-Zvolíme si, že svítíme z levé strany (takže se záporným $N_z$).
-Druhá podmínka znamená, že amplitudy všech zbylých módů, které přinášejí energii směrem ke struktuře, jsou nulové; to jsou dva módy na pravé straně s kladným $k_z$.
+Úloha průchodu a odrazu je typicky zadána tak, že na strukturu posvítíme svazkem s definovaným vlnovým vektorem a polarizací, takže jsou zadány amplitudy dvou módů na levé straně s $k_z < 0$ (svítíme zleva).
+Druhou podmínku volíme, že nikdo jiný na strukturu nesvítí, takže amplitudy všech zbylých módů, které přinášejí energii směrem ke struktuře, jsou nulové; to jsou dva módy na pravé straně s $k_z > 0$.
 Na každé straně nám tedy zbývají dva módy, jejichž amplitudy zvýbá určit.
-
 Vstupní a výstupní prostředí je nutné v tomto kontextu definovat jako to první, u kterého již nelze zpětné odrazy považovat za koherentní s dopadajícím svazkem (např. kvůli prostorovému oddělení).
-Pokud zkoumáme odraz od vzorku s \SI{1}{\meter} tlustou nadvrstvou skla, musíme jako vstupní prostředí považovat právě tuto vrstvu skla, ikdyž je náš laser ve skutečnosti umístěn ve vzduchu ještě před sklem.
-Podobně musíme činit i pokud je tlustá vrstva skla z druhé strany.
+Např. pro odraz od vzorku na tlustém substrátu je nutné uvažovat jako výstupní prostředí substrát.
 
 Na obou stranách si zvolíme pro $-z$ i $+z$ šířící se módy bázi lineárních polarizací, kterými definujeme Jonesovi vektory pro příslušné svazky
 \begin{equation}
-\begin{pmatrix} E^\perp_l \\ cB^\perp_l \end{pmatrix}=D_l \begin{pmatrix} J^-_l \\ J^+_l \end{pmatrix} \,, \,
-\begin{pmatrix} E^\perp_r \\ cB^\perp_r \end{pmatrix}=D_r \begin{pmatrix} J^-_r \\ J^+_r \end{pmatrix}
+    \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}_{(L)}=\mathfrak{D}_{(L)} \begin{pmatrix} \J^-_{(L)} \\ \J^+_{(L)} \end{pmatrix} \,, \qquad
+    \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}_{(R)}=\mathfrak{D}_{(R)} \begin{pmatrix} \J^-_{(R)} \\ \J^+_{(R)} \end{pmatrix} \,,
 \end{equation}
-$4\times 4$ matice $D$, která svazuje amplitudy jednotlivých módů s jejich příčnými poli, se nazývá \emph{dynamická matice}.
-$D$ není jednoznačné, což souvisí s nejednoznačností ve volbě souřadné soustavy v rovině kolmé na směr šíření --- volbou $D$ volíme bázi Jonesových vektorů.
-Častá volba, kterou představíme, ale později opustíme, je báze lineárního příčného (TE, s-polarizace) a podélného (TM, p-polarizace) módu.
-Zde ji uvedeme tak, abychom byli konzistentní s přístupem, který zvolíme později, nese to však s sebou přechod do báze odraženého světla s opačnou točivostí.
-Pravotočivá kruhová polarizace (RCP) s $\chi=1$ se nám při kolmém dopadu odrazí zase jako $\chi=1$, kvůli opačné točivosti báze jde však o levotočivé LCP.
-Opačný přístup volí opačné znaménko odražené p-polarizace, čímž se zachová točivost (viz např. Ref \cite{Silber}).
+kde $\mathfrak{D}$ diagonalizuje $\Delta$ ve smyslu, že $\mathfrak{D}\Delta \mathfrak{D}^{-1}$ je diagonální.
+V Yehově formalismu se nazývají dynamické matice a obsahují ve sloupcích příčná pole jednotlivých módů.
+V případě degenerace není $\mathfrak{D}$ jednoznačné ---\tododash volbou $\mathfrak{D}$ volíme bázi Jonesových vektorů.
 
+Častá volba $\mathfrak{D}$ v izotropním prostředí je báze lineárního příčného (TE, s-polarizace) a podélného (TM, p-polarizace) módu.
+Zde ji uvedeme tak, abychom si usnadnili práci s téměř kolmým dopadem, nese to však s sebou přechod do báze odraženého světla s opačnou točivostí.
+Opačný přístup volí opačné znaménko odražené p-polarizace, čímž se zachová točivost (viz např. \todocite{Silber}).
 Souřadnou soustavu volíme tak, aby rovina dopadu byla rovnoběžná s jednou ze souřadných os, zde zvolíme $yz$, takže $N_x=0$, $N_y=\sin \alpha$, kde $\alpha$ je úhel dopadu.
-Jako bázi módů volíme lineární polarizace příčné $J_s$ a podélné $J_p$ k rovině dopadu, viz. obr. \ref{f:odraz a pruchod}.
-Dynamická matice má v této situaci explicitně tvar
+Jako bázi módů volíme lineární polarizace příčné $J_s$ a podélné $J_p$ k rovině dopadu, viz. obr. \ref{fig:odraz-pruchod}.
+Pro prostředí s indexem lomu $n$ má dynamická matice v této situaci explicitně tvar
 \begin{equation}
-\begin{pmatrix} E_x \\ E_y \\ cB_x \\ cB_y \end{pmatrix}
-=\begin{pmatrix}
-1 & 0 & 1 & 0 \\
-0 & \cos\alpha & 0 & \cos\alpha \\
-0 & 1 & 0 & -1 \\
--\cos\alpha & 0 & \cos\alpha & 0
-\end{pmatrix}
-\begin{pmatrix}
-J^-_{s} \\ J^-_{p} \\ J^+_s \\ J^+_{p} \,,
-\end{pmatrix}
+    \begin{pmatrix} E_x \\ E_y \\ Z_0 H_x \\ Z_0 H_y \end{pmatrix}
+    =\begin{pmatrix}
+        1 & 0 & 1 & 0 \\
+        0 & \cos\alpha_t & 0 & \cos\alpha_t \\
+        0 & 1 & 0 & -1 \\
+        -\cos\alpha_t & 0 & \cos\alpha_t & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        J^-_{s} \\ J^-_{p} \\ J^+_s \\ J^+_{p} \,,
+    \end{pmatrix}
 \end{equation}
-kde můžeme rozpoznat ve sloupcích příčná pole jednotlivých módů (např. první sloupec jsou příčná pole $-z$ šířícího se s-polarizovaného módu: $E_y=0$, $cB_x=0$).
+kde jsme označili $\cos \alpha_t = \sqrt{1-\sin^2 \alpha /n^2}$ úhel lomu\todo{upravit}.
 
-Při řešení průchodu a odrazu tedy pokládáme $J^+_r=0$ a snažíme se vyjádřit zbylé prošlé $J^-_r \equiv J^\text{trans}$ a odražené $J^+_l \equiv J^\textrm{refl}$ vyjádřit pomocí známého dopadajícího $J^-_l\equiv J^\textrm{inc}$, což lze pomocí matic $M$ a $D$ jednoduše z
+Při řešení průchodu a odrazu tedy pokládáme $\J^+_{(R)}=0$ a snažíme se vyjádřit zbylé prošlé $\J^-_(R) \equiv \J_t$ a odražené $\J^+_{(L)} \equiv \J_r$ pomocí známého dopadajícího $\J^-_{(L)} \equiv \J_i$, což lze pomocí matic $\mathfrak{M}$ a $\mathfrak{D}$ jednoduše z
 \begin{equation}
-\begin{pmatrix} J^\textrm{inc} \\ J^\textrm{refl} \end{pmatrix}
-=D_l^{-1} M D_r \begin{pmatrix}
-J^\text{trans} \\ 0
-\end{pmatrix} \,,
+    \begin{pmatrix} \J_i \\ \J_r \end{pmatrix}
+    =\mathfrak{D}_{(L)}^{-1} \mathfrak{M} \mathfrak{D}_{(R)} 
+    \begin{pmatrix} \J_t \\ 0 \end{pmatrix} \,,
 \end{equation}
 což vede na Jonesovy transmisní a reflexní matice Fresnelových koeficientů v bázi s- a p-polarizací
 \begin{equation}
-\begin{pmatrix} J^\textrm{refl}_s \\ J^\textrm{refl}_p \end{pmatrix}
-=\begin{pmatrix}
-r_{ss} & r_{sr} \\ r_{ps} & r_{pp}
-\end{pmatrix}
-\begin{pmatrix} J^\textrm{inc}_s \\ J^\textrm{inc}_p \end{pmatrix} \,, \qquad
-\begin{pmatrix} J^\textrm{trans}_s \\ J^\textrm{trans}_p \end{pmatrix}
-=\begin{pmatrix}
-t_{ss} & t_{sp} \\ t_{ps} & t_{pp}
-\end{pmatrix}
-\begin{pmatrix} J^\textrm{inc}_s \\ J^\textrm{inc}_p \end{pmatrix} \,.
+    \begin{pmatrix} J^\textrm{refl}_s \\ J^\textrm{refl}_p \end{pmatrix}
+        =\begin{pmatrix} r_{ss} & r_{sr} \\ r_{ps} & r_{pp} \end{pmatrix}
+        \begin{pmatrix} J^\textrm{inc}_s \\ J^\textrm{inc}_p \end{pmatrix} 
+    \,, \qquad \begin{pmatrix} J^\textrm{trans}_s \\ J^\textrm{trans}_p \end{pmatrix}
+        =\begin{pmatrix} t_{ss} & t_{sp} \\ t_{ps} & t_{pp} \end{pmatrix}
+        \begin{pmatrix} J^\textrm{inc}_s \\ J^\textrm{inc}_p \end{pmatrix} \,.
 \end{equation}
 
 Multivrstva složená pouze z izotropních vrstev nemíchá s- a p-polarizaci, mimodiagonální členy jsou nulové.
 Pokud je jedna nebo více vrstev pouze slabě anizotropní, projeví se to malými nenulovými mimodiagonálními členy.
-Při dopadu s-polarizace pak prošlé a odražené světlo nabyde i malé amplitudy p-polarizace, podobně pro dopadající p-polarizaci.
-V elipsometrických parametrech se to projeví stočením hlavní roviny polarizace $\Delta \beta$ a elipticitou $\chi$, které se pro odražené světlo společně popisují komplexním stočením \cite{Silber}
-\begin{equation}\label{e:komplexni rotace}
-\Psi_s \equiv \Delta \beta_s - i \chi_s \approx \frac{r_{ps}}{r_{ss}} \,, \qquad \Psi_p \equiv \Delta \beta_p - i \chi_p \approx -\frac{r_{sp}}{r_{pp}} \,,
+Při dopadu např. s-polarizace pak prošlé a odražené světlo nabyde malé amplitudy p-polarizace, v elipsometrických parametrech se to projeví stočením hlavní roviny polarizace $\Delta \beta$ a elipticitou $\chi$; podobně pro dopadající p-polarizaci. 
+Oba jevy souhrnně popisuje tzv. komplexní parametr stočení\todo{overit} \todocite{Silber}, v reflexi
+\begin{equation}
+\label{eqn:komplexni-rotace}
+    \Psi_s \equiv \Delta \beta_s - i \chi_s \approx \frac{r_{ps}}{r_{ss}} 
+    \,, \qquad \Psi_p \equiv \Delta \beta_p - i \chi_p \approx -\frac{r_{sp}}{r_{pp}} \,,
 \end{equation}
-kde jsme kvůli přechodu k opačné točivosti použili $-i\chi$, abychom se vyhnuli komplexnímu sdružení reflexních koeficientů.
-V transmisním komplexním stočení jsou reflexní koeficienty nahrazeny transmisními a druhý člen je $+i\chi$, protože nedochází k přechodu k bázi s opačnou točivostí.
-Komplexní parametr stočení se používá při popisu magnetooptických Kerrových jevů.
+kde jsme kvůli přechodu k opačné točivosti soustavy použili $-i\chi$, abychom se vyhnuli komplexnímu sdružení reflexních koeficientů.
+V průchodu komplexním stočení jsou reflexní koeficienty nahrazeny transmisními a druhý člen je $+i\chi$, protože nedochází k přechodu k bázi s opačnou točivostí.
+Komplexní parametr stočení se používá při popisu magneto-optických Kerrových jevů.

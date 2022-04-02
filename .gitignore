@@ -27,4 +27,5 @@ data/makefile
 *.bcf
 *.run.xml
 *.rubbercache
+*.tdo
 #end clean

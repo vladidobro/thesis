@@ -101,16 +101,17 @@ Složky Muellerovy matice příslušející Jonesově matici $\mathcal{T}$ je mo
 \end{equation}
 
 Pro plně polarizované světlo nejsou Stokesovy parametry nezávislé, platí totiž
-\begin{equation} \label{e:norma S}
-s_0=\sqrt{s_1^2+s_2^2+s_3^2}
+\begin{equation} 
+\label{e:norma S}
+    s_0=\sqrt{s_1^2+s_2^2+s_3^2}
 \end{equation}
-a tedy nám k vyjádření polarizačního stavu stačí tři parametry $s_1, s_2, s_3$, které lze graficky zanést do třírozměrného prostoru.
+a tedy nám k vyjádření polarizačního stavu stačí \emph{redukovaný} Stokesův vektor $(s_1, s_2, s_3)^T$, který lze graficky zanést do třírozměrného prostoru.
 Polarizace s jednotkovou intenzitou se zobrazují na tzv. Poincarého sféře jako na obr. \ref{fig:Poincareho-sfera}.
 Ortogonální polarizace jsou zobrazeny na body středově souměrné podle počátku.
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure
+    \missingfigure{Poincareho sfera}
     \caption{Poincareho sfera}
     \label{fig:Poincareho-sfera}
 \end{figure}
@@ -118,62 +119,70 @@ Ortogonální polarizace jsou zobrazeny na body středově souměrné podle poč
 I Muellerovy matice musí splňovat určité podmínky.
 Přestože libovolná myslitelná 4x4 reálná matice je dána 16 reálnými parametry, nedepolarizační (také nazývaná čistá\footnote{Ve smyslu čistého (nesmíšeného, angl. pure) stavu v kvantové mechanice.}) Muellerova matice je dána pouze 7 reálnými čisly\footnote{Jonesova matice je dána 4 komplexními čísly --- 8 reálných parametrů, ale při přechodu k Muellerově matici ztratíme informaci o celkové fázi.}. \todocite{Muellerdiff}
 
-Dále se zaměříme na to, jakým způsobem působí obecné Muellerovy matice, a .
-Muellerovy matice mají jednoduchý geometrický význam, který se graficky vyjadřuje pomocí tzv. charakteristických elipsoidů.
-Charakteristický elipsoid Muellerovy matice $M$ je množina bodů v třírozměrném prostoru $(s_1, s_2, s_3)^T$, které vzniknou akcí $M$ na body ležící na Poincarého sféře.
+Dále se zaměříme na to, jakým způsobem působí čisté Muellerovy matice, a jak jejich akci znázornit pomocí tzv. charakteristických elipsoidů.
+Charakteristický elipsoid Muellerovy matice $\M$ je množina redukovaných Stokesových vektorů $(s_1, s_2, s_3)^T$, které vzniknou akcí $\M$ na body ležící na Poincarého sféře.
 Jinými slovy, každá Muellerova matice způsobí deformaci Poincarého sféry, výsledkem je vždy elipsoid.
-V charakteristickém elipsoidu držíme i informaci o tom, na které body se transformují které body Poincarého sféry - např. fázové destičky mají za následek pouze rotaci Poincarého sféry.
+V charakteristickém elipsoidu držíme i informaci o tom, které body se transformují kam --\tododash např. fázové destičky mají za následek pouze rotaci Poincarého sféry.
 
-\endinput
-Pro popis plně polarizovaného světla se omezíme na případ čistých Muellerových matic, které vzniknou rozkladem \eqref{e:mueller rozklad} z nějaké Jonesovy matice.
-Zaměříme se na dva případy: prvky reprezentované unitární Jonesovou maticí $U$ a prvky reprezentované hermitovskou pozitivně semidefinitní Jonesovou maticí $H$.
+Nejdříve spomeneme větu z lineární algebry o polárním rozkladu matice\todocite{motlPestujemeLinearniAlgebru2002}: Každou komplexní matici $\mathcal{T}$ lze jednoznačně rozložit na součin unitární $\mathcal{U}$ a pozitivně semidefinitní hermitovské $\mathcal{H}_1, \mathcal{H}_2$ matice, $\mathcal{T}=\mathcal{U}\mathcal{H}_1 = \mathcal{H}_2 \mathcal{U}$.
 
-Záminku, proč zkoumat tyto dva případy $U$ a $H$, nám poskytuje věta z lineární algebry o polárním rozkladu matice\cite{pestujemealgebru}, která tvrdí, že pro každou komplexní matici $T$ existují jednoznačné rozklady $T=U H_1$ a $T=H_2 U$.\footnote{$U$ je v obou rozkladech stejné, $H_1$ a $H_2$ nemusí.}
+\paragraph{Obecná retardační destička}
 
-\subsubsection*{Obecná retardační destička}
-
-Prvek je reprezentovaný unitární Jonesovou maticí $U$.
-Zachování intenzity má za důsledek $M_{00}=1$, $M_{0i}=M_{j0}=0$ pro $i,j=1,2,3$ a navíc podmatice $M{ij}$ musí zachovávat normu 3-vektoru $(S_1, S_2, S_3)$, tedy být ortonormální.
-Jediné takové matice jsou 3D rotační matice, případně složené se zrcadlením.
-Vzhledem k tomu, že $U$ je unitární, má dvě ortogonální vlastní polarizace $\J_1$, $\J_2$ s vlastními čísly, které jsou pouze fázové faktory. Je možné ji diagonalizovat\footnote{Ve vzorci vystupuje dyadický součin Jonesových vektorů $\J_1\J_1^\dagger$, což je ortogonální projektor na $\J_1$, ne skalární součin, který by byl psaný $\J_1^\dagger\ J_1$.}
+Prvek reprezentovaný unitární Jonesovou maticí $\mathcal{U}$ zachovává intenzitu a projevuje se pouze fázovým zpožděním mezi dvěma ortogonálními polarizacemi.
+Vzhledem k tomu, že zachovávají intenzitu, musí charakteristický elipsoid být shodný s Poincarého sférou, jedině otočený či převrácený.
+$\mathcal{U}$ lze diagonalizovat, a vlastní čísla jsou komplexní fázové faktory, píšeme tedy\footnote{Ve vzorci vystupuje dyadický součin Jonesových vektorů $\J\J^\dagger$, což je ortogonální projektor na $\J$, ne skalární součin, který by byl psaný $\J^\dagger \J$.}
 \begin{equation}
-U=e^{i\Delta_1} \J_1 \J_1^\dagger + e^{i\Delta_2} \J_2 \J_2^\dagger\,.
+    \mathcal{U}=e^{i\Delta_1} \J_1 \J_1^\dagger + e^{i\Delta_2} \J_2 \J_2^\dagger\,.
 \end{equation}
-Tyto dva vlastní módy mají po průchodu prvkem stejný polarizační stav, takže musí být i vlastními vektory Muellerovy matice, prochází jimi osa zmíněné rotace.
-Úhel rotace je daný fázovým zpožděním mezi vlastními módy $\Delta_1-\Delta_2$, viz obr. \ref{f:akce muelleru} (a).
+Tyto dva vlastní módy mají po průchodu prvkem stejný polarizační stav, akce Muellerovy matice na Poincarého sféru má tedy za následek rotaci sféry kolem osy procházející těmito vlastními módy.
+Úhel rotace je dán fázovým zpožděním $\Delta=\Delta_1-\Delta_2$.
+Ve speciálním případě $\J_1=(1,0)^T$ a $\J_2=(0,1)^T$ je Jonesova a Muellerova matice\todo{zkontrolovat znaminka toho uhlu}
+\begin{equation}
+    \mathcal{U}=\begin{pmatrix}
+        e^{i\Delta_1} & 0 \\ 0 & e^{i\Delta_2}
+        \end{pmatrix} \,, \qquad
+    \mathbb{U}=\begin{pmatrix}
+        1 & 0 & 0 & 0 \\ 0 & \cos\Delta & \sin\Delta & 0 \\
+        0 & -\sin\Delta & \cos\Delta & 0 \\ 0 & 0 & 0 & 1
+        \end{pmatrix} \,.
+\end{equation}
 
-\subsubsection*{Obecný polarizátor}
+\paragraph{Obecný polarizátor}
 
-Prvek je reprezentovaný pozitivně semidefinitní hermitovskou Jonesovou maticí $H$.
-To znamená, že pro ně existují dvě ortogonální vlastní polarizace $J_1$, $J_2$ s reálnými nezápornými vlastními čísly.
+Pro prvek reprezentovaný pozitivně semidefinitní hermitovskou Jonesovou maticí $\mathcal{H}$ existují dva ortogonální vlastní módy s reálnými nezápornými vlastními čísly.
 Normalizací matice tak, že větší z vlastních čísel se rovná 1, lze psát s reálným nezáporným $\eta$
 \begin{equation}
-H=J_1 J_1^* + \eta J_2 J_2^* \,.
+    \mathcal{H}=\J_1 \J_1^\dagger + \eta \J_2 \J_2^\dagger \,.
 \end{equation}
-Znamená to, že prvek je obecný polarizátor, který $J_1$ propustí zcela a $J_2$ propustí s amplitudovou propustností $\eta$.
-Ve speciálním případě, kdy polarizátor propouští lineární polarizaci v ose $x$: $J_1=(1,0)^\T$ a $J_1=(0,1)^\T$, je Jonesova a Muellerova matice
+
+Jedná se o obecný polarizátor, který $\J_1$ propustí zcela a $\J_2$ propustí s amplitudovou propustností $\eta$.
+Ve speciálním případě $\J_1=(1,0)^T$ a $\J_2=(0,1)^T$ je Jonesova a Muellerova matice
 \begin{equation}
-H=\begin{pmatrix}
-1 & 0 \\ 0 & \eta
-\end{pmatrix} \,, \qquad
-M_H=\begin{pmatrix}
-\frac{1+\eta^2}{2} & \frac{1-\eta^2}{2} & 0 & 0 \\ \frac{1-\eta^2}{2} & \frac{1+\eta^2}{2} & 0 & 0 \\
-0 & 0 & \eta & 0 \\ 0 & 0 & 0 & \eta
-\end{pmatrix} \,.
+    \mathcal{H}=\begin{pmatrix}
+        1 & 0 \\ 0 & \eta
+        \end{pmatrix} \,, \qquad
+    \mathbb{H}=\begin{pmatrix}
+        \frac{1+\eta^2}{2} & \frac{1-\eta^2}{2} & 0 & 0 \\ \frac{1-\eta^2}{2} & \frac{1+\eta^2}{2} & 0 & 0 \\
+        0 & 0 & \eta & 0 \\ 0 & 0 & 0 & \eta
+        \end{pmatrix} \,.
 \end{equation}
 
-Pro výpočet charakteristického elipsoidu dosadíme $S_0^{\textrm{in}}=1$ a dostaneme
-\begin{align}
-    S_1^{\textrm{out}}&=\frac{1+\eta^2}{2} S_1^{\textrm{in}}+\frac{1-\eta^2}{2} \\
-    S_2^{\textrm{out}}&=\eta S_2^{\textrm{in}} \\
-    S_3^{\textrm{out}}&=\eta S_3^{\textrm{in}}
-\end{align}
-Jedná se tedy o kontrakci v rovině $S_2S_3$ faktorem $\eta$, ve směru $S_1$ faktorem $(1+\eta^2)/2$ a zároveň posunutím o $(1-\eta^2)/2$.
-Nebo ekvivalentně kontrakcí stejným faktorem se středem v $S_3=1$. Viz obr. \ref{f:akce muelleru} (b).
+Pro výpočet charakteristického elipsoidu dosadíme $s_0^\textrm{in}=1$ a dostaneme
+\begin{equation}
+    \begin{pmatrix} s_1 \\ s_2 \\ s_3 \end{pmatrix}_{\textrm{out}}
+    =\begin{pmatrix} \frac{1+\eta^2}{2} & 0 & 0 \\ 0 & \eta & 0 \\ 0 & 0 & \eta \end{pmatrix}
+    \begin{pmatrix} s_1 \\ s_2 \\ s_3  \end{pmatrix}_{\textrm{in}}
+    +\begin{pmatrix} \frac{1-\eta^2}{2} \\ 0 \\ 0 \end{pmatrix}
+\end{equation}
+Jedná se tedy o kontrakci v rovině $s_2s_3$ faktorem $\eta$, ve směru $s_1$ faktorem $(1+\eta^2)/2$ a zároveň posunutím o $(1-\eta^2)/2$.
+Ekvivalentně lze mluvit o kontrakcí stejným faktorem se středem\footnote{$(s_1^\textrm{out}-1)=(s_1^\textrm{in}-1)(1-\eta^2)/2$.} v $s_3=1$.
 
-\begin{figure}\centering
-\includegraphics[width=\linewidth]{./img/t3.png}
-\caption{Grafické zobrazení akce (a) obecné retardační destičky a (b) obecného polarizátoru.}\label{f:akce muelleru}
+Shrneme-li uvedené poznatky, akce libovolného nedepolarizačního optického prvku je ekvivalentní postupnému působení obecného polarizátoru (zploštění a posunutí ve směru vlastního vektoru$H$ jako na obr. \ref{fig:UH-Mueller} (b)) a obecné fázové retardační destičky (rotace podle směru vlastního vektoru $U$ jako na obr. \ref{fig:UH-Mueller} (a)\todo{mozna nehezke}), případně v opačném pořadí.
+Znázornění charakteristických elipsoidů nachází vzužití především pro depolarizační Muellerovy matice, ale i v našem případě nabízí jednoduchý intuitivní způsob přemýšlení o polarizaci, který je důležitý např. při rychlých rozhodnutích v laboratoři, kdy není čas násobit komplexní matice.
+
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{akce muelleru}
+    \caption{Charakteristické elipsoidy (a) obecné retardační destičky a (b) obecného polarizátoru.}
+    \label{fig:UH-Mueller}
 \end{figure}
-
-Shrneme-li uvedené poznatky, akce libovolného nedepolarizačního optického prvku je ekvivalentní postupnému působení obecného polarizátoru (zploštění a posunutí ve směru vlastního vektoru $H$ jako na obr. \ref{f:akce muelleru} (b)) a obecné fázové retardační destičky (rotace podle směru vlastního vektoru $U$ jako na obr. \ref{f:akce muelleru} (a)), případně v opačném pořadí.
