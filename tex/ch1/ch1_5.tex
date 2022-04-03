@@ -37,14 +37,14 @@ Magnetokrystalická anizotropie $F^\textrm{magnetocrystalline}$ popisuje interak
 Dále se omezíme na situaci relevantní pro tuto práci.
 Vzorek je feromagnetický a vlivem výměnné interakce je magnetizace vždy saturovaná.
 Vzorek je kubický tenký film s krystalografickými směry [100], [010] a [001] shodnými s kladnými poloosami $x$, $y$, $z$.
-Tvarová anizotropie způsobí vymizení \emph{out-of-plane} magnetizace $\vec{M}_z=0$
+Tvarová anizotropie způsobí vymizení out-of-plane magnetizace $\vec{M}_z=0$
 \begin{equation}
 \label{eqn:magnetizace-v-rovine}
     \vec{M}=\begin{pmatrix} M_x \\ M_y \\ M_z \end{pmatrix}
     = M_S \begin{pmatrix} \cos \phim \\ \sin \phim \\ 0 \end{pmatrix} \,.
 \end{equation}
 
-Magnetokrystalická anizotropie se rozvine do mocninné řady v $\vec{M}$ a ponechá se pouze nejnižší člen respektující kubickou symetrii, s uvážením \eqref{e:magnetizace v rovine}
+Magnetokrystalická anizotropie se rozvine do mocninné řady v $\vec{M}$ a ponechá se pouze nejnižší člen respektující kubickou symetrii, s uvážením \eqref{eqn:magnetizace-v-rovine}
 \begin{equation}
     \frac{F^\textrm{magnetocrystalline}}{M_S}=k_4 \sin^2 \phim \cos^2 \phim \,,
 \end{equation}
@@ -52,13 +52,13 @@ Magnetokrystalická anizotropie se rozvine do mocninné řady v $\vec{M}$ a pone
 Pro $k_4>0$ má minima --\tododash snadné osy, ve směrech [100] a [010] (tj. $\phim=\SI{0}{\degree}$, \SI{90}{\degree}), pro $k_4<0$ jsou to [110] a [1-10] (tj. $\phim=\SI{45}{\degree}$, \SI{135}{\degree}).
 
 Navíc povolíme uniaxiální strainovou anizotropii.
-Také jí rozvineme do řady a se zkušeností, že mívají často uniaxiální charakter, ponecháme pouze první člen a opět vydělíme $M_S$ pro definici uniaxiální anizotropní konstanty $k_u$ a směru $\phiu$.
+Také jí rozvineme do řady a podpořeni tím, že mechanické napětí v rovině má principiálně uniaxiální charakter, ponecháme pouze první člen a opět vydělíme $M_S$ pro definici uniaxiální anizotropní konstanty $k_u$ a směru $\phiu$.
 \begin{equation}
     \frac{F^\textrm{strain}}{M_S}=k_u \sin^2\left( \phim-\phiu  \right) \,.
 \end{equation}
 $\phiu$ je takto definováno vzhledem ke krystalografickému směru [100].
 Je dostačující omezit se na $k_u\geq 0$, snadné směry jsou pak ve $\phim=\phiu, \phiu+\SI{180}{\degree}$.
-Obě hodnoty $\phiu$ a $\phiu+\SI{180}{\degree}$ popisují stejné $F^\textrm{strain}$, takže pokud v konkrétním případě nemáme důvod konat jinak, omezujeme se na $\phiu \in [\SI{0}{\degree}, \SI{180}{\degree}]$.
+Obě hodnoty $\phiu$ a $\phiu+\SI{180}{\degree}$ popisují stejné $F^\textrm{strain}$, takže pokud v konkrétním případě nemáme důvod konat jinak (např. z důvodu spojitosti), omezujeme se na $\phiu \in [\SI{0}{\degree}, \SI{180}{\degree}]$.
 
 Kanonický tvar funkcionálu volné energie tenkého kubického filmu v rovině $xy$ orientovaného $[100]=x$ tedy píšeme
 \begin{equation}
@@ -79,6 +79,7 @@ Dělení $M_S$ zavádíme, aby anizotropní konstanty $k_4$ a $k_u$ měly dimenz
 Pro praktické účely je výhodné vyjádřit \eqref{e:F} ekvivalentním způsobem pro vzorek obecně natočený v rovině $xy$ o úhel $\gamma$, tzn. [100] je ve směru vektoru $(\cos\gamma, \sin\gamma, 0)$.
 Pak až na bezvýznamnou aditivní konstantu\todo{zavadet ty kx?}
 \begin{align}
+\label{eqn:funkcional-otoceny}
     \frac{F(\phim)}{M_S}&=-\frac{k_4}{8} \cos 4(\phim-\gamma)-\frac{k_u}{2} \cos 2(\phim-\phiu-\gamma) \\
     &=-\frac{k_{4x}}{8} \cos 4\phim - \frac{k_{4y}}{8} \sin 4\phim - \frac{k_{ux}}{2} \cos 2 \phim - \frac{k_{uy}}{2} \sin 2 \phim \,,
 \end{align}
