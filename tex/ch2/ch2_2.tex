@@ -1,35 +1,45 @@
-\section{Metoda rotujícího pole/ROTMOKE}
-\label{chap:rotmoke}
-\endinput
-Metoda rotujícího pole\cite{rotpole1}\cite{rotpole2} rozšiřuje osmisměrnou metodu na Stoner-Wohlfarthův model, tedy situace, kdy pole je dostatečně silné, aby vzorek byl v jednodoménovém stavu a magnetizace byla saturovaná $|\M|=M_S$, ale ne dostatečně silné na to, aby se neprojevila magnetická anizotropie $\phim\neq\phih$.
+\section{Metoda rotujícího pole, ROTMOKE}
+\label{chap:ROTMOKE}
 
-Přiložené pole se při konstantí velikosti otáčí v rovině vzorku a měří se stočení polarizace, viz obr. \ref{f:rotujici pole}.
-Předpokladem pro oddělení lineárního a kvadratického příspěvku je zde symetrie in-plane inverze magnetické anizotropie, tj. $\M(-\Hext)=-\M(\Hext)$, $\phim(\phih+\SI{180}{\degree})=\phim(\phih)+\SI{180}{\degree}$.
-Pokud není narušená, je lineární $\Phi^L$, resp. kvadratický $\Phi^Q$ příspěvek lichý, resp. sudý nejen v $\M$, ale i v $\Hext$.
-Proto je možné je jednoduše oddělit
+Metoda rotujícího pole\todocite{rotpole1}\todocite{rotpole2} rozšiřuje osmisměrnou metodu na Stoner-Wohlfarthův model: $\vHext$ je dostatečně silné na to, aby vzorek byl v jednodoménovém stavu a magnetizace byla saturovaná $|\M|=M_S$, ale nedostatečně na to, aby se neprojevila magnetická anizotropie $\phim\neq\phih$.
+
+Přiložené pole se při konstantí velikosti otáčí v rovině vzorku a je měřeno stočení polarizace (příp. elipticita), viz obr. \ref{fig:metoda-rotujiciho-pole}.
+Předpokladem pro oddělení lineárního a kvadratického příspěvku, který supluje striktní magnetickou saturaci osmisměrné metody,
+je zde symetrie in-plane inverze magnetické anizotropie, tj. $\vec{M}(-\vHext)=-\vec{M}(\vHext) \Leftrightarrow \phim(\phih+\SI{180}{\degree})=\phim(\phih)+\SI{180}{\degree}$.
+Pokud není narušená, lineární $\Psi^L$, resp. kvadratický $\Psi^Q$ příspěvek signálu je lichý, resp. sudý nejen v $\vec{M}$, ale i v $\vHext$;
+proto je možné je jednoduše oddělit\footnote{V původních článcích je $\Psi$ značeno $\Phi$.}
+\begin{align}
+    \Psi^L(\phih)&=\frac{1}{2} \left[ \Psi(\phih+\SI{180}{\degree}) - \Psi(\phih) \right] 
+    \,, \\ \Psi^Q(\phih)&=\frac{1}{2} \left[ \Psi(\phih+\SI{180}{\degree}) + \Psi(\phih) \right] \,.
+\end{align}
+
+Lineární signál má podle \eqref{eqn:QMOKE-vzorec} jednoduchou závislost na směru magnetizace, takže z něj lze odečíst magnetickou anizotropii, tj. $\phim(\phih)$
 \begin{equation}
-\Phi^L(\phih)=\frac{1}{2} \left[ \Phi(\phih+\SI{180}{\degree}) - \Phi(\phih) \right] \,, \, \Phi^Q(\phih)=\frac{1}{2} \left[ \Phi(\phih+\SI{180}{\degree}) + \Phi(\phih) \right] \,.
+    \Psi^L(\phih)\propto \cos(\phim(\phih)) \,, \qquad \cos \phim=\Psi^L(\phih)/\Psi^L_\textrm{max} \,,
 \end{equation}
-Lineární signál má jednoduchou závislost na směru magnetizace, lze díky němu získat $\phim(\phih)$
-\begin{equation}
-    \Phi^L(\phih)\propto \cos(\phim(\phih)) \,, \qquad \cos \phim=\Phi^L(\phih)/\Phi^L_\textrm{max} \,,
-\end{equation}
-kde $\Phi^L_\textrm{max}$ je maximální naměřený lineární signál pro $\phim=0$.
+kde $\Psi^L_\textrm{max}$ je maximální naměřený lineární signál pro $\phim=\SI{0}{\degree}$.
 
-Z celkového signálu je tedy odseparovaný kvadratický signál, z lineárního je určen směr $\phim$ pro každé $\phih$, a dále už je postup stejný jako u osmisměrné metody, tedy pro každé natočení vzorku $\gamma$ určení koeficientů jednotlivých členů v \eqref{e:Silber QMOKE vzorec}, tentokrát už ale podle známého $\phim$ (viz obr. \ref{f:rotpolevysledky}.
-
-\begin{figure}\center
-\includegraphics[scale=0.5]{./img/rotpole.png}
-\caption{Schématické znázornění metody rotujícího pole\cite{rotpole2}. Při šikmém dopadu je měřeno stočení polarizace během otáčení magnetického pole v rovině vzorku $xy$.}\label{f:rotujici pole}
-\end{figure}
-
-\begin{figure}
+\begin{figure}[htbp]
     \centering
-    \includegraphics[scale=0.45]{./img/rotpolevysledky.png}
-    \caption{Ilustrace metody rotujícího pole (Fe(12nm)/GaAs(001)) \cite{rotpole2}.
-    Měřené (a) stočení polarizace v závislosti na experimentálně ovladatelném $\phiH$, rozdělené na lineární (c) a kvadratický (e) příspěvek. V (b),(d),(f) jsou signály vyjádřené v závislosti na $\phim$ určeném z (c). To, že se (a,c,e) a (b,d,f) navzájem liší dokazuje, že magnetická anizotropie není zanedbatelná, a materiál nebylo možné měřit osmisměrnou metodou.}
-    \label{f:rotpolevysledky}
+    \missingfigure{./img/rotpole.png}
+    \caption{Schématické znázornění metody rotujícího pole [cite{rotpole2]}. Při šikmém dopadu je měřeno stočení polarizace během otáčení magnetického pole v rovině vzorku $xy$.}
+    \label{fig:metoda-rotujiciho-pole}
 \end{figure}
 
-Metoda rotujícího pole je velmi podobná metodě ROTMOKE z roku 1999\cite{ROTMOKE}, která také v rotujícím in-plane vnějším poli separuje lineární a kvadratické jevy stejným způsobem.
-Narozdíl od metody rotujícího pole je však cílem pouze magnetometrie pomocí lineárního jevu, kvadratické jevy jsou považovány pouze za artefakty a odstraněny ze zpracování.
+Celá metoda tedy spočívá ve třech krocích, pro ilustraci výsledků viz obr. \ref{fig:metoda-rotujiciho-pole-vysledky}
+\begin{enumerate}
+    \item Změřený signál je rozdělen na $\Psi^L$ a $\Psi^Q$.
+    \item Z $\Psi^L$ je určena magnetická anizotropie: $\phim$ pro každé $\phih$.
+    \item Stejný jako u osmisměrné metody: opakování pro každé natočení vzorku $\gamma$ a určení koeficientů jednotlivých členů v \eqref{eqn:QMOKE-vzorec}, tentokrát však už podle známého $\phim$. \label{item:rotujici-pole-analyza}
+\end{enumerate}
+
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{./img/rotpolevysledky.png}
+    \caption{Ilustrace metody rotujícího pole (Fe(12nm)/GaAs(001)) [cite{rotpole2}.
+    Měřené (a) stočení polarizace v závislosti na experimentálně ovladatelném $\phih$, rozdělené na lineární (c) a kvadratický (e) příspěvek. V (b),(d),(f) jsou signály vyjádřené v závislosti na $\phim$ určeném z (c). To, že se (a,c,e) a (b,d,f) navzájem liší dokazuje, že magnetická anizotropie není zanedbatelná, a materiál nebylo možné měřit osmisměrnou metodou.}
+    \label{fig:metoda-rotujiciho-pole-vysledky}
+\end{figure}
+
+Metoda rotujícího pole je velmi podobná metodě ROTMOKE z roku 1999\todocite{ROTMOKE}, která také v rotujícím in-plane vnějším poli separuje lineární a kvadratické jevy stejným způsobem.
+Narozdíl od metody rotujícího pole je však cílem pouze magnetometrie pomocí lineárního jevu (je vynechán krok č. \ref{item:rotujici-pole-analyza}), kvadratické jevy jsou považovány za artefakty a odstraněny ze zpracování.
