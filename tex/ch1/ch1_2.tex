@@ -6,7 +6,7 @@ Zvolíme osu $z$ proti směru šíření, tedy $\vec{N}=(0,0,-1)^T$.
 Řešením jsou pole charakterizovaná libovolnými komplexními amplitudami $E_x$ a $E_y$, které udávají polarizaci vlny.
 $\vec{H}$ je pak dáno rovnicí \eqref{eqn:rot-E}.
 
-Výkon přenášený rovinou vlnou je dán časově středovaným Poyntingovým vektorem $\vec{S}$, pro vakuum
+Výkon přenášený rovinou vlnou je dán časově středovaným Poyntingovým vektorem $\vec{S}$, pro vakuum\cite{bornPrinciplesOpticsElectromagnetic1999}
 \begin{equation} \label{eqn:Poynting}
     \langle \vec{S}(t)\rangle_t=\langle\vec{E}(t)\times\vec{H}(t)\rangle_t=\frac{1}{2 Z_0}\vec{N} \left( E_x^*E_x+E_y^*E_y \right)
     \equiv \frac{1}{2 Z_0}\vec{N} I\,,
@@ -14,7 +14,7 @@ Výkon přenášený rovinou vlnou je dán časově středovaným Poyntingovým 
 kde definujeme normovanou intenzitu $I=E_{0x}^*E_{0x}+E_{0y}^*E_{0y}$.
 
 Vektor $\vec{E}$ opisuje v čase obecně elipsu v rovině kolmé na směr šíření, popisné parametry definujeme podle obr. \ref{fig:polarizacni-elipsa}.
-Jedná se o $\beta$ --\tododash úhel natočení hlavní poloosy polarizace, a $\chi$ -- úhel elipticity, zde dále nazývaný zkráceně elipticita.
+Jedná se o $\beta$ -- úhel natočení hlavní poloosy polarizace, a $\chi$ -- úhel elipticity, zde dále nazývaný zkráceně elipticita.
 Pro popis ekvivalentní $E_x$ a $E_y$ je třeba přidat intenzitu $I$ a časový posun $\delta$, který má význam času, ve kterém $\vec{E}(t)$ protíná hlavní poloosu s
 
 Konvenci točivosti světla používáme následující: při podle pohledu \emph{od zdroje} obíhá pravotočivé světlo v dané rovině po směru hodinových ručiček.
@@ -31,7 +31,7 @@ Viz obr. \ref{fig:polarizacni-elipsa}.
 \subsection{Jonesův počet}
 \label{chap:Jones}
 
-Jonesovy vektory\todocite{jones} jsou tvořeny přímo komplexními amplitudami polí v rovině kolmé na vektor šíření
+Jonesovy vektory\cite{azzamEllipsometryPolarizedLight1977} jsou tvořeny přímo komplexními amplitudami polí v rovině kolmé na vektor šíření
 \begin{equation}
     \J=\begin{pmatrix} E_{x} \\ E_{y} \end{pmatrix} \,.
 \end{equation}
@@ -44,7 +44,7 @@ Prostor Jonesových vektorů je přirozeně normovaný intenzitou \eqref{eqn:Poy
 \end{equation}
 Dvě polarizace/Jonesovy vektory jsou ``ortogonální'' ($\J_1^\dagger \J_2=0$), pokud je celková intenzita prostý součet intenzit v obou polarizacích.
 
-Akci každého lineární polarizačního prvku, lze popsat jako lineární transformaci Jonesova vektoru ---\tododash transformaci Jonesovou $2\times 2$ komplexní maticí $\mathcal{T}$.
+Akci každého lineární polarizačního prvku, lze popsat jako lineární transformaci Jonesova vektoru -- transformaci Jonesovou $2\times 2$ komplexní maticí $\mathcal{T}$.
 Jonesovy matice lze použít pro popis polarizačního děliče: každé rameno pak má vlastní matici.
 
 Sadě elipsometrických parametrů $\beta$, $\chi$, $I$, $\delta$ odpovídá Jonesův vektor
@@ -66,8 +66,9 @@ Při této konvenci se kruhově polarizované světlo $\J_\textrm{i}=(1, i)^T$ p
 
 
 \subsection{Stokesův-Muellerův počet}
-\label{chap:Stokes-Mueller}\todocite{stokesmueller}
+\label{chap:Stokes-Mueller}
 
+Úplnější přehled, ze kterého vychází tento oddíl, lze nalézt v \cite{gilReviewMuellerMatrix2014,ossikovskiPoincareSphereMapping2013}.
 Stokesovy parametry obecně mohou narozdíl od Jonesových vektorů popsat i nepolarizované světlo,
 v této práci si však vystačíme s plně polarizovaným světlem a proto je nebudeme definovat obecně, ale pomocí Jonesových vektorů
 \begin{align}
@@ -117,16 +118,16 @@ Ortogonální polarizace jsou zobrazeny na body středově souměrné podle poč
 \end{figure}
 
 I Muellerovy matice musí splňovat určité podmínky.
-Přestože libovolná myslitelná 4x4 reálná matice je dána 16 reálnými parametry, nedepolarizační (také nazývaná čistá\footnote{Ve smyslu čistého (nesmíšeného, angl. pure) stavu v kvantové mechanice.}) Muellerova matice je dána pouze 7 reálnými čisly\footnote{Jonesova matice je dána 4 komplexními čísly --- 8 reálných parametrů, ale při přechodu k Muellerově matici ztratíme informaci o celkové fázi.}. \todocite{Muellerdiff}
+Přestože libovolná myslitelná 4x4 reálná matice je dána 16 reálnými parametry, nedepolarizační (také nazývaná čistá\footnote{Ve smyslu čistého (nesmíšeného, angl. pure) stavu v kvantové mechanice.}) Muellerova matice je dána pouze 7 reálnými čisly\footnote{Jonesova matice je dána 4 komplexními čísly --- 8 reálných parametrů, ale při přechodu k Muellerově matici ztratíme informaci o celkové fázi.}. \cite{ossikovskiDifferentialMatrixFormalism2011}
 
 Dále se zaměříme na to, jakým způsobem působí čisté Muellerovy matice, a jak jejich akci znázornit pomocí tzv. charakteristických elipsoidů.
 Charakteristický elipsoid Muellerovy matice $\M$ je množina redukovaných Stokesových vektorů $(s_1, s_2, s_3)^T$, které vzniknou akcí $\M$ na body ležící na Poincarého sféře.
 Jinými slovy, každá Muellerova matice způsobí deformaci Poincarého sféry, výsledkem je vždy elipsoid.
-V charakteristickém elipsoidu držíme i informaci o tom, které body se transformují kam --\tododash např. fázové destičky mají za následek pouze rotaci Poincarého sféry.
+V charakteristickém elipsoidu držíme i informaci o tom, které body se transformují kam -- např. fázové destičky mají za následek pouze rotaci Poincarého sféry.
 
-Nejdříve spomeneme větu z lineární algebry o polárním rozkladu matice\todocite{motlPestujemeLinearniAlgebru2002}: Každou komplexní matici $\mathcal{T}$ lze jednoznačně rozložit na součin unitární $\mathcal{U}$ a pozitivně semidefinitní hermitovské $\mathcal{H}_1, \mathcal{H}_2$ matice, $\mathcal{T}=\mathcal{U}\mathcal{H}_1 = \mathcal{H}_2 \mathcal{U}$.
+Nejdříve spomeneme větu z lineární algebry o polárním rozkladu matice\cite{motlPestujemeLinearniAlgebru2002}: Každou komplexní matici $\mathcal{T}$ lze jednoznačně rozložit na součin unitární $\mathcal{U}$ a pozitivně semidefinitní hermitovské $\mathcal{H}_1, \mathcal{H}_2$ matice v libovolném pořadí, $\mathcal{T}=\mathcal{U}\mathcal{H}_1 = \mathcal{H}_2 \mathcal{U}$.
 
-\paragraph{Obecná retardační destička}
+\paragraph{Čistý retardér}
 
 Prvek reprezentovaný unitární Jonesovou maticí $\mathcal{U}$ zachovává intenzitu a projevuje se pouze fázovým zpožděním mezi dvěma ortogonálními polarizacemi.
 Vzhledem k tomu, že zachovávají intenzitu, musí charakteristický elipsoid být shodný s Poincarého sférou, jedině otočený či převrácený.
@@ -147,9 +148,9 @@ Ve speciálním případě $\J_1=(1,0)^T$ a $\J_2=(0,1)^T$ je Jonesova a Mueller
         \end{pmatrix} \,.
 \end{equation}
 
-\paragraph{Obecný polarizátor}
+\paragraph{Čistý diatenuátor}
 
-Pro prvek reprezentovaný pozitivně semidefinitní hermitovskou Jonesovou maticí $\mathcal{H}$ existují dva ortogonální vlastní módy s reálnými nezápornými vlastními čísly.
+Pro prvek reprezentovaný pozitivně semidefinitní hermitovskou Jonesovou maticí $\mathcal{H}$ existují dva ortogonální vlastní módy s reálnými nezápornými vlastními čísly -- různými koeficienty útlumu.
 Normalizací matice tak, že větší z vlastních čísel se rovná 1, lze psát s reálným nezáporným $\eta$
 \begin{equation}
     \mathcal{H}=\J_1 \J_1^\dagger + \eta \J_2 \J_2^\dagger \,.
@@ -167,7 +168,7 @@ Ve speciálním případě $\J_1=(1,0)^T$ a $\J_2=(0,1)^T$ je Jonesova a Mueller
         \end{pmatrix} \,.
 \end{equation}
 
-Pro výpočet charakteristického elipsoidu dosadíme $s_0^\textrm{in}=1$ a dostaneme
+Pro body na Poincarého sféře dosadíme $s_0^\textrm{in}=1$ a dostaneme
 \begin{equation}
     \begin{pmatrix} s_1 \\ s_2 \\ s_3 \end{pmatrix}_{\textrm{out}}
     =\begin{pmatrix} \frac{1+\eta^2}{2} & 0 & 0 \\ 0 & \eta & 0 \\ 0 & 0 & \eta \end{pmatrix}
@@ -176,12 +177,12 @@ Pro výpočet charakteristického elipsoidu dosadíme $s_0^\textrm{in}=1$ a dost
 \end{equation}
 Jedná se tedy o kontrakci v rovině $s_2s_3$ faktorem $\eta$, ve směru $s_1$ faktorem $(1+\eta^2)/2$ a zároveň posunutím o $(1-\eta^2)/2$.
 Ekvivalentně lze mluvit o kontrakcí stejným faktorem se středem\footnote{$(s_1^\textrm{out}-1)=(s_1^\textrm{in}-1)(1-\eta^2)/2$.} v $s_3=1$.
-Se zmenšujícím $\eta$ (vyšší kvalitou polarizátoru) výsledný elipsoid svým tvarem progresivně nabývá podobnosti doutníku, proto v této práci budeme akci $\mathbb{H}$ označovat jako \todo{napsat lepe a citace doutniky Fermi}\emph{doutníkovatění}
-\footnote{Tento krok si možná zaslouží komentář a obhajobu. Konkurentní termíny ``zploštění'' a ``protáhnutí'' nejsou podle autorova názoru dostatečně výstižné: elipsoid není ani plochý, ani se neprotahuje. Navíc podobenství doutníků není ve fyzice novinkou.}
+Se zmenšujícím $\eta$ (vyšší kvalitou polarizátoru) výsledný elipsoid svým tvarem nabývá podobnosti doutníku, proto v této práci budeme akci $\mathbb{H}$ označovat jako \emph{doutníkovatění}
+\footnote{To si možná zaslouží komentář a obhajobu. Konkurentní termíny ``zploštění'' a ``protáhnutí'' nejsou podle autorova názoru dostatečně výstižné: elipsoid není ani plochý, ani se neprotahuje. Navíc podobenství doutníků je ve fyzice poměrně běžné\cite{liEstimatesEigenvaluesBidrifting2019,middelkampDynamicsDarkBright2011}.}
 Poincarého sféry.
 
-Shrneme-li uvedené poznatky, akce libovolného nedepolarizačního optického prvku je ekvivalentní postupnému působení obecného polarizátoru (protáhnutí a posunutí ve směru vlastního vektoru$H$ jako na obr. \ref{fig:UH-Mueller} (b)) a obecné fázové retardační destičky (rotace podle směru vlastního vektoru $U$ jako na obr. \ref{fig:UH-Mueller} (a)\todo{mozna nehezke}), případně v opačném pořadí.
-Znázornění charakteristických elipsoidů nachází vzužití především pro depolarizační Muellerovy matice, ale i v našem případě nabízí jednoduchý intuitivní způsob přemýšlení o polarizaci, který je důležitý např. při rychlých rozhodnutích v laboratoři, kdy není čas násobit komplexní matice.
+Shrneme-li uvedené poznatky, akce libovolného nedepolarizačního optického prvku je ekvivalentní postupnému působení obecného diatenuátoru (protáhnutí a posunutí ve směru vlastního vektoru $\mathcal{H}$ jako na obr. \ref{fig:UH-Mueller} (b)) a obecného retardéru (rotace podle směru vlastního vektoru $\mathcal{U}$ jako na obr. \ref{fig:UH-Mueller} (a)), případně v opačném pořadí.
+Znázornění zobrazení Poincarého sféry nachází vzužití především pro depolarizační Muellerovy matice, ale i v našem případě nabízí jednoduchý intuitivní způsob přemýšlení o polarizaci, který je důležitý např. při rychlých rozhodnutích v laboratoři, kdy není čas násobit komplexní matice.
 
 \begin{figure}[htbp]
     \centering

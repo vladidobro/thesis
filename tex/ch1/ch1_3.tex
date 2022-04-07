@@ -2,7 +2,7 @@
 \label{chap:optika-v-multivrstvach}
 
 Cílem tohoto oddílu je představit teorii výpočtu transmisních a reflexních koeficientů (Jonesových matic průchodu a odrazu) obecných vrstevnatých struktur popsaných stupňovitým profilem tenzoru $\varepsilon$.
-Vrstevnatou strukturou rozumíme takovou, která je homogenní v rovině kolmé na jednu osu, tu zvolíme jako $z$, a rovina homogenity a všech rozhraní bude $xy$, viz obr. \ref{fig:vrstevnate-prostredi}.
+Vrstevnatou strukturou rozumíme takovou, která je homogenní v rovině kolmé na jednu osu -- tu zvolíme jako $z$ -- a rovina homogenity a všech rozhraní bude $xy$, viz obr. \ref{fig:vrstevnate-prostredi}.
 Stupňovitým profilem zase rozumíme, že struktura je složená z konečného počtu vrstev, ve kterých je $\varepsilon$ konstantní.
 
 \begin{figure}[htbp]
@@ -22,7 +22,7 @@ kde příčné složky vlnového vektoru $k_x$ a $k_y$ jsou konstantní podél c
 Uvnitř každé vrstvy bude existovat i třetí složka $k_z$, bude se ale lišit v různých vrstvách.
 Obecný postup je tedy řešit Maxwellovy rovnice zvlášť v každém prostředí, a řešení následně svázat pomocí okrajových podmínek.
  
-Budeme následovat řešení Berremanovou metodou přenosových matic\todocite{Berreman}.
+Budeme následovat řešení Berremanovou metodou přenosových matic\cite{berremanOpticsStratifiedAnisotropic1972}.
 S uvážením \eqref{eqn:pricne-vlnove-vektory} mají Maxwellovy rovnice maticový tvar
 \begin{equation}
 \label{eqn:Berreman-6x6}
@@ -84,7 +84,7 @@ Uvnitř každé vrstvy (v oblasti s konstantním $\varepsilon$ a tedy maticí $\
 \end{equation}
 která lze spočíst diagonalizací\footnote{Obecně vzato nemusí být diagonalizovatelná, dovoluje však maximálně dvounásobnou degeneraci (dva módy postupné $+z$ a dva $-z$), takže v nejpatologičtějším případě má Jordanův tvar dvou $2\times2$ bloků.} obecně nehermitovské $4\times 4$ matice $\Delta$.
 Matice má 4 komplexní vlastní čísla odpovídající vlnovým vektorům příslušných vlastních módů, které lze rozdělit do dvou skupin:
-dva módy šířící se ve směru $+z$ mají\footnote{Podle \eqref{eqn:Poynting} $S_z \propto E_xH_y-E_yH_x$.} $\Re\lbrace N_z \rbrace\geq0$, $\Im\lbrace N_z \rbrace\geq0$, $S_z\geq0$;\todo{spravne strednik?} zbylé dva se šíří ve směru $-z$ a platí pro ně opačné nerovnice.
+dva módy šířící se ve směru $+z$ mají\footnote{Podle \eqref{eqn:Poynting} $S_z \propto E_xH_y-E_yH_x$.} $\Re\lbrace N_z \rbrace\geq0$, $\Im\lbrace N_z \rbrace\geq0$, $S_z\geq0$; zbylé dva se šíří ve směru $-z$ a platí pro ně opačné nerovnice.
 
 Velmi důležitým rozdílem Berremanova přístupu oproti Yehově maticové algebře je,
 že zatímco v Yehově metodě je diagonalizace a hledání vlastních módů nedílnou součástí již definice základních pojmů formalismu (tzv. dynamické a propagační matice),
