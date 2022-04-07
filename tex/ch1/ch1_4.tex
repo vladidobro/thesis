@@ -1,25 +1,24 @@
 \section{Magneto-optické tenzory}
 \label{chap:magnetoopticke-tenzory}
 
-\todocite{Visbible}
-Všechny magneto-optické (MO) jevy lze v principu vysvětlit závislostí optických parametrů na magnetickém stavu\todocite{Silber}.
-V našem popisu materiálů je jediným materiálovým parametrem tenzor relativní permitivity $\varepsilon$.
+Všechny magneto-optické (MO) jevy lze v principu vysvětlit závislostí optických parametrů na magnetickém stavu\cite{silberQuadraticMagnetoopticKerr2019a}.
+V našem modelu je jediným materiálovým parametrem tenzor relativní permitivity $\varepsilon$.
 Nejdříve se zaměříme na feromagnety, závislost na magnetickém stavu značíme $\varepsilon(\vec{M})$.
 Obecně je možné rozdělit závislost do tří příspěvků
 \begin{equation}
     \varepsilon(\vec{M})=\varepsilon^{(0)} + \varepsilon^{(-)}(\vec{M}) + \varepsilon^{(+)}(\vec{M}) \,,
 \end{equation}
-kde $\varepsilon^{(0)}\equiv \varepsilon(\vec{M}=0)$ je nemagnetická/strukturální permitivita,
+kde $\varepsilon^{(0)}$ je nemagnetická/strukturální permitivita\footnote{``Jako kdyby $\vec{M}=0$.''},
 $\varepsilon^{(-)}(\vec{M})=-\varepsilon^{(-)}(-\vec{M})$ je permitivita lichá v magnetizaci
-a $\varepsilon^{(+)}(\vec{M})=\varepsilon^{(+)}(-\vec{M})$, $\varepsilon^+(0)=0$ je permitivita sudá v magnetizaci.
+a $\varepsilon^{(+)}(\vec{M})=\varepsilon^{(+)}(-\vec{M})$ je permitivita sudá v magnetizaci.
 
-Z termodynamických úvah plynou Onsagerovy relace reciprocity\todocite{Onsager} pro $\varepsilon(\vec{M})$
+Z termodynamických úvah plynou Onsagerovy relace reciprocity\cite{onsagerReciprocalRelationsIrreversible1931a,onsagerReciprocalRelationsIrreversible1931} pro $\varepsilon(\vec{M})$
 \begin{equation}
     \varepsilon_{ij}(\vec{M})=\varepsilon_{ji}(-\vec{M}) \,,
 \end{equation}
 takže $\varepsilon^{(0)}$ a $\varepsilon^{(+)}$ jsou symetrické, zatímco $\varepsilon^{(-)}$ je antisymetrický.
 
-Magnetická závislost permitivity se obvykle rozvíjí do mocninné řady v $\vec{M}$
+Magnetická závislost permitivity se obvykle rozvíjí do mocninné řady v $\vec{M}$ \cite{visnovskyOpticsMagneticMultilayers2018}
 \begin{align} 
 \label{eqn:MO-tenzory}
     \varepsilon_{ij}(\vec{M})&=\varepsilon^{(0)}_{ij}
@@ -30,15 +29,15 @@ Magnetická závislost permitivity se obvykle rozvíjí do mocninné řady v $\v
         + \sum_{k,l=1}^{3} G_{ijkl} M_k M_l + \dots
         =\varepsilon^{(0)}_{ij} +\varepsilon^{(1)}_{ij} +\varepsilon^{(2)}_{ij} + \dots
 \end{align}
-kde jsme explicitně uvedli první dva řády, které definují \emph{lineární MO tenzor} $\mathbb{K}$ a \emph{kvadratický MO tenzor} $\mathbb{G}$. \todocite{Visbible}
+kde jsme explicitně uvedli první dva řády, které definují \emph{lineární MO tenzor} $\mathbb{K}$ a \emph{kvadratický MO tenzor} $\mathbb{G}$.
 Vyšší řády se většinou zanedbávají.
-Je dobré ale mít na paměti, že zakončením rozvoje na určitém řádu nejen snižujeme přesnost, ale také uměle zvyšujeme symetrii $\varepsilon(\M)$ \todocite{Silber}.
-To je nejlépe nahlédnout např. u materiálu se šesterečnou symetrií v rovině $xy$ --\tododash $\mathbb{G}$ tenzor je v rovině $xy$ isotropní, ale permitivita 6. řádu už má ``správnou'' šesterečnou symetrii.
-MO tenzory $\mathbb{K}$ a $\mathbb{G}$ nedokáží popsat šesterečně symetrický Voigtův jev\todo{odkaz na kapitolu}, proto je třeba mít se na pozoru a v případě takového kvalitativního důkazu do rozvoje přidat další členy.
+Je dobré ale mít na paměti, že zakončením rozvoje na určitém řádu nejen snižujeme přesnost, ale také uměle zvyšujeme symetrii $\varepsilon(\M)$ \cite{silberQuadraticMagnetoopticKerr2019a}.
+To je nejlépe nahlédnout např. u materiálu se šesterečnou symetrií v rovině $xy$: $\mathbb{G}$ tenzor je v rovině $xy$ isotropní, ale permitivita 6. řádu už má ``správnou'' šesterečnou symetrii.
+MO tenzory $\mathbb{K}$ a $\mathbb{G}$ nedokáží popsat Voigtův jev (viz kap. \ref{chap:2}) se šesterečnou symetrií, proto je třeba mít se na pozoru a v případě takového kvalitativního důkazu do rozvoje přidat další členy.
 
 MO tenzory se musí podřizovat stejným symetriím jako materiál, který popisují, což je spolu s Onsagerovými relacemi poměrně silně omezuje.
-Tvar $\mathbb{K}$ a $\mathbb{G}$ pro všechny krystalografické třídy je uveden v \todocite{Visbible}.
-Dále uvedeme MO tenzory pro izotropní a kubický (krystalové třídy $\bar{4}3m, 432, m3m$) materiál s krystalografickými osami ve směrech souřadných os.
+Tvar $\mathbb{K}$ a $\mathbb{G}$ pro všechny krystalografické třídy je uveden v \cite{visnovskyOpticsMagneticMultilayers2018}.
+Dále uvedeme MO tenzory pro izotropní a kubický (krystalové třídy $\bar{4}3m, 432, m3m$) materiál s krystalografickými osami ve směrech souřadných os \cite{hamrlovaQuadraticinmagnetizationPermittivityConductivity2013,visnovskyOpticsMagneticMultilayers2018}.
 Izotropní i kubický materiál mají izotropní nemagnetickou permitivitu (index lomu $n$)
 \begin{equation}
     \varepsilon^{(0)}=\begin{pmatrix}
@@ -55,7 +54,7 @@ oba také mají izotropní $\mathbb{K}$
     \begin{pmatrix} 0 & M_z & -M_y \\ -M_z & 0 & M_x \\ M_y & -M_x & 0 \end{pmatrix} \,,
 \end{equation}
 ale v druhém řádu už se liší.
-Pro kubický materiál platí (používáme 2-indexovou notaci jako \todocite{Hamrlova})
+Pro kubický materiál platí (používáme 2-indexovou notaci jako \cite{hamrlovaQuadraticinmagnetizationPermittivityConductivity2013})
 \begin{equation}
     \begin{pmatrix}
         \varepsilon^{(2)}_{xx} \\ \varepsilon^{(2)}_{yy} \\ \varepsilon^{(2)}_{zz} 

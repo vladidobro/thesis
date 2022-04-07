@@ -89,13 +89,15 @@ dva módy šířící se ve směru $+z$ mají\footnote{Podle \eqref{eqn:Poynting
 Velmi důležitým rozdílem Berremanova přístupu oproti Yehově maticové algebře je,
 že zatímco v Yehově metodě je diagonalizace a hledání vlastních módů nedílnou součástí již definice základních pojmů formalismu (tzv. dynamické a propagační matice),
 v Berremanově metodě se uplatňuje pouze jako pomocný výpočet jinak již dobře definované maticové exponenciály \eqref{eqn:Berreman-exponenciala}.
-Diagonalizace a hledání vlastních módů jsou vysoce nelineární operace, jsou singulární v okolí degenerací (limita izotropního $\varepsilon$, či směr paprsku shodný s optickou osou) a někdy v nich dokonce selhávají\todocite{}.
+Diagonalizace a hledání vlastních módů jsou vysoce nelineární operace, jsou singulární v okolí degenerací (limita izotropního $\varepsilon$, či směr paprsku shodný s optickou osou) a někdy v nich dokonce selhávají\cite{xuOpticalDegeneraciesAnisotropic2000,wuSingularitiesMatrixFormalisms2018,garibelloSingularityYehTransfer2020,bertrandGeneralAnalyticalTreatment2001}.
 
 Tento rozdíl je zásadní v magneto-optice, kde nás často zajímají právě drobné odchylky od izotropní $\varepsilon$, a výsledky jsou vyjádřeny do prvního řádu v těchto odchylkách.
-V Yehově formalismu obtížné počítat derivace podle složek $\varepsilon$; v \eqref{eqn:Berreman-exponenciala} je to však jednoduché.
+V Yehově formalismu obtížné počítat derivace podle složek $\varepsilon$; v \eqref{eqn:Berreman-exponenciala} je to však jednoduché\cite{bertrandGeneralAnalyticalTreatment2001}.
 Z uvedených důvodů v této práci používáme Berremanův formalismus, přestože magneto-optice z velké části dominuje Yehův.
-\todo{vlozit odkaz na appendix}
-\subsection*{Odraz a průchod}
+
+Poruchová teorie v Berremanově formalismu je rozvedena v dodatku \ref{app:berreman}.
+
+\subsubsection*{Odraz a průchod}
 
 Předpokládejme, že se nám podařilo vyřešit \eqref{eqn:Berreman-master} a tedy najít matici $\mathfrak{M}$, která svazuje příčná pole na začátku $(L)$ a na konci $(R)$ multivrstvy, viz obr. \ref{fig:odraz-pruchod}
 \begin{equation}
@@ -122,11 +124,11 @@ Na obou stranách si zvolíme pro $-z$ i $+z$ šířící se módy bázi lineár
 \end{equation}
 kde $\mathfrak{D}$ diagonalizuje $\Delta$ ve smyslu, že $\mathfrak{D}\Delta \mathfrak{D}^{-1}$ je diagonální.
 V Yehově formalismu se nazývají dynamické matice a obsahují ve sloupcích příčná pole jednotlivých módů.
-V případě degenerace není $\mathfrak{D}$ jednoznačné ---\tododash volbou $\mathfrak{D}$ volíme bázi Jonesových vektorů.
+V případě degenerace není $\mathfrak{D}$ jednoznačné -- volbou $\mathfrak{D}$ volíme bázi Jonesových vektorů.
 
 Častá volba $\mathfrak{D}$ v izotropním prostředí je báze lineárního příčného (TE, s-polarizace) a podélného (TM, p-polarizace) módu.
 Zde ji uvedeme tak, abychom si usnadnili práci s téměř kolmým dopadem, nese to však s sebou přechod do báze odraženého světla s opačnou točivostí.
-Opačný přístup volí opačné znaménko odražené p-polarizace, čímž se zachová točivost (viz např. \todocite{Silber}).
+Opačný přístup volí opačné znaménko odražené p-polarizace, čímž se zachová točivost (viz např. \cite{silberQuadraticMagnetoopticKerr2019a}).
 Souřadnou soustavu volíme tak, aby rovina dopadu byla rovnoběžná s jednou ze souřadných os, zde zvolíme $yz$, takže $N_x=0$, $N_y=\sin \alpha$, kde $\alpha$ je úhel dopadu.
 Jako bázi módů volíme lineární polarizace příčné $J_s$ a podélné $J_p$ k rovině dopadu, viz. obr. \ref{fig:odraz-pruchod}.
 Pro prostředí s indexem lomu $n$ má dynamická matice v této situaci explicitně tvar
@@ -163,7 +165,7 @@ což vede na Jonesovy transmisní a reflexní matice Fresnelových koeficientů 
 Multivrstva složená pouze z izotropních vrstev nemíchá s- a p-polarizaci, mimodiagonální členy jsou nulové.
 Pokud je jedna nebo více vrstev pouze slabě anizotropní, projeví se to malými nenulovými mimodiagonálními členy.
 Při dopadu např. s-polarizace pak prošlé a odražené světlo nabyde malé amplitudy p-polarizace, v elipsometrických parametrech se to projeví stočením hlavní roviny polarizace $\Delta \beta$ a elipticitou $\chi$; podobně pro dopadající p-polarizaci. 
-Oba jevy souhrnně popisuje tzv. komplexní parametr stočení\todo{overit} \todocite{Silber}, v reflexi
+Oba jevy souhrnně popisuje tzv. komplexní parametr \todo{ověřit}stočení\cite{silberQuadraticMagnetoopticKerr2019a}, v reflexi
 \begin{equation}
 \label{eqn:komplexni-rotace}
     \Psi_s \equiv \Delta \beta_s - i \chi_s \approx \frac{r_{ps}}{r_{ss}} 

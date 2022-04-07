@@ -7,7 +7,7 @@ Na druhou stranu magnetooptické vlastnosti, jak je patrné z předchozího odd�
 Tento oddíl se věnuje vztahu mezi $\vec{M}$ a $\vHext$.
 
 Zanedbáme problémy spojené s demagnetizačními poli a budeme pro ilustraci uvažovat systém s homogenní magnetizací.
-Pokud je udržovaný na teplotě $T$, udává jeho termodynamické vlastnosti hustota volné energie $F(T,\vec{M})$. \todocite{Callen}
+Pokud je udržovaný na teplotě $T$, udává jeho termodynamické vlastnosti hustota volné energie $F(T,\vec{M})$ \cite{callenThermodynamicsIntroductionThermostatistics1985}.
 Aby mohl být systém v rovnováze při konkrétním $\vec{M}$, musí externí pole jakožto přidružený intenzivní parametr splňovat
 \begin{equation} 
 \label{eqn:Hext=gradF}
@@ -16,7 +16,7 @@ Aby mohl být systém v rovnováze při konkrétním $\vec{M}$, musí externí p
 
 Radši bychom ale znali rovnovážné $\vec{M}$ v situaci, kdy je systém obklopen magnetickým polem $\vHext$ tvořeným např. cívkami elektromagnetu.
 Mezi magnetem a studovaným systémem dochází k výměně energie prostřednictvím magnetického pole, systém je v kontaktu s "magnetickým rezervoárem" a v rovnováze proto dochází k minimalizaci \emph{celkové} volné energie.
-V souladu s teorií termodynamických potenciálů tedy přejdeme k Legendrově transformaci v $\vHext$ --\tododash hustotě "magnetické entalpie"\footnote{Někdy označované jako magnetický Gibbsův potenciál.} systému\todocite{magentalpie}\todo{skutecne plus?}
+V souladu s teorií termodynamických potenciálů tedy přejdeme k Legendrově transformaci v $\vHext$ -- hustotě ``magnetické entalpie''\footnote{Někdy označované jako magnetický Gibbsův potenciál.} systému\cite{castellanoThermodynamicPotentialsSimple2003}\todo{skutecne plus?}
 \begin{equation} 
 \label{eqn:magneticka-entalpie}
     \Omega(T,\vHext)= -\mu_0\vHext\cdot\vec{M}(\vHext)+F\left(\vec{M}(\vHext)\right) \,.
@@ -25,19 +25,19 @@ Princip minima termodynamických potenciálů nám říká, že pro libovolné p
 V obecné situaci, kdy magnetizace není homogenní a jednotlivá místa systému spolu interagují, může volná energie být obecným nelokálním funkcionálem prostorového rozložení magnetizace.
 Hustota $F(\vec{M})$ se proto nazývá \emph{funkcionál volné energie}.
 
-Široce používaný model feromagnetů v jedno-doménovém stavu je tzv. Stonerův-Wohlfarthův model\todocite{StonerWohlfarth}.
+Široce používaný model feromagnetů v jedno-doménovém stavu je tzv. Stonerův-Wohlfarthův model\cite{stonerMechanismMagneticHysteresis1991}.
 Předpokládá, že funkcionál $F(\vec{M})$ má význam pouze lokální hustoty a $\vec{M}$ je tedy dána minimalizací \eqref{eqn:magneticka-entalpie}.
-Ve formě, v jaké SW model budeme používat, zahrnujeme do volné energie 4 příspěvky\todocite{Reichlova,Janda,Kucharik}
+Ve formě, v jaké SW model budeme používat, zahrnujeme do volné energie 4 příspěvky\cite{reichlovaUltrarychlaLaserovaSpektroskopie2010,jandaDynamikaSpinovePolarizace2012,kucharikStudiumSpinovePolarizace2015}
 \begin{equation}
     F=F^\textrm{exchange} + F^\textrm{magnetocrystalline} + F^\textrm{shape} + F^\textrm{strain}
 \end{equation}
-První člen, způsobený výměnnou interakcí, má na svědomí feromagnetismus; závisí na celkové velikosti magnetizace $|\vec{M}|$ a má ostré minimum pro saturovanou magnetizaci $|\vec{M}|=M_S$ --\tododash všechny mikroskopické magnetické momenty jsou orientované stejným směrem.
+První člen, způsobený výměnnou interakcí, má na svědomí feromagnetismus; závisí na celkové velikosti magnetizace $|\vec{M}|$ a má ostré minimum pro saturovanou magnetizaci $|\vec{M}|=M_S$ -- všechny mikroskopické magnetické momenty jsou orientované stejným směrem.
 Magnetokrystalická anizotropie $F^\textrm{magnetocrystalline}$ popisuje interakci s krystalickou mřížkou, tvarová anizotropie $F^\textrm{shape}$ popisuje vliv tvaru vzorku a strainová anizotropie $F^\textrm{strain}$ popisuje anizotropie způsobené mechanickým napětím (např. když je vzorek nanesen na substrátu s odlišnou mřížkovou konstantou).
 
 Dále se omezíme na situaci relevantní pro tuto práci.
 Vzorek je feromagnetický a vlivem výměnné interakce je magnetizace vždy saturovaná.
 Vzorek je kubický tenký film s krystalografickými směry [100], [010] a [001] shodnými s kladnými poloosami $x$, $y$, $z$.
-Tvarová anizotropie způsobí vymizení out-of-plane magnetizace $\vec{M}_z=0$
+Tvarová anizotropie způsobí vymizení out-of-plane magnetizace $M_z=0$
 \begin{equation}
 \label{eqn:magnetizace-v-rovine}
     \vec{M}=\begin{pmatrix} M_x \\ M_y \\ M_z \end{pmatrix}
@@ -49,7 +49,7 @@ Magnetokrystalická anizotropie se rozvine do mocninné řady v $\vec{M}$ a pone
     \frac{F^\textrm{magnetocrystalline}}{M_S}=k_4 \sin^2 \phim \cos^2 \phim \,,
 \end{equation}
 čímž jsme definovali kubickou anizotropní konstantu $k_4$.
-Pro $k_4>0$ má minima --\tododash snadné osy, ve směrech [100] a [010] (tj. $\phim=\SI{0}{\degree}$, \SI{90}{\degree}), pro $k_4<0$ jsou to [110] a [1-10] (tj. $\phim=\SI{45}{\degree}$, \SI{135}{\degree}).
+Pro $k_4>0$ má minima -- snadné osy -- ve směrech [100] a [010] (tj. $\phim=\SI{0}{\degree}$, \SI{90}{\degree}), pro $k_4<0$ jsou to [110] a [1-10] (tj. $\phim=\SI{45}{\degree}$, \SI{135}{\degree}).
 
 Navíc povolíme uniaxiální strainovou anizotropii.
 Také jí rozvineme do řady a podpořeni tím, že mechanické napětí v rovině má principiálně uniaxiální charakter, ponecháme pouze první člen a opět vydělíme $M_S$ pro definici uniaxiální anizotropní konstanty $k_u$ a směru $\phiu$.
@@ -95,7 +95,7 @@ Podmínka minima $\Omega$ má pak tvar\todo{spravne?}
     \frac{L(\phim)}{M_s} = \mu_0\Hext \sin (\phim-\phih) \,.
 \end{equation}
 
-Existence volné energie má netriviální důsledek na tvar závislosti $\vec{M}(\vHext)$ --\tododash podmínku integrability.
+Existence volné energie má netriviální důsledek na tvar závislosti $\vec{M}(\vHext)$ -- podmínku integrability.
 Pro relevantní situaci saturované in-plane magnetizace a rotujícího vnějšího pole konstantní velikosti má tvar
 \begin{equation}
 \label{eqn:podminka-integrability}
@@ -106,4 +106,4 @@ za podmínky, že $\phim$ je spojitou funkcí $\phih$ - nedochází k přeskoků
 Důsledkem je např. intuitivní fakt, že z myslitelných průběhů $\phim(\phih)=\phih+c$ je jediný možný ten, pro který $c=0$;
 není možné, aby magnetizace konzistentně ``předbíhala'' nebo se ``opožďovala'' za přiloženým polem.
 Pokud z experimentu dokážeme určit pouze $\text{d}\phim/\text{d}\phih$, podmínka \eqref{eqn:podminka-integrability} nám dovoluje určit integrační konstantu.
-Obecný tvar a podrobnosti jsou uvedeny v dodatku \ref{app:integrabilita}.
+Obecný tvar a podrobnosti jsou uvedeny v dodatku \ref{app:magneticka-anizotropie}.
