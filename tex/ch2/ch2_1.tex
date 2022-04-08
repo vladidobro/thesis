@@ -1,25 +1,25 @@
 \section{Osmisměrná metoda}
 \label{chap:osmismerna-metoda}
 
-Základem osmisměrné metody\cite{osmismerna} je vzorec \eqref{eqn:QMOKE-vzorec}.
+Základem osmisměrné metody\cite{postavaAnisotropyQuadraticMagnetooptic2002} je vzorec \eqref{eqn:QMOKE-vzorec}.
 Všechny tři členy mají různou závislost na směru magnetizace, takže měřením signálu pro různé směry in-plane magnetizace je možné je od sebe oddělit.
 V praxi se měří stočení polarizace, případně elipticita pro 8 směrů vnějšího pole $\vHext$ jako na obr. \ref{fig:osmismerna-metoda} (b).
 Koeficienty jednotlivých členů \eqref{eqn:QMOKE-vzorec} se pak získají vhodnými součty a odečty signálu v různých směrech.
 Podmínkou je však striktní magnetická saturace, tj. pole musí být dostatečně silné, aby magnetizace byla pro všechny směry saturovaná ve směru pole (aby vždy platilo $\phim=\phih$ a $|\vec{M}|=M_S$).
 
 Měření je opakováno pro různé natočení vzorku $\gamma$, změřené koeficienty pak sledují závislost podle vzorce \eqref{eqn:QMOKE-vzorec}, viz obr. \ref{fig:osmismerna-vysledky}.
-Vzorec \eqref{eqn:QMOKE-vzorec} v tomto tvaru platí pouze pro [001] orientované vzorky, nicméně metoda byla rozšířena\todocite{Silber} pro [011] a [111] orientované kubické vzorky, ve kterých má podobný tvar\todocite{Hamrlova}.
+Vzorec \eqref{eqn:QMOKE-vzorec} v tomto tvaru platí pouze pro [001] orientované vzorky, nicméně metoda byla rozšířena pro [011] a [111] orientované kubické vzorky, ve kterých má podobný tvar\cite{silberQuadraticMagnetoopticKerr2019a,hamrlovaQuadraticinmagnetizationPermittivityConductivity2013}.
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{./img/8dir.png}
-    \caption{Osmisměrná metoda [cite{osmismerna}]. (a) Vzorek je otáčen v rovině $xy$ o úhel $\gamma$. (b) Osm pevných směrů, ve kterých je přikládáno magnetické pole.}
+    \includegraphics{./img/static/osmismerna-metoda-postava.pdf}
+    \caption{Osmisměrná metoda. (a) Vzorek je otáčen v rovině $xy$ o úhel $\gamma$. (b) Osm pevných směrů, ve kterých je přikládáno magnetické pole. \cite{postavaAnisotropyQuadraticMagnetooptic2002}}
     \label{fig:osmismerna-metoda}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{./img/rotmokevysledek.png}
-    \caption{Naměřená závislost koeficientů MO jevů na natočení vzorku (epitaxní vrstva Fe na MgO) [cite{osmismerna}]. ($\circ$) koeficient lineárního jevu, ($+$) koeficient $M_xM_y$, ($\diamond$) koeficient $M_x^2-M_y^2$. Harmonická závislost potvrzuje platnost vzorce \eqref{eqn:QMOKE-vzorec} a striktní magnetickou saturaci v daném případě.}
+    \includegraphics{./img/static/osmismerna-vysledek-postava.pdf}
+    \caption{Naměřená závislost koeficientů MO jevů na natočení vzorku (epitaxní vrstva Fe na MgO). ($\circ$) koeficient lineárního jevu, ($+$) koeficient $M_xM_y$, ($\diamond$) koeficient $M_x^2-M_y^2$. Harmonická závislost potvrzuje platnost vzorce \eqref{eqn:QMOKE-vzorec} a striktní magnetickou saturaci v daném případě. \cite{postavaAnisotropyQuadraticMagnetooptic2002}}
     \label{fig:osmismerna-vysledky}
 \end{figure}
