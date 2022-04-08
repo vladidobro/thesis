@@ -37,7 +37,7 @@ LATEX=rubber --unsafe --pdf --synctex --module lualatex -W all
 .DEFAULT_GOAL:= thesis
 .PHONY: all thesis abstract defense
 .PHONY: data
-.PHONY: synctex verapdf
+.PHONY: version see verapdf
 .PHONY: clean mostlyclean cleanimg cleanpdf cleanpy cleantex
 .PHONY: help echoes 
 
@@ -49,6 +49,7 @@ defense: defense.pdf ## compile defense
 
 data:
 	$(MAKE) -C $(DATADIR) out
+
 
 verapdf: thesis
 	curl https://cuni.cz/UK-7987-version1-custom8.xml > /tmp/verapdf_profile
