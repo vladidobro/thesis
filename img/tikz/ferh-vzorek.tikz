@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \begin{scope}[rotate=20,yshift=1cm]
+    \filldraw[fill=gray!20] (-4.5,-1) -- (-4.5,1) -- (-1,1) -- (-1,-1) -- cycle;
+    \filldraw (-3.3,0) circle [radius=0.2cm];
+    \draw (-2.75,0) -- (-2.75,-2);
+    \draw[->] (-2.75,0) -- +(-110:2) node[anchor=east] {$x$};
+    \draw[->] (-2.75,0) -- +(-20:2.2) node[anchor=south] {$y$};
+    \filldraw[fill=green!20,draw=green!50!black] (-2.75,0) -- (-2.75,-1.3cm) arc[start angle=270, end angle=250, radius=1.3cm] -- cycle;
+    \path (-2.75,0) ++(-100:1cm) node {$\gamma$};
+
+    \draw[<->] (-4.5,1.2) -- node[anchor=south,rotate=20] {FeRh[110]/MgO[100]} (-1,1.2);
+
+\end{scope}
+    \path (3.5,0) node {\includegraphics[width=7cm]{./img/static/ferh-hystereze-kubascik.png}};
+    \path (-5,2) node {(a)};
+    \path (0,2) node {(b)};
+\end{tikzpicture}
