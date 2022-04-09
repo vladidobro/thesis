@@ -9,4 +9,6 @@ Vladislav Wohlrath
 
 19.4. - finální verze
 
-5.5. -  odevzdání
+5.5. -  odevzdání elektronické verze
+
+9.5. - odevzdání listinné verze
