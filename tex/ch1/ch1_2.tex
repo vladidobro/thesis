@@ -24,7 +24,8 @@ Viz obr. \ref{fig:polarizacni-elipsa}.
 \begin{figure}[htbp]
     \centering
     \input{./img/tikz/polarizacni-elipsa.tikz}
-    \caption{Polarizacni elipsa}
+    \caption{Polarizační elipsa s vyznačenou soustavou souřadnou a elipsometrickými úhly $\beta$ a $\chi$ (na obrázku jsou oba kladné).
+    Pro vyznačený směr svazku $\vec{k}$ se jedná o levotočivé světlo (čtenář je v pozici pozorovatele od zdroje).}
     \label{fig:polarizacni-elipsa}
 \end{figure}
 
@@ -47,12 +48,12 @@ Dvě polarizace/Jonesovy vektory jsou ``ortogonální'' ($\J_1^\dagger \J_2=0$),
 Akci každého lineární polarizačního prvku, lze popsat jako lineární transformaci Jonesova vektoru -- transformaci Jonesovou $2\times 2$ komplexní maticí $\mathcal{T}$.
 Jonesovy matice lze použít pro popis polarizačního děliče: každé rameno pak má vlastní matici.
 
-Sadě elipsometrických parametrů $\beta$, $\chi$, $I$, $\delta$ odpovídá Jonesův vektor
+Sadě parametrů $\beta$, $\chi$, $I$, $\delta$ odpovídá Jonesův vektor\todo{znaminka}
 \begin{equation} 
 \label{eqn:Jones-elipsa}
     \J=\sqrt{I} e^{i\delta} \begin{pmatrix}
-        \cos \chi \cos \beta + i \sin \chi \sin \beta \\
-        \cos \chi \sin \beta - i \sin \chi \cos \beta
+        \cos \chi \cos \beta - i \sin \chi \sin \beta \\
+        \cos \chi \sin \beta + i \sin \chi \cos \beta
     \end{pmatrix} \,.
 \end{equation}
 
@@ -60,7 +61,7 @@ Zde je na místě poznámka o točivosti.
 Pozdeji budeme pro usnadnění práce s téměř kolmým odrazem používat stejné souřadnice $x,y$ i pro světlo v opačném směru; vztažná soustava pak ale bude mít opačnou točivost.
 V této věci se nevyhneme nějakému kompromisu, a proto přestože točivost světla je definovaná vždy vzhledem ke směru šíření, elipsometrické parametry definujeme vždy vzhledem k dané soustavě Jonesových vektorů, která může spolu se směrem šíření tvořit jak levotočivý, tak pravotočivý systém.
 $\beta$ definujeme vzhledem k $J_x$, s rostoucím úhlem ve směru $+J_y$.
-$\delta$ je dáno počátkem času $t=0$ a vztah mezi znaménkem $\chi$ a točivostí je dán následující poučkou: pokud $J_x J_y \vec{k}$ tvoří levotočivý systém jako na obr. \ref{fig:polarizacni-elipsa}, pak $\chi>0$ odpovídá pravotočivé polarizaci.
+$\delta/\omega$ značí čas, ve kterém $\vec{E}$ protne hlavní poloosu, a vztah mezi znaménkem $\chi$ a točivostí je dán následující poučkou: pokud $J_1 J_2 \vec{k}$ tvoří levotočivý systém jako na obr. \ref{fig:polarizacni-elipsa}, pak $\chi>0$ odpovídá levotočivé polarizaci.
 
 Při této konvenci se kruhově polarizované světlo $\J_\textrm{i}=(1, i)^T$ při kolmém dopadu odrazí se stejným Jonesovým vektorem $\J_\textrm{r}=(1, i)^T$ (a tedy stejným znaménkem $\chi$), avšak jde o opačnou točivost.
 
