@@ -101,15 +101,9 @@ Poruchová teorie v Berremanově formalismu je rozvedena v dodatku \ref{app:berr
 
 Předpokládejme, že se nám podařilo vyřešit \eqref{eqn:Berreman-master} a tedy najít matici $\mathfrak{M}$, která svazuje příčná pole na začátku $(L)$ a na konci $(R)$ multivrstvy, viz obr. \ref{fig:odraz-pruchod}
 \begin{equation}
-    \begin{pmatrix} E^\perp_l \\ Z_0 H^\perp_l \end{pmatrix}=\mathfrak{M} \begin{pmatrix} E^\perp_r \\ Z_0 H^\perp_r \end{pmatrix}
+    \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}_{(L)}=\mathfrak{M} \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}_{(R)}
 \end{equation}
 
-\begin{figure}
-    \centering
-    \missingfigure{nakres}
-    \caption{Odraz a průchod}
-    \label{fig:odraz-pruchod}
-\end{figure}
 
 Úloha průchodu a odrazu je typicky zadána tak, že na strukturu posvítíme svazkem s definovaným vlnovým vektorem a polarizací, takže jsou zadány amplitudy dvou módů na levé straně s $k_z < 0$ (svítíme zleva).
 Druhou podmínku volíme, že nikdo jiný na strukturu nesvítí, takže amplitudy všech zbylých módů, které přinášejí energii směrem ke struktuře, jsou nulové; to jsou dva módy na pravé straně s $k_z > 0$.
@@ -117,7 +111,7 @@ Na každé straně nám tedy zbývají dva módy, jejichž amplitudy zvýbá ur�
 Vstupní a výstupní prostředí je nutné v tomto kontextu definovat jako to první, u kterého již nelze zpětné odrazy považovat za koherentní s dopadajícím svazkem (např. kvůli prostorovému oddělení).
 Např. pro odraz od vzorku na tlustém substrátu je nutné uvažovat jako výstupní prostředí substrát.
 
-Na obou stranách si zvolíme pro $-z$ i $+z$ šířící se módy bázi lineárních polarizací, kterými definujeme Jonesovi vektory pro příslušné svazky
+Na obou stranách si zvolíme pro $-z$ i $+z$ šířící se módy bázi lineárních polarizací, kterými definujeme Jonesovi vektory pro příslušné svazky (pro ilustraci viz obr. \ref{fig:odraz-pruchod})
 \begin{equation}
     \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}_{(L)}=\mathfrak{D}_{(L)} \begin{pmatrix} \J^-_{(L)} \\ \J^+_{(L)} \end{pmatrix} \,, \qquad
     \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}_{(R)}=\mathfrak{D}_{(R)} \begin{pmatrix} \J^-_{(R)} \\ \J^+_{(R)} \end{pmatrix} \,,
@@ -125,6 +119,13 @@ Na obou stranách si zvolíme pro $-z$ i $+z$ šířící se módy bázi lineár
 kde $\mathfrak{D}$ diagonalizuje $\Delta$ ve smyslu, že $\mathfrak{D}\Delta \mathfrak{D}^{-1}$ je diagonální.
 V Yehově formalismu se nazývají dynamické matice a obsahují ve sloupcích příčná pole jednotlivých módů.
 V případě degenerace není $\mathfrak{D}$ jednoznačné -- volbou $\mathfrak{D}$ volíme bázi Jonesových vektorů.
+
+\begin{figure}
+    \centering
+    \input{./img/tikz/odraz-pruchod.tikz}
+    \caption{Průchod a odraz od vrstevnatého prostředí. $(L)$, resp. $(R)$, značí veličiny na levé, resp. pravé straně multivrstvy. Polarizační stav dvojice módů šířících se ve směru $+z$, resp. $-z$, jsou popsány Jonesovými vektory $\J^+$, resp. $\J^-$.}
+    \label{fig:odraz-pruchod}
+\end{figure}
 
 Častá volba $\mathfrak{D}$ v izotropním prostředí je báze lineárního příčného (TE, s-polarizace) a podélného (TM, p-polarizace) módu.
 Zde ji uvedeme tak, abychom si usnadnili práci s téměř kolmým dopadem, nese to však s sebou přechod do báze odraženého světla s opačnou točivostí.

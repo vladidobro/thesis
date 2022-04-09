@@ -10,7 +10,10 @@ data/makefile
 *.pdf
 !version/*
 
+
 #begin clean
+thesis-*
+*.pre
 *.log
 *.dvi
 *.aux

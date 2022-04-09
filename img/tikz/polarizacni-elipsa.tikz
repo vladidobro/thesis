@@ -14,8 +14,10 @@
     \filldraw[fill=red!20,draw=red!50!black] (330:2cm) -- (330:1.1cm) arc[start angle=150, end angle=113.13, radius=0.9cm] -- cycle;
     \path (330:2cm) ++(130:0.7cm) node {$\chi$};
 
-    \begin{scope}[xshift=2cm, yshift=2cm]
-        \draw (0,0) circle [radius=0.15cm] node[anchor=west] {$z$} (45:0.15cm)--(45:-0.15cm);
+    \begin{scope}[xshift=1.6cm, yshift=1.8cm]
+        \draw[semithick] (0,0) circle [radius=0.15cm] node[anchor=west] {$z$};
+        \filldraw (0,0) circle[radius=0.03cm];
+        \draw[semithick] (0,-0.4cm) circle [radius=0.15cm] node[anchor=west] {$\vec{k}$} +(45:0.15cm)--+(45:-0.15cm) +(135:0.15cm) --+(135:-0.15cm);
     \end{scope}
     
 
