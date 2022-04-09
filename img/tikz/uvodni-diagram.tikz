@@ -1,0 +1,25 @@
+\begin{tikzpicture}[lase/.style={color=red, very thick}]
+
+\begin{scope}[every node/.style={draw,shape=rectangle,minimum size=1cm}]
+    \path (0,0) node (laser) {laser};
+    \path (laser) +(2.7,0) node (inopt) {vstupní optika};
+    \path (inopt) +(2.8,0) node (vzorek) {vzorek};
+    \path (vzorek) +(0,1.5) node (magnet) {magnet};
+    \path (vzorek) +(0,-1.5) node (kryostat) {kryostat};
+    \path (vzorek) +(2.8,0) node (outopt) {výstupní optika};
+    \path (outopt) +(3,1) node (detA) {detektor A};
+    \path (outopt) +(3,-1) node (detB) {detektor B};
+\end{scope}
+
+
+\draw[->,lase] (laser) -- (inopt);
+\draw[->,lase] (inopt) -- (vzorek);
+\draw[->,lase] (vzorek) -- (outopt);
+\draw[->,lase] (outopt) -- (detA);
+\draw[->,lase] (outopt) -- (detB);
+
+
+\draw[->] (magnet) -- node[anchor=west] {magnetické pole} (vzorek);
+\draw[->] (kryostat) -- node[anchor=west] {teplota} (vzorek);
+
+\end{tikzpicture}

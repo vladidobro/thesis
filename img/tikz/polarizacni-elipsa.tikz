@@ -1,0 +1,18 @@
+\begin{tikzpicture}[osy/.style={color=gray,dashed}]
+    \draw[->] (-2,0) -- (2,0) node[anchor=south] {$y$};
+    \draw[->] (0,2) -- (0,-2) node[anchor=east] {$x$};
+    \draw[rotate=330,->,very thick] (2,0) arc [start angle=0, end angle=430, x radius=2cm, y radius=1.5cm];
+
+    \draw[osy] (-30:-2cm) -- (-30:2cm);
+    \draw[osy] (60:-1.5cm) -- (60:1.5cm);
+
+    \draw[osy] (-30:2cm) -- (60:1.5cm);
+
+    \filldraw[fill=green!20,draw=green!50!black] (0,0) -- (0,-0.9cm) arc[start angle=270, end angle=330, radius=0.9cm] -- cycle;
+    \path (295:0.55cm) node {$\beta$};
+
+    \filldraw[fill=red!20,draw=red!50!black] (330:2cm) -- (330:1.1cm) arc[start angle=150, end angle=113.13, radius=0.9cm] -- cycle;
+    \path (330:2cm) ++(130:0.7cm) node {$\chi$};
+
+
+\end{tikzpicture}

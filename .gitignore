@@ -1,6 +1,7 @@
 untracked/*
 
-img/*
+img/static
+img/old
 
 data/raw/*
 data/out/*
