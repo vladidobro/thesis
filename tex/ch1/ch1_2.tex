@@ -114,16 +114,15 @@ Ortogonální polarizace jsou zobrazeny na body středově souměrné podle poč
 \begin{figure}[htbp]
     \centering
     \input{./img/asy/poincareho-sfera.asy}
-    \caption{Poincarého sféra. Je vyznačen rovník lineárních polarizací (rovina $S_z=0$) a póly kruhových polarizací $\chi=\pm 1$}
+    \caption{Poincarého sféra. Je vyznačen rovník lineárních polarizací (rovina $S_z=0$, $\chi=0$) a póly kruhových polarizací $\chi=\pm 1$.}
     \label{fig:Poincareho-sfera}
 \end{figure}
 
 I Muellerovy matice musí splňovat určité podmínky.
 Přestože libovolná myslitelná 4x4 reálná matice je dána 16 reálnými parametry, nedepolarizační (také nazývaná čistá\footnote{Ve smyslu čistého (nesmíšeného, angl. pure) stavu v kvantové mechanice.}) Muellerova matice je dána pouze 7 reálnými čisly\footnote{Jonesova matice je dána 4 komplexními čísly --- 8 reálných parametrů, ale při přechodu k Muellerově matici ztratíme informaci o celkové fázi.}. \cite{ossikovskiDifferentialMatrixFormalism2011}
 
-Dále se zaměříme na to, jakým způsobem působí čisté Muellerovy matice, a jak jejich akci znázornit pomocí tzv. charakteristických elipsoidů.
-Charakteristický elipsoid Muellerovy matice $\M$ je množina redukovaných Stokesových vektorů $(s_1, s_2, s_3)^T$, které vzniknou akcí $\M$ na body ležící na Poincarého sféře.
-Jinými slovy, každá Muellerova matice způsobí deformaci Poincarého sféry, výsledkem je vždy elipsoid.
+Dále se zaměříme na to, jakým způsobem působí čisté Muellerovy matice, a jak jejich akci znázornit \emph{zobrazením Poincarého sféry}.
+V případě depolarizačních prvků se ke znázornění používá trojice tzv. charakteristických elipsoidů, pro čisté prvky stačí zkoumat, jakým způsobem se změní body ležící na Poincarého sféře.
 V charakteristickém elipsoidu držíme i informaci o tom, které body se transformují kam -- např. fázové destičky mají za následek pouze rotaci Poincarého sféry.
 
 Nejdříve spomeneme větu z lineární algebry o polárním rozkladu matice\cite{motlPestujemeLinearniAlgebru2002}: Každou komplexní matici $\mathcal{T}$ lze jednoznačně rozložit na součin unitární $\mathcal{U}$ a pozitivně semidefinitní hermitovské $\mathcal{H}_1, \mathcal{H}_2$ matice v libovolném pořadí, $\mathcal{T}=\mathcal{U}\mathcal{H}_1 = \mathcal{H}_2 \mathcal{U}$.
@@ -186,7 +185,7 @@ Znázornění zobrazení Poincarého sféry nachází vzužití především pro
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{akce muelleru}
+    \input{./img/asy/akce-muelleru.asy}
     \caption{Zobrazení Poincarého sféry čistými Muellerovými maticemi. (a) čistý retardér (rotace sféry), (b) čistý diatenuátor (protáhnutí a posunutí sféry).}
     \label{fig:UH-Mueller}
 \end{figure}
