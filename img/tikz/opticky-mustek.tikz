@@ -1,0 +1,18 @@
+\begin{tikzpicture}[lase/.style={color=red, very thick}]
+    \draw[->,lase] (-5,0) -- node[anchor=south,color=black] {$\mathcal{J}_\textrm{in}$} (-3,0);
+    \draw (-3,-0.4) rectangle (-2.8,0.4);
+    \path (-2.9,0.4) node[anchor=south] {$\mathcal{T}_{\lambda/2}$};
+    \draw[->,lase] (-2.8,0) -- (-0.5,0);
+    \draw (-2,-0.4) rectangle (-1.4,0.4);
+    \draw (-2,0.4) -- (-1.4,-0.4);
+    \draw (-0.5,0.3) arc [start angle=90, end angle=-90, radius=0.3cm] -- cycle;
+    
+    \path (-0.8,0.1) node[anchor=south] {$\mathcal{J}_\textrm{A}$};
+    \path (-1.7,0.4) node[anchor=south] {$\mathcal{T}_\textrm{A/B}$};
+
+    \draw[->,lase] (-1.7,0) -- ++(233.1:1.2cm);
+    \path +(-1.9,-0.8) node {$\mathcal{J}_\textrm{B}$};
+    \draw (-1.7,0) ++(233.1:1.2cm) ++(143.1:0.3cm)  arc [start angle=143.1, end angle=323.1, radius=0.3cm] -- cycle;
+    \path (-2.7,-1) node[anchor=east] {det B};
+    \path (-0.2,-0.6) node {det A};
+\end{tikzpicture}

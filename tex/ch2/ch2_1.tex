@@ -5,14 +5,14 @@ V jednoduché formě je znázorněn na obr. \ref{fig:mustek-schema}.
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{a}
-    \caption{Mustekmustek-schema}
+    \input{./img/tikz/opticky-mustek.tikz}
+    \caption{Optický můstek. Naznačeny jsou Jonesovy vektory v určitých místech a matice jednotlivých prvků.}
     \label{fig:mustek-schema}
 \end{figure}
 
 Ústředním prvkem je polarizační dělič (často Glan Laser či Wollastonův hranol), který rozdělí svazek do dvou lineárně polarizovaných ramen.
 Při měření je nejprve nastaven úhel rotace půlvlnné destičky $\theta_{\lambda/2}$ (``vyvážení můstku'') tak, aby oba detektory detekovali stejnou intenzitu.
-V Jonesově formalismu\todo{spocitat} pro ideální prvky
+Pro ideální prvky platí v Jonesově formalismu\todo{spocitat}
 \begin{align}
     \J_\textrm{A} = \mathcal{T}_\textrm{A} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,&, \quad 
     \mathcal{T}_\textrm{A}=\begin{pmatrix} 1&0\\0&0 \end{pmatrix} \,, \\
@@ -27,16 +27,22 @@ Dosazením Jonesova vektoru \eqref{eqn:Jones-elipsa} odpovídajícímu natočen�
     I_\textrm{A}-I_\textrm{B}\equiv\J_\textrm{A}^\dagger\J_\textrm{A}-\J_\textrm{B}^\dagger\J_\textrm{B}=I\sin(2\beta-4\theta_{\lambda/2})\cos2\chi \,, \quad I_\textrm{A}+I_\textrm{B}=I
 \end{equation}
 
-Vyvážením můstku nastavíme $\sin(2\beta-4\theta_{\lambda/2})=0$, pro malé výchylky $\textrm{d}\beta, \textrm{d}\chi, \textrm{d}I$ pak platí
+Vyvážením můstku nastavíme $\sin(2\beta-4\theta_{\lambda/2})=0$. 
+V řeči diferenciálních forem pak pro malé změny $\J_\textrm{in}$ (vyjádřené pomocí $\textrm{d}\beta, \textrm{d}\chi, \textrm{d}I$) platí
 \begin{equation}
 \label{eqn:A-B-mustek}
-    \frac{1}{2I}\textrm{d}(I_\textrm{A}-I_\textrm{B})=\cos(2\chi) \textrm{d}\beta \,.
+    \textrm{d}(I_\textrm{A}-I_\textrm{B})=2I\cos(2\chi) \textrm{d}\beta \,.
 \end{equation}
 V měřeném signálu se tedy neprojeví změny elipticity ani intenzity.
-Pro $\chi=0$ je měřený signál dokonce přímo $\textrm{d}\beta$.
+Pro vstupní lineární polarizaci ($\chi=0$) můžeme měřený rozdílový signál normovat součtovým a dostat
+\begin{equation}
+    \frac{1}{2}\frac{I_\textrm{A}-I_\textrm{B}}{I_\textrm{A}+I_\textrm{B}}=\Delta\beta \,,
+\end{equation}
+kde jsme označili $\Delta\beta$ stočení polarizace.
+
 Vhodným vložením čtvrtvlnné destičky lze měřit i elipticitu\cite{silberQuadraticMagnetoopticKerr2019a}.
 
 Optický můstek zlepšuje úroveň šumu dvěma způsoby.
-Zaprvé umožňuje, aby k odečítání blízkých čísel docházelo na úrovni předzesilovače, a zadruhé se díky \eqref{eqn:A-B-mustek} neprojevují fluktuace intenzity
+Zaprvé se neprojevují fluktuace intenzity (jsou stejné v obou ramenech); zadruhé pak dochází k odečítání blízkých signálů již na úrovni předzesilovače.
 Detailnějšímu popisu optického můstku se věnuje oddíl \ref{chap:detekce}.
 
