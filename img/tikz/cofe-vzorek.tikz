@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+\begin{scope}[rotate=20,yshift=1cm]
+    \filldraw[fill=gray!20](-2.8,-1.25) -- (-2.8,1.25) -- (-1,1.25) -- (-1,-1) arc [start angle=90, end angle=180, radius=0.25cm] -- cycle;
+    \draw[thick] (-3.5,-1.25) -- (-3.5,1.25) -- (-1,1.25) -- (-1,-1.25) -- cycle;
+    \draw[color=green!50!black] (-2.25,-1.25cm) arc[start angle=270, end angle=250, radius=1.25cm];
+    \fill[fill=green!20] (-2.25,0) -- (-2.25,-1.25cm) arc[start angle=270, end angle=250, radius=1.25cm] -- cycle;
+    \draw (-2.25,0) -- (-2.25,-2);
+    \draw[->] (-2.25,0) -- +(-110:2cm) node[anchor=east] {$x$};
+    \draw[->] (-2.25,0) -- +(-20:2cm) node[anchor=south] {$y$};
+    \path (-2.25,0) ++(-100:1cm) node {$\gamma$};
+
+    \draw[<->] (-3.5,1.45) -- node[anchor=south,rotate=20] {CoFe[100]/MgO[110]} (-1,1.45);
+
+\end{scope}
+    \path (3.5,0) node {\includegraphics[width=7cm]{./img/static/cofe-torque-sampleinfo.pdf}};
+    \path (-5,2) node {(a)};
+    \path (0,2) node {(b)};
+\end{tikzpicture}

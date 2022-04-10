@@ -1,0 +1,3 @@
+\begin{tikzpicture}
+    \path (0,0) node {\missingfigure{schema}};
+\end{tikzpicture}

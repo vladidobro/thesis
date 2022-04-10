@@ -1,17 +1,17 @@
-Jediným cílem této práce je zprovoznění a zdokonalení jednoho druhu magneto-optického experimentu na pracovišti Laboratoři OptoSpintroniky (LOS) KChFO MFF UK na adrese Ke Karlovu 3, Praha 2.\todopn{je to dobře napsané? měl bych zmínit FÚ?}
+Práce se zabývá magneto-optickým experimentem v Laboratoři OptoSpintroniky (LOS) KChFO MFF UK na adrese Ke Karlovu 3, Praha 2.\todopn{je to dobře napsané? měl bych zmínit FÚ?}
 
-Experiment lze nejvýstižněji popsat jako \emph{spektroskopii anizotropního MLD} (/Voigtova/Cotton-Moutonova jevu) a přidruženou \emph{in-plane magneto-metrii} v tenkých filmech, kolmém dopadu a rotujícím poli.
-Základní schéma aparatury je na obr. \ref{fig:zakladni-schema}.
+Zkráceně lze popsat jako \emph{spektroskopie anizotropního MLD} (/Voigtova/Cotton-Moutonova jevu) a přidružená \emph{in-plane magneto-metrie} tenkých feromagnetických filmů v kolmém dopadu a rotujícím poli.
+Schéma aparatury je na obr. \ref{fig:zakladni-schema}.
 Následuje popis jednotlivých elementů
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{schema}
+    \input{./img/tikz/schema-experimentu.tikz}
     \caption{schema}
     \label{fig:zakladni-schema}
 \end{figure}
 
-\paragraph{2-D Magnet}
+\paragraph{Vektorový magnet}
 Elektro-magnet tvořený dvěma páry nezávislých cívek dokáže vytvořit libovolné vnější magnetické pole $\vHext$ v rovině $xy$ o maximální velikosti \SI{210}{\milli\tesla}.
 V praxi jsou kvůli hysterezi magnetu použity pouze definované charakterizované procedury (posloupnosti proudů).
 Vývojem proudových tabulek se zabývá \cite{kimakCharakterizaciaDvojdimenzionalnehoElektromagnetu2017,kimakOptickaSpektroskopieAntiferomagnetu2019}.
@@ -28,12 +28,21 @@ Magneto-optickou aktivitu okének (Faradayův jev) zkoumá \cite{baduraMagnetoop
 V rozmezí \num{460}--\SI{845}{\nano\meter} k filtraci používáme laditelný filtr \emph{SuperK VARIA}, v rozmezí \num{845}--\SI{1600}{\nano\meter} pak sadu pásmových interferenčních filtrů.
 
 \paragraph{Polarizační optika}
-Polarizatóry P1 a P2 jsou širokospektrální typu Glan Laser.
+Pevně umístěné polarizatóry P0 a P2 jsou širokospektrální typu Glan Laser.
+Polarizátor v motorizovaném rotačním držáku P1 je absorpční, daný rozsah vlnových délek je pokryt polarizátory s označením P-VIS (\num{0}--\SI{0}{\nano\meter})\todo{doplnit rozsahy} a P-IR (\num{0}--\SI{0}{\nano\meter}).
+Půlvlnné destičky WP1, WP2 jsou také motorizované a vyskytují se ve třech sadách: VIS1, VIS2 (\num{0}--\SI{0}{\nano\meter}); NIR1, NIR2 (\num{0}--\SI{0}{\nano\meter}); IR1, IR2 (\num{0}--\SI{0}{\nano\meter}).
 
 \subparagraph{PEM}
-\cite{minarModulacePolarizaceSvetelne2004}
+Foto-elastický modulátor (není na schématu) je zařízení, ve kterém vlivem zvukové vlny dochází k modulaci lineárního dvojlomu,
+takže se chová jako retardér s periodicky modulovaným fázovým zpožděním (viz \eqref{eqn:cisty-retarder}) $\Delta(t) \propto \cos(\omega_\textrm{PEM}t)$. 
+
+Charakterizaci a širšímu popisu se věnuje \cite{minarModulacePolarizaceSvetelne2004}.
+
 \subparagraph{Berekův kompenzátor}
-\cite{schusserSkryteKouzloPolarizace2014}
+Berekův kompenzátor je retardér tvořený dvojlomným krystalem, jehož naklápěním lze dosáhnout libovolného (v daném rozsahu) fázového zpoždění $\Delta$ mezi kolmými lineárními polarizacemi.
+Jedná se tedy o laditelný retardér (fázovou destičku).
+Charakterizaci se věnuje \cite{schusserSkryteKouzloPolarizace2014}.
 
 \paragraph{Detektory}
-\cite{hovorakovaCharakterizaceInfracervenehoDetektoru}
+V rozsahu \num{460}--\SI{1100}{\nano\meter} používáme křemíkové diody.
+V infračervené oblasti \num{1000}--\SI{1600}{\nano\meter} používáme detektory na bázi \ch{InGaAs}, které byly studovány v \cite{hovorakovaCharakterizaceInfracervenehoDetektoru}.
