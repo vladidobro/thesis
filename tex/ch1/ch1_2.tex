@@ -98,7 +98,7 @@ kde reálná $4\times 4$ matice $\M$ je dána právě rozkladem hermitovských m
 Matice $\M$ charakterizující optický prvek se nazývá Muellerova matice, a sloupcový vektor $\Stks$ složený ze Stokesových parametrů se nazývá Stokesův vektor.
 Složky Muellerovy matice příslušející Jonesově matici $\mathcal{T}$ je možné počítat přímo z rozkladu \eqref{eqn:Muellerova-matice} díky tzv. trace-ortogonalitě $\sigma_j$ matic: $\operatorname{Tr}\lbrace\sigma_j\sigma_i\rbrace=2\delta_{ji}$
 \begin{equation} 
-\label{e:mueller rozklad}
+\label{eqn:Mueller-rozklad}
     M_{ij}=\frac{1}{2}\operatorname{Tr}\lbrace \sigma_j \mathcal{T}^\dagger \sigma_i \mathcal{T} \rbrace \,.
 \end{equation}
 
@@ -113,7 +113,7 @@ Ortogonální polarizace jsou zobrazeny na body středově souměrné podle poč
 
 \begin{figure}[htbp]
     \centering
-    \asyinclude{./img/asy/poincareho-sfera.asy}
+    \input{./img/asy/poincareho-sfera.asy}
     \caption{Poincarého sféra. Je vyznačen rovník lineárních polarizací (rovina $s_3=0$, $\chi=0$) a póly kruhových polarizací $\chi=\pm 1$.}
     \label{fig:Poincareho-sfera}
 \end{figure}
@@ -184,7 +184,14 @@ Zobrazení Poincarého sféry nachází využití především pro depolarizačn
 
 \begin{figure}[htbp]
     \centering
-    %\asyinclude{./img/asy/akce-muelleru.asy}
+    \begin{subfigure}{.3\textwidth}
+        \centering
+        \input{./img/asy/akce-muelleru-U.asy}
+    \end{subfigure}
+    \begin{subfigure}{.67\textwidth}
+        \centering
+        \input{./img/asy/akce-muelleru-H.asy}
+    \end{subfigure}
     \caption{Zobrazení Poincarého sféry čistými Muellerovými maticemi. (a) čistý retardér (rotace sféry), (b) čistý diatenuátor (protáhnutí a posunutí sféry).}
     \label{fig:UH-Mueller}
 \end{figure}

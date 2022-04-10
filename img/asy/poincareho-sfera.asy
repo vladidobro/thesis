@@ -1,3 +1,4 @@
+\begin{asy}
 settings.outformat="pdf";
 settings.prc=false;
 settings.render=16; 
@@ -19,10 +20,10 @@ draw(O -- Pp -- P -- cycle);
 
 real rat=1;
 
-draw(surface(O -- arc(O,rat*Pp,X) -- cycle), surfacepen = material(blue+opacity(0.7)));
-draw(arc(O,rat*Pp,X),L=Label("$2\beta$",align=(0,0.12)));
+draw(surface(O -- arc(O,rat*Pp,X) -- cycle), surfacepen = material(emissive(green)));
+draw(arc(O,rat*Pp,X),L=Label("$2\beta$",align=(0.02,0.12)));
 
-draw(surface(O -- arc(O,rat*Pp,P) -- cycle), surfacepen = material(blue+opacity(0.7)));
+draw(surface(O -- arc(O,rat*Pp,P) -- cycle), surfacepen = material(emissive(blue)));
 draw(arc(O,rat*Pp,P),L=Label("$2\chi$",align=(-0.6,-0.1)));
 
-
+\end{asy}
