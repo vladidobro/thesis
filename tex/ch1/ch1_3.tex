@@ -147,7 +147,7 @@ Pro prostředí s indexem lomu $n$ má dynamická matice v této situaci explici
 \end{equation}
 kde jsme označili $\cos \alpha_t = \sqrt{1-\sin^2 \alpha /n^2}$ úhel lomu\todo{upravit}.
 
-Při řešení průchodu a odrazu tedy pokládáme $\J^+_{(R)}=0$ a snažíme se vyjádřit zbylé prošlé $\J^-_(R) \equiv \J_t$ a odražené $\J^+_{(L)} \equiv \J_r$ pomocí známého dopadajícího $\J^-_{(L)} \equiv \J_i$, což lze pomocí matic $\mathfrak{M}$ a $\mathfrak{D}$ jednoduše z
+Při řešení průchodu a odrazu tedy pokládáme $\J^+_{(R)}=0$ a snažíme se vyjádřit zbylé prošlé $\J^-_{(R)} \equiv \J_t$ a odražené $\J^+_{(L)} \equiv \J_r$ pomocí známého dopadajícího $\J^-_{(L)} \equiv \J_i$, což lze pomocí matic $\mathfrak{M}$ a $\mathfrak{D}$ jednoduše z
 \begin{equation}
     \begin{pmatrix} \J_i \\ \J_r \end{pmatrix}
     =\mathfrak{D}_{(L)}^{-1} \mathfrak{M} \mathfrak{D}_{(R)} 
@@ -155,12 +155,12 @@ Při řešení průchodu a odrazu tedy pokládáme $\J^+_{(R)}=0$ a snažíme se
 \end{equation}
 což vede na Jonesovy transmisní a reflexní matice Fresnelových koeficientů v bázi s- a p-polarizací
 \begin{equation}
-    \begin{pmatrix} J^\textrm{refl}_s \\ J^\textrm{refl}_p \end{pmatrix}
+    \begin{pmatrix} J_{r-s} \\ J_{r-p} \end{pmatrix}
         =\begin{pmatrix} r_{ss} & r_{sr} \\ r_{ps} & r_{pp} \end{pmatrix}
-        \begin{pmatrix} J^\textrm{inc}_s \\ J^\textrm{inc}_p \end{pmatrix} 
-    \,, \qquad \begin{pmatrix} J^\textrm{trans}_s \\ J^\textrm{trans}_p \end{pmatrix}
+        \begin{pmatrix} J_{i-s} \\ J_{i-p} \end{pmatrix} 
+        \,, \qquad \begin{pmatrix} J_{t-s} \\ J_{t-p} \end{pmatrix}
         =\begin{pmatrix} t_{ss} & t_{sp} \\ t_{ps} & t_{pp} \end{pmatrix}
-        \begin{pmatrix} J^\textrm{inc}_s \\ J^\textrm{inc}_p \end{pmatrix} \,.
+        \begin{pmatrix} J_{i-s} \\ J_{i-p} \end{pmatrix} \,.
 \end{equation}
 
 Multivrstva složená pouze z izotropních vrstev nemíchá s- a p-polarizaci, mimodiagonální členy jsou nulové.

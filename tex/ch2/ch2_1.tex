@@ -1,25 +1,42 @@
-\section{Osmisměrná metoda}
-\label{chap:osmismerna-metoda}
-
-Základem osmisměrné metody\cite{postavaAnisotropyQuadraticMagnetooptic2002} je vzorec \eqref{eqn:QMOKE-vzorec}.
-Všechny tři členy mají různou závislost na směru magnetizace, takže měřením signálu pro různé směry in-plane magnetizace je možné je od sebe oddělit.
-V praxi se měří stočení polarizace, případně elipticita pro 8 směrů vnějšího pole $\vHext$ jako na obr. \ref{fig:osmismerna-metoda} (b).
-Koeficienty jednotlivých členů \eqref{eqn:QMOKE-vzorec} se pak získají vhodnými součty a odečty signálu v různých směrech.
-Podmínkou je však striktní magnetická saturace, tj. pole musí být dostatečně silné, aby magnetizace byla pro všechny směry saturovaná ve směru pole (aby vždy platilo $\phim=\phih$ a $|\vec{M}|=M_S$).
-
-Měření je opakováno pro různé natočení vzorku $\gamma$, změřené koeficienty pak sledují závislost podle vzorce \eqref{eqn:QMOKE-vzorec}, viz obr. \ref{fig:osmismerna-vysledky}.
-Vzorec \eqref{eqn:QMOKE-vzorec} v tomto tvaru platí pouze pro [001] orientované vzorky, nicméně metoda byla rozšířena pro [011] a [111] orientované kubické vzorky, ve kterých má podobný tvar\cite{silberQuadraticMagnetoopticKerr2019a,hamrlovaQuadraticinmagnetizationPermittivityConductivity2013}.
+\section{Optický můstek}
+\label{chap:mustek-kap2}
+V MO experimentech, ve kterých se měří stočení hlavní roviny polarizace či elipticita, se často využívá schéma optického můstku\footnote{angl. \emph{optical bridge}, také \emph{differential intensity measurement}.}\cite{silberQuadraticMagnetoopticKerr2019a}.
+V jednoduché formě je znázorněn na obr. \ref{fig:mustek-schema}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics{./img/static/osmismerna-metoda-postava.pdf}
-    \caption{Osmisměrná metoda. (a) Vzorek je otáčen v rovině $xy$ o úhel $\gamma$. (b) Osm pevných směrů, ve kterých je přikládáno magnetické pole. \cite{postavaAnisotropyQuadraticMagnetooptic2002}}
-    \label{fig:osmismerna-metoda}
+    \missingfigure{a}
+    \caption{Mustekmustek-schema}
+    \label{fig:mustek-schema}
 \end{figure}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics{./img/static/osmismerna-vysledek-postava.pdf}
-    \caption{Naměřená závislost koeficientů MO jevů na natočení vzorku (epitaxní vrstva Fe na MgO). ($\circ$) koeficient lineárního jevu, ($+$) koeficient $M_xM_y$, ($\diamond$) koeficient $M_x^2-M_y^2$. Harmonická závislost potvrzuje platnost vzorce \eqref{eqn:QMOKE-vzorec} a striktní magnetickou saturaci v daném případě. \cite{postavaAnisotropyQuadraticMagnetooptic2002}}
-    \label{fig:osmismerna-vysledky}
-\end{figure}
+Ústředním prvkem je polarizační dělič (často Glan Laser či Wollastonův hranol), který rozdělí svazek do dvou lineárně polarizovaných ramen.
+Při měření je nejprve nastaven úhel rotace půlvlnné destičky $\theta_{\lambda/2}$ (``vyvážení můstku'') tak, aby oba detektory detekovali stejnou intenzitu.
+V Jonesově formalismu\todo{spocitat} pro ideální prvky
+\begin{align}
+    \J_\textrm{A} = \mathcal{T}_\textrm{A} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,&, \quad 
+    \mathcal{T}_\textrm{A}=\begin{pmatrix} 1&0\\0&0 \end{pmatrix} \,, \\
+    \J_\textrm{B} = \mathcal{T}_\textrm{B} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,&, \quad
+    \mathcal{T}_\textrm{B}=\begin{pmatrix} 0&0\\0&1 \end{pmatrix} \,,\\
+    \mathcal{T}_{\lambda/2}=\mathcal{R}(\theta_{\lambda/2})\begin{pmatrix} 1&0\\0&-1 \end{pmatrix}\mathcal{R}(-\theta_{\lambda/2}) \,&, \quad
+    \mathcal{R}(\theta)=\begin{pmatrix} \cos\theta&\sin\theta\\-\sin\theta&\cos\theta \end{pmatrix} \,.
+\end{align}
+
+Dosazením Jonesova vektoru \eqref{eqn:Jones-elipsa} odpovídajícímu natočení hlavní roviny polarizace $\beta$ a elipticitě $\chi$ dostaneme rozdíl intenzit\todo{opsat ze sesitu}
+\begin{equation}
+    I_\textrm{A}-I_\textrm{B}\equiv\J_\textrm{A}^\dagger\J_\textrm{A}-\J_\textrm{B}^\dagger\J_\textrm{B}=I\sin(2\beta-4\theta_{\lambda/2})\cos2\chi \,, \quad I_\textrm{A}+I_\textrm{B}=I
+\end{equation}
+
+Vyvážením můstku nastavíme $\sin(2\beta-4\theta_{\lambda/2})=0$, pro malé výchylky $\textrm{d}\beta, \textrm{d}\chi, \textrm{d}I$ pak platí
+\begin{equation}
+\label{eqn:A-B-mustek}
+    \frac{1}{2I}\textrm{d}(I_\textrm{A}-I_\textrm{B})=\cos(2\chi) \textrm{d}\beta \,.
+\end{equation}
+V měřeném signálu se tedy neprojeví změny elipticity ani intenzity.
+Pro $\chi=0$ je měřený signál dokonce přímo $\textrm{d}\beta$.
+Vhodným vložením čtvrtvlnné destičky lze měřit i elipticitu\cite{silberQuadraticMagnetoopticKerr2019a}.
+
+Optický můstek zlepšuje úroveň šumu dvěma způsoby.
+Zaprvé umožňuje, aby k odečítání blízkých čísel docházelo na úrovni předzesilovače, a zadruhé se díky \eqref{eqn:A-B-mustek} neprojevují fluktuace intenzity
+Detailnějšímu popisu optického můstku se věnuje oddíl \ref{chap:detekce}.
+
