@@ -69,7 +69,7 @@ Při této konvenci se kruhově polarizované světlo $\J_\textrm{i}=(1, i)^T$ p
 \subsection{Stokesův-Muellerův počet}
 \label{chap:Stokes-Mueller}
 
-Úplnější přehled, ze kterého vychází tento oddíl, lze nalézt v \cite{gilReviewMuellerMatrix2014,ossikovskiPoincareSphereMapping2013}.
+Ucelený přehled, ze kterého vychází tento oddíl, lze nalézt v \cite{gilReviewMuellerMatrix2014,ossikovskiPoincareSphereMapping2013}.
 Stokesovy parametry obecně mohou narozdíl od Jonesových vektorů popsat i nepolarizované světlo,
 v této práci si však vystačíme s plně polarizovaným světlem a proto je nebudeme definovat obecně, ale pomocí Jonesových vektorů
 \begin{alignat}{3}
@@ -107,14 +107,14 @@ Pro plně polarizované světlo nejsou Stokesovy parametry nezávislé, platí t
 \label{e:norma S}
     s_0=\sqrt{s_1^2+s_2^2+s_3^2}
 \end{equation}
-a tedy nám k vyjádření polarizačního stavu stačí \emph{redukovaný} Stokesův vektor $(s_1, s_2, s_3)^T$, který lze graficky zanést do třírozměrného prostoru.
+a tedy k vyjádření polarizačního stavu stačí \emph{redukovaný} Stokesův vektor $(s_1, s_2, s_3)^T$, který lze graficky zanést do třírozměrného prostoru.
 Polarizace s jednotkovou intenzitou se zobrazují na tzv. Poincarého sféře jako na obr. \ref{fig:Poincareho-sfera}.
 Ortogonální polarizace jsou zobrazeny na body středově souměrné podle počátku.
 
 \begin{figure}[htbp]
     \centering
-    \input{./img/asy/poincareho-sfera.asy}
-    \caption{Poincarého sféra. Je vyznačen rovník lineárních polarizací (rovina $S_z=0$, $\chi=0$) a póly kruhových polarizací $\chi=\pm 1$.}
+    \asyinclude{./img/asy/poincareho-sfera.asy}
+    \caption{Poincarého sféra. Je vyznačen rovník lineárních polarizací (rovina $s_3=0$, $\chi=0$) a póly kruhových polarizací $\chi=\pm 1$.}
     \label{fig:Poincareho-sfera}
 \end{figure}
 
@@ -184,7 +184,7 @@ Zobrazení Poincarého sféry nachází využití především pro depolarizačn
 
 \begin{figure}[htbp]
     \centering
-    \input{./img/asy/akce-muelleru.asy}
+    %\asyinclude{./img/asy/akce-muelleru.asy}
     \caption{Zobrazení Poincarého sféry čistými Muellerovými maticemi. (a) čistý retardér (rotace sféry), (b) čistý diatenuátor (protáhnutí a posunutí sféry).}
     \label{fig:UH-Mueller}
 \end{figure}

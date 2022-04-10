@@ -13,6 +13,7 @@ data/makefile
 
 #begin clean
 thesis-*
+*.png
 *.pre
 *.log
 *.dvi
