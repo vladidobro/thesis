@@ -109,6 +109,7 @@ kde jsme označili úhel průsečíku kružnice s rovníkem $\zeta_1(\theta_{\la
 Vyvážením můstku pro dané $\beta$ je nastaveno takové $\theta_{\lambda/2}$, aby platilo $\beta=\zeta_1(\theta_{\lambda/2})$.
 Pak platí (viz \eqref{eqn:Stokes-diferencial} pro tvar $\textrm{d}\Stks$)
 \begin{equation}
+\label{eqn:mustek-s-elipticitou}
     \textrm{d}\Udif = {\Dtks''}^\textrm{A-B} \cdot \textrm{d}\Stks^\textrm{in} = 2I\left(\cos\zeta_2 \textrm{d}\beta + \sin\zeta_2\textrm{d}\chi\right) 
 \end{equation}
 s $\zeta_2$ dosazeným pro vyváženou polohu $\theta_{\lambda/2}$.
@@ -149,13 +150,83 @@ Zrcadlo modelujeme jako retardér s Jonesovou maticí
 
 Vzhledem k nutnosti kompenzace nedokonalosti destičky, které vyžaduje, aby do ní vstupovala přibližně lineární polarizace,se všechno úsilí k řešení tohoto problému soustředilo na kompenzaci zrcadla -- vložení dalšího optického prvku, který působí inverzně.
 Nejprve však ztratíme pár slov o tom, jaký by mělo zrcadlo vliv na ideální můstek.
-Ve Stokesově kovektoru se to projeví podobně jako destička s dodatečným fázovým zpožděním ($\Dtks'''$ vzhledem ke světlu před zrcadlem)
-\begin{equation}
-    {\Dtks'''}^\textrm{A-B}=
-\end{equation}
+Mohli bychom zavádět kovektor $\Dtks'''$ vzhledem ke světlu před zrcadlem, který by měl stejný tvar jako \eqref{eqn:mustek-s-elipticitou}, ale s rozdílnou závislostí $\zeta_1$ a $\zeta_2$ na $\theta_{\lambda/2}$.
+Pro kvalitativní pochopení je v tomto případě ale názornější zůstat u $\Dtks''$ a namísto kovektoru zrcadlem zobrazit vstupní Stokesovy vektory.
 
+Pro ideální můstek je nulová kružnice $\Dtks''$ tvořena poledníkem, který je během vyvažování otáčen kolem osy $s_3$ tak, aby procházel bodem odpovídajícím vstupní polarizaci.
+Zrcadlo otočí rovník lineárních polarizací o úhel $\delta$ podél osy $s_1$.
+Zároveň se Stokesovým vektorem však musíme zobrazit i jeho diferenciál (změna $\beta$ před zrcadlem se projeví i změnou $\chi$ za zrcadlem).
+Vzájemnou orientací nulové kružnice a diferenciálu Stokesova vektoru lze graficky určit, jakými faktory se do měřeného signálu promítne $\textrm{d}\beta$ a $\textrm{d}\chi$.
+Viz obr. \ref{fig:mustek-zrcadlo-data} (a).
+Pro význačné $\beta$ lze odečíst přímo z obrázku
+\begin{align}
+    \textrm{d}\Udif(\beta=\SI{0}{\degree}) &= 2I\left(\cos(\delta)\textrm{d}\beta + \sin(\delta)\textrm{d}\chi\right) \,,\\
+    \textrm{d}\Udif(\beta=\SI{90}{\degree}) &= 2I\left(\cos(\delta)\textrm{d}\beta - \sin(\delta)\textrm{d}\chi\right) \,,\\
+    \textrm{d}\Udif(\beta=\SI{45}{\degree}) &= 2I\textrm{d}\beta \,, \label{eqn:must-zrc-1}\\
+    \textrm{d}\Udif(\beta=\SI{135}{\degree}) &= 2I\textrm{d}\beta \,. \label{eqn:must-zrc-2}
+\end{align}
 
+Zde je jasně vidět původ prvního popsaného problému (, kterým trpí např. data na obr. \todo{odkaz na obr.}), totiž že změřená data pro $\beta$ a $\beta+\SI{90}{\degree}$ jsou zcela odlišná.
+Problém se zrcadly dlouho unikal pozornosti, především z toho důvodu, že jsou to právě polarizace $\beta=\SI{0}{\degree}, \SI{90}{\degree}$, které jsou nejvíce ovlivněny, zatímco $\beta=\SI{45}{\degree}, \SI{135}{\degree}$ jsou minimálně.
+S- a p-polarizace jsou přece odraženy beze změny\ldots
 
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{mustek zrcadlo}
+    \caption{(a) }
+    \label{fig:mustek-zrcadlo-data}
+\end{figure}
+
+Nejjednodušší způsob, jakým zanesenou elipticitu zrcadla kompenzovat, je přidat ještě jedno identické zrcadlo, ve kterém je role s- a p- polarizace prohozena (odraz nahoru a do strany jako na obr. \ref{fig:mustek-zrcadlo-data} (b).
+Obě polarizace pak po průchodu oběma zrcadly nabydou stejného fázového faktoru.
+Dvojici zrcadel pak nazýváme \emph{zkřížená zrcadla} (v diagramech je značíme jako na obr. \ref{fig:mustek-zrcadlo-data} (b)) a chovají se jako neutrální prvek.
+Trik zkřížených zrcadel se ustálil a je použit ve všech experimentech v kap. \ref{chap:5}.
+
+Nicméně otestována byla ještě jedna metoda kompenzace, kterou zde popíšeme -- pomocí Berekova kompenzátoru.
+Berekův kompenzátor je laditelný retardér a je proto možné jeho správným nastavením zrcadlo kompenzovat.
+Jedinou komplikací je právě správné nastavení.
+To jsme provedli dvěma způsoby.
+
+První způsob, který označujeme jako \emph{statický}, se snaží nastavit fixní polohu, která zrcadlo zcela kompenzuje pro všechna $\beta$.
+Procedura je zdlouhavá a probíhá iteračně: nejdříve je správně zorientovaná optická osa Berekova kompenzátoru, a poté nastavené správné fázové zpoždění, zatímco je pomocí rotačního polarizátoru za kompenzátorem měřena elipticita pro vybrané hodnoty vstupního $\beta$ (především \SI{45}{\degree} a $\SI{135}{\degree}$.
+Správného nastavení je dosaženo, když elipticita za kompenzátorem nulová pro všechna $\beta$ -- každá lineární polarizace před zrcadlem je lineární i za kompenzátorem.
+
+Druhý způsob označujeme jako \emph{dynamický}, protože nemá ambice kompenzovat zrcadlo a je nastaven pro každé $\beta$ zvlášť.
+Princip je založen na tom, že není striktně vzato nutné zrcadlo kompenzovat. Vždyť \eqref{eqn:must-zrc-1}, \eqref{eqn:must-zrc-2} jsou v pořádku i se zrcadlem -- můstek dokáže měřit čisté stočení $\textrm{d}\beta$, i když do něj vstupuje eliptické světlo.
+Toto rozvolnění ubírá jeden stupeň volnosti Berekova kompenzátoru, který je nutno přesně nastavit, a tím výrazně usnadňuje proceduru.
+Ve dvoudimenzionálním stavovém prostoru Berekova kompenzátoru (poloha osy a fázové zpoždění) existuje pouze jeden bod, který ho správně nastaví staticky, ale celá křivka, která ho nastaví dynamicky.
+
+Cílem je nastavit pro každé $\beta$ Berekův kompenzátor tak, aby se vynuloval koeficient $\textrm{d}\chi$ v $\Udif$ a platilo prosté $\textrm{d}\Udif=2I\textrm{d}\beta$.
+Za účelem zpětné vazby byl využit PEM umístěný před vzorek, viz obr. \ref{fig:dynamicky-berek} (a).
+Amplituda fázového zpoždění PEM $\delta_\textrm{PEM}$ byla nastavována v rozsahu hodnot přibližně 0--\SI{10}{\degree}.
+Pro malé zpoždění dochází totiž pouze k periodickému kmitání $\chi$ s frekvencí $\omega_\textrm{PEM}$, zatímco $\beta$ kmitá s amplitudou až v druhém řádu $\propto\delta_\textrm{PEM}^2$ a s frekvencí $2\omega_\textrm{PEM}$.
+Rozdílové napětí na frekvenci $\omega_\textrm{PEM}$ by tedy mělo být úměrné koeficientu $\textrm{d}\chi$.
+
+Nastavení tedy spočívalo v současném/střídavém točení vyvažovací destičky, osy a zpoždění kompenzátoru, zatímco na dvou lock-inech byly sledovány hodnoty $\Udif(\omega=0)$ a $\Udif(\omega=\omega_\textrm{PEM})$ s cílem obě současně vynulovat.
+
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{}
+    \caption{(a) schéma. (b) PEM sfera}
+    \label{fig:dynamicky-berek}
+\end{figure}
+
+Oběma způsoby je možné Berekův kompenzátor nastavit do dvou neekvivalentních poloh podle toho jestli se dvojice zrcadlo--kompenzátor dohromady chová jako neutrální prvek (``nedotáčivý mód'', $\delta_m+\delta_B=0$) či půlvlnná destička (``přetáčivý mód'', $\delta_m+\delta_B=\pi$).
+
+Oba způsoby s oběma módy byly vyzkoušeny na vzorku CoFe v transmisní geometrii při pokojové teplotě (bez štítu kryostatu), viz obr. \ref{fig:g:mustek-kompenzace-berek-vysledky}.
+Při měření byly mezi vzorkem a můstkem umístěny dvě zrcadla jako na obr. \ref{fig:zakladni-schema}.
+Zrcadla byla umístěna paralelně, takže očekáváme, že se chovají jako retardér s dvojnásobným fázovým zpožděním.
+Z neznámého důvodu byla data měřená v přetáčivém módu chybná (při porovnání s měřením bez zrcadel), přestože k tomu teoreticky není důvod.
+Dále jsme se kompenzací zrcadel Berekovým kompenzátorem nevěnovali.
+
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{}
+    \caption{}
+    \label{fig:g:mustek-kompenzace-berek-vysledky}
+\end{figure}
 
 \subsection{Současné měření elipticity}
 \label{chap:elipticita}
+
+
