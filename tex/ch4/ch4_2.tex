@@ -4,96 +4,26 @@
 V tomto oddílu se zaměříme na první z problémů, který je způsobený tím, že v uspořádání na obr. \ref{fig:zakladni-schema} neměříme přímo stočení polarizace vzorkem, tj. neplatí vzorec \eqref{eqn:mustek-delta-beta}: $\Udif/2\Usum\neq\Delta\beta$.
 Příčiny jsou dvě: zrcadla mezi vzorkem a můstkem měnící polarizaci, a nedokonalost vlnové destičky a děliče v můstku.
 
-Nejdříve popíšeme optický můstek pomocí Stokesova-Muellerova formalismu a grafického znázornění zobrazováním Poincarého sféry (viz oddíl \ref{chap:Stokes-Mueller}).
-Dále vysvětlíme podstatu problémů a popíšeme několik způsobů, jakým vliv zrcadel a nedokonalostí kompenzovat.
+V tomto oddílu naplno využijeme formalismus \emph{Stokesových kovektorů} -- lineárních forem na prostoru Stokesových vektorů, které popisují detektory a složitější detekční systémy složené z detektorů a optických prvků -- rozvinutý v dodatku \ref{app:kovektory}.
+Pomocí něj vysvětlíme podstatu problémů a popíšeme několik způsobů, jakým vliv zrcadel a nedokonalostí prvků kompenzovat.
 Nakonec v oddílu \ref{chap:elipticita} popíšeme způsob využití Berekova kompenzátoru v můstku, který umožňuje současné měření stočení i elipticity.
 
-\subsection{Stokesovy kovektory detektorových systémů}
-
-Popis pomocí Stokesových vektorů je v našem případě zvláště užitečný, protože Stokesovy parametry jsou \emph{zobecněné intenzity}.
-Intenzita měřená detektorem A je daná nultou složkou dopadajícího Stokesova vektoru
-\begin{equation}
-    I_\textrm{A}=s_0^\textrm{A} \equiv \Dtks^\textrm{A} \cdot \Stks^\textrm{A} \,.
-\end{equation}
-kde jsme označili $\Dtks^\textrm{A}=(1, 0, 0, 0)$ ``Stokesův kovektor`` detektoru A. 
-Tečka ($\cdot$) značí kontrakci\footnote{``Skalární součin''.}.
-
-Vyjádřením $\Stks^\textrm{A}$ pomocí Stokesova vektoru vstupujícího do můstku $\Stks^\textrm{in}$ a Muellerových matic půlvlnné destičky a polarizačního děliče
-\begin{equation}
-    I_\textrm{A}= \Dtks^\textrm{A} \cdot \left( \M_\textrm{A} \M_{\lambda/2} \Stks^\textrm{in} \right) = \left( \Dtks^\textrm{A} \M_\textrm{A} \M_{\lambda/2}\right) \cdot \Stks^\textrm{in} \equiv {\Dtks'}^\textrm{A} \cdot \Stks^\textrm{in}  \,,
-\end{equation}
-kde jsme druhou rovností naznačili asociativitu maticového násobení, která nás motivovala k definici Stokesova kovektoru detektoru A vzhledem ke světlu vstupujícímu do můstku ${\Dtks'}^\textrm{A}$.
-
-Stejně lze zřejmě činit i pro detektor B.
-Rozdílové a součtové napětí je pak
-\begin{align}
-\label{eqn:af}
-\Udif = \left( {\Dtks'}^\textrm{A}-{\Dtks'}^\textrm{B}\right) \cdot \Stks^\textrm{in} \equiv {\Dtks}^\textrm{A-B}\cdot \Stks^\textrm{in} \,, \\
-\Usum = \left({\Dtks'}^\textrm{A}+{\Dtks'}^\textrm{B}\right) \cdot \Stks^\textrm{in} \equiv {\Dtks}^\textrm{A+B}\cdot \Stks^\textrm{in} \,.
-\end{align}
-
-Měřené signály jsou lineární ve vstupních Stokesových vektorech a jsou tedy reprezentovány lineárními formamy, zde ${\Dtks''}^\textrm{A-B}$ a ${\Dtks''}^\textrm{A+B}$.
-Pro ideální prvky jako v oddílu \ref{chap:mustek-kap2} jsou Muellerovy matice
-\begin{align}
-    \M_\textrm{A} = \begin{pmatrix} 1&1&0&0 \\ 1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} \,,\quad 
-    \M_\textrm{B} = \begin{pmatrix} 1&-1&0&0 \\ -1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} \,, \\
-    \M_{\lambda/2} = \begin{pmatrix} 0&0&0&0 \\ 0&\cos\theta_{\lambda/2}&\cos\theta_{\lambda/2}&0 \\ 0&\cos\theta_{\lambda/2}&\cos\theta_{\lambda/2}&0 \\ 0&0&0&1 \end{pmatrix}
-\end{align}
-a Stokesovy kovektory jsou po dosazení
-\begin{align}
-    \Dtks^\textrm{A-B}=(0, \cos\theta_{\lambda/2}, \cos\theta_{\lambda/2}, 0) \,, \label{eqn:Uab-Mueller} \\
-    \Dtks^\textrm{A+B}=(1, 0, 0, 0) \,.
-\end{align}
-
-
-Místo sledování, co se při průchodu optickými prvky děje se všemi myslitelnými vstupními Stokesovými vektory, je výhodnější sledovat, jak se mění konstantní detektorové kovektory.
-Navíc Stokesovy kovektory lze pro plně polarizováné světlo přímočaře graficky znázorňovat v 3-D prostoru redukovaných Stokesových vektorů.
-Pokud je jediná nenulová složka kovektoru $d_0$ ta nultá (jako v $\Dtks^\textrm{A+B}$), pak je měřený signál jednoduše úměrný vstupní intenzitě (vzdálenosti redukovaného Stokesova vektoru od počátku) a netřeba ho zvlášť znázorňovat.
-Pokud je naopak $d_0=0$ (jako v $\Dtks^\textrm{A+B}$), pak je signál lineární v redukovaném Stokesově vektoru a tedy úměrný vzdálenosti od určité roviny.
-
-V obecném případě, tj. $d_0$ není ani nulová, ani jediná nenulová, je znázornění mírně složitější.
-Nejedná se o pouhé posunutí roviny, od které je vzdálenost odečítána.
-Na obr. \ref{fig:mustek-znazorneni-kovektoru} (a) jsou vyznačené nulové plochy (množina Stokesových vektorů, pro které $\Udif=0$) $\Dtks^\textrm{A-B}$ tak, jak je v \eqref{eqn:Uab-Mueller} a v situaci, kdy $d_0$ je nenulové.
-Pro nenulové $d_0$ je nulová plocha kužel.
-Pro body neležící na nulovém kuželu však $\Udif$ není určeno vzdáleností od kužele.
-Pro body na Poincarého sféře je signál úměrný vzdálenosti od roviny, která vznikne průnikem nulového kuželu s Poincarého sférou (vždy kružnice); stejnou konstrukci lze provést i pro body mimo Poincarého sféru ($I\neq1$), posunutí roviny však závisí na $I$.
-
-Uvedený postup selhává, pokud $d_0>|\vec{d}|\equiv|(d_1, d_2, d_3)|$, protože pak neexistují nenulové vektory, pro které je signál nulový; neexistuje nulová plocha.
-Nicméně pro každé konstantní $I$ je stále signál úměrný vzdálenosti od určité roviny, tentokrát však ležící mimo sféru vektorů s intenzitou $I$.
-
-Z provedené diskuze vyplývá jako nejvýhodnější znázorňovat Stokesovy kovektory jednotně pomocí \emph{nulové kružnice}, která je průsečíkem nulového kužele s Poincarého sférou, a jejím normálovým 3-vektorem $\vec{d}$, kterým je znázorněna konstanta úměrnosti mezi signálem a grafickou vzdáleností.
-Případ $d_0>|\vec{d}$ v této práci nepoužíváme (formalismus používáme pro popis optického můstku, ve kterém se takové kovektory nevyskytují), ale znázorňovali bychom ho také 3-vektorem $\vec{d}$ a ``nulovou''\footnote{Která vzhledem k tomu, že leží mimo Poincarého sféru, odpovídá nedosažitelným Stokesovým vektorům $|\vec{s}|>s_0$.} rovinou příslušnou Poincarého sféře.
-Viz obr. \ref{fig:mustek-znazorneni-kovektoru} (b).
+Pro další použití na obr. \ref{fig:kovektor-ideal-mustek} vykreslujeme kovektory můstku s idealizovanými prvky (jako v oddílu \ref{chap:mustek-kap2}).
+$\Dtks'$ značíme kovektory vzhledem ke světlu před děličem, $\Dtks''$ vzhledem ke světlu před destičkou.
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{kovektory}
-    \caption{(a) Nulové plochy Stokesových kovektorů s nulovou/nenulovou nultou složkou. (b) Kanonické znázornění stejných kovektorů způsobem, který je výhradně použit dále v této práci.}
-    \label{fig:mustek-znazorneni-kovektoru}
+    \missingfigure{kovektory idealni}
+    \caption{Stokesovy kovektory ideálního můstku. (a) Vzhledem ke světlu před děličem. (b) Vzhledem ke světlu před destičkou. (c) Ilustrace významu $\Dtks'$ a $\Dtks''$.}
+    \label{fig:kovektor-ideal-mustek}
 \end{figure}
-
-Při znázornění kovektorů tímto způsobem lze beze změny převzít znázornění akce Muellerových matic pomocí mapování Poincarého sféry.
-Protože nulové kružnice jsou množiny Stokesových vektorů, je možné je přímo zobrazit metodou vyloženou v oddílu \ref{chap:Stokes-Mueller} a výsledkem bude opět podmnožina nulové plochy.
-V případě čistých retardérů se nulová kružnice zobrazí jako jiná kružnice na Poincarého sféře, a je to proto přímo nulová kružnice transformovaného kovektoru; vektor $\vec{d}$ se otáčí společně s kružnicí.
-Pokud však Muellerovou maticí dochází také k deformaci a posunutí Poincarého sféry (jako např. v případě čistého diatenuátoru), je obrazem zobrazení obecně elipsa ležící uvnitř Poincarého sféry, a je proto nutné provést následující konstrukci pro získání nulové kružnice.
-Transformovaná elipsa vždy leží na nulovém kuželu, takže ho můžeme určit proložením elipsy kuželem se vrcholem v počátku.
-Nulová kružnice je pak určena průnikem kuželu a Poincarého sféry.
-Konstrukce je znázorněna na obr. \ref{fig:kovektor-akce-H}.\todo{mozna jeste co se deje s vec d}
-
-\begin{figure}[htbp]
-    \centering
-    \missingfigure{konstrukce H kruznice}
-    \caption{Transformace Stokesova kovektoru neunitárním optickým prvkem. Muellerova matice deformuje Poincarého sféru na elipsoid, takže nulová kružnice se zobrazí na elipsu uvnitř sféry. Elipsou je proložen kužel a průnikem se sférou je určena nová transformovaná nulová kružnice.}
-    \label{fig:kovektor-akce-H}
-\end{figure}
-
 
 \subsection{Kompenzace nedokonalostí a zrcadel}
 Jedna z výhod formalismu Stokesových kovektorů snadné uvažování o tom, jak se detekční aparatura chová při malých změnách (nedokonalostech) optických prvků.
 Zaměříme se na tři druhy druhy nedokonalostí, z nichž se nakonec jediná vyplatí kompenzovat -- nepřesné fázové zpoždění půlvlnné destičky.
 
 Pro vyvažovací půlvlnnou destičku uvažujeme dva druhy nedokonalosti: rozdílnou propustnost obou módů a fázové zpoždění lišící se od přesné hodnoty $\pi/2$.
-Kvůli symetrii však požadujeme, aby destička měla dvě navzájem kolmé optické osy -- dva vlastní módy ortogonálních lineárních polarizací.
+Kvůli symetrii však stále požadujeme, aby destička měla dvě navzájem kolmé optické osy -- dva vlastní módy navzájem ortogonálních lineárních polarizací.
 
 Experimentálně bylo ověřeno, že polarizační dělič vysoce kvalitně dělí svazek na dvě ortogonální lineární polarizace.
 V odraženém svazku je sice zastoupeny obě polarizace, ale kvůli mírně odlišnému úhlu lomu se prostorově oddělí.
@@ -102,16 +32,8 @@ Díky tomu se nijak neprojeví ani případná polarizační závislost detektor
 Jediná nedokonalost zbytku můstku (nezahrnující půlvlnnou destičku) je tedy vyjádřena rozdílnou citlivostí obou ramen na příslušné lineární polarizace, která je způsobena jak rozdílnou propustností/odrazivostí děliče, tak nevyváženou citlivostí a zesílení obou detektorů.
 
 Všechny tři zmíněné nedokonalosti uvažujeme zvlášť a zanedbáváme jejich vzájemné působení.
-Nakonec se zaměříme na to, co se stane, když před můstek umístíme retardér -- zrcadlo logisticky nezbytné pro oddělení dopadajícího a odraženého svazku v reflexní geometrii, a pro vyvedení svazku ven z komory kryostatu v transmisní geometrii.
+Nakonec se zaměříme na to, co se stane, když před můstek umístíme retardér -- zrcadlo nezbytné pro oddělení dopadajícího a odraženého svazku v reflexní geometrii, a pro vyvedení svazku ven z komory kryostatu v transmisní geometrii.
 
-Pro další použití na obr. \ref{fig:kovektor-ideal-mustek} vykreslujeme kovektory ideálního můstku vzhledem ke světlu po (${\Dtks'}^\textrm{A-B}$) a před (${\Dtks''}^\textrm{A-B}$) průchodem půlvlnnou destičkou.
-
-\begin{figure}[htbp]
-    \centering
-    \missingfigure{kovektory idealni}
-    \caption{Stokesovy kovektory ideálního můstku. (a) Vzhledem ke světlu před děličem. (b) Vzhledem ke světlu před destičkou. (c) Ilustrace významu $\Dtks'$ a $\Dtks''$.}
-    \label{fig:kovektor-ideal-mustek}
-\end{figure}
 
 \subsubsection*{Nevyváženost ramen}
 Rozdíl citlivostí ramen je vyjádřen $\eta$, takže vzhledem ke světlu před děličem
@@ -127,12 +49,12 @@ a vzhledem ke světlu před destičkou
     {\Dtks''}^\textrm{A+B}=(1, \eta\cos(\theta_{\lambda/2}), \eta\cos(\theta_{\lambda/2}), 0) 
 \end{align}
 
-Prvním z projevů je polarizační závislost součtového signálu ($d_1^\textrm{A+B}=\eta\neq=0$).
+Prvním z projevů je polarizační závislost součtového signálu (${d'_1}^\textrm{A+B}=\eta\neq=0$).
 To není velký problém, protože se ve vzorci $\Delta\beta=\Udif/2\Usum$ používá pouze pro normalizaci signálu, která lze určit i jiným způsobem (viz např. oddíl \ref{chap:elipticita}). 
 Pro malé $\eta$ však není od věci tento vliv ignorovat.
 
-Druhou známkou nevyvážených ramen je nenulové $d_0^\textrm{A-B}$, které se projeví posunutím nulové kružnice, viz obr. \ref{fig:mustek-nedokonale-ramena} (a), po otočení půlvlnnou destičkou pak \ref{fig:mustek-nedokonale-ramena} (b).
-Důležitým rysem je, že nulová kružnice je vždy kolmá na rovník lineárních polarizací, což znamená, že $\partial\Udif/\partial\chi = 0$, a tedy v měřeném signálu se neprojeví změny elipticity (, pokud do můstku dopadá lineárně polarizované světlo).
+Druhou známkou nevyvážených ramen je nenulové  ${d'_0}^\textrm{A-B}$, které se projeví posunutím nulové kružnice, viz obr. \ref{fig:mustek-nedokonale-ramena} (a), po otočení půlvlnnou destičkou pak \ref{fig:mustek-nedokonale-ramena} (b).
+Důležitým rysem je, že nulová kružnice je vždy kolmá na rovník lineárních polarizací, což znamená, že $\partial\Udif/\partial\chi = 0$, a tedy v měřeném signálu se neprojeví změny elipticity\footnote{V prvním řádu, pokud do můstku vstupuje lineárně polarizované světlo.}.
 I druhý projev tedy v důsledku pouze mění konstantu úměrnosti, pro $\chi=0$ platí
 \begin{equation}
     \textrm{d}\Udif = 2I\cos(\eta) \textrm{d}\beta \,,
@@ -147,17 +69,93 @@ což pro malé $\eta$ ignorujeme.
 \end{figure}
 
 \subsubsection*{Rozdílná propustnost destičky}
-Jonesova a Muellerova matice destičky s přesným fázovým zpožděním $\pi/2$, ale rozdílnou propustností obou lineárních polarizací je
+Jonesova a Muellerova matice destičky s přesným fázovým zpožděním $\pi/2$, ale rozdílnou propustností obou lineárních polarizací je (pro $\theta_{\lambda/2}=0$)
 \begin{equation}
     \mathcal{T}_{\lambda/2} = \begin{pmatrix} 1&0 \\ 0&-\eta \end{pmatrix} \,, \quad
-    \M_{\lambda/2} = \begin{pmatrix} 1&0&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \\ 0&0&0&-1 \end{pmatrix} \,.
+    \M_{\lambda/2} = \begin{pmatrix} 1&0&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \\ 0&0&0&-1 \end{pmatrix} \,,
 \end{equation}
-Akce takové Muellerovy matice je kombinace otočení o \SI{180}{\degree} a protáhnutí/posunutí kolem stejné osy -- procházející lineárními polarizacemi ve směru optické osy $\theta_{\lambda/2}$.
+kde nedokonalost destičky je vyjádřena $\eta$ (ideální destička má $\eta=0$)
+Akce takové Muellerovy matice je kombinace otočení o \SI{180}{\degree} a protáhnutí/posunutí kolem stejné osy\footnote{To lze nahlédnout z toho, že lze Jonesovu matici psát jako součin unitární a pozitivně semi-definitní hermitovské matice, které spolu komutují: $\mathcal{T}_{\lambda/2} = \begin{pmatrix} 1&0\\0&-1 \end{pmatrix} \begin{pmatrix} 1&0\\0&\eta \end{pmatrix}$.} -- procházející lineárními polarizacemi ve směru optické osy $\theta_{\lambda/2}$.
 
+Výsledkem je stejně jako v případě nevyvážených ramen posunutí nulové kružnice (${d''_0}^\textrm{A-B}\neq0$), které v souladu s diskuzí v předešlém oddílu pro malé $\eta$ ignorujeme.
 
-\subsubsection*{Nepřesné fázové zpožední destičky}
+\subsubsection*{Nepřesné fázové zpoždění destičky}
+Jonesova a Muellerova matice je (pro $\theta_{\lambda/2}=0$)
+\begin{equation}
+    \mathcal{T}_{\lambda/2} = \begin{pmatrix} 1&0 \\ 0&-e^{i\delta} \end{pmatrix} \,, \quad
+    \M_{\lambda/2} = \begin{pmatrix} 1&0&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \\ 0&0&0&-1 \end{pmatrix} \,,
+\end{equation}
+kde nedokonalost je vyjádřena dodatečným fázovým zpožděním $\delta$ (ideální destička má $\delta=0$).
+Muellerova matice působí jako rotace o $\SI{180}{\degree}+\delta$ kolem osy vlastních módů.
+Kvůli $\delta\neq0$ již nejsou obě osy destičky ekvivalentní.
+Pozice destičky $\theta_{\lambda/2}$ a $\theta_{\lambda/2}+\SI{90}{\degree}$ tedy také nejsou ekvivalentní, odpovídají rotacím kolem té stejné osy o $\SI{180}{\degree}+\delta$, ale opačným směrem\footnote{Ekvivalentně s opačným znaménkem $\delta$.}.
+Pozice $\theta_{\lambda/2}$ a $\theta_{\lambda/2}+\SI{180}{\degree}$ zůstávají nadále ekvivalentní.
+
+Transformací ideálního kovektoru ${\Dtks'}^\textrm{A-B}=(0, 1, 0, 0)$ (vzhledem ke světlu před děličem) neideální Muellerovou maticí $\M_{\lambda/2}$ je zachováno ${d''_0}^\textrm{A-B}=0$.
+Oproti předchozím případům však již není zachovaná kolmost nulové kružnice a rovníku lineárních polarizací, tj. ${d''_3}^\textrm{A-B}\neq0$.
+Platí
+\begin{equation}
+    {\Dtks''}^\textrm{A-B} \equiv (0,\, \cos2\zeta_2\cos2\zeta_1,\, \cos2\zeta_2\sin2\zeta_1,\, \sin2\zeta_1) \,,
+\end{equation}
+kde jsme označili úhel průsečíku kružnice s rovníkem $\zeta_1(\theta_{\lambda/2})$ a jimi svíraný úhel $\zeta_2(\theta_{\lambda/2})$, viz obr. \ref{fig:mustek-nedokonale-desticka}.
+
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{mustek destika nepresna}
+    \caption{Kovektor můstku s destičkou s nepřesným fázovým zpožděním. Je naznačen také diferenciál Stokesova vektoru.}
+    \label{fig:mustek-nedokonale-desticka}
+\end{figure}
+
+Vyvážením můstku pro dané $\beta$ je nastaveno takové $\theta_{\lambda/2}$, aby platilo $\beta=\zeta_1(\theta_{\lambda/2})$.
+Pak platí (viz \eqref{eqn:Stokes-diferencial} pro tvar $\textrm{d}\Stks$)
+\begin{equation}
+    \textrm{d}\Udif = {\Dtks''}^\textrm{A-B} \cdot \textrm{d}\Stks^\textrm{in} = 2I\left(\cos\zeta_2 \textrm{d}\beta + \sin\zeta_2\textrm{d}\chi\right) 
+\end{equation}
+s $\zeta_2$ dosazeným pro vyváženou polohu $\theta_{\lambda/2}$.
+
+Zde však už narážíme na závažný problém: v měřeném signálu se nám projevují i změny elipticity neznámým faktorem $\sin\zeta_2$, které se navíc mění (i znaménko), v závislosti na $\beta$.
+Řešení nabízí\todopn{zmínit TO?} skutečnost\footnote{Lze nahlédnout ze symetrie vůči obrácení točivosti světla či přímým výpočtem.}, že $\zeta_2$ je pro každé $\beta$ lichou funkcí nedokonalosti destičky $\delta$ -- mění znaménko při vyvážení polohami $\theta_{\lambda/2}$, resp. $\theta_{\lambda/2}+\SI{90}{\degree}$.
+V praxi tedy měříme každé $\beta$ s oběma polohami destičky a bereme jejich aritmetický průměr
+\begin{equation}
+    \frac{1}{2}\left(\Udif^{\theta_{\lambda/2}}+\Udif^{\theta_{\lambda/2}+\SI{90}{\degree}}\right) = 2I\cos\zeta_2 \textrm{d}\beta \,.
+\end{equation}
+Změny elipticity se odečetly a jediný zbývající vliv je v dodatečném faktoru $\cos\zeta_2$, který pro malé $\delta$ (a tedy malé $\zeta_2$) zanedbáváme.
+Pokud není explicitně uvedeno jinak (v oddílech \ref{chap:elipticita} a \ref{chap:ferh-field-cooling}), provádíme tento krok vždy.
+Ilustrace dat, která ukazují na nutnost provádět popsanou kompenzaci, je na obr. \ref{fig:mustek-desticka-ilustrace}.
+Potvrzením správnosti kroků jsou ovšem až výsledky dosažené v kap. \ref{chap:5}.
+
+Poznamenejme, že uvedená procedura funguje pouze za předpokladu, že do destičky dopadá přibližně lineárně polarizované světlo, protože jenom pak jsou obě vyvažující polohy destičky posunuté přesně o \SI{90}{\degree}.
+Při dopadu eliptického světla je situace výrazně složitější a dále se jí nezabýváme.
+
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{destikcy data}
+    \caption{Ilustrace potřeby provádět kompenzaci nepřesného fázového zpoždění vyvažovací destičky. (a) Změřená data, která se liší pro dvě polohy destičky, které by pro ideální destičky byly ekvivalentní. (b) Schéma experimentu: CoFe, pokojová teplota, transmisní geometrie, žádná zrcadla mezi vzorkem a můstkem.}
+    \label{fig:mustek-desticka-ilustrace}
+\end{figure}
 
 \subsubsection*{Zrcadla}
+
+Ve schématu experimentu na obr. \ref{fig:zakladni-schema} se v transmisní i reflexní geometrii vyskytují v dráze svazku mezi vzorkem a můstkem zrcadla.
+Důvody jsou čistě logistické, v reflexi je nutné odražený svazek prostorově oddělit od dopadajícího, v transmisi je nutné svazek vyvést z kryogenní komory.
+V obou případech svazek dopadá pod úhlem \SI{45}{\degree}.
+
+Experimentálně bylo zjištěno, že odraz od použitých zrcadel není izotropní.
+Odražené světlo dosahuje ve studovaném rozsahu vlnových délek elipticity až \SI{10}{\degree}\todo{kolik}.
+Zrcadlo modelujeme jako retardér s Jonesovou maticí
+\begin{equation}
+    \mathcal{T}_m = \begin{pmatrix} 1&0\\0&e^{i\delta} \end{pmatrix} \,.
+\end{equation}
+
+Vzhledem k nutnosti kompenzace nedokonalosti destičky, které vyžaduje, aby do ní vstupovala přibližně lineární polarizace,se všechno úsilí k řešení tohoto problému soustředilo na kompenzaci zrcadla -- vložení dalšího optického prvku, který působí inverzně.
+Nejprve však ztratíme pár slov o tom, jaký by mělo zrcadlo vliv na ideální můstek.
+Ve Stokesově kovektoru se to projeví podobně jako destička s dodatečným fázovým zpožděním ($\Dtks'''$ vzhledem ke světlu před zrcadlem)
+\begin{equation}
+    {\Dtks'''}^\textrm{A-B}=
+\end{equation}
+
+
+
 
 \subsection{Současné měření elipticity}
 \label{chap:elipticita}

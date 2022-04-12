@@ -121,6 +121,16 @@ Ortogonální polarizace jsou zobrazeny na body středově souměrné podle poč
 I Muellerovy matice musí splňovat určité podmínky.
 Přestože libovolná myslitelná 4x4 reálná matice je dána 16 reálnými parametry, nedepolarizační (také nazývaná čistá\footnote{Ve smyslu čistého (nesmíšeného, angl. pure) stavu v kvantové mechanice.}) Muellerova matice je dána pouze 7 reálnými čisly\footnote{Jonesova matice je dána 4 komplexními čísly --- 8 reálných parametrů, ale při přechodu k Muellerově matici ztratíme informaci o celkové fázi.}. \cite{ossikovskiDifferentialMatrixFormalism2011}
 
+Pro pozdější použití uvedeme totální diferenciál Stokesova vektoru (jakým způsobem se mění, při malé změně $\beta$, $\chi$, $I$)
+\begin{equation}
+\label{eqn:Stokes-diferencial}
+    \textrm{d}\Stks = 
+    2I\cos2\chi \begin{pmatrix} 0\\-\sin2\beta\\\cos2\beta\\0 \end{pmatrix} \textrm{d}\beta 
+    + 2I\begin{pmatrix} 0\\-\sin2\chi\cos2\beta\\-\sin2\chi\sin2\beta\\\cos2\chi \end{pmatrix}\textrm{d}\chi
+    + \Stks\textrm{d}I \,.
+\end{equation}
+
+
 Dále se zaměříme na to, jakým způsobem působí čisté Muellerovy matice, a jak jejich akci znázornit \emph{zobrazením Poincarého sféry}\cite{gilReviewMuellerMatrix2014,ossikovskiPoincareSphereMapping2013}.
 V případě depolarizačních prvků se ke znázornění používá trojice tzv. charakteristických elipsoidů, pro čisté prvky stačí zkoumat, jakým způsobem se změní body ležící na Poincarého sféře.
 
