@@ -5,7 +5,7 @@ V tomto oddílu se zaměříme na první z problémů, který je způsobený tí
 Příčiny jsou dvě: zrcadla mezi vzorkem a můstkem měnící polarizaci, a nedokonalost vlnové destičky a děliče v můstku.
 
 V tomto oddílu naplno využijeme formalismus \emph{Stokesových kovektorů} -- lineárních forem na prostoru Stokesových vektorů, které popisují detektory a složitější detekční systémy složené z detektorů a optických prvků -- rozvinutý v dodatku \ref{app:kovektory}.
-Pomocí něj vysvětlíme podstatu problémů a popíšeme několik způsobů, jakým vliv zrcadel a nedokonalostí prvků kompenzovat.
+Pomocí něj vysvětlíme podstatu problémů a popíšeme několik způsobů, jakými vliv zrcadel a nedokonalostí prvků kompenzovat.
 Nakonec v oddílu \ref{chap:elipticita} popíšeme způsob využití Berekova kompenzátoru v můstku, který umožňuje současné měření stočení i elipticity.
 
 Pro další použití na obr. \ref{fig:kovektor-ideal-mustek} vykreslujeme kovektory můstku s idealizovanými prvky (jako v oddílu \ref{chap:mustek-kap2}).
@@ -203,6 +203,9 @@ Pro malé zpoždění dochází totiž pouze k periodickému kmitání $\chi$ s 
 Rozdílové napětí na frekvenci $\omega_\textrm{PEM}$ by tedy mělo být úměrné koeficientu $\textrm{d}\chi$.
 
 Nastavení tedy spočívalo v současném/střídavém točení vyvažovací destičky, osy a zpoždění kompenzátoru, zatímco na dvou lock-inech byly sledovány hodnoty $\Udif(\omega=0)$ a $\Udif(\omega=\omega_\textrm{PEM})$ s cílem obě současně vynulovat.
+Tímto způsobem jsme se mimoděk vyhnuli problému s nedokonalými destičkami, protože nulovaný koeficient $\textrm{d}\chi$ není specifický pro zrcadla, ale zahrnuje v sobě celou detekční aparaturu.
+S dynamickým Berekovým kompenzátorem není třeba měřit obě polohy destičky.
+
 
 \begin{figure}[htbp]
     \centering
@@ -211,7 +214,7 @@ Nastavení tedy spočívalo v současném/střídavém točení vyvažovací des
     \label{fig:dynamicky-berek}
 \end{figure}
 
-Oběma způsoby je možné Berekův kompenzátor nastavit do dvou neekvivalentních poloh podle toho jestli se dvojice zrcadlo--kompenzátor dohromady chová jako neutrální prvek (``nedotáčivý mód'', $\delta_m+\delta_B=0$) či půlvlnná destička (``přetáčivý mód'', $\delta_m+\delta_B=\pi$).
+Oběma způsoby je možné Berekův kompenzátor nastavit do dvou neekvivalentních poloh lišících se v tom, jestli se dvojice zrcadlo--kompenzátor dohromady chová jako neutrální prvek (``nedotáčivý mód'', $\delta_m+\delta_B=0$) či půlvlnná destička (``přetáčivý mód'', $\delta_m+\delta_B=\pi$).
 
 Oba způsoby s oběma módy byly vyzkoušeny na vzorku CoFe v transmisní geometrii při pokojové teplotě (bez štítu kryostatu), viz obr. \ref{fig:g:mustek-kompenzace-berek-vysledky}.
 Při měření byly mezi vzorkem a můstkem umístěny dvě zrcadla jako na obr. \ref{fig:zakladni-schema}.
@@ -229,4 +232,5 @@ Dále jsme se kompenzací zrcadel Berekovým kompenzátorem nevěnovali.
 \subsection{Současné měření elipticity}
 \label{chap:elipticita}
 
-
+Měření dvou poloh vyvažovací destičky (pro kompenzaci její nedokonalosti) je časově náročné a zahazuje polovinu dat -- rozdíl signálů pro obě polohy, který v sobě nese informaci o elipticitě.
+Učinili jsme proto pokus 

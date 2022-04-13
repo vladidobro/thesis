@@ -80,14 +80,13 @@ Pro praktické účely je výhodné vyjádřit \eqref{eqn:SW-funkcional} ekvival
 Pak až na bezvýznamnou aditivní konstantu\todo{zavadet ty kx?}
 \begin{align}
 \label{eqn:funkcional-otoceny}
-    \frac{F(\phim)}{M_S}&=-\frac{k_4}{8} \cos 4(\phim-\gamma)-\frac{k_u}{2} \cos 2(\phim-\phiu-\gamma) \\
-    &=-\frac{k_{4x}}{8} \cos 4\phim - \frac{k_{4y}}{8} \sin 4\phim - \frac{k_{ux}}{2} \cos 2 \phim - \frac{k_{uy}}{2} \sin 2 \phim \,,
+    \frac{F(\phim)}{M_S}&=-\frac{k_4}{8} \cos 4(\phim-\gamma)-\frac{k_u}{2} \cos 2(\phim-\gamma-\phiu) \\
+                        &=\tilde{k}_4 \frac{-e^{-i4\phim}}{2} + \tilde{k}_u \frac{-e^{-i2\phim}}{2} + \textrm{c. c.}\,,
 \end{align}
-kde
-\begin{align}
-    k_{4x}&=k_4 \cos 4\gamma \,, & k_{ux}=k_u \cos 2 \left(\phiu+\gamma\right) \,,\\
-    k_{4y}&=k_4 \sin 4\gamma \,, & k_{uy}=k_u \sin 2 \left(\phiu+\gamma\right) \,.
-\end{align}
+kde c. c. značí komplexně sdružený předešlý výraz a
+\begin{equation}
+    \tilde{k}_4 = \frac{k_4}{8} e^{i4\gamma} \,, \quad \tilde{k}_u = \frac{k_u}{2} e^{i2(\gamma+\phiu)}
+\end{equation}
 
 Pro in-plane magnetickou anizotropii se zavádí tzv. \emph{torque}\footnote{Česky točivý moment.} $L=\textrm{d}F/\textrm{d}\phim$.
 Podmínka minima $\Omega$ má pak tvar\todo{spravne?}
