@@ -26,14 +26,12 @@ F.data = samp3
 #F.preprocess_default()
 #print(F.data)
 
-fn = './data/ferh/cross_2/0710H/0000.dat'
+df_files = pd.DataFrame({
+    'beta':[0,45],
+    'file_path':['data/ferh/cross_2/0710H/0000.dat', 'data/ferh/cross_2/0710H/0450.dat'],
+    'file_template':['femtik_standard', 'femtik_standard'],
+    'file_opts':[{},{}]})
 
-F = p.FileFemtikStandard(fn)
-
-print(F.opts)
-F.default_preprocess()
-print(F.data)
-
-fig, ax = plt.subplots()
-F.default_plot(ax)
-fig.savefig('b.png')
+G = p.MeasurementSet(df_files)
+G.default_process();
+print(G.rotation)

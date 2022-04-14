@@ -3,13 +3,13 @@ untracked/*
 img/static
 img/old
 
-data/raw/*
-data/out/*
+data/files
+data/out/
 data/makefile
 
 *.pdf
 !version/*
-__pycache__/*
+__pycache__/
 
 #begin clean
 thesis-*

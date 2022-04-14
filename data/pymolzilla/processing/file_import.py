@@ -15,13 +15,15 @@ def load_py_legacy(path, **kwargs):
     raise NotImplementedError
  
 class MolzillaFile:
+    default_opts = {}
     def __init__(self, path, **opts):
         self.path = path
-        self.opts = opts
+        self.opts = self.default_opts | opts
 
     def default_preprocess(self, **kwargs):
         '''This is to be overriden by child classes
-        But provides a sensible default, so child can only set self.opts'''
+        But provides a sensible default, so child can only set self.opts
+        Should return self'''
         def_opts = {'file_format': 'femtik',
                     'split_col': 'phih',
                     'throw_unfinished': True,
@@ -43,6 +45,7 @@ class MolzillaFile:
         self.data = self.data[opts['keep_and_rename'].keys()]
         self.data.rename(columns=opts['keep_and_rename'], inplace=True)
 
+        return self
 
     def default_load(self, file_format='example', **kwargs):
         def_opts = {'file_format':'femtik'}
@@ -128,27 +131,34 @@ class MolzillaFile:
     def substract_mean(self, subs_col='A-B', **kwargs):
         self.data[subs_col] -= self.data[subs_col].mean()
 
-    def normalize(self, normalize_col='A-B', normalize_method='intensity', **kwargs):
+    def normalize(self, normalize_col='A-B', normalize_method='intensity', normalize_factor=1, **kwargs):
         normalize_fun = {'intensity': self._normalize_intensity,
-                         'custom': self._normalize_custom,
-                         'stokes': self._normalize_stokes}
-        self.data[normalize_col] *= normalize_fun[normalize_method](**kwargs)
+                         'by_col_mean': self._normalize_by_col_mean,
+                         'factor': self._normalize_factor}
+        self.data[normalize_col] /= normalize_factor * normalize_fun[normalize_method](**kwargs)
 
     def _normalize_intensity(self, normalize_by_col='A+B', **kwargs):
-        return 0.5*self._normalize_by_col_mean(normalize_by_col=normalize_by_col, **kwargs)
+        return 2*self._normalize_by_col_mean(normalize_by_col=normalize_by_col, **kwargs)
 
     def _normalize_by_col_mean(self, normalize_by_col = 'A+B', **kwargs):
-        return 1/self.data[normalize_by_col].mean()
+        return self.data[normalize_by_col].mean()
 
-    def _normalize_stokes(self, **kwargs):
-        raise NotImplementedError
-
-    def _normalize_custom(self, **kwargs):
-        raise NotImplementedError
+    def _normalize_factor(self, **kwargs):
+        return 1
 
 class FileFemtikStandard(MolzillaFile):
-    default_opts = {'file_format':'femtik',
-                    'femtik_colnames':['phih','A-B','A-B phase','A+B','A+B phase']}
-    def __init__(self, path, **opts):
-        super().__init__(path, **opts)
-        self.opts = self.default_opts | opts
+    default_opts = {
+        'file_format': 'femtik',
+        'femtik_colnames': ['phih','A-B','A-B phase','A+B','A+B phase']}
+
+class FileFemtikSwitch(MolzillaFile):
+    default_opts = {
+        'file_format':'femtik',
+        'femtik_colnames': ['phih','A+B','A+B phase','A-B','A-B phase']}
+
+def MolzillaFileFactory(template, path, **opts):
+    template_classes = {
+        'default': MolzillaFile,
+        'femtik_standard': FileFemtikStandard,
+        'femtik_switch': FileFemtikSwitch}
+    return template_classes[template](path, **opts)
