@@ -34,4 +34,6 @@ print(F.opts)
 F.default_preprocess()
 print(F.data)
 
-fig, ax = plt.subplots
+fig, ax = plt.subplots()
+F.default_plot(ax)
+fig.savefig('b.png')
