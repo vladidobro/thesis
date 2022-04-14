@@ -1,21 +1,22 @@
+from .file_import import *
 
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+import math
+import functools
 
 class MLDSet:
-    def __init__(self, files):
+    def __init__(self, df_files):
+        self.df_files = df_files
+
+    def load_standard(self, **kwargs):
+        map(lambda f: f.preprocess_standard(**kwargs), self.df_files['files'])
+
+    def symmetrize_beta(self):
         pass
 
-class MolzillaFile:
-    def __init__(self, path, form, **kwargs)
-        self.path = path
-        self.form = form
-        self.opts = kwargs
-    def load(self):
-        load_fun = {'femtik': self._load_femtik,
-                    'py_legacy': self._load_py_legacy}
-        self.data_raw = load_fun[self.form](self.path, **self.opts)
-
-    def _load_femtik(self, path, **kwargs):
+    def fourier2_beta(self):
         pass
 
-    def _load_py_legacy(self, path, **kwargs):
-        pass
+

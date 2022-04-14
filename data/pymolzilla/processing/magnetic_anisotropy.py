@@ -88,7 +88,8 @@ class FreeEnergy:
         methods={'minf': self._min_minf, 
                  'torq': self._min_torq,
                  'tayl': self._min_tayl,
-                 'pade': self._min_pade}
+                 'pade': self._min_pade,
+                 'recu': self._min_recu}
         res = methods[method](pivot, **kwargs)
         return res.x
 
@@ -120,6 +121,9 @@ class FreeEnergy:
         raise NotImplementedError
 
     def _min_pade(self, pivot):
+        raise NotImplementedError
+
+    def _min_recu(self, pivot):
         raise NotImplementedError
 
     @staticmethod

@@ -38,10 +38,10 @@ Vzorec \eqref{eqn:PMLD} byl dále naivním způsobem rozšířen pro anizotropn�
     \Delta\beta(\phih, \beta)=P\left(\phim(\phih)\right) \sin\left(2\phim(\phih)-2\beta\right)+\xi(\beta) \,.
 \end{equation}
 Zpracování pak spočívalo ve fitování metodou nejmenších čtverců změřeného $\Delta\beta$ neznámými funkcemi\footnote{Vzorkování $\phih$ a $\beta$ je konečné, takže např. pro 72 změřených $\phih^i$ rozumíme jako fitování $\phim(\phih)$ určení 72 parametrů $\phim^i\equiv\phim(\phih^i)$.} $P(\phim)$, $\phim(\phih)$, $\xi(\beta)$.
-Metodou nejmenších čtverců rozumíme hledání parametrů minimalizujících
+Metodou nejmenších čtverců rozumíme hledání parametrů minimalizujících cílovou funkci
 \begin{equation}
 \label{eqn:}
-    \Delta^2 = \sum_{\phih, \beta} \left( \Delta\beta_\textrm{měření} - \Delta\beta_\textrm{model} \right)\,,
+    \mathcal{L} = \sum_{\phih, \beta} \left( \Delta\beta_\textrm{měření} - \Delta\beta_\textrm{model} \right)^2\,,
 \end{equation}
 kde v tomto případě $\Delta\beta_\textrm{měření}$, $\Delta\beta_\textrm{model}$, značí levou, resp. pravou stranu \eqref{eqn:PMLD-naivni}.
 
@@ -65,7 +65,7 @@ kde $\overline{\Delta\beta_k}$ značí průměr přes $\phih$.
 Z \eqref{eqn:reseni-ctverce-fourier} je vidět, že úloha je degenerovaná: existují různé sady parametrů, které produkují stejná naměřená data.
 Dimenze degenerace je 2 a odpovídá reálné a imaginární části $\xi_2=\xi_{-2}^*$.
 
-Nicméně pro každou sadu naměřených dat existuje maximálně jedna sada parametrů, ve kterých $P(\phim)$ a $\phim(\phih)$ ctí čtyřčetnou rotační symetrii v rovině $xy$.
+Nicméně pro každou sadu naměřených dat existuje maximálně jedno řešení s čtyřčetnou rotační symetrií v rovině $xy$, tj. $P(\phim)=P(\phim+\SI{90}{\degree})$ a $\phim(\phih+\SI{90}{\degree})=\phim(\phih)+\SI{90}{\degree}$.
 Jinými slovy, pro kubické vzorky fit degenerovaný není, platí pro ně totiž vždy $\overline{Pe^{i2\phim}}=0$, takže $Pe^{\pm i2\phim}=\Delta\beta_{\pm2}(\phih)-\overline{\Delta\beta_{\pm2}}$.
 Tak lze z měřených dat určit kýžené závislosti $P(\phim)$ a $\phim(\phih)$.
 

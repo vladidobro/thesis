@@ -9,7 +9,7 @@ data/makefile
 
 *.pdf
 !version/*
-
+__pycache__/*
 
 #begin clean
 thesis-*
