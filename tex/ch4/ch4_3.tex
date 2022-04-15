@@ -1,2 +1,35 @@
 \section{Určení anizotropie MLD}
 \label{chap:anizotropie-MLD}
+
+Snaha o vystižení anizotropie MLD pomocí vzorce \eqref{eqn:} založeném na \eqref{} nebyla úspěšná.
+Výskyt $\phim$ v argumentu sinu se zakládá na argumentech symetrie; pro plně rotačně symetrické prostředí v rovině prostředí zanáší magnetizace jediný význačný směr a osa zanesené optické anizotropie s ní pak musí splývat.
+Tento argument však selhává i pro čtyřčetnou rotační symetrii, pak totiž není důvod aby např. $\phim=\SI{10}{\degree}$ zanášelo optickou anizotropii ve stejném směru.
+
+Správné rozšíření vzorečku by mělo tvar
+\begin{equation}
+    \Delta\beta = P(\phim) \sin \left( 2\varphi_O(\phim) - 2\beta   \right)
+\end{equation}
+se směrem optické osy $\varphi_0$, které už pro neúplnou rotační symetrii nemusí rovnat $\phim$.
+V takovém tvaru postihuje MO jevy všech řádů (stejně jako původní izotropní vzorec) a trpí stejnou degenerací jako \eqref{eqn:}, takže lze $P$ a $\varphi_O$ určit pouze za přepokladu čtyřčetné rotační symetrie či nějaké jiné, která degeneraci sejme.
+
+Se vzorečkem je ještě jeden problém: $\phim$ v něm vystupuje pouze skrze libovolné funkce $P$ a $\varphi_O$, a bez přidaných požadavků na jejich tvar nelze určit magnetickou anizotropii $\phim(\phih)$.
+Shodná magnetická anizotropie je ve výsledku jediným spolehlivým kritériem, které nás dokáže přesvědčit o správnosti změřených dat.
+Přídavný požadavek na $P$ a $\varphi_O$, který zde přijmeme, je takový, že měřené stočení je MO jevem maximálně kvadratickým v magnetizaci vzorku $\vec{M}$.
+Uvidíme, že tento požadavek je k určení magnetické anizotropie dostačující (viz oddíl \ref{chap:urceni-magneticke-anizotropie}), tj. zajišťuje vzájemnou jednoznačnost $\Delta\beta$ a $\phim$.
+
+Předpokládáme, že vzorek je v jedno-doménovém stavu se saturovanou in-plane magnetizací (Stonerův-Wohlfarthův model).
+Díky tomu se každý člen řádu $k$ mocninného rozvoje v $\vec{M}$ redukuje na harmonickou funkci $k\phim$.
+Do druhého řádu se tedy vyskytují členy $\cos\phim$, $\sin\phim$, $\cos2\phim$, $\sin2\phim$ a konstanta, kterou stejně nedokážeme změřit kvůli vyvažování můstku (konstanta $\xi$ z \eqref{eqn:}).
+První dva členy jsou lineární a většinou kvůli téměř kolmému dopadu ($< \SI{1}{\degree}$) poměrně malé.
+Zajímáme se pouze o kvadratické jevy, proto je od lineárních odseparujeme stejným způsobem jako metoda rotujícího pole (rovnice \eqref{eqn:}).
+Předpokládáme tedy in-plane magnetickou anizotropii s dvoučetnou rotační symetrií, pak platí $\phim(\phih+\SI{180}{\degree})=\phim(\phih)+\SI{180}{\degree}$ a symetrizaci podle $\vec{M}$ můžeme provést pomocí symetrizace podle $\vHext$:
+\begin{equation}
+    \Delta\beta^\textrm{Q}(\phih) = \frac{1}{2}\left(\Delta\beta(\phih) + \Delta\beta(\phih+\SI{180}{\degree})\right)
+\end{equation}
+
+V dalším předpokládáme, že symetrizace byla provedena a $\Delta\beta^\textrm{Q}$ značíme bez indexu $\Delta\beta$.
+Poznamenáme však, že tato symetrizace teoreticky není nezbytná.
+V konečném důsledku jsou fitovány koeficienty mocninného rozvoje a principiálně není problém fitovat o několik parametrů navíc.
+V této práci jsme se o to nepokoušeli.
+
+Po symetrizaci tedy máme signál, který je lineární

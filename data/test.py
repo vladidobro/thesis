@@ -33,5 +33,9 @@ df_files = pd.DataFrame({
     'file_opts':[{},{}]})
 
 G = p.MeasurementSet(df_files)
-G.default_process();
-print(G.rotation)
+
+a = p.ExperimentRotmld('cofe','room_t')
+print(a.process())
+
+#G.default_process();
+#print(G.rotation)

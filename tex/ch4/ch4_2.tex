@@ -118,6 +118,7 @@ Zde však už narážíme na závažný problém: v měřeném signálu se nám 
 Řešení nabízí\todopn{zmínit TO?} skutečnost\footnote{Lze nahlédnout ze symetrie vůči obrácení točivosti světla či přímým výpočtem.}, že $\zeta_2$ je pro každé $\beta$ lichou funkcí nedokonalosti destičky $\delta$ -- mění znaménko při vyvážení polohami $\theta_{\lambda/2}$, resp. $\theta_{\lambda/2}+\SI{90}{\degree}$.
 V praxi tedy měříme každé $\beta$ s oběma polohami destičky a bereme jejich aritmetický průměr
 \begin{equation}
+\label{eqn:mustek-kompenzace-desticek-prumer}
     \frac{1}{2}\left(\Udif^{\theta_{\lambda/2}}+\Udif^{\theta_{\lambda/2}+\SI{90}{\degree}}\right) = 2I\cos\zeta_2 \textrm{d}\beta \,.
 \end{equation}
 Změny elipticity se odečetly a jediný zbývající vliv je v dodatečném faktoru $\cos\zeta_2$, který pro malé $\delta$ (a tedy malé $\zeta_2$) zanedbáváme.
@@ -181,6 +182,8 @@ Nejjednodušší způsob, jakým zanesenou elipticitu zrcadla kompenzovat, je p�
 Obě polarizace pak po průchodu oběma zrcadly nabydou stejného fázového faktoru.
 Dvojici zrcadel pak nazýváme \emph{zkřížená zrcadla} (v diagramech je značíme jako na obr. \ref{fig:mustek-zrcadlo-data} (b)) a chovají se jako neutrální prvek.
 Trik zkřížených zrcadel se ustálil a je použit ve všech experimentech v kap. \ref{chap:5}.
+\todo{zminit, jak to je kdyz je desticka az za zrcadlem}
+
 
 Nicméně otestována byla ještě jedna metoda kompenzace, kterou zde popíšeme -- pomocí Berekova kompenzátoru.
 Berekův kompenzátor je laditelný retardér a je proto možné jeho správným nastavením zrcadlo kompenzovat.
@@ -232,5 +235,89 @@ Dále jsme se kompenzací zrcadel Berekovým kompenzátorem nevěnovali.
 \subsection{Současné měření elipticity}
 \label{chap:elipticita}
 
-Měření dvou poloh vyvažovací destičky (pro kompenzaci její nedokonalosti) je časově náročné a zahazuje polovinu dat -- rozdíl signálů pro obě polohy, který v sobě nese informaci o elipticitě.
-Učinili jsme proto pokus 
+Měření dvou poloh vyvažovací destičky je časově náročné a zahazuje polovinu dat.
+Metoda kompenzace pomocí \eqref{eqn:mustek-kompenzace-desticek-prumer} se zajímá pouze o průměr signálů v obou polohách a nebere v potaz jejich rozdíl, který v sobě nese informaci o elipticitě -- druhý člen \eqref{eqn:mustek-s-elipticitou} $\sin\zeta_2 \textrm{d}\chi$.
+Změnu elipticity od vzorku $\Delta\chi$ však nelze takto jednoduše ze signálu extrahovat, protože je vážena neznámým faktorem $\sin\zeta_2$, který je navíc malý.
+
+Vyvinuli jsme proto metodu charakterizace Stokesova kovektoru můstku, která nám dodá neznámé faktory stočení i elipticity v měřeném signálu.
+Základem metody je studium měřeného signálu pro všechny vstupní lineární polarizace.
+Pokud vyvážíme můstek pro vstupní $\beta_0$ a celkový kovektor označíme $\Dtks^{\beta_0}$, pak
+\begin{align}
+\label{eqn:charakterizace-kovektoru-beta}
+    \Udif &= \Dtks^{\beta_0} \cdot \Stks \\ &= I \left[\cos2\chi\left(d^{\beta_0}_0 + d^{\beta_0}_1 \cos2\beta + d^{\beta_0}_2 \cos2\beta  \right) + d^{\beta_0}_3 \sin2\chi  \right] \,,\\
+          &\equiv I \left[ \cos2\chi \left(d^{\beta_0}_0 + d^{\beta_0}_\perp \sin \left( 2\psi^{\beta_0} - 2\beta \right) \right) + d^{\beta_0}_3 \sin2\chi \right] \,,
+\end{align}
+kde jsme zavedli cylindrické souřadnice kovektoru pomocí $d^{\beta_0}_\perp$ a $\psi^{\beta_0}$.
+Ve vyváženém můstku ($\chi=0$) platí, že výraz v závorce je rovný nule, proto
+\begin{equation}
+    d^{\beta_0}_0 + d^{\beta_0}_\perp \sin \left( 2\psi^{\beta_0} - 2\beta_0 \right) = 0
+\end{equation}
+
+Výpočtem gradientu v tomto vyváženém bodě pak dostaneme pro malé změny (způsobené vzorkem) polarizačního stavu (a intenzity)
+\begin{align}
+    \textrm{d}\Udif(\beta_0) &= 2I \left(\sqrt{1 - \left(\frac{d^{\beta_0}_0}{d^{\beta_0}_\perp}\right)^2} \textrm{d}\beta + d^{\beta_0}_3 \textrm{d}\chi  \right) \\
+                             &= 2I \left(\frac{\sqrt{{d^{\beta_0}_1}^2 + {d^{\beta_0}_1}^2 - {d^{\beta_0}_0}^2}}{d} \textrm{d}\beta + d^{\beta_0}_3 \textrm{d}\chi  \right) 
+\end{align}
+
+Pokud dokážeme charakterizovat všechny složky kovektoru, dokážeme určit oba kofaktory $\textrm{d}\beta$ i $\textrm{d}\chi$.
+Pokud pak provedeme dvě měření, ve kterých se kofaktory liší, jejich lineárními kombinacemi určíme stočení i elipticitu od vzorku.
+
+\subsubsection*{Charakterizace kovektoru}
+
+Předkládaná metoda charakterizace visí na předpokladu, že jsme schopni do můstku svítit světlem s libovolně natočenou lineární polarizací \beta.
+V praxi to provádíme tak, že s danou polarizací svítíme na vzorek a předpokládáme, že se po průchodu/odrazu příliš nezmění.
+V prvním z \emph{proof-of-principle} experimentů -- tenký film CoFe v transmisní geometrii při pokojové teplotě -- byl tento předpoklad experimentálně ověřen.
+V druhém -- FeRh v transmisní geometrii při \SI{420}{\kelvin} -- nebyl ověřen, ale vzhledem k úhlu dopadu $<\SI{0.5}{\degree}$ mu stejně věříme.
+Složky $d^{\beta_0}_0, d^{\beta_0}_1, d^{\beta_0}_2$ lze pak snadnou určit z $\beta$-závislosti \eqref{eqn:charakterizace-kovektoru-beta}.
+Pokud by nás zajímal pouze kofaktor stočení (a přesněji), lze to udělat ještě jednodušeji: změřit několik $\beta$ v malém okolí $\beta_0$ (např. $\pm\SI{1}{\degree}$ a body proložit přímkou.
+
+
+Poslední složku $d^{\beta_0}_3$ nelze určit přímo, aniž bychom měnili vstupní elipticitu.
+K jejímu určení je potřeba splnit dvojici předpokladů.
+Zaprvé již zmíněný experimentálně ověřený fakt, že oba z detektorů lze vynulovat vhodnou lineární polarizací před děličem.
+To znamená, že vzhledem ke světlu před můstkem předpokládáme\footnote{Vyjádřenou v soustavě souřadné děliče, takže $d'_2=0$ nezahrnuje předpoklad přesné shodnosti se souřadnou soustavou světla před můstkem.}
+\begin{align}
+\label{eqn:kovektory-det-elipticita}
+{\Dtks'}^\textrm{A} = {d'}^{\textrm{A}}_0(1, -1, 0, 0) \,,\\
+{\Dtks'}^\textrm{B} = {d'}^\textrm{B}_0(1, 1, 0, 0) \,.
+\end{align}
+
+Druhým předpokladem, který zřejmě není zcela splněn, je alespoň přibližná unitarita celé soustavy optických prvků před děličem (zachování intenzity při průchodu přes zrcadlo, destičku, \ldots).
+Pak totiž totiž 3-kovektor $(d_1, d_2, d_3)$ zachovává svoji normu, a tedy vzhledem ke světlu před můstkem (od vzorku) platí pro všechny lineární polarizace $\beta$ ($\chi=0$)
+\begin{equation}
+    U^\textrm{A/B}(\beta) = I \left( d^\textrm{A/B}_0 + d^\textrm{A/B}_1 \cos2\beta + d^\textrm{A/B}_2 \sin2\beta  \right) \,.
+\end{equation}
+Z $\beta$-závislosti napětí na obou detektorech lze klasicky určit jejich $d_0, d_1, d_2$, ale díky unitaritě lze navíc určit absolutní hodnotu $d_3$:
+\begin{equation}
+{d_1^\textrm{A/B}}^2 +  {d_1^\textrm{A/B}}^2 + {d_3^\textrm{A/B}}^2 = {d_0^\textrm{A/B}}^2
+\end{equation}
+Znaménko $d_3$ touto metodou určit nedokážeme.
+Vzhledem k tomu, že 3-kovektory obou detektorů před můstkem \eqref{eqn:kovektory-det-elipticita} mají opačnou orientaci, musí však i před celou soustavou mít i opačné znaménko :$d^\textrm{A}_3 \times d^\textrm{B}_3 < 0$.
+
+Když máme určeny kovektory jednotlivých detektorů, vrátíme se k rozdílovému napětí $\Udif$.
+Předpokládáme, že je dáno jednoduše rozdílem napětí na obou detektorech, avšak každé může zesíleno mírně odlišným faktorem.
+V každém případě by pořád mělo platit
+\begin{equation}
+    \frac{d^\textrm{A-B}_3}{d^\textrm{A-B}_\perp} = \frac{d^\textrm{A}_3}{d^\textrm{A}_\perp} = \frac{d^\textrm{B}_3}{d^\textrm{B}_\perp}
+\end{equation}
+
+
+
+
+V našich proof-of-concept experimentech je důležité znát pouze na relativní znaménko $d_3$ mezi různými vyváženími můstku, tj. mezi různými $\beta_0$.
+Absolutní hodnota znaménka pak už jen udává, jestli měříme $+\Delta\chi$ či $-\Delta\chi$.
+Relativní znaménko lze spolehlivě určit z přibližného teoretického výpočtu, viz např. oddíl o kompenzaci zrcadel výše ($\beta_0=\SI{0}{\degree}$ a $\beta_0=\SI{90}{\degree}$ mají opačná znaménka).
+
+Přesto jsme však při zkušebním experimentu s CoFe provedli pokus o jeho experimentální určení.
+Postup je následující.
+Nejdříve je vyvážen můstek pro dané $\beta_0$.
+Dále je před celou měřící soustavu (nejlépe za vzorek, v našem případě před vzorek) umístěna čtvrtvlnná destička s definovanou osou zorientovaná přibližně ve směru $\beta_0$.
+Je nalezena přibližná poloha čtvrtvlnné destičky, která vyvažuje můstek (teoreticky by to měla být přesně poloha, kdy její osa splývá s $\beta_0$).
+Destička je drobně vychýlena do definovaného \emph{kladného} směru a je zaznamenáno znaménko $\Udif$.
+Protože toto kladné vychýlení zanáší pro všechna $\beta_0$ malou elipticitu stejného znaménka, jsou tím relativní znaménka určena.
+Pro určení absolutního znaménka by pak stačilo zjistit, zda je definovaná osa destičky pomalá či rychlá.
+
+
+
+
+
