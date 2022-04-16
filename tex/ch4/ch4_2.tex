@@ -269,7 +269,6 @@ V praxi to provádíme tak, že s danou polarizací svítíme na vzorek a předp
 V prvním z \emph{proof-of-principle} experimentů -- tenký film CoFe v transmisní geometrii při pokojové teplotě -- byl tento předpoklad experimentálně ověřen.
 V druhém -- FeRh v transmisní geometrii při \SI{420}{\kelvin} -- nebyl ověřen, ale vzhledem k úhlu dopadu $<\SI{0.5}{\degree}$ mu stejně věříme.
 Složky $d^{\beta_0}_0, d^{\beta_0}_1, d^{\beta_0}_2$ lze pak snadnou určit z $\beta$-závislosti \eqref{eqn:charakterizace-kovektoru-beta}.
-Pokud by nás zajímal pouze kofaktor stočení (a přesněji), lze to udělat ještě jednodušeji: změřit několik $\beta$ v malém okolí $\beta_0$ (např. $\pm\SI{1}{\degree}$ a body proložit přímkou.
 
 
 Poslední složku $d^{\beta_0}_3$ nelze určit přímo, aniž bychom měnili vstupní elipticitu.
@@ -298,11 +297,11 @@ Když máme určeny kovektory jednotlivých detektorů, vrátíme se k rozdílov
 Předpokládáme, že je dáno jednoduše rozdílem napětí na obou detektorech, avšak každé může zesíleno mírně odlišným faktorem.
 V každém případě by pořád mělo platit
 \begin{equation}
-    \frac{d^\textrm{A-B}_3}{d^\textrm{A-B}_\perp} = \frac{d^\textrm{A}_3}{d^\textrm{A}_\perp} = \frac{d^\textrm{B}_3}{d^\textrm{B}_\perp}
+    \frac{d^\textrm{A-B}_3}{d^\textrm{A-B}_\perp} = \frac{d^\textrm{A}_3}{d^\textrm{A}_\perp} = \frac{d^\textrm{B}_3}{d^\textrm{B}_\perp} \,,
 \end{equation}
-
-
-
+takže jsme již schopní určit $d^\textrm{A-B}_3$.
+Hodnoty pro A a B by měly při splnění všech předpokladů být stejné, ale v praxi se samozřejmě mírně liší.
+Pak bereme vhodnou lineární kombinaci, my volíme bez dalšího zdůvodnění geometrický průměr.
 
 V našich proof-of-concept experimentech je důležité znát pouze na relativní znaménko $d_3$ mezi různými vyváženími můstku, tj. mezi různými $\beta_0$.
 Absolutní hodnota znaménka pak už jen udává, jestli měříme $+\Delta\chi$ či $-\Delta\chi$.
@@ -316,7 +315,30 @@ Je nalezena přibližná poloha čtvrtvlnné destičky, která vyvažuje můstek
 Destička je drobně vychýlena do definovaného \emph{kladného} směru a je zaznamenáno znaménko $\Udif$.
 Protože toto kladné vychýlení zanáší pro všechna $\beta_0$ malou elipticitu stejného znaménka, jsou tím relativní znaménka určena.
 Pro určení absolutního znaménka by pak stačilo zjistit, zda je definovaná osa destičky pomalá či rychlá.
+Čtvrtvlnná destička je samozřejmě opět vyjmuta pro samotné měření.
 
+Ve všech vzorcích \eqref{eqn:} jsme explicitně psali faktor $I$, protože pochází ze Stokesova vektoru a ne kovektoru.
+Při měření $\beta$-závislosti napětí je však zahrnut, což nám usnadňuje práci.
+S fitovanými parametry $a$ v $\beta$-závislostech
+\begin{align}
+    U^\textrm{A}(\beta) &= a^\textrm{A}_0 + a^\textrm{A}_1 \cos2\beta + a^\textrm{A}_2 \sin2\beta \,,\\
+    U^\textrm{B}(\beta) &= a^\textrm{B}_0 + a^\textrm{B}_1 \cos2\beta + a^\textrm{B}_2 \sin2\beta \,,\\
+    U^\textrm{A-B}(\beta) &= a^\textrm{A-B}_0 + a^\textrm{A-B}_1 \cos2\beta + a^\textrm{A-B}_2 \sin2\beta
+\end{align}
+jsou pak kofaktory stočení a elipticity
+\begin{equation}
+\label{eqn:elipticita-kofaktory}
+    \textrm{d}\Udif = \textrm{d}\beta + \textrm{d}\chi
+\end{equation}
+Změření celé závislosti $U^\textrm{A-B}(\beta)$ vyžaduje změnu zesílení, aby nedošlo k přetečení lock-inů.
+Proto pouzíváme \eqref{eqn:elipticita-kofaktory} pouze k určení poměru obou kofaktorů
+\begin{equation}
+    \textrm{d}\Udif = g \left( \textrm{d}\beta + \frac{1}{1}\textrm{d}\chi \right) \,,
+\end{equation}
+kde čtvrté odmocniny se vyskytují kvůli použití geometrického průměru (viz výše).
+Kofaktor stočení $g$ určíme přímo: změříme několik $\beta$ v malém okolí $\beta_0$ (např. $\pm\SI{1}{\degree}$ a body proložíme přímkou; $g$ je pak její směrnicí.
+
+\subsubsection*{Ověření funkčnosti}
 
 
 

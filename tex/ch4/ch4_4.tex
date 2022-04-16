@@ -1,2 +1,121 @@
 \section{Určení magnetické anizotropie}
 \label{chap:urceni-magneticke-anizotropie}
+
+Určení magnetické anizotropie z měřených dat je do jisté míry odloučené od určení síly MO jevů.
+Předpokládáme, že $\phih$-závislost měřeného rozdílového napětí $\Udif$ je pouze skrze $\phim(\phih)$ udávající směr saturované in-plane magnetizace $\vec{M}$.
+Znamená to, že ve vzorku je jediná MO aktivní vrstva, případně ve všech vrstvách je $\phim(\phih)$ totožné.
+Zároveň je také nutné odstranit všechny příspěvky do signálu, které nepochází přímo od vzorku (např. MO jevy v okénkách kryostatu, či pohyb \emph{něčeho}).
+Tento požadavek je naprosto zásadní.
+
+Dále předpokládáme, že signál je dobře popsaný konečným počtem členů mocninného rozvoje v $\vec{M}$.
+V této práci se omezujeme na kvadratické členy (po odstranění lineárních jevů popsaném v předešlém oddílu), které mají vzhledem k magnetické saturaci tvar
+\begin{equation}
+\label{eqn:anizotropie-harmfit}
+    \Udif(\phih) = b_0 + b_\textrm{c} \cos2\phim(\phih) + b_\textrm{s} \sin2\phim(\phih) \,.
+\end{equation}
+Toto však není nezbytné.
+Pokud z předpokládané symetrie problému vycházejí i jiné členy (např. pro [111] normálově orientované kubické vzorky členy harmonické v $3\phim$, $6\phim$), není problém je do \eqref{eqn:anizotropie-harmfit} zahrnout.
+Stejně tak není nutné provádět symetrizaci v $\vHext$ pro odstranění lineárních jevů, a místo toho zahrnout členy harmonické v $1\phim$.
+Níže popsaná metoda teoreticky (ověřeno na simulacích bez šumu) funguje s libovolným počtem členů, který nepřesáhne určitou mez, za kterou je fit degenerovaný.
+Jediný problém, který s sebou přidávání parametrů přináší, je zřejmé zvyšování jejich počtu.
+Dále se však věnujeme pouze kvadratickým členům s rozvojem \eqref{eqn:anizotropie-harmfit}.
+
+Pokud naměříme $\Udif$ pro sadu $\phih$, a signál je skutečně dán vzorcem \label{eqn:anizotropie-harmfit}, je možné z něj extrahovat závislost $\phim(\phih)$.
+Nejdříve ztratíme pár slov o degeneraci.
+Pokud změříme $n$ různých (s lineárně nezávislými koeficienty $b$) závislostí $\Udif(\phim)$ pro $m$ hodnot $\phih$, pak je naším cílem zjistit celkem $m+3n$ parametrů -- $m$ hodnot $\phim(\phih)$ a $3\times n$ parametrů \eqref{eqn:anizotropie-harmfit} -- z $n\times m$ změřených bodů.
+Pro $n=1$ je vdžy parametrů více než dat, pro $n\geq 2$ je situace v pořádku (typicky $m>$počet členů v rozvoji).
+Rozdíl mezi $n=1\,,2$ lze intuitivně pochopit na jiné formálně ekvivalentní úloze.
+Po vykreslení bodů $(\Udif^{(1)}(\phih), \Udif^{(2)}(\phih)$ do roviny (pro $n=1$ pokládáme $\Udif^{(2)}=0$), leží podle \eqref{eqn:anizotropie-harmfit} body na nějaké elipse.
+V této analogii je naším úkolem elipsu identifikovat, a zároveň pro každý bod určit, v které části elipsy leží (, což odpovídá $\phim(\phih)$).
+Pro obyčejnou elipsu to je jednoznačné, pokud však $n=1$, nebo jsou trojice parametrů $b$ pro obě měření lineárně závislé, je elipsa redukovaná na přímku.
+U té řešení jednoznačné není -- délka úsečky může být libovolná delší než nejvzdálenější naměřené body.
+To s sebou nese i nejednoznačnost v $\phim(\phih)$.
+
+Problém trpí ještě jedním typem nezávažné degenerace -- celkové pootočení $\phim$ oproti $\phih$.
+Pokud bychom měli dva průběhy magnetizace, které se liší pouze celkovým pootočením, tj. $\phim^2(\phih)=\phim^1 + \textrm{konst.}$,
+pak je možné vhodnou lineární transformací (``pootočením'') parametrů $b_1$, $b_2$ dosáhnout toho, aby model \eqref{eqn:anizotropie-harmfit} dával totožné hodnoty.
+To znamená, že fitem naměřených dat nelze rozlišit mezi $\phim^1$ a $\phim^2$ -- je možné pouze určit třídu ekvivalence průběhů $\phim(\phih)$, jejíž prvky se navzájem liší aditivní konstantou (celkovým pootočením).
+Naštestí nám však v tuto chvíli spěchá na pomoc termodynamika s podmínkou integrability \eqref{eqn:}, která z každé takové třídy vybírá právě jedno $\phim(\phih)$, pro které existuje volná energie.
+
+Výhoda odděleného zpravování magnetické anizotropie je taková, že naprosto není třeba splňovat požadavky pro určení síly MO jevů.
+Konkrétně např. není nutné kompenzovat zrcadla ani nepřesnosti vlnových destiček: můžeme měřit libovolný mix stočení a elipticity.
+Není ani nutné mít při vstupu do vzorku lineárně polarizované světlo -- dokonce není ani nutné polarizační stav znát.
+Jediným předpokladem je, že reflexní matice vzorku je dobře popsaná mocninným rozvojem v $\vec{M}$.
+
+Nyní již přistoupíme k samotnému procesu extrakce $\phim(\phih)$.
+Základem je opět aplikace metody nejmenších čtverců -- hledání parametrů, které minimalizují cílovou funkci tvaru \eqref{eqn:} s modelem \eqref{eqn:anizotropie-harmfit}.
+Narozdíl od všech předchozích popsaných aplikací však tentokrát fit nelze zcela linearizovat, proto používáme některou z dostupných vícedimenzionálních minimalizačních metod, konkrétně \emph{gradientní sestup}.
+Část fitu odpovídající parametrům $b$ linearizovat lze.
+Postupujeme tedy tak, že cílovou funkci $\mathcal{L}$ považujeme pouze za funkci $\phim(\phih)$, s předpokladem, že jsou dosazeny optimální parametry $b$ pro dané $\phim(\phih)$, určené lineární regresí\footnote{Do \eqref{eqn:anizotropie-harmfit} je dosazeno konkrétní $\phim$ a jsou fitovány parametry $b$.}.
+Gradientní sestup je pak aplikován pouze na parametry $\phim(\phih)$.
+Jako \emph{nástřel} (startovní bod) zpravidla volíme nulovou magnetickou anizotropii $\phim(\phih)=\phih$.
+
+V této podobě není výhodné aplikovat podmínky integrability již během fitu, protože gradient cílové funkce je kolmý na směr, který způsobuje celkové pootočení magnetizace -- gradientní sestup jí přirozeně dodržuje.
+Přesto je však jistější jí po provedení fitu aplikovat a vybrat tu správnou aditivní konstantu.
+
+V praxi je měřeno mnoho hodnot $\phih$, a přestože je uvedená metoda zcela spolehlivá v simulacích, v přítomnosti šumu zpravidla nelze spoléhat na výsledky fitů s více než 20 parametry.
+Proto závislost $\phim(\phih)$ parametrizujeme menším počtem parametrů než $\phim$ pro každé měřené $\phih$.
+V případě námi měřených vzorků používáme parametrizaci Stonerova-Wohlfarthova modelu \eqref{eqn:} s kubickou $k_4$ a uniaxiální $k_u$ anizotropní konstantou, jimi svíraným úhlem $\phiu$ a in-plane rotací vzorku $\gamma$.
+Pro potřeby fitu je výrazně výhodnější místo nich používat ekvivalentní parametrizaci pomocí $\tilde{k}_4$ a $\tilde{k}_u$\footnote{Jejich reálné a imaginární části.} (viz \eqref{eqn:}), která ale navíc zachovává přirozenou topologii parametrického prostoru\footnote{V tomto vyjádření např. splývají $\phiu$ a $\phiu+\SI{180}{\degree}$, nebo $k_u$ pro všechna $\phiu$} a směr uniaxiální anizotropie v ní není odčítán od směru kubické anizotropie $\gamma$, ale od experimentální souřadné soustavy.
+To umožňuje její směr spolehlivě určit např. v případě, kdy je kubická anizotropie z nějakého důvodu zatížena velkou chybou (např. je mnohem slabší než uniaxiální).
+
+V této podobě výpočet cílové funkce $\mathcal{L}(\Re\tilde{k}_4,\,\Im\tilde{k}_4,\,\Re\tilde{k}_u,\,\Im\tilde{k}_u)$ probíhá ve třech krocích
+\begin{enumerate}
+    \item Pro pevně danou sadu $\phih$ je minimalizací magnetické entalpie \eqref{eqn:} spočítaná sada $\phim$.
+    \item Tato $\phim$ jsou dosazena do \eqref{eqn:anizotropie-harmfit} a metodou lineární regrese jsou spočítány parametry $b$
+    \item Je spočítaná celková kvadratická odchylka měřených dat od \eqref{eqn:anizotropie-harmfit} s dosazenými $b$.
+\end{enumerate}
+$\mathcal{L}$ je pak podle zásad gradientního sestupu počítáno pro blízké hodnoty $\tilde{k}_4$, $\tilde{k}_u$ a iteračně je nalezeno její globální minimum.
+
+\todo{overit}
+Popsaná optimalizační úloha je poměrně výpočetně náročná, a proto zmíníme pár vypozorovaných rysů, které mohou pomoci s její optimalizací.
+\emph{Bottleneck}em je zřejmě výpočet $\phim$ s danými anizotropními konstantami.
+V ideálním případě je provedena úloha hledání minima či nuly pro každou hodnotu $\phih$.
+Pro předběžné hledání minima $\mathcal{L}$ lze ale využít přibližných výpočtů pomocí mocninných řad či Padého aproximantů popsaných v dodatku \ref{app:magneticka-anizotropie}.
+Numerickému počítání gradientu $\mathcal{L}$ se lze vyhnout pomocí analytických derivací $\phim$ podle anizotropních konstant, taktéž popsaných v dodatku \ref{app:magneticka-anizotropie}.
+Dále pro nulovou anizotropii jsou derivace regresorů \eqref{eqn:anizotropie-harmfit} podle anizotropních konstant navzájem kolmé.
+Tím míníme, že do prvního řádu $\mathcal{O}(\tilde{k}_{4/u}/\Hext)$ se cílová funkce rozpadne na součet dílčích cílových funkcí, jež jsou závislé pouze na jediné anizotropní konstantě a lze je fitovat nezávisle.
+Stejného výsledku bychom samozřejmě mohli dosáhnout vhodnou ``ortogonalizací'' parametrů, touto poznámkou především tvrdíme, že ortogonalizaci netřeba provádět.
+
+Pokud rozvoj signálu v $\vec{M}$ sestává pouze z jediné frekvence $\phim$ (v našem zaměření na kvadratické jevy $2\phim$), pak má metoda poměrně přímočarou grafickou reprezentaci, a z dat lze vizuálně přímo odečítat přibližné polohy snadných a těžkých os.
+Ilustruujeme na sadě dat naměřených se vzorkem CoFe při pokojové teplotě v transmisní geometrii bez zrcadel mezi vzorkem a detekcí.
+S daty byla provedena procedura kompenzace nedokonalostí destiček a symetrizace v $\vHext$ pro odstranění lineárních jevů.
+
+Měřený signál je harmonickou funkcí v $2\phim$, viz obr. \ref{fig:anizotropie-vizualni} (b)\footnote{Tento obrázek je však až výsledkem analýzy. $\phim$ apriori neznáme.}.
+Experimentální data přirozeně vykreslujeme v závislosti na $\phih$, jakékoliv odchylky tvaru od harmonické funkce jsou způsobeny magnetickou anizotropií $\phim\neq\phih$, viz obr. \ref{fig:anizotropie-vizualni} (a).
+Provedená transformace mezi oběma grafy -- $\phih \mapsto \phim$ -- má grafický význam lokálního škálování vodorovné osy, na obrázcích znázorněno svislými čarami s konstantními rozestupy ve $\phim$.
+Míra škálování je daná
+\begin{equation}
+    \frac{\textrm{d}\phim}{\textrm{d}\phih} = 1 +\frac{\textrm{d}^2 F}{\textrm{d}\phim^2} = 1 + \frac{\textrm{d}L}{\textrm{d}\phim} \,.
+\end{equation}
+
+Snadná osa se vždy nachází v regionu $\textrm{d}^2F/\textrm{d}\phim^2 > 0$ a dochází k smršťování (na obr. $\phih\approx\SI{0}{\degree}$), těžká osa v regionu s opačnou nerovnicí a dochází k natahování ($\phih\approx\SI{0}{\degree}$).
+
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{anizotropie}
+    \caption{}
+    \label{fig:anizotropie-vizualni}
+\end{figure}
+
+
+\subsubsection{Nepřesnosti magnetického pole}
+
+Z experimentálních výsledků kapitoly \ref{chap:5} vychází, že určení magnetické anizotropie uvedenou metodou je velice spolehlivé.
+Konkrétně, s danou magnetickou procedurou (posloupnost proudů v cívkách) a pozicí vzorku jsou téměř v dokonalé shodě anizotropní konstanty určené různými vlnovými délkami v téměř celém spektru.
+Vzhledem k rozmanité spektrální závislosti MO koeficientů (viz výsledky v kap. \ref{chap:5}) to dokazuje, že měřený signál skutečně pochází od vzorku a dobře popsán modelem \eqref{eqn:anizotropie-harmfit}.
+Problém však nastává při porovnání různých magnetických procedur či pozic vzorku.
+Tato nepříjemnost byla pozorována se vzorkem FeRh v reflexní geometrii při teplotě \SI{420}{\kelvin}, viz oddíl \ref{chap:ferh-fm}.
+
+Vzorek byl měřen se dvěmi velikostmi $\Hext = 50\,,\SI{207}{\milli\tesla}$.
+V obou případech byla naměřená uniaxiální anizotropie ve stejném směru, avšak s jinou velikostí.
+Zachoval se však poměr $k_u/\Hext$, což napovědělo, že problém pochází od magnetu.
+Měření bylo zopakováno se vzorkem in-plane otočeným o \SI{90}{\degree} -- výsledkem byla uniaxiální anizotropie ve stejném \emph{experimentálním} směru, tzn. o \SI{-90}{\degree} otočená v soustavě spojené se vzorkem, což je samozřejmě nesmysl.
+
+Současným pochopením tohoto problému je, že metoda je sice velice citlivá a spolehlivá, ale skutečná magnetická pole $\vHext$ realizovaná v experimentu jsou mírně odlišná od těch používaných v při analýze.
+Tato domněnka byla podpořena předložením konkrétního možného mechanismu něpřesné charakterizace magnetu, který by způsobil pozorovanou systematickou chybu.
+Zde ho však nebudeme dále rozvádět.
+V době odevzdání této práce jsou v přípravě dodatečná zpřesněná měření magnetického pole, které umožní z již naměřených dat určit správnou magnetickou anizotropii.
+
+Důsledky odlišnosti reálného a domnělého magnetického pole pro analýzu magnetické anizotropie se mimojiné věnuje dodatek \ref{app:magneticka-anizotropie}.
+Jedním zajímavým důsledkem je např. to, že souřadná soustava\footnote{V současně používané definici.} závisí od magnetické anizotropie studovaného vzorku.
