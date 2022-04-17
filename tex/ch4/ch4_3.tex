@@ -7,27 +7,74 @@ Tento argument však selhává i pro čtyřčetnou rotační symetrii, pak toti�
 
 Správné rozšíření vzorečku by mělo tvar
 \begin{equation}
+\label{eqn:PMLD-ansatz}
     \Delta\beta = P(\phim) \sin \left( 2\varphi_O(\phim) - 2\beta   \right)
 \end{equation}
 se směrem optické osy $\varphi_0$, které už pro neúplnou rotační symetrii nemusí rovnat $\phim$.
-V takovém tvaru postihuje MO jevy všech řádů (stejně jako původní izotropní vzorec) a trpí stejnou degenerací jako \eqref{eqn:}, takže lze $P$ a $\varphi_O$ určit pouze za přepokladu čtyřčetné rotační symetrie či nějaké jiné, která degeneraci sejme.
+V takovém tvaru postihuje MO jevy všech řádů (stejně jako původní izotropní vzorec) a trpí stejnou degenerací jako \eqref{eqn:}, takže lze $P$ a $\varphi_O$ určit pouze s nějakým přepokladem (např. čtyřčetné rotační in-plane symetrie), který degeneraci sejme.
 
 Se vzorečkem je ještě jeden problém: $\phim$ v něm vystupuje pouze skrze libovolné funkce $P$ a $\varphi_O$, a bez přidaných požadavků na jejich tvar nelze určit magnetickou anizotropii $\phim(\phih)$.
-Shodná magnetická anizotropie je ve výsledku jediným spolehlivým kritériem, které nás dokáže přesvědčit o správnosti změřených dat.
+Shodná magnetická anizotropie je ale ve výsledku jediným spolehlivým kritériem, které nás dokáže přesvědčit o správnosti změřených dat.
 Přídavný požadavek na $P$ a $\varphi_O$, který zde přijmeme, je takový, že měřené stočení je MO jevem maximálně kvadratickým v magnetizaci vzorku $\vec{M}$.
 Uvidíme, že tento požadavek je k určení magnetické anizotropie dostačující (viz oddíl \ref{chap:urceni-magneticke-anizotropie}), tj. zajišťuje vzájemnou jednoznačnost $\Delta\beta$ a $\phim$.
 
-Předpokládáme, že vzorek je v jedno-doménovém stavu se saturovanou in-plane magnetizací (Stonerův-Wohlfarthův model).
+Vzhledem k libovolnosti funkcí $P$ a $\varphi_O$ je jediná informace obsažená v ansatzu \eqref{eqn:PMLD-ansatz} vzájemná závislost signálu pro různá $\beta$.
+Ta je založena na dvou předpokladech.
+Zaprvé musí být průchod/odraz přibližně izotropní, tj. nultý člen rozvoje transmisní/reflexní Jonesovy matice (zde obě značíme $\mathcal{R}$) musí být přibližně úměrný jednotkové matici.
+V praxi to znamená téměř kolmý dopad a přibližně izotropní tenzor permitivity vzorku.
+Označíme odchylku od jednotkové matice $\mathcal{R}'$ a rozdělíme jí na ``nemagnetickou'' a ``magnetickou'' část (po vytknutní celkového faktoru $R_0$).
+\begin{align}
+\label{eqn:PMLD-Jones}
+\mathcal{R}(\vec{M}) &= R_0 \left[ \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \mathcal{R}'(\vec{M}) \right] \\
+                     &= R_0 \left[ \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \mathcal{R}'_0 + \mathcal{R}'_M(\vec{M}) \right]
+\end{align}
+Pro jednoduchost zápisu dále vypustíme celkový faktor $R_0$ (pokládáme $R_0=1$), který se ve výpočtu nijak neprojeví.
+Pokud je $\mathcal{R}'$ malé, je rozumné uvažovat, že můstek je vyvážen pro stejnou lineární polarizaci, jako je ta dopadající.
+Díky tomu je pak možné spočítat, na které prvky reflexní matice je měřený signál citlivý.
+Pokud toto splněno není, pak je můstek pro každé $\beta$ citlivý na jiný mix prvků $\mathcal{R}'_M$, který je složitou funkcí nemagnetické $\mathcal{R}'_0$; vzorec pak nemá jednoduchou $\beta$-závislost \eqref{eqn:PMLD-ansatz}.
+Po případném elipsometrickém změření $\mathcal{R}'_0$ je možné správnou $\beta$-závislost dopočítat a dosadit do nového ansatzu, my se tím však v této práci nezabýváme, protože uvedený předpoklad splňujeme.
+
+Pomocí Stokesových kovektorů lze jednoduše vyjádřit stočení a elipticitu do prvního řádu v $\mathcal{R}'$.
+Pro dané vstupní $\beta$ (Stokesův vektor $\Stks(\beta)$) zavedeme kovektory\footnote{Argument $\beta$ zde značí, pro jaké $\beta$ je daný kovektor platný. Horní index $\beta$ či $\chi$ značí, jestli kovektor měří stočení či elipticitu.} $\Dtks^\beta(\beta)=(0, \cos2\beta, \sin2\beta, 0)$, resp. $\Dtks^\chi(\beta)=(0, 0, 0, 1)$, které měří stočení, resp. elipticitu vyjádřenou změnou Stokesova vektoru $\textrm{d}\Stks$:
+\begin{align}
+    \Dtks^\beta(\beta) \cdot \Stks(\beta) = 0 \,, \quad &\textrm{d}\beta = \Dtks^\beta \cdot \textrm{d}\Stks \\
+    \Dtks^\chi(\beta) \cdot \Stks(\beta) = 0 \,, \quad &\textrm{d}\chi = \Dtks^\chi \cdot \textrm{d}\Stks \,.
+\end{align}
+Rozvedeme Muellerovu matici \eqref{eqn:} vzorku do prvního řádu\footnote{Striktně vzato po tomto kroku již nejde o mocninný rozvoj měřeného signálu v $\vec{M}$, protože zahazujeme některé kvadratické členy a ponecháváme jiné. Pro malá stočení jsou však zahozené členy silně potlačeny.} v $\mathcal{R}'$ (vyjádřeného diferenciálem $\textrm{d}\mathcal{R}$ v okolí jednotkové matice\footnote{Píšeme $\mathcal{R}= \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \textrm{d}\mathcal{R}$.}) 
+\begin{equation}
+\label{eqn:dif-Mueller}
+    \textrm{d}M_{ij} = \delta_{ij} \Re\operatorname{Tr}\lbrace\textrm{d}\mathcal{R}\rbrace + \epsilon_{ijk} \Im\operatorname{Tr}\lbrace\sigma_k\textrm{d}\mathcal{R}\rbrace
+\end{equation}
+
+Stočení a elipticita jsou
+\begin{equation}
+    \textrm{d}\beta = \begin{pmatrix} -\sin2\beta&\cos2\beta \end{pmatrix} \begin{pmatrix} \textrm{d}M_{10}&\textrm{d}M_{11}&\textrm{d}M_{12}\\\textrm{d}M_{20}&\textrm{d}M_{21}&\textrm{d}M_{22} \end{pmatrix} \begin{pmatrix} 1\\\cos2\beta\\\sin2\beta \end{pmatrix}
+\end{equation}
+a
+\begin{equation}
+    \textrm{d}\chi = \begin{pmatrix} \textrm{d}M_{30}&\textrm{d}M_{31}&\textrm{d}M_{32} \end{pmatrix} \begin{pmatrix} 1\\\cos2\beta\\\sin2\beta \end{pmatrix} \,,
+\end{equation}
+po dosazení \eqref{eqn:dif-Mueller} pak 
+\begin{align}
+    \textrm{d}\beta &= -\sin2\beta \ldots + \cos2\beta \ldot + \Im \operatorname{Tr}\lbrace \sigma_3 \textrm{d}\mathcal{R} \,,
+    \textrm{d}\chi
+\end{align}
+
+
+
+
+Předpokládáme, že vzorek je v jedno-doménovém stavu se saturovanou in-plane magnetizací (Stonerův-Wohlfarthův model z oddílu \ref{chap:magneticka-anizotropie}).
 Díky tomu se každý člen řádu $k$ mocninného rozvoje v $\vec{M}$ redukuje na harmonickou funkci $k\phim$.
-Do druhého řádu se tedy vyskytují členy $\cos\phim$, $\sin\phim$, $\cos2\phim$, $\sin2\phim$ a konstanta, kterou stejně nedokážeme změřit kvůli vyvažování můstku (konstanta $\xi$ z \eqref{eqn:}).
+Do druhého řádu se tedy vyskytují členy $\cos\phim$, $\sin\phim$, $\cos2\phim$, $\sin2\phim$ a konstanta, kterou nedokážeme změřit kvůli vyvažování můstku (konstanta $\xi(\beta)$ z \eqref{eqn:}).
 První dva členy jsou lineární a většinou kvůli téměř kolmému dopadu ($< \SI{1}{\degree}$) poměrně malé.
+
 Zajímáme se pouze o kvadratické jevy, proto je od lineárních odseparujeme stejným způsobem jako metoda rotujícího pole (rovnice \eqref{eqn:}).
-Předpokládáme tedy in-plane magnetickou anizotropii s dvoučetnou rotační symetrií, pak platí $\phim(\phih+\SI{180}{\degree})=\phim(\phih)+\SI{180}{\degree}$ a symetrizaci podle $\vec{M}$ můžeme provést pomocí symetrizace podle $\vHext$:
+Předpokládáme in-plane magnetickou anizotropii s dvoučetnou rotační symetrií, pak platí $\phim(\phih+\SI{180}{\degree})=\phim(\phih)+\SI{180}{\degree}$ a symetrizaci podle $\vec{M}$ můžeme provést pomocí symetrizace podle $\vHext$:
 \begin{equation}
     \Delta\beta^\textrm{Q}(\phih) = \frac{1}{2}\left(\Delta\beta(\phih) + \Delta\beta(\phih+\SI{180}{\degree})\right)
 \end{equation}
 
-V dalším předpokládáme, že symetrizace byla provedena a $\Delta\beta^\textrm{Q}$ značíme bez indexu $\Delta\beta$.
+V dalším předpokládáme, že symetrizace byla provedena a $\Delta\beta^\textrm{Q}$ značíme bez indexu jako $\Delta\beta$.
 Poznamenáme však, že tato symetrizace teoreticky není nezbytná.
 V konečném důsledku jsou fitovány koeficienty mocninného rozvoje a principiálně není problém fitovat o několik parametrů navíc.
 V této práci jsme se o to nepokoušeli.
