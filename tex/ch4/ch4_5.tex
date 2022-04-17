@@ -1,5 +1,24 @@
 \section{Zpracování dat}
 \label{chap:zpracovani-dat}
 
+Zde shrneme přesný postup zpracování dat v takové podobě, v jaké byl použit pro získání výsledků kap. \ref{chap:5} (kromě měření teplotního přechodu).
+V této formě lze metodu aplikovat pro téměř kolmý průchod/odraz od kubického [001]-normálově orientovaného vzorku s téměř izotropní nemagnetickou permitivitou, se saturovanou in-plane magnetizací, jejíž chování je dobře modelováno Stonerovým-Wohlfarthovým modelem s uniaxiální a kubickou in-plane anizotropií.
+Zrcadlo mezi vzorkem a můstkem je již kompenzováno druhým identickým zrcadlem.
+
+Při zpracování dat provádíme určení síly MO jevů i magnetické anizotropie současně.
+Pro vybrané polarizace změříme s průběh $\Udif$ a $\Usum$ při otáčení vnějšího pole v plném rozsahu $\phih \in 0--\SI{360}{\degree}$.
+Vždy měříme několik navazujících cyklů, které předzpracujeme způsobem popsaným v dodatku \ref{app:zpracovani}, abychom dále měli pouze jednu křivku $U_\textrm{A-B/A+B}(\phih)$ pro každé $\beta$.
+
+Dalším krokem je převedení průběhu napětí na průběh stočení polarizace pomocí vzorce $\Delta\beta=\Udif/2\Usum$.
+Poté provedeme kompenzaci půlvlnné destičky můstku podle oddílu \ref{chap:}: každé $\beta$ je měřeno s oběma polohami vyvažovací destičky, výsledné $\Delta\beta$ je aritmetickým průměrem obou křivek.
+
+Doposud tedy máme matici hodnot $\Delta\beta(\phih, \beta)$.
+V tento moment je nutné odstranit všechny případné $\phih$-závislé signály, které nepochází přímo od vzorku.
+Na tento problém jsme narazili při měření CoFe za nízké teploty, kdy světlo prochází okénkem komory kryostatu s polární magnetizací, takže v něm dochází k Faradayově jevu (s konkrétními okénky byl studován v \cite{baduraMagnetooptickaMereniPro2019}).
+Neexistuje univerzální řešení, v uvedeném případě jsme signál od okénka a vzorku oddělili na základě předpokladu odlišné $\phih$ a $\beta$-závislosti (Faradayův jev je lichý v $\vec{M}$ a konstantní v $\beta$), viz příslušný oddíl \ref{chap:vysledky-cofe-lowt}.
+
+Ze signálu jsou odděleny lineární jevy pomocí symetrizace v $\vHext$, viz \eqref{eqn:}.
+
+Doposud
 
 
