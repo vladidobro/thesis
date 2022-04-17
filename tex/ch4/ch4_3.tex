@@ -116,9 +116,22 @@ Souřadné soustavy polarizace (, vůči které je měřené $\beta$) a magnetu 
 Úhlu $\alpha_\textrm{ISO}$ tedy přikládáme tento význam a kontrolujeme, jestli není příliš vysoké.
 Pro izotropní část by pak platilo $\alpha_\textrm{ANISO}=\alpha_\textrm{ISO}+\gamma$.
 
-V soustavě spojené se vzorkem používáme ještě jednu parametrizaci, která vyjadřuje sílu kvadratického jevu při magnetizaci ve význačných směrech [100] a [110] a lze vizuálně přibližně odečítat z měřených dat
+V soustavě spojené se vzorkem používáme ještě jednu parametrizaci, která vyjadřuje sílu kvadratického jevu při magnetizaci ve význačných směrech [100] a [110] a lze vizuálně přibližně odečítat z měřených dat (pro případ $\alpha_\textrm{ANISO}=0$)
 \begin{equation}
-    \textrm{d}\beta = P_{[100]} \cos 2 + P_{[110]} \cos 
+    \Delta\beta = P_{[100]} \cos 2 (\phim-\gamma) \sin 2(\beta-\gamma) + P_{[110]} \sin 2 (\phim-\gamma) \cos 2(\beta-\gamma)
+\end{equation}
+Při orientaci polarizace ve směru [100] ($\beta=\gamma$) je amplituda změřené křivky $\Delta\beta(\phim)$ přímo $P_{[110]}$, při polarizaci ve směru [1-10] ($\beta=\gamma-\SI{45}{\degree}$) je amplituda $P_{[100]}$, viz obr. \ref{fig:urceni-MLD-ilustrace}.
+Platí
+\begin{equation}
+    P_{[100]} = P_\textrm{ISO} + P_\textrm{ANISO} \,,\quad P_{[110]} = P_\textrm{ISO} - P_\textrm{ANISO} \,.
 \end{equation}
 
+\begin{figure}[htbp]
+    \centering
+    \missingfigure{}
+    \caption{}
+    \label{fig:urceni-MLD-ilustrace}
+\end{figure}
 
+Pro určení síly kvadratického MO jevu (popsanou fenomenologickými parametry $P$) je nutné znát měřený signál v závislosti na $\phim$.
+V praxi vždy během analýzy určujeme i magnetickou anizotropii, která nám převod $\phih \mapsto \phim$ poskytne.
