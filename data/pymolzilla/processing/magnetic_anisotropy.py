@@ -65,16 +65,17 @@ class FreeEnergy:
 
     @property
     def k_canon(self):
-        ku, phiu = (0, 0) if 2 not in self.k else self._comp2polar(2*self.k[2], f=2)
-        kc, phic = (0, 0) if 4 not in self.k else self._comp2polar(8*self.k[4], f=4)
+        ku, phiu = (0, 0) if 2 not in self.k else (self._comp2polar(2*self.k[2], f=2))
+        kc, phic = (0, 0) if 4 not in self.k else (self._comp2polar(8*self.k[4], f=4))
+        phiu, phic = np.degrees(phiu), np.degrees(phic)
         return {'ku': ku, 'phiu': phiu, 'kc': kc, 'phic': phic}
 
     @k_canon.setter
     def k_canon(self, kdict):
         self.k={}
-        self.k[2] = self._polar2comp(0 if 'phiu' not in kdict else kdict['phiu'],
+        self.k[2] = self._polar2comp(0 if 'phiu' not in kdict else np.radians(kdict['phiu']),
                 0 if 'ku' not in kdict else kdict['ku']/2, f=2)
-        self.k[4] = self._polar2comp(0 if 'phic' not in kdict else kdict['phic'],
+        self.k[4] = self._polar2comp(0 if 'phic' not in kdict else np.radians(kdict['phic']),
                 0 if 'kc' not in kdict else kdict['kc']/8, f=4)
 
     def _call_simple(self, m, derivative=0):
@@ -140,7 +141,16 @@ class FreeEnergy:
         '''phim in radian'''
         return -0.5*(math.cos(phim*f)-1j*math.sin(phim*f))
 
-    def plot(self, ax, derivative=0, npoints=100):
+    def plot(self, ax=None, derivative=0, npoints=100):
+        if ax == None:
+            fig, ax = plt.subplots()
         phim = np.linspace(0, 2*math.pi, num=npoints)
         f = np.fromiter(map(lambda p: self(p, derivative),phim), np.float)
         return ax.plot(phim, f)
+
+    def plot_phim(self, ax=None, hext=1):
+        if ax == None:
+            fig, ax = plt.subplots()
+        phih = np.linspace(0, 2*np.pi)
+        phim = self.phih2phim(phih, hext=hext)
+        ax.plot(phih, phim)

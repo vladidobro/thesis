@@ -1,23 +1,39 @@
+from pymolzilla.processing.mld import *
+
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 import math
 import functools
+import matplotlib.pyplot as plt
 
 
 FILES_PATH='files/'
 
 def read_filelist():
-    return pd.read_csv(FILES_PATH+'filelist')
+    df = pd.read_csv(FILES_PATH+'filelist')
+    df['file_path'] = FILES_PATH+df['file_path']
+    return df
+
+def list_experiments():
+    return read_filelist().groupby(['sample','experiment']).groups.keys()
 
 def load_experiment(sample, experiment):
-    fl = read_filelist()
-    return fl[(fl['sample']==sample) & (fl['experiment']==experiment)]
+    df = read_filelist()
+    df.drop(df[(df['sample']!=sample) | (df['experiment']!=experiment)].index,
+            inplace=True)
+    df.sort_values('set', inplace=True, ignore_index=True)
+    return df
 
 
 def load_femtik(path, femtik_colnames=None, **kwargs):
-    '''IMPLEMENT'''
-    return pd.read_csv(FILES_PATH+path, sep=' ', header=0, names=femtik_colnames)
+    with open(path) as f:
+        first_line = f.readline()
+    
+    if first_line[0] in "#A": #there is header. always comment or "Alpha"
+        return pd.read_csv(path, sep=' ', header=0, names=femtik_colnames)
+    else:
+        return pd.read_csv(path, sep=' ', header=None, names=femtik_colnames)
 
 def load_example(path, **kwargs):
     return pd.DataFrame({'phih':[0,90,180],'A-B':[0,1,0.2],'A+B':[1,0.9,1.1]})
@@ -34,14 +50,16 @@ class MolzillaFile:
         self.path = path
         self.opts = self.default_opts | opts
 
+    def preprocess(self, **kwargs):
+        self.default_preprocess(**kwargs)
+
     def default_preprocess(self, **kwargs):
         '''This is to be overriden by child classes
         But provides a sensible default, so child can only set self.opts
         Should return self'''
-        def_opts = {'file_format': 'femtik',
-                    'split_col': 'phih',
+        def_opts = {'split_col': 'phih',
                     'throw_unfinished': True,
-                    'subs_cols': ['A-B','A+B'],
+                    'subs_cols': ['A-B'],
                     'subs_col_by': 'phih',
                     'sym_h_cols_dict': {'phih':'angle','A-B':'avg','A+B':'avg'},
                     'normalize_col': 'A-B',
@@ -50,9 +68,9 @@ class MolzillaFile:
                     'keep_and_rename': {'phih':'phih','A-B':'rotation','A+B':'intensity'}}
         opts = def_opts | self.opts | kwargs #default is overriden first by self.opts, then kwargs
         
-        self.default_load(**opts)
         self.average_cycles(**opts)
         self.substract_endpoints(**opts)
+        self.substract_mean(**opts)
         self.symmetrize_h(**opts)
         self.normalize(**opts)
         
@@ -61,13 +79,13 @@ class MolzillaFile:
 
         return self
 
-    def default_load(self, file_format='example', **kwargs):
+    def load(self, **kwargs):
         def_opts = {'file_format':'femtik'}
         opts = def_opts | self.opts | kwargs
         load_fun = {'example': load_example,
                     'femtik': load_femtik,
                     'py_legacy': load_py_legacy}
-        self.data = load_fun[file_format](self.path, **opts)
+        self.data = load_fun[opts['file_format']](self.path, **opts)
 
     def default_plot(self, ax, y='A-B'):
         return ax.plot(self.data['phih'], self.data[y])
@@ -137,13 +155,20 @@ class MolzillaFile:
     def substract_endpoints(self, subs_cols='A-B', subs_col_by='phih', **kwargs):
         if not isinstance(subs_cols, list): #subs_col can be a list of cols
             subs_cols = [subs_cols]
-        col_by_normalized = (self.data[subs_col_by]-self.data[subs_col_by].iloc[0]) / self.data[subs_col_by].iloc[-1] - 0.5
+        col_by_normalized = ((self.data[subs_col_by]
+                             - self.data[subs_col_by].iloc[0]) 
+                             / self.data[subs_col_by].iloc[-1] - 0.5)
         for col in subs_cols: #substract each specified column
-            self.data[col]-=(self.data[col].iloc[-1] - self.data[col].iloc[0]) * col_by_normalized
+            substract_col = (self.data[col].iloc[-1]
+                             - self.data[col].iloc[0]) * col_by_normalized
+            self.data[col]-= substract_col
+        
         self.data.drop(self.data.tail(1).index, inplace=True) #drop last
 
-    def substract_mean(self, subs_col='A-B', **kwargs):
-        self.data[subs_col] -= self.data[subs_col].mean()
+    def substract_mean(self, subs_cols='A-B', **kwargs):
+        if not isinstance(subs_cols, list): subs_cols = [subs_cols]
+        for col in subs_cols:
+            self.data[col] -= self.data[col].mean()
 
     def normalize(self, normalize_col='A-B', normalize_method='intensity', normalize_factor=1, **kwargs):
         normalize_fun = {'intensity': self._normalize_intensity,
@@ -184,45 +209,104 @@ def MolzillaFileFactory(template, path, **opts):
 class MeasurementSet:
     def __init__(self, df_files):
         '''Expects a specific format of df_files'''
-        self.df_files = df_files
+        self.df = df_files
+        def prep(row):
+            return MolzillaFileFactory(
+            row['file_template'], row['file_path'], 
+            **(row['file_opts'] if 'file_opts' in row else {}))
+        self.df['obj'] = self.df.apply(prep, axis=1) 
+
+
+    def __getitem__(self, index):
+        return self.df['obj'].iloc[index]
+
+    def load(self, **kwargs):
+        for f in self:
+            f.load(**kwargs)
+
+    def preprocess(self, **kwargs):
+        for f in self:
+            f.preprocess(**kwargs)
+
+    def process(self):
+        self.default_process()
+        return self
+
+    def analyze(self):
+        pass
 
     def default_process(self):
-        self.default_preprocess()
+        self.collect_merge()
+        self.symmetrize_beta()
+        self.fourier2_beta()
         return self
 
-    def default_preprocess(self):
-        self.rotation = self.collect_merge_data()
-        return self
-
-    def default_load(self, load_inplace=False, **kwargs):
-        file_data = self.df_files.apply(lambda row: MolzillaFileFactory(
-            row['file_template'], row['file_path'], **(row['file_opts'] if 'file_opts' in row else {})).default_preprocess().data,
-            axis=1)
-        if load_inplace: self.df_files['file_data'] = file_data
-        return file_data
-
-    def collect_merge_data(self, file_data='default_load', col='rotation', col_merge_by='phih', **kwargs):
-        if file_data == 'default_load':
-            if 'file_data' in self.df_files: file_data = self.df_files['file_data']
-            else: file_data = self.default_load()
-        return functools.reduce(
+    def collect_merge(self, col='rotation', col_merge_by='phih',
+                           index='beta', inplace=True, **kwargs):
+        new_data = functools.reduce(
             lambda x,y: pd.merge(x ,y, how='outer', on=col_merge_by),
             map(
-                lambda tupl: (tupl[0][[col_merge_by, col]].rename(columns={col:tupl[1]})), 
-                zip(file_data, self.df_files.index)
+                lambda tupl: (tupl[0].data[[col_merge_by, col]].rename(columns={col:tupl[1]})), 
+                zip(self.df['obj'], self.df[index])
             ),
             pd.DataFrame(columns=[col_merge_by]))
 
-    def symmetrize_beta(self):
-        pass
+        if inplace: self.data = new_data
+        return new_data
 
-    def fourier2_beta(self):
-        pass
+    def symmetrize_beta(self, inplace=True):
+        #first find those that have duplicate +180
+        betas = self.data.drop('phih', axis=1).columns
+        cols = {}
+        for beta in betas:
+            if beta-180 in betas: cols[beta-180] += [beta]
+            else: cols |= {beta: [beta]}
+
+        new_data = pd.DataFrame(columns=['phih']+list(cols.keys()))
+        for col, subcols in cols.items():
+            new_data[col] = np.zeros(shape=len(self.data))
+            for subcol in subcols:
+                new_data[col] += self.data[subcol]
+            new_data[col] /= len(subcols)
+        new_data['phih'] = self.data['phih']
+        if inplace: self.data = new_data
+        return new_data
+
+    @property
+    def betas(self):
+        return self.data.drop('phih', axis=1).columns
+
+    def fourier2_beta(self, inplace=True):
+        betas = self.betas
+        betas_num = np.array(betas, dtype=float)
+        c = np.cos(2*np.radians(betas_num)) / len(betas) * 2
+        s = np.sin(2*np.radians(betas_num)) / len(betas) * 2
+        new_data = pd.DataFrame({'phih': self.data['phih'],
+                                 0.: np.zeros(len(self.data)),
+                                 45.: np.zeros(len(self.data))})
+        new_data['phih'] = self.data['phih']
+        for col, cn, sn in zip(betas, c, s):
+            new_data[0.] += self.data[col]*cn
+            new_data[45.] += self.data[col]*sn
+
+        if inplace: self.data = new_data
+        return new_data
+
+    def plot_all(self, ax=None, **kwargs):
+        if ax is None:
+            fig, ax = plt.subplots()
+        for beta in self.betas:
+            self.data.plot(x='phih', y=beta, label=beta, ax=ax)
+        ax.legend()
+
 
 class SetRotmld(MeasurementSet):
-    pass
+    def analyze(self):
+        self.fit_anisotropy = FitCubic(self.data, hext=self.hext)
+        self.fit_anisotropy.fit()
+        return self.fit_anisotropy
 
-class SetRotmldStokes(MeasurementSet):
+class SetRotmldStokes(SetRotmld):
     pass
 
 class SetFieldCooling(MeasurementSet):
