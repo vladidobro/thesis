@@ -10,16 +10,16 @@ import matplotlib.pyplot as plt
 
 FILES_PATH='files/'
 
-def read_filelist():
-    df = pd.read_csv(FILES_PATH+'filelist')
+def read_filelist(filelist='filelist'):
+    df = pd.read_csv(FILES_PATH+filelist)
     df['file_path'] = FILES_PATH+df['file_path']
     return df
 
 def list_experiments():
     return read_filelist().groupby(['sample','experiment']).groups.keys()
 
-def load_experiment(sample, experiment):
-    df = read_filelist()
+def load_experiment(sample, experiment, filelist='filelist'):
+    df = read_filelist(filelist=filelist)
     df.drop(df[(df['sample']!=sample) | (df['experiment']!=experiment)].index,
             inplace=True)
     df.sort_values('set', inplace=True, ignore_index=True)
@@ -207,13 +207,14 @@ def MolzillaFileFactory(template, path, **opts):
 ######################
 
 class MeasurementSet:
-    def __init__(self, df_files):
+    def __init__(self, df_files, f_opts=None):
         '''Expects a specific format of df_files'''
+        if f_opts is None: f_opts = {}
         self.df = df_files
         def prep(row):
             return MolzillaFileFactory(
             row['file_template'], row['file_path'], 
-            **(row['file_opts'] if 'file_opts' in row else {}))
+            **((row['file_opts'] if 'file_opts' in row else {})|f_opts))
         self.df['obj'] = self.df.apply(prep, axis=1) 
 
 
@@ -307,7 +308,54 @@ class SetRotmld(MeasurementSet):
         return self.fit_anisotropy
 
 class SetRotmldStokes(SetRotmld):
-    pass
+    def __init__(self, df_files):
+        super().__init__(df_files, f_opts={'normalize_method': 'factor'})
+
+    def process(self):
+        self.collect_merge()
+        self.stokes_dbeta()
+        self.stokes_dchi()
+        self.stokes_rotation()
+
+    def stokes_rotation(self, inplace=True):
+        new_data = pd.DataFrame()
+        new_data['phih'] = self.data['phih']
+        new_data[0.] = self.data[0.] - self.data[90.]
+
+    def stokes_dbeta(self):
+        def f(row):
+            sens = pd.read_csv(row['f_sens'], index_col=0)
+            ols = sm.OLS(sens['A-B X'],sm.add_constant(sens['Beta']))
+            res = ols.fit()
+            return np.degrees(res.params['Beta']) #prevadi se 1/deg na 1/rad
+        self.df['dbeta'] = self.df.apply(f, axis=1)
+
+    def stokes_combine_rows(self, row1, row2):
+        db1 = self.df[self.df['beta']==row1]['dbeta']
+        dc1 = self.df[self.df['beta']==row1]['dchi']
+        db2 = self.df[self.df['beta']==row2]['dbeta']
+        dc2 = self.df[self.df['beta']==row2]['dchi']
+        r1 = self.data[row1]
+        r2 = self.data[row2]
+
+        return (r1*dc2 + r2*dc1)
+
+
+
+    def stokes_dchi(self):
+        def f(row):
+            full = pd.read_csv(row['f_full'], index_col=0)
+            def pars(col):
+                ols = sm.OLS(full[col],sm.add_constant(
+                        pd.DataFrame({'cos': np.cos(2*np.radians(full['Beta'])),
+                                      'sin': np.sin(2*np.radians(full['Beta']))}
+                                    )))
+                res = ols.fit()
+                return res.params['const']**2 / (res.params['cos']**2 + res.params['sin']**2) 
+            return (np.sqrt(max(pars('A')-1,0)) * np.sqrt(max(pars('B')-1,0)))**0.5 / np.sqrt(1-pars('A-B')) * row['dbeta']
+
+        self.df['dchi'] = self.df.apply(f, axis=1)
+
 
 class SetFieldCooling(MeasurementSet):
     pass

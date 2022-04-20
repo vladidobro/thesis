@@ -4,9 +4,9 @@ import pandas as pd
 import pickle
 
 class Experiment:
-    def __init__(self, sample, experiment, set_template='rotmld', group_by='set'):
+    def __init__(self, sample, experiment, set_template='rotmld', group_by='set', filelist='filelist'):
         group_by = [group_by] if not isinstance(group_by, list) else group_by
-        groups = load_experiment(sample, experiment).groupby(group_by)
+        groups = load_experiment(sample, experiment, filelist=filelist).groupby(group_by)
 
         descriptors=['sample','experiment','wavelength','flags']
 
@@ -52,8 +52,8 @@ class Experiment:
         pass
 
 class ExperimentRotmld(Experiment):
-    def __init__(self, sample, experiment):
-        super().__init__(sample, experiment)
+    def __init__(self, sample, experiment, filelist='filelist', set_template='rotmld'):
+        super().__init__(sample, experiment, filelist=filelist, set_template=set_template)
         self.df['hext'] = self.df['flags'].apply(
             lambda flags: 207 if flags is None or 'L' not in flags else 50
             )
@@ -70,7 +70,6 @@ class ExperimentRotmld(Experiment):
 class cofe_room_t(ExperimentRotmld):
     def __init__(self):
         super().__init__('cofe', 'room_t')
-        self.df = self.df.iloc[:2]
         for f1 in self:
             for f2 in f1:
                 f2.opts |= {'normalize_factor': 100 / 1000}
@@ -89,16 +88,28 @@ class ferh_fm_zeynab(ExperimentRotmld):
             for f2 in f1:
                 f2.opts |= {'normalize_factor': 10 / 1000}
 
-class stokes_test(ExperimentRotmld):
+class bridge_tests(ExperimentRotmld):
     def __init__(self):
-        pass 
+        super().__init__('cofe', 'bridge_tests')
+        self.df = self.df.iloc[1:]
+        self.df.reset_index(drop=True, inplace=True)
+        for f1 in self:
+            f1.df.drop(f1.df[f1.df['beta']==360.].index, inplace=True)
+            for f2 in f1:
+                f2.opts |= {'normalize_factor': 100 / 1000}
 
-    def postprocess(self):
-        pass
+
+class stokes_tests(ExperimentRotmld):
+    def __init__(self):
+        super().__init__('stokes', 'stokes', set_template='rotmld_stokes', filelist='fl_stokes')
+        self[0].df['f_sens'] = self[0].df.apply(lambda row: f"files/stokes/stokes/1050_xA/stokes/{int(row['beta']):03d}_0/sens.csv", axis=1)
+        self[0].df['f_full'] = self[0].df.apply(lambda row: f"files/stokes/stokes/1050_xA/stokes/{int(row['beta']):03d}_0/full.csv", axis=1)
 
 SETS = {'cofe_room_t': cofe_room_t,
         'cofe_low_t': cofe_low_t,
-        'ferh_fm_zeynab': ferh_fm_zeynab}
+        'ferh_fm_zeynab': ferh_fm_zeynab,
+        'bridge_tests': bridge_tests,
+        'stokes_tests': stokes_tests}
 
 PICKLEDIR = 'files/pkl/'
 
