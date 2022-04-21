@@ -1,8 +1,8 @@
 \section{Určení anizotropie MLD}
 \label{chap:anizotropie-MLD}
 
-Snaha o vystižení anizotropie MLD pomocí vzorce \eqref{eqn:} založeném na \eqref{} nebyla úspěšná.
-Výskyt $\phim$ v argumentu sinu se zakládá na argumentech symetrie; pro plně rotačně symetrické prostředí v rovině prostředí zanáší magnetizace jediný význačný směr a osa zanesené optické anizotropie s ní pak musí splývat.
+Snaha o vystižení anizotropie MLD pomocí vzorce \eqref{eqn:PMLD-naivni} založeném na \eqref{eqn:PMLD} nebyla úspěšná.
+Výskyt $\phim$ v argumentu sinu se zakládá na argumentech symetrie; pro plně rotačně symetrické prostředí v rovině rozhraní zanáší magnetizace jediný význačný směr a osa zanesené optické anizotropie s ní pak musí splývat.
 Tento argument však selhává i pro čtyřčetnou rotační symetrii, pak totiž není důvod aby např. $\phim=\SI{10}{\degree}$ zanášelo optickou anizotropii ve stejném směru.
 
 Správné rozšíření vzorečku by mělo tvar
@@ -10,8 +10,8 @@ Správné rozšíření vzorečku by mělo tvar
 \label{eqn:PMLD-ansatz}
     \Delta\beta = P(\phim) \sin \left( 2\varphi_O(\phim) - 2\beta   \right)
 \end{equation}
-se směrem optické osy $\varphi_0$, které už pro neúplnou rotační symetrii nemusí rovnat $\phim$.
-V takovém tvaru postihuje MO jevy všech řádů (stejně jako původní izotropní vzorec) a trpí stejnou degenerací jako \eqref{eqn:}, takže lze $P$ a $\varphi_O$ určit pouze s nějakým přepokladem (např. čtyřčetné rotační in-plane symetrie), který degeneraci sejme.
+se směrem optické osy $\varphi_O$, které se už pro neúplnou rotační symetrii nemusí rovnat $\phim$.
+V takovém tvaru postihuje MO jevy všech řádů (stejně jako původní izotropní vzorec) a trpí stejnou degenerací jako \eqref{eqn:PMLD-naivni}, takže lze $P$ a $\varphi_O$ určit pouze s nějakým přepokladem (např. kubické symetrie), který degeneraci sejme.
 
 Se vzorečkem je ještě jeden problém: $\phim$ v něm vystupuje pouze skrze libovolné funkce $P$ a $\varphi_O$, a bez přidaných požadavků na jejich tvar nelze určit magnetickou anizotropii $\phim(\phih)$.
 Shodná magnetická anizotropie je ale ve výsledku jediným spolehlivým kritériem, které nás dokáže přesvědčit o správnosti změřených dat.
@@ -31,7 +31,7 @@ Označíme odchylku od jednotkové matice $\mathcal{R}'$ a rozdělíme jí na ``
 Pro jednoduchost zápisu dále vypustíme celkový faktor $R_0$ (pokládáme $R_0=1$), který se ve výpočtu nijak neprojeví.
 Pokud je $\mathcal{R}'$ malé, je rozumné uvažovat, že můstek je vyvážen pro stejnou lineární polarizaci, jako je ta dopadající.
 Díky tomu je pak možné spočítat, na které prvky reflexní matice je měřený signál citlivý.
-Pokud toto splněno není, pak je můstek pro každé $\beta$ citlivý na jiný mix prvků $\mathcal{R}'_M$, který je složitou funkcí nemagnetické $\mathcal{R}'_0$; vzorec pak nemá jednoduchou $\beta$-závislost \eqref{eqn:PMLD-ansatz}.
+Pokud toto splněno není, pak je můstek pro každé $\beta$ citlivý na jiný mix prvků $\mathcal{R}'_M$, a tento mix je složitou funkcí nemagnetické $\mathcal{R}'_0$; vzorec pak nemá jednoduchou $\beta$-závislost \eqref{eqn:PMLD-ansatz}.
 Po případném elipsometrickém změření $\mathcal{R}'_0$ je možné správnou $\beta$-závislost dopočítat a dosadit do nového ansatzu, my se tím však v této práci nezabýváme, protože uvedený předpoklad splňujeme.
 
 Pomocí Stokesových kovektorů lze jednoduše vyjádřit stočení a elipticitu do prvního řádu v $\mathcal{R}'$.
@@ -40,11 +40,14 @@ Pro dané vstupní $\beta$ (Stokesův vektor $\Stks(\beta)$) zavedeme kovektory\
     \Dtks^\beta(\beta) \cdot \Stks(\beta) = 0 \,, \quad &\textrm{d}\beta = \Dtks^\beta \cdot \textrm{d}\Stks \\
     \Dtks^\chi(\beta) \cdot \Stks(\beta) = 0 \,, \quad &\textrm{d}\chi = \Dtks^\chi \cdot \textrm{d}\Stks \,.
 \end{align}
-Rozvedeme Muellerovu matici \eqref{eqn:} vzorku do prvního řádu\footnote{Striktně vzato po tomto kroku již nejde o mocninný rozvoj měřeného signálu v $\vec{M}$, protože zahazujeme některé kvadratické členy a ponecháváme jiné. Pro malá stočení jsou však zahozené členy silně potlačeny.} v $\mathcal{R}'$ (vyjádřeného diferenciálem $\textrm{d}\mathcal{R}$ v okolí jednotkové matice\footnote{Píšeme $\mathcal{R}= \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \textrm{d}\mathcal{R}$.}) 
-\begin{equation}
+Rozvedeme Muellerovu matici \eqref{eqn:Mueller-rozklad} vzorku do prvního řádu\footnote{Striktně vzato po tomto kroku již nejde o mocninný rozvoj měřeného signálu v $\vec{M}$, protože zahazujeme některé kvadratické členy a ponecháváme jiné. Pro malá stočení jsou však zahozené členy silně potlačeny.} v $\mathcal{R}'$ (vyjádřeného diferenciálem $\textrm{d}\mathcal{R}$ v okolí jednotkové matice\footnote{Píšeme $\mathcal{R}= \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \textrm{d}\mathcal{R}$.}) 
+\begin{align}
 \label{eqn:dif-Mueller}
+    \textrm{d}M_{00} = 0 \\
+    \textrm{d}M_{i0} = \textrm{d}M_{0i} =   \\
     \textrm{d}M_{ij} = \delta_{ij} \Re\operatorname{Tr}\lbrace\textrm{d}\mathcal{R}\rbrace + \epsilon_{ijk} \Im\operatorname{Tr}\lbrace\sigma_k\textrm{d}\mathcal{R}\rbrace
-\end{equation}
+\end{align}
+pro $i,\,j = 1,\,2,\,3$.
 
 Stočení a elipticita jsou
 \begin{equation}
@@ -70,16 +73,17 @@ Pak jsou povolené jen členy harmonické s frekvencí $2\beta$, které se slož
 
 Poznamenejme, že nemagnetická část reflexní matice $\mathcal{R}'_0$ zanáší do měřeného signálu pouze konstantu, kterou můstek měřit nedokáže.
 
-Dále se budeme věnovat situaci relevantní pro tuto práci, tzn. měřeno je pouze stočení a na základě předpokládané kubické symetrie, kolmého dopadu a in-plane magnetizace neuvažujeme konstantní člen v \label{eqn:dbeta-stokes}.
+Dále se budeme věnovat situaci relevantní pro tuto práci, tzn. měřeno je pouze stočení a na základě předpokládané kubické symetrie, kolmého dopadu a in-plane magnetizace neuvažujeme konstantní člen v \eqref{eqn:dbeta-stokes}.
 
 Předpokládáme, že vzorek je v jedno-doménovém stavu se saturovanou in-plane magnetizací (Stonerův-Wohlfarthův model z oddílu \ref{chap:magneticka-anizotropie}).
 Díky tomu se každý člen řádu $k$ mocninného rozvoje v $\vec{M}$ redukuje na harmonickou funkci $k\phim$.
-Do druhého řádu se tedy vyskytují členy $\cos\phim$, $\sin\phim$, $\cos2\phim$, $\sin2\phim$ a konstanta, kterou nedokážeme změřit kvůli vyvažování můstku (konstanta $\xi(\beta)$ z \eqref{eqn:}).
-První dva členy jsou lineární a většinou kvůli téměř kolmému dopadu ($< \SI{1}{\degree}$) poměrně malé.
+Do druhého řádu se tedy vyskytují členy $\cos\phim$, $\sin\phim$, $\cos2\phim$, $\sin2\phim$ a konstanta, kterou nedokážeme změřit kvůli vyvažování můstku ($\xi(\beta)$).
+První dva členy jsou lineární MO jevy a většinou kvůli téměř kolmému dopadu ($< \SI{1}{\degree}$) poměrně malé.
 
-Zajímáme se pouze o kvadratické jevy, proto je od lineárních odseparujeme stejným způsobem jako metoda rotujícího pole (rovnice \eqref{eqn:}).
+Zajímáme se pouze o kvadratické jevy, proto je od lineárních odseparujeme stejným způsobem jako metoda rotujícího pole (rovnice \eqref{eqn:rotmoke-separace}).
 Předpokládáme in-plane magnetickou anizotropii s dvoučetnou rotační symetrií, pak platí $\phim(\phih+\SI{180}{\degree})=\phim(\phih)+\SI{180}{\degree}$ a symetrizaci podle $\vec{M}$ můžeme provést pomocí symetrizace podle $\vHext$:
 \begin{equation}
+    \label{eqn:symetrizace-H}
     \Delta\beta^\textrm{Q}(\phih) = \frac{1}{2}\left(\Delta\beta(\phih) + \Delta\beta(\phih+\SI{180}{\degree})\right)
 \end{equation}
 
@@ -92,6 +96,7 @@ Pro každé změřené $\beta$ máme tedy dva neznámé koeficienty funkcí $\co
 Za splnění předpokladů vedoucích na \eqref{eqn:dbeta-stokes} je pak $\beta$-závislost této dvojice koeficientů také popsána dvojicí koeficientů $\cos2\beta$ a $\sin2\beta$, celkem máme pro celou sadu měření 4 koeficienty.
 Používaný model je tedy
 \begin{alignat}{2}
+    \label{eqn:PMLD-matice}
     \textrm{d}\beta &= && P_{11} \cos2\phim\cos2\beta + P_{12}\cos2\phim\sin2\beta \\
                     & && + P_{21}\sin2\phim\cos2\beta + P_{22}\sin2\phim\sin2\beta \\
                     &\equiv & & P_\textrm{ISO} \sin(2\phim - 2\beta - 2\alpha_\textrm{ISO}) \\
@@ -114,7 +119,7 @@ Pro izotropní vzorek platí $\Delta G = 0$ a tedy i $P_\textrm{ANISO}=0$, a čl
 Přestože $\alpha_\textrm{ISO}$ by teoreticky mělo být nulové, ve zpracování ho připouštíme, ale přikládáme mu nový význam.
 Souřadné soustavy polarizace (, vůči které je měřené $\beta$) a magnetu (, vůči které je měřené $\phih$, $\phim$) byly stanoveny zcela odlišnými způsoby a pravděpodobně jsou spojeny vzájemnou rotací o malý úhel ($<\SI{5}{\degree}$).
 Úhlu $\alpha_\textrm{ISO}$ tedy přikládáme tento význam a kontrolujeme, jestli není příliš vysoké.
-Pro izotropní část by pak platilo $\alpha_\textrm{ANISO}=\alpha_\textrm{ISO}+\gamma$.
+S takovým nenulovým ofsetem je anizotropní část $\alpha_\textrm{ANISO}=\alpha_\textrm{ISO}+\gamma$.
 
 V soustavě spojené se vzorkem používáme ještě jednu parametrizaci, která vyjadřuje sílu kvadratického jevu při magnetizaci ve význačných směrech [100] a [110] a lze vizuálně přibližně odečítat z měřených dat (pro případ $\alpha_\textrm{ANISO}=0$)
 \begin{equation}
@@ -128,10 +133,12 @@ Platí
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{}
-    \caption{}
+    \includegraphics{./data/out/pmld-ukazka.pdf}
+    \caption{Určení MLD koeficientů $P$. Měřená data s CoFe, pokojová teplota, \SI{1050}{\nano\meter}. Hodnoty $P$ lze odečítat přímo z grafu.}
     \label{fig:urceni-MLD-ilustrace}
 \end{figure}
 
 Pro určení síly kvadratického MO jevu (popsanou fenomenologickými parametry $P$) je nutné znát měřený signál v závislosti na $\phim$.
 V praxi vždy během analýzy určujeme i magnetickou anizotropii, která nám převod $\phih \mapsto \phim$ poskytne.
+Pokud není magnetická anizotropie srovnatelná s vnějším polem, pak je možné poměrně přesně určit $P$ i z dat s předpokladem $\phim=\phih$.
+

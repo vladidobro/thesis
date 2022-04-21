@@ -36,9 +36,9 @@ LATEX=rubber --unsafe --pdf --synctex --module lualatex -W all
 
 .DEFAULT_GOAL:= thesis
 .PHONY: all thesis abstract defense
-.PHONY: data
+.PHONY: data svg
 .PHONY: version see verapdf
-.PHONY: clean mostlyclean cleanimg cleanpdf cleanpy cleantex
+.PHONY: clean mostlyclean cleanimg cleanpdf cleandata cleantex
 .PHONY: help echoes 
 
 all: thesis abstract defense ## compile everything
@@ -50,6 +50,8 @@ defense: defense.pdf ## compile defense
 data:
 	$(MAKE) -C $(DATADIR) out
 
+svg:
+	$(MAKE) -C img/svg all
 
 verapdf: thesis
 	curl https://cuni.cz/UK-7987-version1-custom8.xml > /tmp/verapdf_profile
@@ -66,7 +68,7 @@ cleanpdf: ## clean output pdfs
 cleantex: ## clean latex auxiliary files
 	rm -f $(TEXAUXFILES) 
 cleandata: ## clean compiled images
-	rm -f $(DATAOUT)
+	$(MAKE) -C $(DATADIR) clean
 
 # concrete recipes
 thesis.pdf: $(TEX) thesis.xmpdata mffthesis.cls $(BIB) $(IMG) data

@@ -3,14 +3,7 @@
 
 
 Popis pomocí Stokesových vektorů je zvláště užitečný pro popis detekčních systémů, protože Stokesovy parametry jsou \emph{zobecněné intenzity}.
-Použití ilustruujeme na optickém můstku z oddílu \ref{chap:mustek-kap2}, viz obr. \ref{fig:mustek-dodatek}.
-
-\begin{figure}[htbp]
-    \centering
-    \missingfigure{mustek2}
-    \caption{Schéma optického můstku s vyznačenými Stokesovými vektory a kovektory.}
-    \label{fig:mustek-dodatek}
-\end{figure}
+Použití ilustruujeme na optickém můstku z oddílu \ref{chap:mustek-kap2}.
 
 Intenzita měřená detektorem A je daná nultou složkou dopadajícího Stokesova vektoru
 \begin{equation}
@@ -20,7 +13,8 @@ kde jsme označili $\Dtks^\textrm{A}=(1, 0, 0, 0)$ ``Stokesův kovektor`` detekt
 Tečka ($\cdot$) značí kontrakci\footnote{``Skalární součin''.}.
 
 Stejně jako můžeme světelný svazek popisovat Stokesovými vektory v různých místech jeho dráhy, můžeme i signál měřený detektory popisovat vzhledem ke Stokesovým vektorům v různých místech.
-Vyjádřením $\Stks^\textrm{A}$ pomocí Stokesova vektoru vstupujícího do můstku $\Stks^\textrm{in}$ a Muellerových matic půlvlnné destičky a polarizačního děliče
+Označíme jedním apostrofem kovektory vzhledem ke světlu vstupujícímu do děliče $\Dtks'$ a vzhledem ke světlu před destičkou $\Dtks''$
+Vyjádřením $\Stks^\textrm{A}$ pomocí Stokesova vektoru vstupujícího do můstku $\Stks^\textrm{in}$ a Muellerových matic půlvlnné destičky a polarizačního děliče 
 \begin{equation}
     I_\textrm{A}= \Dtks^\textrm{A} \cdot \left( \M_\textrm{A} \M_{\lambda/2} \Stks^\textrm{in} \right) = \left( \Dtks^\textrm{A} \M_\textrm{A} \M_{\lambda/2}\right) \cdot \Stks^\textrm{in} \equiv {\Dtks''}^\textrm{A} \cdot \Stks^\textrm{in}  \,,
 \end{equation}
@@ -35,26 +29,27 @@ Rozdílové a součtové napětí je pak
 \end{align}
 
 Měřené signály jsou lineární ve vstupních Stokesových vektorech a jsou tedy reprezentovány lineárními formamy, zde ${\Dtks''}^\textrm{A-B}$ a ${\Dtks''}^\textrm{A+B}$.
-Pro ideální půlvlnnou destičku a polarizační dělič jako v oddílu \ref{chap:mustek-kap2} jsou Muellerovy matice
+Pro ideální půlvlnnou destičku a polarizační dělič jako v oddílu \ref{chap:mustek-kap2} jsou Muellerovy matice (A měří $E_y$, B měří $E_x$)
 \begin{align}
-    \M_\textrm{A} = \begin{pmatrix} 1&1&0&0 \\ 1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} \,,\quad 
-    \M_\textrm{B} = \begin{pmatrix} 1&-1&0&0 \\ -1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} \,, \\
-    \M_{\lambda/2} = \begin{pmatrix} 0&0&0&0 \\ 0&\cos\theta_{\lambda/2}&\cos\theta_{\lambda/2}&0 \\ 0&\cos\theta_{\lambda/2}&\cos\theta_{\lambda/2}&0 \\ 0&0&0&1 \end{pmatrix}
+    \M_\textrm{A} = \frac{1}{2}\begin{pmatrix} 1&-1&0&0 \\ -1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} \,,\quad 
+    \M_\textrm{B} = \frac{1}{2}\begin{pmatrix} 1&1&0&0 \\ 1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} \,, \\
+    \M_{\lambda/2} = \begin{pmatrix} 1&0&0&0 \\ 0&\cos4\theta_{\lambda/2}&\sin4\theta_{\lambda/2}&0 \\ 0&-\sin4\theta_{\lambda/2}&\cos4\theta_{\lambda/2}&0 \\ 0&0&0&-1 \end{pmatrix}
 \end{align}
 a Stokesovy kovektory jsou po dosazení
 \begin{align}
-    \Dtks^\textrm{A-B}=(0, \cos\theta_{\lambda/2}, \cos\theta_{\lambda/2}, 0) \,, \label{eqn:Uab-Mueller} \\
-    \Dtks^\textrm{A+B}=(1, 0, 0, 0) \,.
+    {\Dtks'}^\textrm{A-B}=(0, -1, 0, 0) \,, \\
+    {\Dtks''}^\textrm{A-B}=-(0, \cos4\theta_{\lambda/2}, \sin4\theta_{\lambda/2}, 0) \,, \label{eqn:Uab-Mueller} \\
+    {\Dtks''}^\textrm{A+B}=(1, 0, 0, 0) \,.
 \end{align}
 
 Místo sledování, co se při průchodu optickými prvky děje se všemi myslitelnými vstupními Stokesovými vektory, je výhodnější sledovat, jak se mění konstantní detektorové kovektory.
 Navíc Stokesovy kovektory lze pro plně polarizováné světlo přímočaře graficky znázorňovat v 3-D prostoru redukovaných Stokesových vektorů.
-Pokud je jediná nenulová složka kovektoru $d_0$ ta nultá (jako v $\Dtks^\textrm{A+B}$), pak je měřený signál jednoduše úměrný vstupní intenzitě (vzdálenosti redukovaného Stokesova vektoru od počátku) a netřeba ho zvlášť znázorňovat.
-Pokud je naopak $d_0=0$ (jako v $\Dtks^\textrm{A+B}$), pak je signál lineární v redukovaném Stokesově vektoru a tedy úměrný vzdálenosti od určité roviny.
+Pokud je jediná nenulová složka kovektoru $d_0$ ta nultá (jako v ${\Dtks''}^\textrm{A+B}$), pak je měřený signál jednoduše úměrný vstupní intenzitě (vzdálenosti redukovaného Stokesova vektoru od počátku) a netřeba ho zvlášť znázorňovat.
+Pokud je naopak $d_0=0$ (jako v ${\Dtks''}^\textrm{A+B}$), pak je signál lineární v redukovaném Stokesově vektoru a tedy úměrný vzdálenosti od určité roviny.
 
 V obecném případě, kdy $d_0$ není ani nulové, ani jediné nenulové, je znázornění mírně složitější.
 Nejedná se o pouhé posunutí roviny, od které je vzdálenost odečítána.
-Na obr. \ref{fig:mustek-znazorneni-kovektoru} (a) jsou vyznačené nulové plochy (množina Stokesových vektorů, pro které $\Udif=0$) $\Dtks^\textrm{A-B}$ tak, jak je v \eqref{eqn:Uab-Mueller} a v situaci, kdy $d_0$ je nenulové.
+Na obr. \ref{fig:mustek-znazorneni-kovektoru} (a) jsou vyznačené nulové plochy (množina Stokesových vektorů, pro které $\Udif=0$) ${\Dtks''}^\textrm{A-B}$ tak, jak je v \eqref{eqn:Uab-Mueller} a v situaci, kdy $d_0$ je nenulové.
 Pro nenulové $d_0$ je nulová plocha kužel.
 
 Pro body neležící na nulovém kuželu však $\Udif$ není určeno vzdáleností od kužele.
@@ -64,13 +59,13 @@ Uvedený postup selhává, pokud $d_0>|\vec{d}|\equiv|(d_1, d_2, d_3)|$, protož
 Nicméně pro každé konstantní $I$ je stále signál úměrný vzdálenosti od určité roviny, tentokrát však ležící mimo sféru vektorů s intenzitou $I$.
 
 Z provedené diskuze vyplývá jako nejvýhodnější znázorňovat Stokesovy kovektory jednotně pomocí \emph{nulové kružnice}, která je průsečíkem nulového kužele s Poincarého sférou, a případně jejím normálovým 3-vektorem $\vec{d}$, kterým je znázorněna konstanta úměrnosti mezi signálem a grafickou vzdáleností.
-Případ $d_0>|\vec{d}$ v této práci nepoužíváme (formalismus používáme pro popis optického můstku, ve kterém se takové kovektory nevyskytují), ale znázorňovali bychom ho také 3-vektorem $\vec{d}$ a ``nulovou''\footnote{Která vzhledem k tomu, že leží mimo Poincarého sféru, odpovídá nedosažitelným Stokesovým vektorům $|\vec{s}|>s_0$.} rovinou příslušnou Poincarého sféře.
+Případ $d_0>|\vec{d}|$ v této práci nepoužíváme (formalismus používáme pro popis optického můstku, ve kterém se takové kovektory nevyskytují), ale znázorňovali bychom ho také 3-vektorem $\vec{d}$ a ``nulovou''\footnote{Která vzhledem k tomu, že leží mimo Poincarého sféru, odpovídá nedosažitelným Stokesovým vektorům $|\vec{s}|>s_0$.} rovinou příslušnou Poincarého sféře.
 Viz obr. \ref{fig:mustek-znazorneni-kovektoru} (b).
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{kovektory}
-    \caption{(a) Nulové plochy Stokesových kovektorů s nulovou/nenulovou nultou složkou. (b) Kanonické znázornění stejných kovektorů pomocí nulových kružnic.}
+    \input{./img/asy/kovek-1.asy}
+    \caption{Nulové plochy Stokesových kovektorů s nulovou (růžově) a nenulovou (zeleně) nultou složkou $d_0$. Průnikem s Poincarého sférou vznikne \emph{nulová} kružnice.}
     \label{fig:mustek-znazorneni-kovektoru}
 \end{figure}
 
@@ -80,11 +75,3 @@ V případě čistých retardérů se nulová kružnice zobrazí jako jiná kru�
 Pokud však Muellerovou maticí dochází také k deformaci a posunutí Poincarého sféry (jako např. v případě čistého diatenuátoru), je obrazem zobrazení obecně elipsa ležící uvnitř Poincarého sféry, a je proto nutné provést následující konstrukci pro získání nulové kružnice.
 Transformovaná elipsa vždy leží na nulovém kuželu, takže ho můžeme určit proložením elipsy kuželem s vrcholem v počátku.
 Nulová kružnice je pak určena průnikem kuželu a Poincarého sféry.
-Konstrukce je znázorněna na obr. \ref{fig:kovektor-akce-H}.\todo{mozna jeste co se deje s vec d}
-
-\begin{figure}[htbp]
-    \centering
-    \missingfigure{konstrukce H kruznice}
-    \caption{Transformace Stokesova kovektoru neunitárním optickým prvkem. Muellerova matice deformuje Poincarého sféru na elipsoid, takže nulová kružnice se zobrazí na elipsu uvnitř sféry. Elipsou je proložen kužel a průnikem se sférou je určena nová transformovaná nulová kružnice.}
-    \label{fig:kovektor-akce-H}
-\end{figure}

@@ -6,6 +6,7 @@ img/old
 data/files
 data/out/
 data/makefile
+.ipynb_checkpoints
 
 *.pdf
 !version/*

@@ -1,13 +1,23 @@
 Předkládaná práce se zabývá jedním z magneto-optických experimentů probíhajících v Laboratoři OptoSpintroniky (LOS), společném pracovišti MFF UK a FZU AV ČR, na adrese Ke Karlovu 3, Praha 2.\todopn{je to dobře napsané?}
 
-Zkráceně lze popsat jako \emph{spektroskopie anizotropních kvadratických MO jevů} (MLD/Voigtova/Cotton-Moutonova jevu) a přidružená \emph{in-plane magneto-metrie} tenkých feromagnetických filmů v téměř kolmém dopadu a rotujícím poli.
-Schéma aparatury je na obr. \ref{fig:zakladni-schema}.
+Nejvýstižněji lze popsat jako \emph{spektroskopie anizotropních kvadratických MO jevů} (MLD/Voigtova/Cotton-Moutonova jevu) a přidružená \emph{in-plane magneto-metrie} tenkých feromagnetických filmů v téměř kolmém dopadu a rotujícím poli.
+Schéma aparatury je na obr. \ref{fig:zakladni-schema} (a).
+Používáme několik vektorových veličin v rovině $xy$ ($\beta$ -- vstupní lineární polarizace, $\phih$ -- vnější magnetické pole, $\phim$ -- magnetizace vzorku, $\gamma$ -- in-plane rotace vzorku, aj.), úhel odečítáme vždy od poloosy $+x$ v kladném směru k poloose $+y$, viz obr. \ref{fig:zakladni:schema} (b).
+
 Následuje popis jednotlivých elementů
 
 \begin{figure}[htbp]
     \centering
-    \input{./img/tikz/schema-experimentu.tikz}
-    \caption{schema}
+    \includegraphics{./img/svg/schema-hlavni.drawio.pdf}
+    \caption{(a) Schéma základní formy experimentu a definice experimentální souřadné soustavy.
+    Laserové světlo vychází z filtračního modulu Varia a prochází přes řadu odklopných zrcadel, jejichž účel je umožnit měření i v jiných geometriích.
+Následuje chopper (CH), interferenční filtr (IF) (pouze v části spektrálního rozsahu), nastavitelný šedý filtr (NDF) a hlavní fixní polarizátor P0 definující lineární polarizaci $\beta=\SI{0}{\degree}$.
+Do tohoto místa je aparatura vždy identická a předchozí část nekreslíme ve schématech jednotlivých experimentů (čočky také dále nebudeme kreslit).
+Následuje rotační půlvlnná destička WP1 a polarizátor P1 nastavující požadované $\beta$.
+Svazek je fokusován na vzorek v komoře kryostatu (se skleněnými okénky) mezi rameny vektorového elektromagnetu.
+Odražený/procházející (znázorněny oba) svazek je odkloněn zrcadly, kolimován a detekován schématem optického můstku.
+Signál z obou detektorů je zpracován rozdílovým a součtovým předzesilovačem a zpracován lock-in zesilovači na frekvenci chopperu.
+(b) Definice úhlů v rovině $xy$. $\alpha$ zde zastupuje libovolný z $\beta$, $\phih$, $\phim$, $\gamma$, aj.}
     \label{fig:zakladni-schema}
 \end{figure}
 
@@ -26,20 +36,21 @@ Magneto-optickou aktivitu okének (Faradayův jev) zkoumá \cite{baduraMagnetoop
 \paragraph{Super-kontinuální laser}
 \emph{SuperK EXTREME} generuje široko-spektrální pulzy, které jsou dále filtrovány pro získání pulzů s šířkou pásma \SI{10}{\nano\meter}.
 V rozmezí \num{460}--\SI{845}{\nano\meter} k filtraci používáme laditelný filtr \emph{SuperK VARIA}, v rozmezí \num{845}--\SI{1600}{\nano\meter} pak sadu pásmových interferenčních filtrů.
+V úvodních měřeních jsme jednou využili také externí laser\todo{jaky? dioda} s vlnovou délkou \SI{405}{\nano\meter}.
 
 \paragraph{Polarizační optika}
 Pevně umístěné polarizatóry P0 a P2 jsou širokospektrální typu Glan Laser.
-Polarizátor v motorizovaném rotačním držáku P1 je absorpční, daný rozsah vlnových délek je pokryt polarizátory s označením P-VIS (\num{0}--\SI{0}{\nano\meter})\todo{doplnit rozsahy} a P-IR (\num{0}--\SI{0}{\nano\meter}).
-Půlvlnné destičky WP1, WP2 jsou také motorizované a vyskytují se ve třech sadách: VIS1, VIS2 (\num{0}--\SI{0}{\nano\meter}); NIR1, NIR2 (\num{0}--\SI{0}{\nano\meter}); IR1, IR2 (\num{0}--\SI{0}{\nano\meter}).
-Posloupnost prvků P0, P-IR, WP1 má za úkol vytvořit lineární polarizaci s definovaným natočením $\beta$, která dále dopadá na vzorek.
+Polarizátor v motorizovaném rotačním držáku P1 je absorpční, daný rozsah vlnových délek je pokryt polarizátory s označením P-VIS (\num{400}--\SI{700}{\nano\meter})\todo{doplnit rozsahy} a P-IR (\num{600}--\SI{2000}{\nano\meter}).
+Půlvlnné destičky WP1, WP2 jsou také motorizované a vyskytují se ve třech sadách: VIS1, VIS2 (\num{400}--\SI{700}{\nano\meter}); NIR1, NIR2 (\num{700}--\SI{1000}{\nano\meter}); IR1, IR2 (\num{1000}--\SI{1600}{\nano\meter}).
+Posloupnost prvků P0, WP1, P1 má za úkol vytvořit lineární polarizaci s definovaným natočením $\beta$, která dále dopadá na vzorek.
 Destička WP2 slouží k vyvažování můstku.
 
-\subparagraph{PEM}
-Foto-elastický modulátor (není na schématu) je zařízení, ve kterém vlivem zvukové vlny dochází k modulaci lineárního dvojlomu,
-takže se chová jako retardér (fázová destička) s periodicky modulovaným fázovým zpožděním (viz \eqref{eqn:cisty-retarder}) $\Delta(t) \propto \cos(\omega_\textrm{PEM}t)$. 
-Charakterizaci a širšímu popisu se věnuje \cite{minarModulacePolarizaceSvetelne2004}.
+\paragraph{PEM}
+Foto-elastický modulátor (není na schématu) je zařízení, ve kterém vlivem zvukové vlny dochází k modulaci síly lineárního dvojlomu,
+takže se chová jako retardér (fázová destička) s periodicky modulovaným fázovým zpožděním (viz \eqref{eqn:cisty-retarder}) $\Delta_\textrm{PEM}(t) \propto \cos(\omega_\textrm{PEM}t)$. 
+Charakterizaci a detailnímu popisu se věnuje \cite{minarModulacePolarizaceSvetelne2004}.
 
-\subparagraph{Berekův kompenzátor}
+\paragraph{Berekův kompenzátor}
 Berekův kompenzátor (není na schématu) je laditelný retardér tvořený dvojlomným krystalem, jehož naklápěním lze dosáhnout libovolného (v daném rozsahu) fázového zpoždění $\Delta$ mezi kolmými lineárními polarizacemi.
 Charakterizaci se věnuje \cite{schusserSkryteKouzloPolarizace2014}.
 

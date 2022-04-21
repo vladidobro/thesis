@@ -6,18 +6,18 @@ V této formě lze metodu aplikovat pro téměř kolmý průchod/odraz od kubick
 Zrcadlo mezi vzorkem a můstkem je již kompenzováno druhým identickým zrcadlem.
 
 Při zpracování dat provádíme určení síly MO jevů i magnetické anizotropie současně.
-Pro vybrané polarizace změříme s průběh $\Udif$ a $\Usum$ při otáčení vnějšího pole v plném rozsahu $\phih \in 0$--\SI{360}{\degree}.
+Pro vybrané polarizace změříme průběh $\Udif$ a $\Usum$ při otáčení vnějšího pole v plném rozsahu $\phih \in 0$--\SI{360}{\degree}.
 Vždy měříme několik navazujících cyklů, které předzpracujeme způsobem popsaným v dodatku \ref{app:zpracovani}, abychom dále měli pouze jednu křivku $U_\textrm{A-B/A+B}(\phih)$ pro každé $\beta$.
 
 Dalším krokem je převedení průběhu napětí na průběh stočení polarizace pomocí vzorce $\Delta\beta=\Udif/2\Usum$.
-Poté provedeme kompenzaci půlvlnné destičky můstku podle oddílu \ref{chap:}: každé $\beta$ je měřeno s oběma polohami vyvažovací destičky, výsledné $\Delta\beta$ je aritmetickým průměrem obou křivek.
+Poté provedeme kompenzaci půlvlnné destičky můstku podle oddílu \ref{chap:mustek-kap2}: každé $\beta$ je měřeno s oběma polohami vyvažovací destičky, výsledné $\Delta\beta$ je aritmetickým průměrem obou křivek.
 
 Doposud tedy máme matici hodnot $\Delta\beta(\phih, \beta)$.
 V tento moment je nutné odstranit všechny případné $\phih$-závislé signály, které nepochází přímo od vzorku.
 Na tento problém jsme narazili při měření CoFe za nízké teploty, kdy světlo prochází okénkem komory kryostatu s polární magnetizací, takže v něm dochází k Faradayově jevu (s konkrétními okénky byl studován v \cite{baduraMagnetooptickaMereniPro2019}).
 Neexistuje univerzální řešení, v uvedeném případě jsme signál od okénka a vzorku oddělili na základě předpokladu odlišné $\phih$ a $\beta$-závislosti (Faradayův jev je lichý v $\vec{M}$ a konstantní v $\beta$), viz příslušný oddíl \ref{chap:vysledky-cofe-lowt}.
 
-Ze signálu jsou odděleny lineární jevy pomocí symetrizace v $\vHext$, viz \eqref{eqn:}.
+Ze signálu jsou odděleny lineární jevy pomocí symetrizace v $\vHext$, viz \eqref{eqn:symetrizace-H}.
 
 V následujícím kroku máme na výběr: můžeme a nemusíme uplatnit předpokládanou $\beta$-závislost (vzorec \eqref{eqn:}) a sadu křivek redukovat na dvě -- $\phih$-závislé koeficienty $\cos2\beta$ a $\sin2\beta$.
 Jinými slovy, provést na křivkách Fourierovu transformaci v $\beta$ a ponechat pouze frekvence $2\beta$.
@@ -28,18 +28,18 @@ V některých případech (jako odstranění Faradayova jevu v okénkách) je al
 V budoucnu bude tento krok pravděpodobně ještě předmětem diskuze.
 
 Následuje srdce celé metody -- současný nelineární fit parametrů $P$ charakterizujících sílu kvadratického MO jevu a magnetických anizotropních konstant.
-Jak bylo vyloženo v předchozím oddílu, cílovou funkci považujeme za funkci pouze vhodně parametrizovaných anizotropních konstant $\mathcal{L}(\tilde{k}_4, \tilde{k}_u)$ s tichým předpokladem, že za parametry $b$ v \eqref{eqn:} jsou dosazeny ty optimální určené lineární regresí.
-Oproti \eqref{eqn:} však mají však nyní anonymní parametry $b$ význam MO koeficientů $P$ z \eqref{eqn:}
-Metodou gradientního sestupu je nalezeno globální minimum.
+Jak bylo vyloženo v předchozím oddílu, cílovou funkci považujeme za funkci pouze vhodně parametrizovaných anizotropních konstant $\mathcal{L}(\tilde{k}_4, \tilde{k}_u)$ s tichým předpokladem, že za parametry $b$ v \eqref{eqn:anizotropie-fit} jsou dosazeny ty optimální určené lineární regresí.
+Oproti \eqref{eqn:anizotropie-fit} však nyní anonymní parametry $b$ mají význam MO koeficientů $P$ z \eqref{eqn:PMLD-matice}
+Jednou z metod nelineární optimalizace je nalezeno globální minimum.
 Celkové optimální parametry $P$ jsou pak rovny těm optimálním v minimu $\mathcal{L}$.
 
 Na závěr jsou parametry $\tilde{k}_4$, $\tilde{k}_u$ převedeny do lidsky čitelné parametrizace pomocí $k_4$, $k_u$, $\phiu$ a natočení $\gamma_\textrm{SW}$; a parametry $P$ pomocí $P_\textrm{ISO}$, $P_\textrm{ANISO}$, $\alpha_\textrm{ISO}$, $\gamma_\textrm{MO}=\alpha_\textrm{ANISO}-\alpha_\textrm{ISO}$.
 
 Úhel in-plane rotace $\gamma$ máme určen dvěma způsoby: jako osu magnetické anizotropie a jako osu anizotropie MLD.
 Jejich porovnání nám poskytuje kontrolu, že metoda zcela neselhala.
-Oba úhly ve fitu držíme oddělené především kvůli konvergenčním vlastnostem.
+Oba úhly ve fitu držíme oddělené především kvůli pohodlí.
 
-Další kontrolu nám poskytuje $\alpha_\textrm{ISO}$, které má význam vzájemného rotace souřadné soustavy polarizace a magnetického pole, a proto zřejmě nemůže přesáhnout přesnost s jakou byly stanoveny, cca \SI{5}{\degree}.
+Další kontrolu nám poskytuje $\alpha_\textrm{ISO}$, které má význam vzájemné rotace souřadné soustavy polarizace a magnetického pole, a proto zřejmě nemůže přesáhnout přesnost s jakou byly stanoveny, cca \SI{5}{\degree}.
 
 Takto jsou určeny všechny parametry modelu, zbývá ještě určit jejich nejistoty.
 Vzhledem ke komplexitě problému a množství dat volíme jako způsob určení nejistoty ten jediný příčetný -- založený na principech Bayesovské analýzy dat\cite{gelmanBayesianDataAnalysis2014}.

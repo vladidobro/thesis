@@ -74,6 +74,15 @@ class cofe_room_t(ExperimentRotmld):
             for f2 in f1:
                 f2.opts |= {'normalize_factor': 100 / 1000}
 
+class cofe_room_t_mirrors(ExperimentRotmld):
+    '''spatne zesileni pro VIS'''
+    def __init__(self):
+        super().__init__('cofe', 'room_t_mirrors')
+        for f1 in self:
+            f1.df.drop(f1.df[f1.df['beta']==180.].index, inplace=True)
+            for f2 in f1:
+                f2.opts |= {'normalize_factor': 20 / 1000}
+
 class cofe_low_t(ExperimentRotmld):
     def __init__(self):
         super().__init__('cofe', 'low_t')

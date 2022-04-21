@@ -1,39 +1,43 @@
 \section{Dodatky k magnetické anizotropii}
 \label{app:magneticka-anizotropie}
 
-\endinput
+\todo{revize}
+
+\subsection*{Podmínky integrability}
 
 Zvolíme-li uzavřenou křivku v $\M$ prostoru, a budeme podél ní integrovat \eqref{e:Hext=gradF}, dostaneme
 \begin{equation} \label{e:mag integral 1}
-\oint \muvac\Hext(\M) \cdot \text{d}\M = \oint \nabla_{\M} F \cdot \text{d}\M = F(\M_\textrm{start})-F(\M_\textrm{end})=0 \,.
+    \oint \mu_0\vHext(\vec{M}) \cdot \textrm{d}\vec{M} = \oint \nabla_{\vec{M}} F \cdot \text{d}\vec{M} = F(\vec{M}_\textrm{start})-F(\vec{M}_\textrm{end})=0 \,.
 \end{equation}
-Přechodem k experimentálně ovladatelným souřadnicím $\Hext$
+Přechodem k experimentálně ovladatelným souřadnicím $\vHext$
 \begin{equation} \label{e:substituce M}
-\text{d}\M=\begin{pmatrix}\text{d}M_x \\ \text{d}M_y \\ \text{d}M_z \end{pmatrix}
+\textrm{d}\M=\begin{pmatrix}\textrm{d}M_x \\ \textrm{d}M_y \\ \textrm{d}M_z \end{pmatrix}
 =\begin{pmatrix}
-\frac{\partial M_x}{\partial \Hx_x} & \frac{\partial M_x}{\partial \Hx_y} & \frac{\partial M_x}{\partial \Hx_z} \\
-\frac{\partial M_y}{\partial \Hx_x} & \frac{\partial M_y}{\partial \Hx_y} & \frac{\partial M_y}{\partial \Hx_z} \\
-\frac{\partial M_z}{\partial \Hx_x} & \frac{\partial M_z}{\partial \Hx_y} & \frac{\partial M_z}{\partial \Hx_z} \\
+\frac{\partial M_x}{\partial H_x} & \frac{\partial M_x}{\partial H_y} & \frac{\partial M_x}{\partial H_z} \\
+\frac{\partial M_y}{\partial H_x} & \frac{\partial M_y}{\partial H_y} & \frac{\partial M_y}{\partial H_z} \\
+\frac{\partial M_z}{\partial H_x} & \frac{\partial M_z}{\partial H_y} & \frac{\partial M_z}{\partial H_z} \\
 \end{pmatrix}
-\begin{pmatrix}\text{d}\Hx_x \\ \text{d}\Hx_y \\ \text{d}\Hx_z \end{pmatrix}
-\equiv\left( \frac{\text{d}\M}{\text{d}\Hext} \right) \text{d}\Hext
+\begin{pmatrix}\textrm{d}H_x \\ \textrm{d}H_y \\ \textrm{d}H_z \end{pmatrix}
+\equiv\left( \frac{\textrm{d}\vec{M}}{\textrm{d}\vHext} \right) \textrm{d}\vHext
 \end{equation}
-dostáváme z \eqref{e:mag integral 1} podmínku na průběh $\M(\Hext)$ po uzavřené křivce $\Hext$ 
+dostáváme z \eqref{e:mag integral 1} podmínku na průběh $\vec{M}(\vHext)$ po uzavřené křivce $\vHext$ 
 \begin{equation}
-\oint \muvac\Hext \cdot \left( \frac{\text{d}\M}{\text{d}\Hext} \right) \text{d}\Hext = 0 \,,
+    \oint \mu_0 \vHext \cdot \left( \frac{\textrm{d}\vec{M}}{\textrm{d}\vHext} \right) \textrm{d}\vHext = 0 \,,
 \end{equation}
-která platí, pokud jsme mohli provést substituci \eqref{e:substituce M}, tj. pokud je na ní $\M(\Hext)$ spojité, nedochází k přeskokům.
-Striktně vzato bychom ji mohli použít i v případě, kdy dochází k vratným\footnote{Ve smyslu vratného termodynamického procesu.} přeskokům, tj. výchozí i koncové $\M$ mají stejnou volnou energii; nedochází k hysterezi.
+která platí, pokud jsme mohli provést substituci \eqref{e:substituce M}, tj. pokud je na ní $\vec{M}(\vHext)$ spojité, nedochází k přeskokům.
+Striktně vzato bychom ji mohli použít i v případě, kdy dochází k vratným\footnote{Ve smyslu vratného termodynamického procesu.} přeskokům, tj. výchozí i koncové $\vec{M}$ mají stejnou volnou energii; nedochází k hysterezi.
 
-Přímým dosazením pro případ, kdy se $\Hext$ otočí v rovině $xy$ o \SI{360}{\degree} s konstantní amplitudou a $\M$ je dáno \eqref{e:magnetizace v rovine}
+Přímým dosazením pro případ, kdy se $\vHext$ otočí v rovině $xy$ o \SI{360}{\degree} s konstantní amplitudou a saturovanou in-plane $\vec{M}$ (jako v \eqref{e:magnetizace v rovine})
 \begin{equation}
-    \left( \frac{\text{d}\M}{\text{d}\Hext} \right) \text{d}\Hext=\begin{pmatrix}
+    \left( \frac{\textrm{d}\vec{M}}{\textrm{d}\vHext} \right) \text{d}\vHext=\begin{pmatrix}
     -\sin \phim \\ \cos \phim \\ 0
-    \end{pmatrix} \frac{\text{d}\phim}{\text{d}\phih}  \text{d}\phih \,,
+    \end{pmatrix} \frac{\textrm{d}\phim}{\textrm{d}\phih}  \textrm{d}\phih \,,
 \end{equation}
-
 dostáváme
-
 \begin{equation} \label{e:M integracni konstanta dodatek}
-\muvac\Hx M_S \int_{0}^{2\pi}  \frac{\text{d}\phim}{\text{d}\phih} \sin\left(\phih-\phim\right) \text{d}\phih=0
+\mu_0\Hext M_S \int_{0}^{2\pi}  \frac{\textrm{d}\phim}{\textrm{d}\phih} \sin\left(\phih-\phim\right) \textrm{d}\phih=0 \,.
 \end{equation}
+
+\subsection*{Přibližný výpočet $\phim$}
+
+\subsection*{Určení volné energie z nepřesného pole}

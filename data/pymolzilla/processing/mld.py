@@ -75,6 +75,8 @@ class FitAnisotropy:
         res = optim.basinhopping(self.obj, self.x0, niter=niter)
         self.free_energy = self.x2f(res.x)
         self.results = res
+        self.phim = np.degrees(self.free_energy.phih2phim(self.phih, hext=self.hext))
+
         return res
             
 

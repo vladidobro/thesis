@@ -6,9 +6,9 @@ První MO experimenty byly provedeny v \cite{wohlrathMagnetooptickaCharakterizac
 Aparatura byla vylepšena a využita ke studiu AFM materiálů v \cite{kubascikMagnetooptickeStudiumAntiferomagnetickych2019,kimakOptickaSpektroskopieAntiferomagnetu2019}.
 
 Dosavadní výsledky však nebyly uspokojující.
-V rámci této práce byly pro ověření zopakovány spektroskopická měření MLD ve vzorku FR06 ve FM fázi, provedena dříve v \cite{kubascikMagnetooptickeStudiumAntiferomagnetickych2019}.
+V rámci této práce byly pro ověření zopakována měření vzorku FR06 ve FM fázi v reflexní geometrii, provedena dříve v \cite{kubascikMagnetooptickeStudiumAntiferomagnetickych2019}.
 Měření byla úspěšně replikovaná, ale problémy přetrvaly.
-Na úvodních měřeních ilustruujeme nedostatky původní verze experimentu.
+Jako druhá sada úvodních měření byl měřen vzorek CoFe v transmisní geometrii.
 
 Průběh experimentu je následující.
 Komora kryostatu je vyčerpána a udržována na požadované konstantní teplotě (kromě měření teplotních přechodů).
@@ -40,7 +40,7 @@ Vzorec \eqref{eqn:PMLD} byl dále naivním způsobem rozšířen pro anizotropn�
 Zpracování pak spočívalo ve fitování metodou nejmenších čtverců změřeného $\Delta\beta$ neznámými funkcemi\footnote{Vzorkování $\phih$ a $\beta$ je konečné, takže např. pro 72 změřených $\phih^i$ rozumíme jako fitování $\phim(\phih)$ určení 72 parametrů $\phim^i\equiv\phim(\phih^i)$.} $P(\phim)$, $\phim(\phih)$, $\xi(\beta)$.
 Metodou nejmenších čtverců rozumíme hledání parametrů minimalizujících cílovou funkci
 \begin{equation}
-\label{eqn:}
+\label{eqn:L}
     \mathcal{L} = \sum_{\phih, \beta} \left( \Delta\beta_\textrm{měření} - \Delta\beta_\textrm{model} \right)^2\,,
 \end{equation}
 kde v tomto případě $\Delta\beta_\textrm{měření}$, $\Delta\beta_\textrm{model}$, značí levou, resp. pravou stranu \eqref{eqn:PMLD-naivni}.
@@ -48,10 +48,10 @@ kde v tomto případě $\Delta\beta_\textrm{měření}$, $\Delta\beta_\textrm{mo
 Problém lze jednoduchou transformací pomocí součtových vzorců převést na lineární\todo{overit}
 \begin{align}
 \label{eqn:PMLD-linearizovane}
-\Delta\beta =\xi(\beta) &+ P\left(\phim(\phih)\right)\cos\left(2\phim(\phih)\right)\sin(2\beta) 
-           \\&+P\left(\phim(\phih)\right)\cos\left(2\phim(\phih)\right)\cos(2\beta) \,,
+\Delta\beta =\xi(\beta) &+ P\left(\phim(\phih)\right)\sin\left(2\phim(\phih)\right)\cos(2\beta) 
+           \\&-P\left(\phim(\phih)\right)\cos\left(2\phim(\phih)\right)\sin(2\beta) \,,
 \end{align}
-který lze vyřešit rozvedením $\Delta\beta$ a $\xi$ do Fourierových řad v $\beta$
+který lze vyřešit rozvedením $\Delta\beta$ a $\xi$ do Fourierových řad\footnote{S konečným vzorkováním se jedná o diskrétní Fourierovu trasformaci, obor $k$ je omezený.} v $\beta$
 \begin{align}
     \Delta\beta(\phih, \beta) &= \sum_{k=-\infty}^\infty \Delta\beta_k(\phih) e^{ik\beta} \,,\\
     \xi(\beta) &= \sum_{k=-\infty}^\infty \xi_k e^{ik\beta}  \,.
@@ -69,9 +69,9 @@ Nicméně pro každou sadu naměřených dat existuje maximálně jedno řešen�
 Jinými slovy, pro kubické vzorky fit degenerovaný není, platí pro ně totiž vždy $\overline{Pe^{i2\phim}}=0$, takže $Pe^{\pm i2\phim}=\Delta\beta_{\pm2}(\phih)-\overline{\Delta\beta_{\pm2}}$.
 Tak lze z měřených dat určit kýžené závislosti $P(\phim)$ a $\phim(\phih)$.
 
-Popsaná procedura byla běhěm úvodních měření provedena se vzorkem FR06 při teplotě \SI{420}{\kelvin} pro 10\todo{kontrola} vlnových délek v dostupném rozsahu.
-Měření proběhlo v reflexní geometrii podle schématu na obr. \ref{fig:zakladni-schema} s drobnou změnou: chybí polarizátor P1.
-Ilustrace změřených dat je na obr. \ref{fig:g-ferh-uvod-data} (a, b).
+Na úvodních datech CoFe ilustruujeme nedostatky původní verze experimentu.
+Měření proběhlo v transmisní geometrii podle schématu na obr. \ref{fig:zakladni-schema} (a) s tím rozdílem, že chyběl ``čistící'' polarizátor P1 a štít kryostatu, takže svazek neprocházel přes skleněná okénka.
+Ilustrace změřených dat je na obr. \ref{fig:g-uvod-data} (a).
 
 Z obrázku je na první pohled patrný první problém.
 Změřené křivky pro $\beta$ a $\beta+\SI{90}{\degree}$ by měly podle \eqref{eqn:PMLD-naivni} být shodné s opačným znaménkem, což v některých případech zjevně neplatí.
@@ -80,25 +80,15 @@ Metoda v takových případech zjevně selhává.
 Druhý problém je plíživějšího charakteru.
 U některých vlnových délek (především v infračervené oblasti) jsou změřená data dobře popsaná modelem \eqref{eqn:PMLD-naivni} a je možné provést fit \eqref{eqn:reseni-ctverce-fourier}.
 Zatímco $P(\phim)$ je v principu spektrálně závislé, od $\phim(\phih)$ očekáváme, že na všech vlnových délkách popisuje tu samou skutečnost.
-Výsledky fitu jsou však pro různé vlnové délky zcela odlišné, viz obr. \ref{fig:g-ferh-uvod-data} (c).
-
-
-\begin{figure}[htbp]
-    \centering
-    \missingfigure{ferh uvodni data}
-    \caption{Úvodní měření FR06. (a) Vybrané polarizace. (b) Všechny měřené polarizace. Z obrázků je patrné, že data neodpovídají modelu \eqref{eqn:PMLD-naivni} -- $\beta=\SI{0}{\degree}$ a $\beta=\SI{90}{\degree}$ jsou zcela odlišná, přestože by měla pouze změnit znaménko. (c) Magnetická anizotropie určená různými vlnovými délkami.}
-    \label{fig:g-ferh-uvod-data}
-\end{figure}
-
-Po neúspěchu s FR06 byla provedena ještě jedna sada úvodních měření: CoFe při pokojové teplotě v transmisní geometrii podle schématu na obr. \ref{fig:zakladni-schema}, opět bez polarizátoru P1, tentokrát navíc bez štítu kryostatu (takže světlo neprocházelo okénky).
-Oba popsané problémy přetrvaly.
+Výsledky pro některé vlnové délky, na kterých byl fit jinak úspěšný, jsou ale zcela odlišné, viz obr. \ref{fig:g-uvod-data} (b).
+V některých případech (např. \SI{405}{\nano\meter}) fit dokonce selhává úplně, protože domnělé $\phim$ se točí na opačnou stranu než $\phih$.
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{cofe uvodni data}
-    \caption{Úvodní měření CoFe. (a,b) Změřená data. (c) Magnetická anizotropie určená různými vlnovými délkami.}
-    \label{fig:g-cofe-uvod-data}
+    \includegraphics{./data/out/uvod-data.pdf}
+    \caption{Úvodní měření CoFe, $\Hext=\SI{207}{\milli\tesla}$. (a) Měřené stočení na vlnové délce \SI{1050}{\nano\meter} při vybraných polarizacích. Data neodpovídají modelu \eqref{eqn:PMLD-naivni} -- $\beta=\SI{0}{\degree}$ a $\beta=\SI{90}{\degree}$ jsou zcela odlišná, přestože by měla pouze změnit znaménko. (b) Magnetická anizotropie určená různými vlnovými délkami.}
+    \label{fig:g-uvod-data}
 \end{figure}
 
-Příčiny problémů byly odhaleny jako dvojí podstaty: ignorace vlivu zrcadel mezi vzorkem a optickým můstkem, a neúplné pochopení anizotropie MLD.\todopn{Je to ok, nebo je to urážlivé?}
+Podstata problémů byla odhalena dvojí: ignorace vlivu zrcadel mezi vzorkem a optickým můstkem, a neúplné pochopení anizotropie MLD.\todopn{Je to ok, nebo je to urážlivé?}
 Jejich řešení a popisem konečné verze metody se věnuje zbytek této kapitoly.

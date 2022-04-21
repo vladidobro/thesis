@@ -244,6 +244,9 @@ class MeasurementSet:
 
     def collect_merge(self, col='rotation', col_merge_by='phih',
                            index='beta', inplace=True, **kwargs):
+        N=1000
+        for f in self:
+            f.data[col_merge_by] = np.round(N*f.data[col_merge_by]).astype(int)
         new_data = functools.reduce(
             lambda x,y: pd.merge(x ,y, how='outer', on=col_merge_by),
             map(
@@ -251,6 +254,10 @@ class MeasurementSet:
                 zip(self.df['obj'], self.df[index])
             ),
             pd.DataFrame(columns=[col_merge_by]))
+
+        for f in self:
+            f.data[col_merge_by] /=N
+        new_data[col_merge_by] /=N
 
         if inplace: self.data = new_data
         return new_data
