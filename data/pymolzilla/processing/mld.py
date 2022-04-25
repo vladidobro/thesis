@@ -72,7 +72,7 @@ class FitAnisotropy:
         return f
 
     def fit(self, niter=3):
-        res = optim.basinhopping(self.obj, self.x0, niter=niter)
+        res = optim.minimize(self.obj, self.x0)
         self.free_energy = self.x2f(res.x)
         self.results = res
         self.phim = np.degrees(self.free_energy.phih2phim(self.phih, hext=self.hext))

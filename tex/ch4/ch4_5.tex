@@ -42,6 +42,16 @@ Oba úhly ve fitu držíme oddělené především kvůli pohodlí.
 Další kontrolu nám poskytuje $\alpha_\textrm{ISO}$, které má význam vzájemné rotace souřadné soustavy polarizace a magnetického pole, a proto zřejmě nemůže přesáhnout přesnost s jakou byly stanoveny, cca \SI{5}{\degree}.
 
 Takto jsou určeny všechny parametry modelu, zbývá ještě určit jejich nejistoty.
-Vzhledem ke komplexitě problému a množství dat volíme jako způsob určení nejistoty ten jediný příčetný -- založený na principech Bayesovské analýzy dat\cite{gelmanBayesianDataAnalysis2014}.
-V minimu $\mathcal{L}$ je spočítána matice druhých derivací podle fitovaných parametrů, její inverzí vznikne kovarianční matice, a na její diagonále jsou variance jednotlivých parametrů.
-Pro určení nejistot transformovaných parametrů ($k_4$, $k_u$, atd.) nejdříve transformujeme kovarianční matici a až potom odečítáme z diagonály.
+Volíme ten nejjednodušší přístup: bez ověření předpokládáme nezávislé normálně rozdělené chyby a cílovou funkci $\mathcal{L}$ v okolí minima přibližujeme kvadratickým rozvojem ve fitovaných parametrech.
+Spočítáme matici druhých derivací (Hessova matice), její inverzí vznikne kovarianční matice, a na její diagonále jsou variance jednotlivých parametrů.
+Vzhledem k tomu, že fit magnetických anizotropních konstant a konstant $P$ provádíme odděleně, i kovarianční matice z pohodlnosti počítáme odděleně (zanedbáváme např. vzájemné korelace $P_+$ a $k_u$).
+
+Výsledky fitu anizotropních konstant zobrazujeme pomocí oblastí spolehlivosti s hladinou spolehlivosti \SI{95}{\percent} ($2\sigma$), viz obr. \ref{fig:ukazka-zpracovani-anizotropie}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{./data/out/ukazka-k.pdf}
+    \caption{Ilustrace výsledků fitu anizotropních konstant.
+    (a) Cílová funkce $\mathcal{L}$ v závislosti na uniaxiální anizotropní konstantě $\tilde{k}_u$. (b) Detail minima. Jsou naznačeny $1\sigma$, $2\sigma$ a $3\sigma$ oblasti. Při vyhodnocení zobrazujeme $2\sigma$ (prostřední).}
+    \label{fig:ukazka-zpracovani-anizotropie}
+\end{figure}

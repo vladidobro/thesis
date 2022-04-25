@@ -35,7 +35,7 @@ Pokud toto splněno není, pak je můstek pro každé $\beta$ citlivý na jiný 
 Po případném elipsometrickém změření $\mathcal{R}'_0$ je možné správnou $\beta$-závislost dopočítat a dosadit do nového ansatzu, my se tím však v této práci nezabýváme, protože uvedený předpoklad splňujeme.
 
 Pomocí Stokesových kovektorů lze jednoduše vyjádřit stočení a elipticitu do prvního řádu v $\mathcal{R}'$.
-Pro dané vstupní $\beta$ (Stokesův vektor $\Stks(\beta)$) zavedeme kovektory\footnote{Argument $\beta$ zde značí, pro jaké $\beta$ je daný kovektor platný. Horní index $\beta$ či $\chi$ značí, jestli kovektor měří stočení či elipticitu.} $\Dtks^\beta(\beta)=(0, \cos2\beta, \sin2\beta, 0)$, resp. $\Dtks^\chi(\beta)=(0, 0, 0, 1)$, které měří stočení, resp. elipticitu vyjádřenou změnou Stokesova vektoru $\textrm{d}\Stks$:
+Pro dané vstupní $\beta$ (Stokesův vektor $\Stks(\beta)$) zavedeme kovektory\footnote{Argument $\beta$ zde značí, pro jaké $\beta$ je daný kovektor platný. Horní index $\beta$ či $\chi$ značí, jestli kovektor měří stočení či elipticitu.} $\Dtks^\beta(\beta)=\frac{1}{2}(0, -\sin2\beta, \cos2\beta, 0)$, resp. $\Dtks^\chi(\beta)=\frac{1}{2}(0, 0, 0, 1)$, které měří stočení, resp. elipticitu vyjádřenou změnou Stokesova vektoru $\textrm{d}\Stks$:
 \begin{align}
     \Dtks^\beta(\beta) \cdot \Stks(\beta) = 0 \,, \quad &\textrm{d}\beta = \Dtks^\beta \cdot \textrm{d}\Stks \\
     \Dtks^\chi(\beta) \cdot \Stks(\beta) = 0 \,, \quad &\textrm{d}\chi = \Dtks^\chi \cdot \textrm{d}\Stks \,.
@@ -43,28 +43,24 @@ Pro dané vstupní $\beta$ (Stokesův vektor $\Stks(\beta)$) zavedeme kovektory\
 Rozvedeme Muellerovu matici \eqref{eqn:Mueller-rozklad} vzorku do prvního řádu\footnote{Striktně vzato po tomto kroku již nejde o mocninný rozvoj měřeného signálu v $\vec{M}$, protože zahazujeme některé kvadratické členy a ponecháváme jiné. Pro malá stočení jsou však zahozené členy silně potlačeny.} v $\mathcal{R}'$ (vyjádřeného diferenciálem $\textrm{d}\mathcal{R}$ v okolí jednotkové matice\footnote{Píšeme $\mathcal{R}= \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \textrm{d}\mathcal{R}$.}) 
 \begin{align}
 \label{eqn:dif-Mueller}
-    \textrm{d}M_{00} = 0 \\
-    \textrm{d}M_{i0} = \textrm{d}M_{0i} =   \\
+\textrm{d}M_{00} = \Re \operatorname{Tr} \lbrace\textrm{d}\mathcal{R} \rbrace\\
+    \textrm{d}M_{i0} = \textrm{d}M_{0i} = \Re \operatorname{Tr} \lbrace \sigma_i \textrm{d}\mathcal{R} \rbrace \\
     \textrm{d}M_{ij} = \delta_{ij} \Re\operatorname{Tr}\lbrace\textrm{d}\mathcal{R}\rbrace + \epsilon_{ijk} \Im\operatorname{Tr}\lbrace\sigma_k\textrm{d}\mathcal{R}\rbrace
 \end{align}
 pro $i,\,j = 1,\,2,\,3$.
 
-Stočení a elipticita jsou
+Stočení
 \begin{equation}
-    \textrm{d}\beta = \begin{pmatrix} -\sin2\beta&\cos2\beta \end{pmatrix} \begin{pmatrix} \textrm{d}M_{10}&\textrm{d}M_{11}&\textrm{d}M_{12}\\\textrm{d}M_{20}&\textrm{d}M_{21}&\textrm{d}M_{22} \end{pmatrix} \begin{pmatrix} 1\\\cos2\beta\\\sin2\beta \end{pmatrix}
+    \textrm{d}\beta = \frac{1}{2}\begin{pmatrix} -\sin2\beta&\cos2\beta \end{pmatrix} \begin{pmatrix} \textrm{d}M_{10}&\textrm{d}M_{11}&\textrm{d}M_{12}\\\textrm{d}M_{20}&\textrm{d}M_{21}&\textrm{d}M_{22} \end{pmatrix} \begin{pmatrix} 1\\\cos2\beta\\\sin2\beta \end{pmatrix}
 \end{equation}
-a
+a elipticita
 \begin{equation}
-    \textrm{d}\chi = \begin{pmatrix} \textrm{d}M_{30}&\textrm{d}M_{31}&\textrm{d}M_{32} \end{pmatrix} \begin{pmatrix} 1\\\cos2\beta\\\sin2\beta \end{pmatrix} \,,
+    \textrm{d}\chi = \frac{1}{2}\begin{pmatrix} \textrm{d}M_{30}&\textrm{d}M_{31}&\textrm{d}M_{32} \end{pmatrix} \begin{pmatrix} 1\\\cos2\beta\\\sin2\beta \end{pmatrix} \,,
 \end{equation}
-po dosazení \eqref{eqn:dif-Mueller} pak 
-\begin{align}
-    \textrm{d}\beta &= -\sin2\beta \ldots + \cos2\beta \ldots + \Im \operatorname{Tr}\lbrace \sigma_3 \textrm{d}\mathcal{R} \rbrace\,,\label{eqn:dbeta-stokes}\\
-    \textrm{d}\chi &= \ldots
-\end{align}
-či kompaktněji
+jsou po dosazení \eqref{eqn:dif-Mueller} kompaktně
 \begin{equation}
-    \textrm{d}\beta + i \textrm{d}\chi = 
+    \label{eqn:dbeta-stokes}
+    \textrm{d}\beta + i \textrm{d}\chi = \frac{1}{2} \operatorname{Tr} \lbrace \left( -\sigma_1\sin2\beta+\sigma_2\cos2\beta+i\sigma_3   \right) \textrm{d}\mathcal{R} \rbrace
 \end{equation}
 
 Vidíme, že v okolí izotropního odrazu/průchodu jsou jediné povolené $\beta$-závislosti stočení a elipticity dané třemi členy: $\cos2\beta$, $\sin2\beta$ a konstantou\footnote{Stočení konstantní pro všechna $\beta$. Např. Faradayův jev je způsoben tímto členem.}.
@@ -94,30 +90,32 @@ V této práci jsme se o to nepokoušeli.
 
 Pro každé změřené $\beta$ máme tedy dva neznámé koeficienty funkcí $\cos2\phim$ a $\sin2\phim$.
 Za splnění předpokladů vedoucích na \eqref{eqn:dbeta-stokes} je pak $\beta$-závislost této dvojice koeficientů také popsána dvojicí koeficientů $\cos2\beta$ a $\sin2\beta$, celkem máme pro celou sadu měření 4 koeficienty.
-Používaný model je tedy
+Používaný model je v celé kráse
 \begin{alignat}{2}
     \label{eqn:PMLD-matice}
     \textrm{d}\beta &= && P_{11} \cos2\phim\cos2\beta + P_{12}\cos2\phim\sin2\beta \\
                     & && + P_{21}\sin2\phim\cos2\beta + P_{22}\sin2\phim\sin2\beta \\
-                    &\equiv & & P_\textrm{ISO} \sin(2\phim - 2\beta - 2\alpha_\textrm{ISO}) \\
-                    &  & & + P_\textrm{ANISO} \sin(2\phim + 2\beta - 2\alpha_\textrm{ANISO})
+                    &\equiv & & P_+ \sin(2\phim - 2\beta - 2\alpha_+) \\
+                    &  & & + P_- \sin(2\phim + 2\beta - 2\alpha_-)
 \end{alignat}
 s vyjádřením parametrů dvěma ekvivalentními způsoby.
 Pro účely fitu používáme vyjádření první rovností, protože je v parametrech lineární.
 Pro prezentování výsledků používáme druhý způsob.
 
-Pro [100]-normálově orientovaný kubický vzorek má reflexní i transmisní matice tvar (s položeným $R_0=1$)
+Pro [100]-normálově orientovaný kubický vzorek s hlavními krystalografickými směry rovnoběžnými s osami $x$, $y$ má reflexní i transmisní matice tvar (s položeným $R_0=1$)
 \begin{equation}
-    \mathcal{R} = \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + 
+    \label{eqn:dR-kubicky}
+    \textrm{d}\mathcal{R}_M = P_+ \begin{pmatrix} \cos2\phim & \sin2\phim\\ \sin2\phim & -\cos2\phim  \end{pmatrix}
+    + P_- \begin{pmatrix} \cos2\phim & -\sin2\phim\\ -\sin2\phim & -\cos2\phim \end{pmatrix}
 \end{equation}
 kde jsme přímo dosadili fenomenologické koeficienty $P$.
+Člen úměrný $P_+$ otáčí svou optickou osu spolu s magnetizací, člen $P_-$ opačným směrem.
 Pro souvislost se složkami MO tenzorů a materiálových parametrů nemagnetických vrstev viz dodatek \ref{app:berreman}.
-Zde pouze uvedeme, že $P_\textrm{ISO}$, resp. $P_\textrm{ANISO}$ jsou úměrné $(G_s-K^2/n^2)$, resp. $\Delta G$ se stejnou konstantou úměrnosti.
+Zde pouze uvedeme, že $P_+$, resp. $P_-$ jsou úměrné\todo{dosadit z dodatku} $(G_s-K^2/n^2)$, resp. $\Delta G$ se stejnou konstantou úměrnosti.
 
-Z tvaru také výplývá, že $\alpha_\textrm{ISO}=0$ a $\alpha_\textrm{ANISO}=\gamma$, což vysvětluje zavedené značení.
-Pro izotropní vzorek platí $\Delta G = 0$ a tedy i $P_\textrm{ANISO}=0$, a člen úměrný $P_\textrm{ISO}$ je nezávislý na úhlu in-plane rotace $\gamma$.
-Přestože $\alpha_\textrm{ISO}$ by teoreticky mělo být nulové, ve zpracování ho připouštíme, ale přikládáme mu nový význam.
-Souřadné soustavy polarizace (, vůči které je měřené $\beta$) a magnetu (, vůči které je měřené $\phih$, $\phim$) byly stanoveny zcela odlišnými způsoby a pravděpodobně jsou spojeny vzájemnou rotací o malý úhel ($<\SI{5}{\degree}$).
+Vyjádřením \eqref{eqn:dR-kubicky} pro vzorek natočený o obecný úhel $\gamma$ bychom zjistili, že první člen je nezávislý na $\gamma$ a $\alpha_\textrm{+}=0$, zatímco pro druhý člen platí $\alpha_\textrm{-}=\gamma$.
+Přestože $\alpha_\textrm{+}$ by teoreticky mělo být nulové, ve zpracování ho připouštíme, ale přikládáme mu nový význam.
+Souřadné soustavy polarizace ($\beta$) a magnetu ($\phih$, $\phim$) byly stanoveny zcela odlišnými způsoby a pravděpodobně jsou spojeny vzájemnou rotací o malý úhel ($<\SI{5}{\degree}$).
 Úhlu $\alpha_\textrm{ISO}$ tedy přikládáme tento význam a kontrolujeme, jestli není příliš vysoké.
 S takovým nenulovým ofsetem je anizotropní část $\alpha_\textrm{ANISO}=\alpha_\textrm{ISO}+\gamma$.
 
