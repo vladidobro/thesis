@@ -15,7 +15,7 @@ kde definujeme normovanou intenzitu $I=E_{0x}^*E_{0x}+E_{0y}^*E_{0y}$.
 
 Vektor $\vec{E}$ opisuje v čase obecně elipsu v rovině kolmé na směr šíření, popisné parametry definujeme podle obr. \ref{fig:polarizacni-elipsa}.
 Jedná se o $\beta$ -- úhel natočení hlavní poloosy polarizace, a $\chi$ -- úhel elipticity, zde dále nazývaný zkráceně elipticita.
-Pro popis ekvivalentní $E_x$ a $E_y$ je třeba přidat intenzitu $I$ a časový posun $\delta$, který má význam času, ve kterém $\vec{E}(t)$ protíná hlavní poloosu s
+Pro popis ekvivalentní $E_x$ a $E_y$ je třeba přidat intenzitu $I$ a časový posun $\delta_0$, který má význam času, ve kterém $\vec{E}(t)$ protíná hlavní poloosu.
 
 Konvenci točivosti světla používáme následující: při podle pohledu \emph{od zdroje} obíhá pravotočivé světlo v dané rovině po směru hodinových ručiček.
 Točivost se v parametrech projevuje vzájemným znaménkem $\chi$ a točivosti systému, ve kterém je $\chi$ definováno (viz další oddíl).
@@ -48,7 +48,7 @@ Dvě polarizace/Jonesovy vektory jsou ``ortogonální'' ($\J_1^\dagger \J_2=0$),
 Akci každého lineární polarizačního prvku, lze popsat jako lineární transformaci Jonesova vektoru -- transformaci Jonesovou $2\times 2$ komplexní maticí $\mathcal{T}$.
 Jonesovy matice lze použít pro popis polarizačního děliče: každé rameno pak má vlastní matici.
 
-Sadě parametrů $\beta$, $\chi$, $I$, $\delta$ odpovídá Jonesův vektor\todo{znaminka}
+Sadě parametrů $\beta$, $\chi$, $I$, $\delta$ odpovídá Jonesův vektor\todo{1,i je chi=1}
 \begin{equation} 
 \label{eqn:Jones-elipsa}
     \J=\sqrt{I} e^{i\delta} \begin{pmatrix}
@@ -80,10 +80,10 @@ v této práci si však vystačíme s plně polarizovaným světlem a proto je n
 \end{alignat}
 kde jsme je druhými rovnostvi vyjádřili jako střední hodnoty vhodných $2\times 2$ hermitovských matic $\sigma_{i}$. Ty jsou
 \begin{align}
-    \sigma_0=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} ,\,
-    \sigma_1=\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} ,\,
-    \sigma_2=\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} ,\,
-    \sigma_3=\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix}
+    \sigma_0=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} ,\,\,
+    \sigma_1=\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} ,\,\,
+    \sigma_2=\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} ,\,\,
+    \sigma_3=\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}
 \end{align}
 a můžeme je rozeznat jako jednotkovou matici a přerovnané Pauliho matice.
 Tvoří komplexní bázi obecných komplexních $2\times 2$ matic, s omezením na reálné koeficienty pak bázi hermitovských matic. 
@@ -96,10 +96,10 @@ s^\textrm{out}_i=\J_\textrm{in}^\dagger \mathcal{T}^\dagger \sigma_i \mathcal{T}
 \end{equation}
 kde reálná $4\times 4$ matice $\M$ je dána právě rozkladem hermitovských matic $\mathcal{T}^\dagger \sigma_i \mathcal{T}$ do báze $\sigma_j$.
 Matice $\M$ charakterizující optický prvek se nazývá Muellerova matice, a sloupcový vektor $\Stks$ složený ze Stokesových parametrů se nazývá Stokesův vektor.
-Složky Muellerovy matice příslušející Jonesově matici $\mathcal{T}$ je možné počítat přímo z rozkladu \eqref{eqn:Muellerova-matice} díky tzv. trace-ortogonalitě $\sigma_j$ matic: $\operatorname{Tr}\lbrace\sigma_j\sigma_i\rbrace=2\delta_{ji}$
+Složky Muellerovy matice příslušející Jonesově matici $\mathcal{T}$ je možné počítat přímo z rozkladu \eqref{eqn:Muellerova-matice} díky tzv. trace-ortogonalitě $\sigma_j$ matic: $\operatorname{Tr}\lbrace\sigma_i\sigma_j\rbrace=2\delta_{ij}$
 \begin{equation} 
 \label{eqn:Mueller-rozklad}
-    M_{ij}=\frac{1}{2}\operatorname{Tr}\lbrace \sigma_j \mathcal{T}^\dagger \sigma_i \mathcal{T} \rbrace \,.
+    M_{ij}=\frac{1}{2}\operatorname{Tr}\lbrace \mathcal{T}^\dagger \sigma_i \mathcal{T} \sigma_j \rbrace \,.
 \end{equation}
 
 Pro plně polarizované světlo nejsou Stokesovy parametry nezávislé, platí totiž
@@ -127,7 +127,7 @@ Pro pozdější použití uvedeme totální diferenciál Stokesova vektoru (jak�
     \textrm{d}\Stks = 
     2I\cos2\chi \begin{pmatrix} 0\\-\sin2\beta\\\cos2\beta\\0 \end{pmatrix} \textrm{d}\beta 
     + 2I\begin{pmatrix} 0\\-\sin2\chi\cos2\beta\\-\sin2\chi\sin2\beta\\\cos2\chi \end{pmatrix}\textrm{d}\chi
-    + \Stks\textrm{d}I \,.
+    + \frac{1}{I}\Stks\textrm{d}I \,.
 \end{equation}
 
 
