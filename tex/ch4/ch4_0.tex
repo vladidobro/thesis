@@ -10,11 +10,11 @@ Následuje popis jednotlivých komponent tohoto experimentálního uspořádán�
     \centering
     \includegraphics{./img/svg/schema-hlavni.drawio.pdf}
     \caption{(a) Schéma základní formy experimentu a definice experimentální souřadné soustavy.
-    Laserové světlo vychází z filtračního modulu Varia a prochází přes řadu odklopných zrcadel, jejichž účel je umožnit měření i v jiných geometriích.
-Následuje chopper (CH), interferenční filtr (IF) (pouze v části spektrálního rozsahu), nastavitelný šedý filtr (NDF) a hlavní fixní polarizátor P0 definující lineární polarizaci $\beta=\SI{0}{\degree}$.
-Do tohoto místa je aparatura vždy identická a předchozí část nekreslíme ve schématech jednotlivých experimentů (čočky také dále nebudeme kreslit).
+    Laserové světlo vychází z filtračního modulu Varia a prochází přes řadu sklopných zrcadel, jejichž účelem je umožnit měření i v jiných geometriích.
+Následuje přerušovač svazku (chopper, CH), interferenční filtr (IF) (pouze v části spektrálního rozsahu), nastavitelný šedý filtr (NDF) a hlavní fixní polarizátor P0 definující lineární polarizaci $\beta=\SI{0}{\degree}$.
+Do tohoto místa je aparatura vždy identická a předchozí část tedy nekreslíme ve schématech jednotlivých experimentů (čočky také dále nebudeme kreslit).
 Následuje rotační půlvlnná destička WP1 a polarizátor P1 nastavující požadované $\beta$.
-Svazek je fokusován na vzorek v komoře kryostatu (se skleněnými okénky) mezi rameny vektorového elektromagnetu.
+Svazek je fokusován na vzorek v komoře kryostatu (se skleněnými okénky) mezi pólovými nástavci vektorového elektromagnetu.
 Odražený/procházející (znázorněny oba) svazek je odkloněn zrcadly, kolimován a detekován schématem optického můstku.
 Signál z obou detektorů je zpracován rozdílovým a součtovým předzesilovačem a zpracován lock-in zesilovači na frekvenci chopperu.
 (b) Definice úhlů v rovině $xy$. $\alpha$ zde zastupuje libovolný z $\beta$, $\phih$, $\phim$, $\gamma$, aj.}
@@ -24,42 +24,42 @@ Signál z obou detektorů je zpracován rozdílovým a součtovým předzesilova
 \paragraph{Vektorový magnet}
 V laboratoři sestavený elektro-magnet tvořený dvěma páry nezávislých cívek dokáže vytvořit libovolně orientované vnější magnetické pole $\vHext$ v rovině $xy$ o maximální velikosti \SI{210}{\milli\tesla}.
 V praxi jsou kvůli hysterezi magnetu použity pouze definované charakterizované procedury (posloupnosti proudů).
-Vývojem proudových tabulek se zabývá \cite{kimakCharakterizaciaDvojdimenzionalnehoElektromagnetu2017,kimakOptickaSpektroskopieAntiferomagnetu2019}.
-V této práci používáme pouze dvě: rotaci pole o velikosti $\Hext=\SI{207}{\milli\tesla}, \SI{50}{\milli\tesla}$ s krokem v úhlu pole $\phih$ minimálně \SI{1}{\degree}.
+Vývojem příslušných proudových tabulek se zabývají práce \cite{kimakCharakterizaciaDvojdimenzionalnehoElektromagnetu2017,kimakOptickaSpektroskopieAntiferomagnetu2019}.
+V této práci používáme pouze dvě možnosti: rotaci pole o velikosti $\Hext=\SI{207}{\milli\tesla}$ a \SI{50}{\milli\tesla} s krokem v úhlu pole $\phih$ minimálně \SI{1}{\degree}.
 
 \paragraph{Kryostat}
-Kryostat s topením dovoluje udržovat vzorek v rozmezí teplot cca 15--\SI{800}{\kelvin}.
-Vzorek je lepen na \emph{cold-finger} a v kryogenické komoře umístěn mezi ramena magnetu.
+Kryostat (výrobce AR) s uzavřeným cyklem a topením dovoluje udržovat vzorek v rozmezí teplot cca 15--\SI{800}{\kelvin}.
+Vzorek je nalepen na tzv. \emph{cold-finger} a v kryogenické komoře, která je vyčerpána turbomolekulární vývěvou, je umístěn mezi pólové nástavce magnetu.
 Komora je opatřena zpředu a ze stran skleněnými okénky.
-Magneto-optickou aktivitu okének (Faradayův jev) zkoumá \cite{baduraMagnetooptickaMereniPro2019}.
+Magneto-optická aktivita okének (Faradayův jev) byla zkoumána v práci \cite{baduraMagnetooptickaMereniPro2019}.
 
 \paragraph{Super-kontinuální laser}
-\emph{SuperK EXTREME} generuje široko-spektrální pulzy, které jsou dále filtrovány pro získání pulzů s šířkou pásma \SI{10}{\nano\meter}.
+Používaný laser \emph{SuperK EXTREME} (NKT Photonics) generuje široko-spektrální pulzy, které jsou dále filtrovány pro získání pulzů s šířkou pásma \SI{10}{\nano\meter}.
 V rozmezí \num{460}--\SI{845}{\nano\meter} k filtraci používáme laditelný filtr \emph{SuperK VARIA}, v rozmezí \num{845}--\SI{1600}{\nano\meter} pak sadu pásmových interferenčních filtrů.
-V úvodních měřeních jsme jednou využili také externí laser\todo{jaky? dioda} s vlnovou délkou \SI{405}{\nano\meter}.
+V úvodních měřeních jsme jednou využili také externí laser MatchBox (Integrated Optics) s vlnovou délkou \SI{405}{\nano\meter}.
 
 \paragraph{Polarizační optika}
-Pevně umístěné polarizatóry P0 a P2 jsou širokospektrální typu Glan Laser.
-Polarizátor v motorizovaném rotačním držáku P1 je absorpční, daný rozsah vlnových délek je pokryt polarizátory s označením P-VIS (\num{400}--\SI{700}{\nano\meter})\todo{doplnit rozsahy} a P-IR (\num{600}--\SI{2000}{\nano\meter}).
-Půlvlnné destičky WP1, WP2 jsou také motorizované a vyskytují se ve třech sadách: VIS1, VIS2 (\num{400}--\SI{700}{\nano\meter}); NIR1, NIR2 (\num{700}--\SI{1000}{\nano\meter}); IR1, IR2 (\num{1000}--\SI{1600}{\nano\meter}).
-Posloupnost prvků P0, WP1, P1 má za úkol vytvořit lineární polarizaci s definovaným natočením $\beta$, která dále dopadá na vzorek.
+Pevně umístěné polarizatóry P0 a P2 jsou širokospektrální polarizátory typu Glan Laser (Thorlabs).
+Polarizátor v motorizovaném rotačním držáku P1 je absorpční (\todo{doplnit výrobce}), daný rozsah vlnových délek je pokryt polarizátory s označením P-VIS (\num{400}--\SI{700}{\nano\meter})\todo{doplnit rozsahy} a P-IR (\num{600}--\SI{2000}{\nano\meter}).
+Širokospektrální půlvlnné destičky WP1, WP2 (Newport) jsou také umístěny v motorizovaných otočných držácích (Thorlabs a Newport) a vyskytují se ve třech sadách: VIS1, VIS2 (\num{400}--\SI{700}{\nano\meter}); NIR1, NIR2 (\num{700}--\SI{1000}{\nano\meter}); IR1, IR2 (\num{1000}--\SI{1600}{\nano\meter}).
+Posloupnost prvků P0, WP1, P1 má za úkol vytvořit vysoce kvalitní lineární polarizaci s definovaným natočením $\beta$, která dále dopadá na vzorek.
 Destička WP2 slouží k vyvažování můstku.
 
 \paragraph{PEM}
 Foto-elastický modulátor (není na schématu) je zařízení, ve kterém vlivem zvukové vlny dochází k modulaci síly lineárního dvojlomu,
-takže se chová jako retardér (fázová destička) s periodicky modulovaným fázovým zpožděním (viz \eqref{eqn:cisty-retarder}) $\Delta_\textrm{PEM}(t) \propto \cos(\omega_\textrm{PEM}t)$. 
-Charakterizaci a detailnímu popisu se věnuje \cite{minarModulacePolarizaceSvetelne2004}.
+takže se chová jako retardér (fázová destička) s periodicky modulovaným fázovým zpožděním (viz \eqref{eqn:cisty-retarder}) $\delta_\textrm{PEM}(t) \propto \cos(\omega_\textrm{PEM}t)$. 
+Charakterizaci a detailnímu popisu se věnuje práce \cite{minarModulacePolarizaceSvetelne2004}.
 
 \paragraph{Berekův kompenzátor}
-Berekův kompenzátor (není na schématu) je laditelný retardér tvořený dvojlomným krystalem, jehož naklápěním lze dosáhnout libovolného (v daném rozsahu) fázového zpoždění $\Delta$ mezi kolmými lineárními polarizacemi.
-Charakterizaci se věnuje \cite{schusserSkryteKouzloPolarizace2014}.
+Berekův kompenzátor (není na schématu) je laditelný retardér tvořený dvojlomným krystalem, jehož naklápěním lze dosáhnout libovolného (v daném rozsahu) fázového zpoždění $\delta$ mezi kolmými lineárními polarizacemi.
+Charakterizaci se věnuje práce \cite{schusserSkryteKouzloPolarizace2014}.
 
 \paragraph{Detektory}
 V rozsahu \num{460}--\SI{1100}{\nano\meter} používáme křemíkové diody.
-V infračervené oblasti \num{1000}--\SI{1600}{\nano\meter} používáme detektory na bázi \ch{InGaAs}, které byly studovány v \cite{hovorakovaCharakterizaceInfracervenehoDetektoru}.
+V infračervené oblasti \num{1000}--\SI{1600}{\nano\meter} používáme detektory na bázi \ch{InGaAs}, které byly studovány v práci \cite{hovorakovaCharakterizaceInfracervenehoDetektoru}.
 
 \paragraph{Optický můstek}
 K měření je využito schéma optického můstku popsané v oddílu \ref{chap:mustek-kap2}.
 
-\paragraph{Chopper}
+\paragraph{Přerušovač svazku}
 Ve dráze svazku je vždy umístěn intenzitní modulátor (\emph{chopper}), který dovoluje přesnější měření pomocí fázově citlivých zesilovačů (\emph{lock-inů}).

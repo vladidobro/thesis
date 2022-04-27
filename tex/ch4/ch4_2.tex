@@ -8,7 +8,7 @@ V tomto oddílu naplno využijeme formalismus \emph{Stokesových kovektorů} -- 
 Pomocí něj vysvětlíme podstatu problémů a popíšeme několik způsobů, jakými vliv zrcadel a nedokonalostí prvků kompenzovat.
 Nakonec v oddílu \ref{chap:elipticita} popíšeme způsob využití Berekova kompenzátoru v můstku, který umožňuje současné měření stočení i elipticity.
 
-Pro další použití na obr. \ref{fig:kovektor-ideal-mustek} vykreslujeme kovektory můstku s idealizovanými prvky (jako v oddílu \ref{chap:mustek-kap2}).
+Pro další použití v následujících oddílech na obr. \ref{fig:kovektor-ideal-mustek} vykreslujeme kovektory můstku s idealizovanými prvky (jako v oddílu \ref{chap:mustek-kap2}).
 $\Dtks'$ značíme kovektory vzhledem ke světlu před děličem, $\Dtks''$ vzhledem ke světlu před destičkou.
 
 \begin{figure}[htbp]
@@ -25,7 +25,7 @@ $\Dtks'$ značíme kovektory vzhledem ke světlu před děličem, $\Dtks''$ vzhl
         \centering
         \includegraphics{./img/svg/mustek-kovektory.drawio.pdf}
     \end{subfigure}
-    \caption{Stokesovy kovektory ideálního můstku. (a) Vzhledem ke světlu před děličem. Zeleně je vyznačen úhel $4\theta_{\lambda/2}$ (b) Vzhledem ke světlu před destičkou. (c) Ilustrace významu $\Dtks'$ a $\Dtks''$.}
+    \caption{Stokesovy kovektory ideálního můstku. (a) Vzhledem ke světlu před děličem. (b) Vzhledem ke světlu před destičkou. Zeleně je vyznačen úhel $4\theta_{\lambda/2}$. (c) Ilustrace významu $\Dtks'$ a $\Dtks''$.}
     \label{fig:kovektor-ideal-mustek}
 \end{figure}
 
@@ -36,18 +36,18 @@ Zaměříme se na tři druhy druhy nedokonalostí, z nichž se nakonec jediná v
 Pro vyvažovací půlvlnnou destičku uvažujeme dva druhy nedokonalosti: rozdílnou propustnost obou módů a fázové zpoždění lišící se od přesné hodnoty $\pi/2$.
 Kvůli symetrii však stále požadujeme, aby destička měla dvě navzájem kolmé optické osy -- dva vlastní módy navzájem ortogonálních lineárních polarizací.
 
-Experimentálně bylo ověřeno, že polarizační dělič vysoce kvalitně dělí svazek na dvě ortogonální lineární polarizace.
-V odraženém svazku jsou sice zastoupeny obě polarizace, ale kvůli mírně odlišnému úhlu lomu se prostorově oddělí.
+Experimentálně bylo ověřeno, že polarizační dělič v optickém můstku (P2) vysoce kvalitně dělí svazek na dvě ortogonální lineární polarizace.
+V odraženém svazku jsou sice zastoupeny obě polarizace, ale kvůli mírně odlišnému úhlu lomu se prostorově oddělí.\todo{vysvetlit?}
 Vložením polarizátoru před dělič a jeho vhodným otáčením bylo možné ho zkřížit vzhledem k oběma ramenům (zvlášť) s extinkčním poměrem $I_\textrm{min}/I_\textrm{max} \approx \num{1e-4}$.
 Díky tomu se nijak neprojeví ani případná polarizační závislost detektorů.
 Jediná nedokonalost zbytku můstku (nezahrnující půlvlnnou destičku) je tedy rozdílná citlivost obou ramen na příslušné lineární polarizace.
 Ta je souhrnně způsobena jak rozdílnou propustností/odrazivostí děliče, tak nevyváženou citlivostí a zesílení obou detektorů.
 
 Všechny tři zmíněné nedokonalosti uvažujeme zvlášť a zanedbáváme jejich vzájemné působení.
-Nakonec se zaměříme na to, co se stane, když před můstek umístíme zrcadlo nezbytné pro oddělení dopadajícího a odraženého svazku v reflexní geometrii, a pro vyvedení svazku ven z komory kryostatu v transmisní geometrii.
+Nakonec se zaměříme na to, co se stane, když před můstek umístíme zrcadlo, které je nezbytné pro oddělení dopadajícího a odraženého svazku v reflexní geometrii, a pro vyvedení svazku ven z komory kryostatu v transmisní geometrii.
 
 
-\subsubsection*{Nevyváženost ramen}
+\subsubsection*{Nevyváženost ramen optického můstku}
 Rozdíl citlivostí ramen je vyjádřen $\eta$, takže vzhledem ke světlu před děličem
 \begin{align}
     {\Dtks'}^\textrm{A}=\frac{1+\eta}{2}(1, 1, 0, 0) \,,\\
@@ -65,16 +65,16 @@ Prvním z projevů je polarizační závislost součtového signálu (${d'_1}^\t
 To není velký problém, protože se ve vzorci $\Delta\beta=\Udif/2\Usum$ používá pouze pro normalizaci signálu, která lze určit i jiným způsobem (viz např. oddíl \ref{chap:elipticita}). 
 Pro malé $\eta$ není od věci tento vliv ignorovat.
 
-Druhou známkou nevyvážených ramen je nenulové  ${d'_0}^\textrm{A-B}$, které se projeví posunutím nulové kružnice jako na obr. \ref{fig:mustek-znazorneni-kovektoru}, která se po průchodu ideální detičkou pouze otočí v rovině $s_1s_2$.
+Druhou známkou nevyvážených ramen je nenulové  ${d'_0}^\textrm{A-B}$, které se projeví posunutím nulové kružnice jako na obr. \ref{fig:mustek-znazorneni-kovektoru}, která se po průchodu ideální destičkou pouze otočí v rovině $s_1s_2$.
 Důležitým rysem je, že nulová kružnice je vždy kolmá na rovník lineárních polarizací, což znamená, že $\partial\Udif/\partial\chi = 0$, a tedy v měřeném signálu se neprojeví změny elipticity\footnote{Pokud do můstku vstupuje lineárně polarizované světlo.}.
-I druhý projev tedy v důsledku pouze mění konstantu úměrnosti, pro $\chi=0$ platí
+I druhý projev neideálnosti optického můstku tedy v důsledku pouze mění konstantu úměrnosti, pro $\chi=0$ platí
 \begin{equation}
     \textrm{d}\Udif = 2I\cos(\eta) \textrm{d}\beta \,,
 \end{equation}
 což pro malé $\eta$ ignorujeme.
 
-\subsubsection*{Rozdílná propustnost destičky}
-Jonesova a Muellerova matice destičky s přesným fázovým zpožděním $\pi/2$, ale rozdílnou propustností obou lineárních polarizací je (pro $\theta_{\lambda/2}=0$)
+\subsubsection*{Anizotropie amplitudové propustnosti destičky}
+Jonesova a Muellerova matice destičky s přesným fázovým zpožděním $\pi/2$, ale rozdílnou propustností obou lineárních polarizací je (pro úhel natočení destičky $\theta_{\lambda/2}=0$)
 \begin{equation}
     \mathcal{T}_{\lambda/2} = \begin{pmatrix} 1&0 \\ 0&-\eta \end{pmatrix} \,, \quad
     \M_{\lambda/2} = \begin{pmatrix} 1&0&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \\ 0&0&0&-1 \end{pmatrix} \,,
@@ -119,8 +119,8 @@ Dosazením vyvažujícího $\zeta_1$ pak platí (viz \eqref{eqn:Stokes-diferenci
     \textrm{d}\Udif = {\Dtks''}^\textrm{A-B} \cdot \textrm{d}\Stks^\textrm{in} = 2I\left(\cos\zeta_2 \textrm{d}\beta + \sin\zeta_2\textrm{d}\chi\right)  \,.
 \end{equation}
 
-Zde však už narážíme na závažný problém: v měřeném signálu se nám projevují i změny elipticity neznámým faktorem $\sin\zeta_2$, který navíc závisí (i jeho znaménko) na $\beta$.
-Řešení nám poskytuje\todopn{zmínit TO?} skutečnost\footnote{Lze nahlédnout ze symetrie vůči obrácení točivosti světla či přímým výpočtem.}, že $\zeta_2$ je pro každé $\beta$ lichou funkcí nedokonalosti destičky $\delta$ -- mění znaménko při vyvážení polohami $\theta_{\lambda/2}$, resp. $\theta_{\lambda/2}+\SI{90}{\degree}$.
+Zde však už narážíme na závažný problém: v měřeném signálu, který by měl odpovídat pouze otočení polarizace, se nám projevují i změny elipticity neznámým faktorem $\sin\zeta_2$, který navíc závisí (i jeho znaménko) na $\beta$.
+Řešení nám poskytuje skutečnost\footnote{Lze nahlédnout ze symetrie vůči obrácení točivosti světla či přímým výpočtem.}, že $\zeta_2$ je pro každé $\beta$ lichou funkcí nedokonalosti destičky $\delta$ -- mění znaménko při vyvážení polohami $\theta_{\lambda/2}$, resp. $\theta_{\lambda/2}+\SI{90}{\degree}$.
 V praxi tedy měříme každé $\beta$ s oběma polohami destičky a bereme jejich aritmetický průměr
 \begin{equation}
 \label{eqn:mustek-kompenzace-desticek-prumer}
@@ -128,13 +128,12 @@ V praxi tedy měříme každé $\beta$ s oběma polohami destičky a bereme jeji
 \end{equation}
 Změny elipticity se odečetly a jediný zbývající vliv nedokonalosti je v dodatečném faktoru $\cos\zeta_2$, který pro malé $\delta$ (a tedy malé $\zeta_2$) zanedbáváme.
 Pokud není explicitně uvedeno jinak (v oddílech \ref{chap:elipticita} a \ref{chap:ferh-field-cooling}), provádíme tento krok vždy.
-Ilustrace dat, která ukazují na nutnost provádět popsanou kompenzaci, je na obr. \ref{fig:mustek-desticka-ilustrace}.
-Potvrzením správnosti kroků jsou ovšem až výsledky dosažené v kap. \ref{chap:5}.
+Ilustrace dat, která ukazují na nutnost provádět popsanou kompenzaci nedokonalého fázového zpoždění půlvlnné destičky, je na obr. \ref{fig:mustek-desticka-ilustrace}.
+Potvrzením správnosti provedených kroků jsou ovšem až výsledky dosažené v kap. \ref{chap:5}.
 
 Poznamenejme, že uvedená procedura funguje pouze za předpokladu, že do destičky dopadá přibližně lineárně polarizované světlo, protože jenom pak jsou obě vyvažující polohy destičky posunuté přesně o \SI{90}{\degree}.
 Při dopadu eliptického světla je situace výrazně složitější a dále se jí nezabýváme.
 
-\todo{doladit velikost}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{.48\textwidth}
@@ -145,25 +144,25 @@ Při dopadu eliptického světla je situace výrazně složitější a dále se 
         \centering
         \includegraphics{./img/svg/cofe_rt.drawio.pdf}
     \end{subfigure}
-    \caption{Ilustrace potřeby provádět kompenzaci nepřesného fázového zpoždění vyvažovací destičky. (a) Změřená data na $\lambda=\SI{810}{\nano\meter}$, která se liší pro dvě o \SI{90}{\degree} otočené polohy destičky (plnou a přerušovanou čarou). (b) Schéma experimentu: CoFe, pokojová teplota, transmisní geometrie, žádná zrcadla mezi vzorkem a můstkem.}
+    \caption{Ilustrace potřeby provádět kompenzaci nepřesného fázového zpoždění vyvažovací půlvlnné fázové destičky. (a) Změřená data na $\lambda=\SI{810}{\nano\meter}$, která se liší pro dvě o \SI{90}{\degree} otočené polohy destičky (plnou a přerušovanou čarou). (b) Schéma experimentu: CoFe, pokojová teplota, transmisní geometrie, žádná zrcadla mezi vzorkem a můstkem.}
     \label{fig:mustek-desticka-ilustrace}
 \end{figure}
 
 \subsubsection*{Zrcadla}
 
 Ve schématu experimentu na obr. \ref{fig:zakladni-schema} se v transmisní i reflexní geometrii vyskytují v dráze svazku mezi vzorkem a můstkem zrcadla.
-Důvody jsou čistě logistické, v reflexi je nutné odražený svazek prostorově oddělit od dopadajícího, v transmisi je nutné svazek vyvést z kryogenní komory.
+Důvody jsou čistě geometrické, v reflexi je nutné odražený svazek prostorově oddělit od dopadajícího, v transmisi je nutné svazek po průchodu vzorkem vyvést v kolmém směru z kryogenní komory.
 V obou případech svazek dopadá na zrcadlo přibližně pod úhlem \SI{45}{\degree}.
 
-Experimentálně bylo zjištěno, že odraz od použitých zrcadel není izotropní.
+Experimentálně bylo zjištěno, že odraz od použitých zrcadel (stříbrné pokrytí s označením P01 od firmy Thorlabs) není izotropní.
 Ve studovaném spektrálním rozsahu dosahuje světlo po jednom odrazu od zrcadla elipticity až \SI{10}{\degree}.
 Zrcadlo modelujeme jako retardér s Jonesovou maticí
 \begin{equation}
     \mathcal{T}_m = \begin{pmatrix} 1&0\\0&e^{i\delta_\textrm{m}} \end{pmatrix} \,.
 \end{equation}
 
-Vzhledem k nutnosti kompenzace nedokonalosti destičky, které vyžaduje, aby do ní vstupovala přibližně lineární polarizace, se všechno úsilí k řešení tohoto problému soustředilo na fyzickou kompenzaci zrcadla -- vložení dalšího optického prvku, který působí inverzně.
-Nejprve však ztratíme pár slov o tom, jaký by mělo zrcadlo vliv na ideální můstek.
+Vzhledem k nutnosti kompenzace nedokonalosti destičky, které vyžaduje, aby do ní vstupovala přibližně lineární polarizace, se úsilí k řešení tohoto problému soustředilo na fyzickou kompenzaci vlivu zrcadla na polarizaci detekovaného svazku pomocí vložení dalšího optického prvku, který působí inverzně.
+Nejprve však uvedeme, jaký by mělo zrcadlo vliv na ideální můstek.
 Mohli bychom zavádět kovektor $\Dtks'''$ vzhledem ke světlu před zrcadlem, který by měl stejný tvar jako \eqref{eqn:mustek-s-elipticitou}, ale s rozdílnou závislostí $\zeta_1$ a $\zeta_2$ na $\theta_{\lambda/2}$.
 Pro kvalitativní pochopení je v tomto případě ale názornější zůstat u $\Dtks''$ a namísto kovektoru zrcadlem zobrazit vstupní Stokesovy vektory.
 
@@ -181,11 +180,11 @@ Pro význačné $\beta$ lze odečíst přímo z obrázku
 \end{align}
 
 Zde je jasně vidět původ prvního popsaného problému, kterým trpí např. data na obr. \ref{fig:g-uvod-data} (a), totiž že změřená data pro $\beta$ a $\beta+\SI{90}{\degree}$ jsou zcela odlišná.
-Problém se zrcadly dlouho unikal pozornosti, především z toho důvodu, že jsou to právě polarizace $\beta=\SI{0}{\degree}, \SI{90}{\degree}$, které jsou nejvíce ovlivněny, zatímco $\beta=\SI{45}{\degree}, \SI{135}{\degree}$ jsou minimálně.
-S- a p-polarizace jsou přece odraženy beze změny\ldots
+Problém se zrcadly dlouho unikal pozornosti, především z toho důvodu, že jsou to právě polarizace $\beta=\SI{0}{\degree}, \SI{90}{\degree}$, které jsou nejvíce ovlivněny, zatímco $\beta=\SI{45}{\degree}, \SI{135}{\degree}$ jsou ovlivněny jen minimálně.
+Na první pohled by se mohlo zdát, že s- a p-polarizace jsou přece na zrcadlech odraženy beze změny\ldots
 
-Šťastnou náhodou je tento neduh ``vyřešen'', pokud světlo po odrazu od vzorku projde ještě jednou půlvlnnou destičkou WP1, jako v \cite{wohlrathMagnetooptickaCharakterizaceSpintronickych2018,kubascikMagnetooptickeStudiumAntiferomagnetickych2019,kimakOptickaSpektroskopieAntiferomagnetu2019}.
-Pak je pro všechna $\beta$ měřen stejný mix stočení a elipticity, takže vypadají věrohodně.
+Náhodou je tento neduh zdánlivě ``vyřešen'', pokud světlo po odrazu od vzorku projde ještě jednou půlvlnnou destičkou WP1, jako v \cite{wohlrathMagnetooptickaCharakterizaceSpintronickych2018,kubascikMagnetooptickeStudiumAntiferomagnetickych2019,kimakOptickaSpektroskopieAntiferomagnetu2019}.
+Pak je pro všechna $\beta$ následně měřen stejný mix stočení a elipticity, takže vypadají věrohodně.
 
 \begin{figure}[htbp]
     \centering
@@ -201,22 +200,22 @@ Pak je pro všechna $\beta$ měřen stejný mix stočení a elipticity, takže v
     \label{fig:mustek-zrcadlo-data}
 \end{figure}
 
-Nejjednodušší způsob, jakým zanesenou elipticitu zrcadla kompenzovat, je přidat ještě jedno identické zrcadlo, ve kterém je role s- a p- polarizace prohozena (odraz nahoru a do strany jako na obr. \ref{fig:mustek-zrcadlo-data} (b).
+Nejjednodušší způsob, jakým zanesenou elipticitu vlivem zrcadla kompenzovat, je přidat ještě jedno identické zrcadlo, ve kterém je role s- a p- polarizace prohozena (odraz nahoru a do strany jako na obr. \ref{fig:mustek-zrcadlo-data} (b).
 Obě polarizace pak po dvou odrazech nabydou stejného fázového faktoru.
-Dvojici zrcadel pak nazýváme \emph{zkřížená zrcadla} (ve schématech je značíme křížkem jako na obr. \ref{fig:mustek-zrcadlo-data} (b)) a chovají se jako neutrální prvek.
-Optická neutralita byla experimentálně ověřena v celém spektrálním rozsahu: elipticita lineárně polarizovaného světla po průchodu zkříženými zrcadly nepřesahuje elipticitu \SI{3}{\degree}, a to poněkud překvapivě i v případě, kdy je jedno ze zrcadel uvnitř kryostatu a zchlazené na teplotu \SI{15}{\kelvin}.
-Trik zkřížených zrcadel je použit ve všech experimentech v kap. \ref{chap:5}.
+Dvojici zrcadel v následujícím textu nazýváme \emph{zkřížená zrcadla} a chovají se z hlediska polarizace jako neutrální prvek.
+Tato jejich optická neutralita byla experimentálně ověřena v celém používaném spektrálním rozsahu (460--\SI{1600}{\nano\meter}): elipticita lineárně polarizovaného světla po průchodu zkříženými zrcadly nepřesahuje \SI{3}{\degree}, a to poněkud překvapivě i v případě, kdy je jedno ze zrcadel uvnitř kryostatu zchlazené na teplotu \SI{15}{\kelvin} a druhé je na pokojové teplotě.
+Trik zkřížených zrcadel je použit ve všech experimentech uvedených v kap. \ref{chap:5}.
 
-Nicméně otestována byla ještě jedna metoda kompenzace, kterou zde popíšeme -- pomocí Berekova kompenzátoru.
+Nicméně experimentálně byla v rámci řešení této práce otestována ještě jedna metoda kompenzace vlivu odrazu na zrcadle, kterou zde popíšeme -- pomocí Berekova kompenzátoru.
 Berekův kompenzátor je laditelný retardér a je proto možné jeho správným nastavením zrcadlo kompenzovat.
-Jedinou komplikací je právě správné nastavení.
+Jedinou komplikací je právě nutnost nalézt jeho správné nastavení.
 To jsme provedli dvěma způsoby.
 
 První způsob, který označujeme jako \emph{statický}, se snaží nastavit fixní polohu, která zrcadlo zcela kompenzuje pro všechna $\beta$.
 Procedura je zdlouhavá a probíhá iteračně: nejdříve je správně zorientovaná optická osa Berekova kompenzátoru, a poté nastavené správné fázové zpoždění, zatímco je pomocí rotačního analyzátoru za kompenzátorem měřena elipticita pro vybrané hodnoty vstupního $\beta$ (především \SI{45}{\degree} a $\SI{135}{\degree}$).
-Správného nastavení je dosaženo, když elipticita za kompenzátorem nulová pro všechna $\beta$ -- každá lineární polarizace před zrcadlem je lineární i za kompenzátorem.
+Správného nastavení je dosaženo, když je elipticita za kompenzátorem nulová pro všechna $\beta$ -- každá lineární polarizace před zrcadlem je lineární i za kompenzátorem.
 
-Druhý způsob označujeme jako \emph{dynamický}, protože neaspiruje na kompenzaci zrcadla, ale je nastavován pro každé $\beta$ zvlášť.
+Druhý způsob označujeme jako \emph{dynamický}, protože neaspiruje na kompenzaci vlivu zrcadla, ale je nastavován pro každé $\beta$ zvlášť.
 Princip je založen na tom, že není striktně vzato nutné zrcadlo kompenzovat. Vždyť \eqref{eqn:must-zrc-1}, \eqref{eqn:must-zrc-2} jsou v pořádku i se zrcadlem -- můstek dokáže měřit čisté stočení $\textrm{d}\beta$, i když do něj vstupuje eliptické světlo.
 Toto rozvolnění ubírá jeden stupeň volnosti Berekova kompenzátoru, který je nutno přesně nastavit, a tím proceduru výrazně usnadňuje.
 Ve dvoudimenzionálním stavovém prostoru Berekova kompenzátoru (poloha osy a fázové zpoždění) existuje pouze jeden bod, který ho správně nastaví staticky, ale celá křivka, která ho nastaví dynamicky.
@@ -230,13 +229,11 @@ Rozdílové napětí na frekvenci $\omega_\textrm{PEM}$ by tedy mělo být úmě
 
 Dynamické nastavení tedy spočívá v současném/střídavém točení vyvažovací destičky, osy a zpoždění kompenzátoru, zatímco na dvou lock-inech jsou sledovány hodnoty $\Udif(\omega=0)$ a $\Udif(\omega=\omega_\textrm{PEM})$ s cílem obě současně vynulovat.
 Tímto způsobem jsme se mimoděk vyhnuli problému s nedokonalými destičkami, protože nulovaný koeficient $\textrm{d}\chi$ není specifický pro zrcadla, ale zahrnuje v sobě celou detekční aparaturu.
-S dynamickým Berekovým kompenzátorem není třeba měřit obě polohy destičky.
+S dynamickým Berekovým kompenzátorem není třeba měřit MO signál pro obě polohy vyvažovací destičky.
 
+Oběma způsoby je Berekův kompenzátor vždy nastaven do polohy jedné ze dvou tříd lišících se v tom, jestli se dvojice zrcadlo--kompenzátor dohromady chová jako neutrální prvek (``nedotáčivý mód'', $\delta_m+\delta_B=0$) či půlvlnná destička (``přetáčivý mód'', $\delta_m+\delta_B=\pi$).
 
-\todo{tohle si jeste rozmyslim}
-Oběma způsoby je Berekův kompenzátor vždy nastaven do polohy jedné z dvou neekvivalentních tříd, lišících se v tom, jestli se dvojice zrcadlo--kompenzátor dohromady chová jako neutrální prvek (``nedotáčivý mód'', $\delta_m+\delta_B=0$) či půlvlnná destička (``přetáčivý mód'', $\delta_m+\delta_B=\pi$).
-
-Obě metody nastavení byly vyzkoušeny na vzorku CoFe v transmisní geometrii při pokojové teplotě (bez štítu kryostatu), viz obr. \ref{fig:berek} (b).
+Obě metody nastavení byly vyzkoušeny na vzorku CoFe v transmisní geometrii při pokojové teplotě (bez vakuové komory kryostatu), viz obr. \ref{fig:berek} (b).
 Při měření byly mezi vzorkem a můstkem umístěny dvě zrcadla jako na obr. \ref{fig:zakladni-schema}.
 Zrcadla byla umístěna paralelně, takže se dá očekávat, že se chovají jako retardér s dvojnásobným fázovým zpožděním.
 Dále jsme se kompenzací zrcadel Berekovým kompenzátorem nevěnovali.
@@ -252,14 +249,14 @@ Dále jsme se kompenzací zrcadel Berekovým kompenzátorem nevěnovali.
         \includegraphics{./data/out/pem-data.pdf}
     \end{subfigure}
     \caption{(a) Schéma pro testování Berekova kompenzátoru (BC). V případě dynamického nastavení je před vzorek umístěn PEM. 
-    (b) Změřená data CoFe při pokojové teplotě, $\lambda=\SI{1050}{\nano\meter}$. Pro porovnání jsou zobrazena i data měřená bez zrcadel (ref) a s nimi. fix/dyn značí fixní/dynamické nastavení, $0/\pi$ značí nedotáčivý/přetáčivý mód. Vykreslená data nejsou přímo měřená, ale je z nich vybraná frekvence $2\beta$ (viz oddíl \ref{chap:anizotropie-MLD}).}
+    (b) Změřená data CoFe při pokojové teplotě, $\lambda=\SI{1050}{\nano\meter}$, po symetrizaci v poli a filtraci frekvencí $2\beta$ (viz oddíl \ref{chap:anizotropie-MLD}). Polarizace $\beta=\SI{0}{\degree}$ (plná čára), $\beta=\SI{45}{\degree}$ (přerušovaná čára). Pro porovnání jsou zobrazena i data měřená bez zrcadel (ref) a s nimi. fix/dyn značí fixní/dynamické nastavení, $0/\pi$ značí nedotáčivý/přetáčivý mód. Vykreslená data nejsou přímo měřená, ale je z nich vybraná frekvence $2\beta$ (viz oddíl \ref{chap:anizotropie-MLD}).}
     \label{fig:berek}
 \end{figure}
 
 \subsection{Současné měření elipticity}
 \label{chap:elipticita}
 
-Měření dvou poloh vyvažovací destičky je časově náročné a zahazuje polovinu dat.
+Měření MO dat pro dvě polohy vyvažovací destičky je časově náročné a v jistém smyslu slova zahazuje polovinu dat.
 Metoda kompenzace pomocí \eqref{eqn:mustek-kompenzace-desticek-prumer} se zajímá pouze o průměr signálů v obou polohách a nebere v potaz jejich rozdíl, který v sobě nese informaci o elipticitě -- druhý člen \eqref{eqn:mustek-s-elipticitou} $\sin\zeta_2 \textrm{d}\chi$.
 Změnu elipticity od vzorku $\Delta\chi$ však nelze takto jednoduše ze signálu extrahovat, protože je vážena neznámým faktorem $\sin\zeta_2$, který je navíc malý.
 
@@ -355,8 +352,8 @@ jsou pak kofaktory stočení a elipticity (s geometrickým průměrem faktorů o
 \textrm{d}\Udif = \sqrt{1-\frac{{a^\textrm{A-B}_0}^2}{{a^\textrm{A-B}_1}^2+{a^\textrm{A-B}_2}^2}}\textrm{d}\beta 
 + \sqrt[4]{\left(\frac{{a^\textrm{A}_0}^2}{{a^\textrm{A}_1}^2+{a^\textrm{A}_2}^2}-1 \right)\left(\frac{{a^\textrm{B}_0}^2}{{a^\textrm{B}_1}^2+{a^\textrm{B}_2}^2}-1 \right)}\textrm{d}\chi
 \end{equation}
-Změření celé závislosti $U^\textrm{A-B}(\beta)$ vyžaduje změnu zesílení, aby nedošlo k přetečení lock-inů.
-Proto pouzíváme \eqref{eqn:elipticita-kofaktory} pouze k určení poměru obou kofaktorů
+Změření celé závislosti $U^\textrm{A-B}(\beta)$ vyžaduje změnu zesílení, aby nedošlo k překročení měřícího rozsahu lock-inů.
+Proto používáme \eqref{eqn:elipticita-kofaktory} pouze k určení poměru obou kofaktorů
 \begin{equation}
     \textrm{d}\Udif = g \left( \textrm{d}\beta + \frac{\sqrt[4]{\left(\frac{{a^\textrm{A}_0}^2}{{a^\textrm{A}_1}^2+{a^\textrm{A}_2}^2}-1 \right)\left(\frac{{a^\textrm{B}_0}^2}{{a^\textrm{B}_1}^2+{a^\textrm{B}_2}^2}-1 \right)}}{\sqrt{1-\frac{{a^\textrm{A-B}_0}^2}{{a^\textrm{A-B}_1}^2+{a^\textrm{A-B}_2}^2}}}\textrm{d}\chi \right) \,,
 \end{equation}
