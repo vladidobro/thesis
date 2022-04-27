@@ -3,7 +3,7 @@
 
 Všechny magneto-optické (MO) jevy lze v principu vysvětlit závislostí optických parametrů na magnetickém stavu\cite{silberQuadraticMagnetoopticKerr2019a}.
 V našem modelu je jediným materiálovým parametrem tenzor relativní permitivity $\varepsilon$.
-Nejdříve se zaměříme na feromagnety, závislost na magnetickém stavu značíme $\varepsilon(\vec{M})$.
+Zaměříme se na feromagnety, závislost na magnetickém stavu značíme $\varepsilon(\vec{M})$.
 Obecně je možné rozdělit závislost do tří příspěvků
 \begin{equation}
     \varepsilon(\vec{M})=\varepsilon^{(0)} + \varepsilon^{(-)}(\vec{M}) + \varepsilon^{(+)}(\vec{M}) \,,
@@ -31,7 +31,7 @@ Magnetická závislost permitivity se obvykle rozvíjí do mocninné řady v $\v
 \end{align}
 kde jsme explicitně uvedli první dva řády, které definují \emph{lineární MO tenzor} $\mathbb{K}$ a \emph{kvadratický MO tenzor} $\mathbb{G}$.
 Vyšší řády se většinou zanedbávají.
-Je dobré ale mít na paměti, že zakončením rozvoje na určitém řádu nejen snižujeme přesnost, ale také uměle zvyšujeme symetrii $\varepsilon(\M)$ \cite{silberQuadraticMagnetoopticKerr2019a}.
+Je dobré ale mít na paměti, že zakončením rozvoje na určitém řádu nejen snižujeme přesnost, ale také uměle zvyšujeme symetrii $\varepsilon(\vec{M})$ \cite{silberQuadraticMagnetoopticKerr2019a}.
 To je nejlépe nahlédnout např. u materiálu se šesterečnou symetrií v rovině $xy$: $\mathbb{G}$ tenzor je v rovině $xy$ isotropní, ale permitivita 6. řádu už má ``správnou'' šesterečnou symetrii.
 MO tenzory $\mathbb{K}$ a $\mathbb{G}$ nedokáží popsat Voigtův jev (viz kap. \ref{chap:2}) se šesterečnou symetrií, proto je třeba mít se na pozoru a v případě takového kvalitativního důkazu do rozvoje přidat další členy.
 
@@ -83,14 +83,10 @@ Pro pozdější použití uvedeme pro speciální případ $M_z=0$
         M_x^2 & -M_xM_y & 0 \\ -M_xM_y & M_y^2 & 0 \\ 0 & 0 & 0
     \end{pmatrix}
 \end{align}
-kde $G_s=G_{11}-G_{12}+2G_{44}$.\todo{overit}
+kde $G_s=G_{11}-G_{12}+2G_{44}$.
 Pro úplnost připomeneme, že složky MO tenzorů jsou stejně jako relativní permitivita $\varepsilon$ komplexní, bezrozměrné a frekvenčně závislé.
 Pokud je materiál dobře popsaný MO tenzory, lze pro libovolné $\vec{M}$ dosazením do \eqref{eqn:MO-tenzory} získat $\varepsilon$, aplikovat metodu z oddílu \ref{chap:optika-v-multivrstvach} a tak spočítat všechny myslitelné transmisní a reflexní koeficienty.
 
-Uvedený přístup není možné použít v případě, že osvětlované místo vzorku není tvořené homogenním $\vec{M}$, ale je tvořené více doménami, ve kterých se liší.
+Uvedený přístup není možné použít v případě, že osvětlované místo vzorku není tvořené homogenním $\vec{M}$, ale je tvořené více doménami, ve kterých se $\vec{M}$ liší.
 $\vec{M}$ je ve více-doménovém stavu dané průměrem přes domény.
 Pro $\mathbb{K}$ to nečiní problém, protože pro průměrné $\vec{M}$ dostaneme průměrné $\varepsilon$, ale pro $\mathbb{G}$ to již neplatí.
-
-Antiferomagnety se popisují analogicky, jen místo magnetizace závisí $\varepsilon$ na jiném parametru uspořádání.
-V případě kolineárního antiferomagnetu FeRh (viz kap. \ref{chap:vzorek-ferh}) je to Néelův vektor $\vec{L}$,
-a protože fyzikální situace s opačnou orientací ($+\vec{L}$ a $-\vec{L}$) jsou symetrické, lineární MO tenzor je v něm nulový.

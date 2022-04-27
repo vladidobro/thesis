@@ -10,15 +10,15 @@ V jednoduché formě je znázorněn na obr. \ref{fig:mustek-schema}.
     \label{fig:mustek-schema}
 \end{figure}
 
-Ústředním prvkem je polarizační dělič (často Glan Laser či Wollastonův hranol), který rozdělí svazek do dvou lineárně polarizovaných ramen.
-Při měření je nejprve nastaven úhel rotace půlvlnné destičky $\theta_{\lambda/2}$ (``vyvážení můstku'') tak, aby oba detektory detekovali stejnou intenzitu.
-Pro ideální prvky platí v Jonesově formalismu\todo{spocitat}
+Ústředním prvkem je polarizační dělič (často typu Glan Laser či Wollastonův hranol), který rozdělí svazek do dvou lineárně polarizovaných ramen.
+Při měření je nejprve nastaven úhel rotace půlvlnné destičky $\theta_{\lambda/2}$ (tzv. ``vyvážení můstku'') tak, aby oba detektory naměřily stejnou intenzitu.
+Pro ideální prvky platí v Jonesově formalismu
 \begin{align}
     \J_\textrm{A} = \mathcal{T}_\textrm{A} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,&, \quad 
-    \mathcal{T}_\textrm{A}=\begin{pmatrix} 1&0\\0&0 \end{pmatrix} \,, \\
+    \mathcal{T}_\textrm{A}=\begin{pmatrix} 0&0\\0&1 \end{pmatrix} \,, \\
     \J_\textrm{B} = \mathcal{T}_\textrm{B} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,&, \quad
-    \mathcal{T}_\textrm{B}=\begin{pmatrix} 0&0\\0&1 \end{pmatrix} \,,\\
-    \mathcal{T}_{\lambda/2}=\mathcal{R}(\theta_{\lambda/2})\begin{pmatrix} 1&0\\0&-1 \end{pmatrix}\mathcal{R}(-\theta_{\lambda/2}) \,&, \quad
+    \mathcal{T}_\textrm{B}=\begin{pmatrix} 0&1\\0&0 \end{pmatrix} \,,\\
+    \mathcal{T}_{\lambda/2}=\mathcal{R}(\theta_{\lambda/2})\begin{pmatrix} -1&0\\0&1 \end{pmatrix}\mathcal{R}(-\theta_{\lambda/2}) \,&, \quad
     \mathcal{R}(\theta)=\begin{pmatrix} \cos\theta&\sin\theta\\-\sin\theta&\cos\theta \end{pmatrix} \,.
 \end{align}
 

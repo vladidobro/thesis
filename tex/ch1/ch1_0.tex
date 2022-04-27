@@ -6,17 +6,17 @@ Tato kapitola shrnuje některé fyzikální modely a jevy důležité pro jeho p
     \input{./img/tikz/uvodni-diagram.tikz}
     \caption{Schéma typického magneto-optického experimentu. 
     Laserový svazek je vhodně upraven vstupní optikou, dále dopadá na vzorek, kterým je propuštěn/odražen, nakonec je upraven výstupní optikou (a případně rozdělen do více ramen) a je detekována jeho intenzita. 
-    Vzorek je umístěn v kryostatu a mezi rameny elektromagnetu, takže během experimentu je mu vnucena libovolná teplota a vnější magnetické pole.}
+    Vzorek je umístěn v kryostatu a mezi rameny elektromagnetu, takže během experimentu je mu vnucena libovolná teplota v daném rozsahu a vnější magnetické pole.}
     \label{fig:uvodni-diagram}
 \end{figure}
 
 
 \paragraph{Světlo}
-popisujeme Maxwellovými rovnicemi.
+považujeme za klasické a předpokládáme, že je dobře popsáno Maxwellovými rovnicemi.
 Je monochromatické na kruhové frekvenci $\omega$.
 K popisu polarizačního stavu používáme Jonesovy a Stokesovy vektory.
 Všechny optické prvky jsou lineární a nedepolarizační, takže je popisujeme Jonesovou a Muellerovou maticí\cite{gilReviewMuellerMatrix2014}.
-Neúnavně využíváme grafické znázornění Muellerových matic metodou zobrazování Poincarého sféry\footnote{angl. Poincaré sphere mapping} (tzv. \emph{charakteristických elipsoidů})\cite{gilReviewMuellerMatrix2014,ossikovskiPoincareSphereMapping2013}.
+Využíváme geometrické interpretace Muellerových matic metodou zobrazování Poincarého sféry\footnote{angl. Poincaré sphere mapping} (tzv. \emph{charakteristických elipsoidů})\cite{gilReviewMuellerMatrix2014,ossikovskiPoincareSphereMapping2013}.
 O interakci světla s látkou předpokládáme, že probíhá pouze skrze vektory elektrické polarizace $\vec{P}$, magnetizace $\vec{M}$ a proudové hustoty $\vec{j}$. 
 
 Odezva materiálů je lineární a lokální, a je obecně anizotropní. 
@@ -27,9 +27,9 @@ Výpočet je proveden v rámci Berremanova formalismu\cite{berremanOpticsStratif
 Magneto-optickou aktivitu modelujeme jako závislost efektivní permitivity $\varepsilon$ na magnetickém stupni volnosti.
 
 U feromagnetů je to celková magnetizace $\vec{M}$. 
-Feromagnety reagují na vnější magnetické pole změnou rovnovážné magnetizace, která je daná magnetickou volnou energií (magnetickou anizotropií).
+Feromagnety reagují na vnější magnetické pole změnou polohy rovnovážné magnetizace, která je daná magnetickou volnou energií (magnetickou anizotropií).
 Pro tenké magnetické filmy používáme Stonerův-Wohlfarthův model\cite{stonerMechanismMagneticHysteresis1991} pro materiál v jedno-doménovém stavu; předpokládáme konstantní velikost magnetizace a nulový průmět do normály vzorku (magnetizace je tzv. \emph{in-plane}).
 Efektivní permitivita je funkcí $\vec{M}$ a je rozvedena do mocninné řady, jejíž koeficienty tvoří složky lineárního $\mathbb{K}$ a kvadratického $\mathbb{G}$ magneto-optického tenzoru\cite{visnovskyOpticsMagneticMultilayers2018}.
 
-U kolineárního antiferomagnetu FeRh (viz kap. \ref{chap:vzorek-ferh}) je magnetickým stupněm volnosti magnetizace podmřížky (Néelův vektor\todo{pravda?} $\vec{L}$)\cite{saidlUltrarychlaLaserovaSpektroskopie2018}.
+U kolineárního antiferomagnetu FeRh (viz kap. \ref{chap:vzorek-ferh}) je magnetickým stupněm volnosti magnetizace podmřížky (Néelův vektor $\vec{L}$)\cite{saidlUltrarychlaLaserovaSpektroskopie2018}.
 Podobně jako u feromagnetů je $\varepsilon$ funkcí $\vec{L}$, až na to, že lineární člen je zakázán symetrií\footnote{Podmřížky s opačnou magnetizací jsou ekvivalentní, což obecně neplatí u všech antiferomagnetů.}.

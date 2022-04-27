@@ -1,30 +1,30 @@
 \section{CoFe}
 \label{chap:vzorek-cofe}
 
-Vzorek byl poskytnut prof. Y. Z. Wu z \emph{Department of Physics, State Key Laboratory of Surface Physics, Fudan Univerzity, Shangai} v Číněa jedná se o jeden ze skupiny vzorků studovaných v \cite{zengIntrinsicMechanismAnisotropic2020}.
-Tento oddíl je souhrnem relevantních informací z původního článku, poskytnutých doprovodných dokumentů a korespondence.
+Vzorek byl poskytnut prof. Y. Z. Wu z \emph{Department of Physics, State Key Laboratory of Surface Physics, Fudan Univerzity, Shangai} v Číně a jedná se o jeden ze skupiny vzorků studovaných v \cite{zengIntrinsicMechanismAnisotropic2020}.
+Tento oddíl je souhrnem relevantních informací z původního článku \cite{zengIntrinsicMechanismAnisotropic2020}, poskytnutých doprovodných dokumentů k tomuto článku a naší korespondence s pracovníky tohoto pracoviště.
 
 Ve slitině \ch{Co_xFe_{1-x}} byl z prvních principů předpovědězen intrinsický mechanismus anizotropní magnetoresistence (AMR): dochází ke křížení energetických pásů, které je závislé na orientaci magnetizace.
 Změnou poměru \ch{Co} a \ch{Fe} je navíc možné posouvat tyto body křížení vzhledem k Fermiho hladině a tak ladit velikost AMR.
-Po vypěstování monokrystalu metodou MBE bylo provedeno magneto-transportní měření a předpověď silného AMR byla potvrzena.
-AMR je projevem magnetické závislosti tenzoru vodivosti, a do jisté míry je možné ho považovat za $\omega\to 0$ limitu Voigtova jevu.\todopn{nevíte o nějakém zdroji?}
+Po vypěstování monokrystalu metodou MBE bylo provedeno magneto-transportní měření a předpověď silného AMR byla potvrzena\cite{zengIntrinsicMechanismAnisotropic2020}.
+AMR je projevem magnetické závislosti tenzoru vodivosti, a do jisté míry je možné ho považovat za $\omega\to 0$ limitu Voigtova jevu\cite{tesarovaSystematicStudyMagnetic2014}.
 
-CoFe je z hlediska spintronických aplikací ve skutečném světě perspektivní zejména z toho důvodu, že Co i Fe jsou velice snadno dostupné materiály a samotné CoFe je již jinými způsoby široce používané v současných technologiích.
+CoFe je z hlediska reálných spintronických aplikací perspektivní zejména z toho důvodu, že Co i Fe jsou velice snadno dostupné materiály a samotné CoFe je již jinými způsoby široce používané v současných technologiích.
 
 Vzorek studovaný v této práci je v původním článku označen $x=0.5$, je to \SI{10}{\nano\meter} vrstva monokrystalu \ch{Co_{0,5}Fe_{0,5}} na substrátu \ch{MgO}(001), s \SI{3}{\nano\meter} nadvrstvou \ch{MgO}(001).
 Vzorek má kubickou mřížku.
 Fotografie vzorku s vyznačenými krystalografickými osami a definicí úhlů je na obr. \ref{fig:vzorek-cofe} (a).
 
 Metodou \emph{torque-metry} byla změřena in-plane magnetická anizotropie vzorku, změřený torque je na obr. \ref{fig:vzorek-cofe} (b).
-Torque byl fitovaný SW modelem \eqref{eqn:SW-funkcional} s výsledkem $H_4=\SI{605}{Oe}$, $H_u=\SI{126}{Oe}$, $\phiu=\SI{0}{\degree}$.
-Natočení snadného směru uniaxiální anizotropie $\phiu$ je odečítáno od jednoho z hlavních krystalografických směrů [100] nebo [010], z korespondence však není zřejmé od kterého a jakým směrem.
-V našem značení \eqref{eqn:SW-funkcional} a jednotkách SI to odpovídá\todo{dosadit}
+Torque byl fitovaný SW modelem \eqref{eqn:SW-funkcional} s výsledkem $H_4=\SI{605}{Oe}$, $H_u=\SI{126}{Oe}$, $\phiu=\SI{114}{\degree}$.
+Natočení snadného směru uniaxiální anizotropie $\phiu$ je odečítáno od jednoho z hlavních krystalografických směrů [100] nebo [010], z naší korespondence s autory článku \cite{zengIntrinsicMechanismAnisotropic2020} však není zřejmé od kterého a jakým směrem.
+V našem značení \eqref{eqn:SW-funkcional} a jednotkách SI to odpovídá (záporné znaménko $k_4$ značí snadnou osu pootočenou oproti [100] o \SI{45}{\degree})
 \begin{equation}
 \label{eqn:cofe-anizotropni-konstanty-cina}
-    k_4 = \SI{0}{\milli\tesla} \,,\quad k_u = \SI{0}{mT} \,.
+    k_4 = -\SI{30.25}{\milli\tesla} \,,\quad k_u = \SI{6.3}{mT} \,.
 \end{equation}
 
-\todopn{tady bych chtel citovat cofe-sample-info.ppt z ciny. jak?}
+\todocite{supplemental cofe}
 \begin{figure}[htbp]
     \centering
     \input{./img/tikz/cofe-vzorek.tikz}

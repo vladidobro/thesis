@@ -43,10 +43,10 @@ Prostor Jonesových vektorů je přirozeně normovaný intenzitou \eqref{eqn:Poy
     \begin{pmatrix} J_{2x} \\ J_{2y} \end{pmatrix} \,, 
     \qquad I(\J)=\J^\dagger \J
 \end{equation}
-Dvě polarizace/Jonesovy vektory jsou ``ortogonální'' ($\J_1^\dagger \J_2=0$), pokud je celková intenzita prostý součet intenzit v obou polarizacích.
+Dvě polarizace/Jonesovy vektory jsou ``ortogonální'' ($\J_1^\dagger \J_2=0$)\todopn{diskuze}, pokud je celková intenzita prostý součet intenzit v obou polarizacích.
 
 Akci každého lineární polarizačního prvku, lze popsat jako lineární transformaci Jonesova vektoru -- transformaci Jonesovou $2\times 2$ komplexní maticí $\mathcal{T}$.
-Jonesovy matice lze použít pro popis polarizačního děliče: každé rameno pak má vlastní matici.
+Jonesovy matice lze použít i pro popis polarizačního děliče: každé rameno pak má vlastní matici.
 
 Sadě parametrů $\beta$, $\chi$, $I$, $\delta$ odpovídá Jonesův vektor
 \begin{equation} 
@@ -118,7 +118,7 @@ Ortogonální polarizace jsou zobrazeny na body středově souměrné podle poč
 \begin{figure}[htbp]
     \centering
     \input{./img/asy/poincareho-sfera.asy}
-    \caption{Poincarého sféra. Je vyznačen rovník lineárních polarizací (rovina $s_3=0$, $\chi=0$) a póly kruhových polarizací $\chi=\pm 1$.}
+    \caption{Poincarého sféra. Je vyznačen rovník lineárních polarizací (rovina $s_3=0$, $\chi=0$) a póly kruhových polarizací $\chi=\pm \pi/4$.}
     \label{fig:Poincareho-sfera}
 \end{figure}
 
@@ -146,19 +146,19 @@ Prvek reprezentovaný unitární Jonesovou maticí $\mathcal{U}$ zachovává int
 Zachovává intenzitu, takže Poincarého sféra nebude deformovaná ani posunutá, pouze otočená či převrácená.
 $\mathcal{U}$ lze diagonalizovat a její vlastní čísla jsou komplexní fázové faktory, píšeme tedy\footnote{Ve vzorci vystupuje dyadický součin Jonesových vektorů $\J\J^\dagger$, což je ortogonální projektor na $\J$, ne skalární součin, který by byl psaný $\J^\dagger \J$.}
 \begin{equation}
-    \mathcal{U}=e^{i\Delta_1} \J_1 \J_1^\dagger + e^{i\Delta_2} \J_2 \J_2^\dagger\,.
+    \mathcal{U}=e^{i\delta_1} \J_1 \J_1^\dagger + e^{i\delta_2} \J_2 \J_2^\dagger\,.
 \end{equation}
 Tyto dva vlastní módy mají po průchodu prvkem stejný polarizační stav, akce Muellerovy matice na Poincarého sféru má tedy za následek rotaci sféry kolem osy procházející těmito vlastními módy.
-Úhel rotace je dán fázovým zpožděním $\Delta=\Delta_1-\Delta_2$.
-Ve speciálním případě $\J_1=(1,0)^T$ a $\J_2=(0,1)^T$ je Jonesova a Muellerova matice\todo{zkontrolovat znaminka toho uhlu}
+Úhel rotace je dán fázovým zpožděním $\delta'=\delta_2-\delta_1$.
+Ve speciálním případě $\J_1=(1,0)^T$ a $\J_2=(0,1)^T$ je Jonesova a Muellerova matice
 \begin{equation}
 \label{eqn:cisty-retarder}
     \mathcal{U}=\begin{pmatrix}
-        e^{i\Delta_1} & 0 \\ 0 & e^{i\Delta_2}
+        e^{i\delta_1} & 0 \\ 0 & e^{i\delta_2}
         \end{pmatrix} \,, \qquad
     \mathbb{U}=\begin{pmatrix}
-        1 & 0 & 0 & 0 \\ 0 & \cos\Delta & \sin\Delta & 0 \\
-        0 & -\sin\Delta & \cos\Delta & 0 \\ 0 & 0 & 0 & 1
+        1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\
+        0 & 0 & \cos\delta' & -\sin\delta' \\ 0 & 0 & \sin\delta' & \cos\delta'
         \end{pmatrix} \,.
 \end{equation}
 

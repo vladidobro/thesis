@@ -1,11 +1,10 @@
-V této kapitole se zaměříme na magnetooptické (MO) \emph{jevy} -- jakým způsobem se tenzor permitivity závislý na magnetickém stavu projevuje v experimentu.
+V této kapitole se zaměříme na magnetooptické (MO) jevy -- jakým způsobem se tenzor permitivity závislý na magnetickém stavu projevuje v experimentu.
 Změna permitivity se přirozeně projeví změnou transmisních a reflexních koeficientů, a tím pádem i v polarizačním stavu prošlého a odraženého světla.
 Typický magnetooptický experiment tedy zkoumá polarizační stav světla po průchodu či odrazu od magnetooptického materiálu, měřenou veličinou je obvykle buď úhel natočení hlavní roviny polarizace $\beta$, elipticita $\chi$ nebo méně často intenzita $I$, v závislosti na magnetickém stavu.
 Magnetooptické experimenty mají společné to, že u měřené veličiny většinou nelze prakticky určit absolutní hodnotu a je nutné měřit pouze rozdíly\cite{silberQuadraticMagnetoopticKerr2019a}.
 Navíc se tato absolutní hodnota mění při změně většiny parametrů experimentu (např. posunutí/otočení čehokoliv), a jako nejčastější z mála možností je měřit rozdíl signálu při různých magnetických stavech.
 To se realizuje např. změnou přiloženého vnějšího pole, současným pozorováním regionů v různých magnetických stavech (MO mikroskopie), nebo časově rozlišeným pozorováním po aplikaci silného krátkého laserového pulzu (pump-probe metody).
 
-\todopn{Nechápu značení: (001) znamená [001] ve směru normály vrstvy. Je špatně, když v předchozích kapitolách píšu "[001] orientovaný vzorek"? Mám tam dát kulaté závorky?}
 Jediná podmínka na zkoumaný materiál je, aby existoval v různých magnetických stavech.
 Ty jsou nejčastěji charakterizované magnetizací $\vec{M}$ -- MO jevy byly pozorovány v diamagnetikách, paramagnetikách, feromagnetikách --
 není to ale podmínkou, existují i v kompenzovaných antiferomagnetech (AFM)\cite{saidlOpticalDeterminationNeel2017}, ve kterých celková magnetizace vymizí.
@@ -14,18 +13,18 @@ MO jevy lze pozorovat v transmisi i v reflexi.
 Reflexní jevy se souhrně nazývají MO Kerrovy jevy (MOKE) a většinou jsou slabší než transmisní\todocite{?}.
 Pro Kerrovy jevy existuje ustálená notace výsledků měření\cite{silberQuadraticMagnetoopticKerr2019a}.
 Kvůli praktickým účelům bývá nenulový úhel dopadu a jako vstupní polarizace se zpravidla volí buď s- nebo p-polarizace. 
-Změna polarizačního stavu po odrazu je popsána tzv. Kerrovou rotací a Kerrovou elipticitou\todo{zeptat se Evy, jestli tomu správně rozumím} vyjádřených společně komplexní Kerrovou rotací $\Psi_{s/p}$ jako v \eqref{eqn:komplexni-rotace}.
+Změna polarizačního stavu po odrazu je popsána tzv. Kerrovou rotací a Kerrovou elipticitou vyjádřených společně komplexní Kerrovou rotací $\Psi_{s/p}$ jako v \eqref{eqn:komplexni-rotace}.
 
-Dalším přirozeným dělením MO jevů je na liché a sudé v magnetizaci, což vzhledem k běžnému zanedbání jevů třetího a vyššího řádu splývá s dělením na lineární a kvadratické.
+Dalším přirozeným dělením MO jevů je třídění na liché a sudé v magnetizaci, což vzhledem k běžnému zanedbání jevů třetího a vyššího řádu splývá s dělením na lineární a kvadratické.
 Tradičně však toto dělení nerozlišuje magnetickou závislost permitivity (vyjádřenou MO tenzory $\mathbb{K}$ a $\mathbb{G}$), ale pozorovaných veličin (např. $\beta$, $\chi$, příp. transmisní/reflexní koeficienty). 
-Závislost měřitelných na $\varepsilon$ je nelineární, a proto mohou být kvadratické jevy způsobeny i lineárním $\mathcal{K}$: např. v kvadratickém Voigtově jevu (viz níže) vystupuje i člen $\left(\varepsilon^{(1)}\right)^2 \propto \mathbb{K}^2 \vec{M}^2$, který je někdy označovaný jako \emph{beam walk-off}\cite{akbarLowTemperatureVoigt2017}.
+Závislost měřitelných veličin na $\varepsilon$ je nelineární, a proto mohou být kvadratické jevy způsobeny i lineárním $\mathcal{K}$: např. v kvadratickém Voigtově jevu (viz níže) vystupuje i člen $\left(\varepsilon^{(1)}\right)^2 \propto \mathbb{K}^2 \vec{M}^2$, který je někdy označovaný jako \emph{beam walk-off}\cite{akbarLowTemperatureVoigt2017}.
 Lineární jevy mohou naopak být způsobeny jedině lineárním $\mathbb{K}$.
 
 Zmíníme ještě jedno dělení MO jevů: na základě toho, jaký druh optické anizotropie do vzorku zavádí magnetická permitivita\cite{zvezdinModernMagnetoopticsMagnetooptical1997}.
 Anizotropie může mít charakter dvojlomu (anizotropie $\Re\left\lbrace n\right\rbrace$ -- rozdílná fázová rychlost) nebo dichroismu (anizotropie $\Im\left\lbrace n \right\rbrace$ -- rozdílný absorpční koeficient).
 Druhou charakteristikou optické anizotropie jsou vlastní módy, pro které se daná vlastnost liší -- v nejjednodušším případě jsou to lineární\footnote{Slovo lineární má zde význam lineární polarizace; nesouvisí s dělením na lineární a kvadratické jevy výše. MLD je kvadratický jev.} nebo kruhové polarizace.
 Kombinací těchto charakteristik dělíme jevy na magnetický lineární/kruhový dvojlom/dichroismus: MLB, MLD, MCB, MCD\footnote{angl. Magnetic Linear/Circular Birefringence/Dichroism.}.
-Toto dělení se v reflexi používá z pedantského pohledu chybným způsobem: jako MLD se označuje anizotropie reálné části \emph{reflexního koeficientu}, která je však spjatá s anizotropií reálné i imaginární části indexu lomu - MLB i MLD\cite{tesarovaSystematicStudyMagnetic2014}.
+Toto dělení se ale v reflexi používá z ``pedantského'' pohledu chybným způsobem: jako MLD se někdy označuje anizotropie reálné části \emph{reflexního koeficientu}, která je však spjatá s anizotropií reálné i imaginární části indexu lomu -- tj. MLB i MLD\cite{tesarovaSystematicStudyMagnetic2014}.
 
 Poznamenáme, že pro intuitivní a dokonce i kvantitativní pochopení vlivu průchodu světla vzorkem vykazujícím jednu z uvedených anizotropií je dostačující grafické znázornění Muellerovych matic zavedené v oddílu \ref{chap:Stokes-Mueller}.
 Dvojlomný vzorek (obecný retardér) provádí otáčení a dichroický (obecný diatenuátor) protahování a posouvání ve směru osy procházející příslušnými lineárními/kruhovými módy.
@@ -59,7 +58,7 @@ Poprvé byl kvadratický jev pozorován v transmisi -- Voigt v roce 1902 pozorov
 Z pohledu třídění magneto-optických anizotropií se jedná o MLD, jev se často nazývá Voigtův či Cottonův-Moutonův.
 V reflexi se kvadratické jevy nazývají souhrnně jako kvadratické MOKE (QMOKE), případně reflexní Voigtův, Cotton-Moutonův jev nebo reflexní analogie MLD.
 
-Transmisní i reflexní verze tohoto jevu jsou ústředním tématem této práce a nazývat je budeme souhrnně MLD.
+Transmisní i reflexní verze tohoto jevu jsou ústředním tématem této práce a pro jednoduchost je dále budeme nazývat souhrnně MLD.
 
 \begin{figure}[htbp]
     \centering
@@ -80,13 +79,13 @@ K pozorování bylo využito chování hysterezních smyček v materiálech se �
 \end{figure}
 
 Silné MLB a MLD bylo také pozorováno při nízkých teplotách v paramagnetickém terbium-galiovém granátu (TGG)\cite{akbarLowTemperatureVoigt2017} a obecně jsou často silné v Heuslerových sloučeninách\cite{hamrleHugeQuadraticMagnetooptical2007}.
-V roce 2020 byl pozorován obří QMOKE v tenkém filmu \ch{(Eu,Gd)O} dosahující stočení až \SI{1}{\degree}.
+V roce 2020 byl pozorován obří QMOKE v tenkém filmu \ch{(Eu,Gd)O} dosahující stočení až \SI{1}{\degree}\cite{katsGiantQuadraticMagnetooptical2020}.
 
 Jedním z důvodů, proč se v současné době kvadratické jevy těší vysoké popularitě, je, že kvadratický tenzor $\mathbb{G}$ dovoluje výrazně širší třídu symetrií materiálů než lineární $\mathbb{K}$; mezi ně se řadí např. zmíněné kolineární AFM. 
 AFM byly již dříve předmětem intenzivního spintronického výzkumu \cite{nemecAntiferromagneticOptospintronics2018,jungwirthAntiferromagneticSpintronics2016}, 
-s objevem nové třídy magnetických materiálů -- \emph{altermagnetů}\cite{smejkalAltermagnetismSpinmomentumLocked2021} -- se opět dostávají na výsluní\todopn{je to tak??}.
+s objevem nové třídy magnetických materiálů -- \emph{altermagnetů}\cite{smejkalAltermagnetismSpinmomentumLocked2021} -- se opět dostávají na výsluní.
 
-Co se týče dosažených výsledků kvadratických jevů v AFM, byly využity např. pro určení Néelova vektoru v \ch{CuMnAs}\cite{saidlOpticalDeterminationNeel2017}, pro mikroskopii AFM domén\cite{xuImagingAntiferromagneticDomains2019} tenkých filmů \ch{NiO} (viz obr. \ref{fig:AFM-mikroskopie-domen}) a pro pozorování reakcí \ch{Fe2As} na ultrarychlé změny teploty\cite{yangMagnetoopticResponseMetallic2019}.
+Co se týče praktického použití kvadratických jevů pro studium AFM, byly využity např. pro určení Néelova vektoru v \ch{CuMnAs}\cite{saidlOpticalDeterminationNeel2017}, pro mikroskopii AFM domén\cite{xuImagingAntiferromagneticDomains2019} tenkých filmů \ch{NiO} (viz obr. \ref{fig:AFM-mikroskopie-domen}) a pro pozorování reakcí \ch{Fe2As} na ultrarychlé změny teploty\cite{yangMagnetoopticResponseMetallic2019}.
 
 \begin{figure}[htbp]
     \centering
@@ -95,32 +94,32 @@ Co se týče dosažených výsledků kvadratických jevů v AFM, byly využity n
     \label{fig:AFM-mikroskopie-domen}
 \end{figure}
 
-V nejjednodušším případě Voigtovy geometrie, kdy má navíc magnetická závislost permitivity plnou symetrii prázdného prostoru ($\mathbb{K}$, $\mathbb{G}$ i všechny vyšší řády jsou izotropní), má stočení polarizace vlivem Voigtova jevu jednoduchý tvar s fenomenologickým parametrem $\Pmld$ popisujícím amplitudu jevu
+V nejjednodušším případě Voigtovy geometrie, kdy má navíc magnetická závislost permitivity plnou symetrii prázdného prostoru ($\mathbb{K}$, $\mathbb{G}$ i všechny vyšší řády jsou izotropní), má stočení polarizace vlivem Voigtova jevu jednoduchý tvar s fenomenologickým parametrem $\Pmld$ popisujícím amplitudu jevu\cite{tesarovaHighPrecisionMagnetic2012}
 \begin{equation} 
 \label{eqn:PMLD}
     \Delta \beta=\Pmld \sin\left(2(\phim-\beta)\right) \,.
 \end{equation}
 
-Ani kubické krystaly však obecně nemají izotropní $\mathbb{G}$, a navíc pro měření odrazu se často používá malý, ale nenulový úhel dopadu, který vnese do signálu i lineární MOKE, takže je třeba využít plného formalismu představeného v kap. \ref{chap:1}.
+Ani kubické krystaly však obecně nemají izotropní $\mathbb{G}$\cite{hamrlovaQuadraticinmagnetizationPermittivityConductivity2013}, a navíc pro měření odrazu se často používá malý, ale nenulový úhel dopadu, který vnese do signálu i lineární MOKE, takže je třeba využít plného formalismu představeného v kap. \ref{chap:1}.
 To je sice v principu možné pro každou konkrétní situaci, ale pro interpretaci experimentu je nutné mít nějaký fenomenologický vzorec typu \eqref{eqn:PMLD}, který je platný pro širší třídu situací.
 
-Šikmý odraz přímo na polonekonečném (bulku) [001] orientovaném kubickém vzorku s omezením na in-plane magnetizaci byl spočítán pomocí Yehovy metody v \cite{postavaAnisotropyQuadraticMagnetooptic2002}.
+Šikmý odraz na polonekonečném (bulku) [001] orientovaném kubickém vzorku s omezením na in-plane magnetizaci byl spočítán pomocí Yehovy metody v \cite{postavaAnisotropyQuadraticMagnetooptic2002}.
 Jiná situace byla spočítána Berremanovou metodou v \cite{hamrleVicinalInterfaceSensitive2003}: odraz na struktuře tvořené izotropním polonekonečným substrátem,
-\emph{ultra-tenkým}\footnote{$nd/k_0 \ll 1$, kde $n$ je index lomu a $d$ tloušťka vrstvy.}
+ultra-tenkým\footnote{$nd/k_0 \ll 1$, kde $n$ je index lomu a $d$ tloušťka vrstvy.}
 filmem se zcela obecně anizotropním tenzorem permitivity, a izotropní nadvrstvou.
 Dosazením magnetické permitivity pro [001] orientovaný kubický vzorek in-plane otočený o úhel $\gamma$, jako v \eqref{eqn:funkcional-otoceny}, je pak reprodukován stejný tvar vzorce jako pro polonekonečný vzorek
 \begin{align} 
 \label{eqn:QMOKE-vzorec}
     \Psi_{s/p}=
     & A_{s/p} \left[ 2G_{44}-\frac{K^2}{\varepsilon^0}+\frac{\Delta G}{2}(1-\cos 4\gamma)  \right] M_x M_y\\
-    & A_{s/p} \left[ \frac{\Delta G}{4}\sin 4\gamma  \right] \left(M_x^2-M_y^2\right) \pm B_{s/p} K M_y \,,
+    & + A_{s/p} \left[ \frac{\Delta G}{4}\sin 4\gamma  \right] \left(M_x^2-M_y^2\right) \pm B_{s/p} K M_y \,,
 \end{align}
 kde $A_{s/p}$ a $B_{s/p}$ jsou vážící konstanty závisející na úhlu dopadu a na parametrech substrátu a nadvrstvy. 
-$A_{s/p}$ je sudou a $B_{s/p}$ lichou funkcí úhlu dopadu, jejich konkrétní tvar je uveden v příslušných původních článcích.
+$A_{s/p}$ je sudou a $B_{s/p}$ lichou funkcí úhlu dopadu, jejich konkrétní tvar je uveden v příslušných původních článcích\cite{postavaAnisotropyQuadraticMagnetooptic2002,hamrleVicinalInterfaceSensitive2003}.
 Detaily ohledně konvencí lze také nalézt v \cite{silberQuadraticMagnetoopticKerr2019a}.
-Vliv izotropního substrátu a nadvrstvy diskutuje metodou \emph{efektivních rozhraní}\cite{visnovskyPolarMagnetoopticsSimple1995}. 
+Vliv izotropního substrátu a nadvrstvy je diskutován metodou efektivních rozhraní v \cite{visnovskyPolarMagnetoopticsSimple1995}. 
 
-V uvedeném vzorci jsou patrné dva druhy příspěvků: lineární v $\vec{M}$, který vymizí při kolmém dopadu a kvadratický v $\vec{M}$, který je nenulový i při kolmém dopadu.
+V uvedeném vzorci \eqref{eqn:QMOKE-vzorec} jsou patrné dva druhy příspěvků: lineární v $\vec{M}$, který vymizí při kolmém dopadu a kvadratický v $\vec{M}$, který je nenulový i při kolmém dopadu.
 Jak bylo avizováno, kvadratický člen v sobě zahrnuje i lineární permitivitu $K^2$.
 Lze také vidět, že při kolmém dopadu $B_{s/p}=0$ a izotropním $\mathbb{G}$ ($\Delta G=0$) nezáleží signál na natočení vzorku a dostaneme
 \begin{equation}
@@ -129,4 +128,4 @@ Lze také vidět, že při kolmém dopadu $B_{s/p}=0$ a izotropním $\mathbb{G}$
 což je ekvivalentní \eqref{eqn:PMLD}.
 
 Při nekolmém dopadu se lineární i kvadratický člen sčítají a pro kvantitativní analýzu je třeba je nějakým způsobem oddělit.
-Metodám, které se tím zabývají, věnujeme zbytek této kapitoly.
+Metodám, které se tím zabývají, se věnujeme v dále uvedených částech této kapitoly.

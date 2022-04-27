@@ -20,7 +20,7 @@ draw(circle(c=O, r=1, normal=(0,-Sin(ang),Cos(ang))),dashed);
 
 triple P=(0,Cos(ang),Sin(ang));
 path3 uhel=O -- arc(O,len*Y,P) -- cycle;
-draw(uhel,L=Label("$\Delta$",align=(-0.2,0)));
+draw(uhel,L=Label("$\delta'$",align=(-0.2,0)));
 draw(surface(uhel), surfacepen = material(emissive(green+opacity(0.9))));
 draw(O -- P, dashed);
 

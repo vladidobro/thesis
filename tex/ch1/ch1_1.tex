@@ -1,7 +1,7 @@
 \section{Maxwellovy rovnice}
 \label{chap:maxwellovy-rovnice}
 
-Pracujeme ve frekvenčním obraze, uvažujeme elektrické pole harmonické v čase s konvencí $\vec{E}(t,\vec{r})=\Re\left\lbrace\vec{E}(\omega,\vec{r}) e^{-i\omega t}\right\rbrace$ a stejně pro ostatní časově závislé veličiny.
+Pracujeme ve frekvenčním prostoru, uvažujeme elektrické pole harmonické v čase s konvencí $\vec{E}(t,\vec{r})=\Re\left\lbrace\vec{E}(\omega,\vec{r}) e^{-i\omega t}\right\rbrace$ a stejně pro ostatní časově závislé veličiny.
 
 Látky popisujeme fenomenologicky lokální\footnote{Tzv. dipólová aproximace.} lineární odezvou.
 Navíc pokládáme nulovou magnetickou susceptibilitu na optických frekvencích: $\vec{M}(\omega)=0$, což kromě speciálních metamateriálů platí bez výjimky\cite{lindenPhotonicMetamaterialsMagnetism2006}.
@@ -11,7 +11,7 @@ Materiály jsou za těchto podmínek plně popsány komplexními frekvenčně z�
     \vec{j}(\omega,\vec{r})&=\sigma(\omega,\vec{r})\vec{E}(\omega,\vec{r}) \,, \label{eqn:materialy-J} \\
     \vec{B}(\omega,\vec{r})&=\mu_0 \vec{H}(\omega,\vec{r})  \,. \label{eqn:materialy-B}
 \end{align}
-Pro přehlednost budeme dále vynechávat argumenty s vyrozuměním, že vztahy platí lokálně pro všechna $\omega$ a $\vec{r}$.
+Pro přehlednost budeme dále vynechávat argumenty s tichým předpokladem, že vztahy platí lokálně pro všechna $\omega$ a $\vec{r}$.
 Jedinou výjimkou, kdy vynechání argumentu nebude znamenat složku na frekvenci $\omega$ (jako např. $\vec{E}\equiv\vec{E}(\omega)$), bude statická magnetizace $\vec{M}\equiv\vec{M}(\omega=0)$ a statické externí pole, které značíme $\vec{H}_{\textrm{ext}}\equiv\vec{H}(\omega=0)$.
 
 Maxwellovy rovnice v uvedené situaci mají v SI tvar
@@ -27,7 +27,7 @@ Zavádí se proto efektivní relativní permitivita $\varepsilon$ vztahem
     \varepsilon_0 \varepsilon=\varepsilon_0 \varepsilon_{\textrm{el}}+i\sigma/\omega \,,
 \end{equation}
 která v sobě zahrnuje vliv všech uvažovaných proudů.
-Komplexní $3\times 3$ matici $\varepsilon$ dále nazýváme zkrátka permitivitou a jedná se o jediný materiálový parametr charakterizující optické vlastnosti na dané frekvenci.
+Komplexní $3\times 3$ matici $\varepsilon$ dále nazýváme zkráceně permitivitou a jedná se o jediný materiálový parametr charakterizující optické vlastnosti na dané frekvenci.
 V rovnici \eqref{eqn:Maxwell-rot-B} jsme také užili rychlost světla ve vakuu $c=1/\sqrt{\mu_0 \varepsilon_0}$.
 
 Výhodné volby rozměru rovnic dosáhneme, pokud využijeme \emph{impedanci volného prostoru} $Z_0 = \sqrt{\mu_0/\varepsilon_0}$ a vyjádříme Maxwellovy rovnice v poli $Z_0 \vec{H}=c \vec{B}$

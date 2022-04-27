@@ -43,9 +43,9 @@ S uvážením \eqref{eqn:pricne-vlnove-vektory} mají Maxwellovy rovnice maticov
 Nejdříve ale zavedeme úsporný blokově maticový zápis\todo{odtud dolu prestat ze sesitu}
 \begin{align}
 \label{eqn:Berreman-blokove-znaceni}
-    \rho = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}
+    \rho = \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}
     \,, \qquad E^\perp = \begin{pmatrix}E_x \\ E_y\end{pmatrix}
-    \,, \, H^\perp = \rho \begin{pmatrix} H_x \\ H_y\end{pmatrix} = \begin{pmatrix} -H_y \\ H_x \end{pmatrix}
+    \,, \, H^\perp = \rho \begin{pmatrix} H_x \\ H_y\end{pmatrix} = \begin{pmatrix} H_y \\ -H_x \end{pmatrix}
     \,, \\ \varepsilon^\perp=\begin{pmatrix}\varepsilon_{11} & \varepsilon_{12} \\ \varepsilon_{21} & \varepsilon_{22}\end{pmatrix}
     \,, \, \varepsilon^\vert=\begin{pmatrix} \varepsilon_{13} \\ \varepsilon_{23} \end{pmatrix}
     \,, \, \varepsilon^-=\begin{pmatrix} \varepsilon_{31} & \varepsilon_{32} \end{pmatrix}
@@ -55,32 +55,24 @@ Nejdříve ale zavedeme úsporný blokově maticový zápis\todo{odtud dolu pres
 
 Třetí a šestá rovnice mají tvar
 \begin{equation}
-    N^- E^\perp - cB_z=0 \,, \qquad \varepsilon^- E^\perp + \varepsilon_{33} E_z + N^- cB^\perp=0 \,,
+    N^T \rho E^\perp + Z_0 H_z =0 \,, \qquad \varepsilon^- E^\perp + N^T H^\perp + \varepsilon_{33} E_z=0 \,,
 \end{equation}
-vyřešením a dosazením do \eqref{eqn:Berreman-6x6} dostáváme
-\begin{equation}
-    \begin{pmatrix}
-        N_z \rho -\frac{N^\vert \varepsilon^-}{\varepsilon_{33}} & -1 - \frac{N^\vert N^- }{\varepsilon_{33}} \\
-        \varepsilon^\perp-\frac{\varepsilon^\vert \varepsilon^-}{\varepsilon_{33}}+N^\vert N^- & N_z \rho - \frac{\varepsilon^\vert N^-}{\varepsilon_{33}}
-    \end{pmatrix}
-    \begin{pmatrix} E^\perp \\ cB^\perp \end{pmatrix} = 0 \,,
-\end{equation}
-což lze upravit do normálního tvaru
+vyřešením, dosazením do \eqref{eqn:Berreman-6x6} a úpravou dostáváme
 \begin{equation} 
 \label{eqn:Berreman-master}
-    \partial_z \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}
-    = i k_0 \Delta \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}
+    \partial_z \vec{G}
+    = i k_0 \Delta \vec{G}
     \equiv i k_0 \begin{pmatrix}
-        1 & 0 \\ 0 & 1
+        -\frac{N\varepsilon^-}{\varepsilon_{33}} & 1-NN^T \\ \varepsilon^\perp - \frac{\varepsilon^\vert\varepsilon^-}{\varepsilon_{33}} - \rho NN^T \rho & - \frac{\varepsilon^\vert N^T}{\varepsilon_{33}}
     \end{pmatrix}
-    \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix} \,.
+    \vec{G} \,.
 \end{equation}
-
-Čtyři složky polí $E^\perp$ a $H^\perp$ jsou právě ty, jejichž spojitost na rozhraní diktují okrajové podmínky, takže není třeba se jimi zabývat zvlášť; stačí řešit rovnici \eqref{eqn:Berreman-master}.
+pro vektor příčných polí $\vec{G} = (E_x, E_y, H_y, -H_x)^T$ a označili jsme Berremanovu matici $\Delta$.
+Složky $\vec{G}$ jsou právě ty, jejichž spojitost na rozhraní diktují okrajové podmínky, takže není třeba se jimi zabývat zvlášť; stačí řešit rovnici \eqref{eqn:Berreman-master}.
 Uvnitř každé vrstvy (v oblasti s konstantním $\varepsilon$ a tedy maticí $\Delta$) je řešením maticová exponenciála
 \begin{equation}
 \label{eqn:Berreman-exponenciala}
-    \begin{pmatrix} E^\perp(z_2) \\ Z_0 H^\perp(z_2) \end{pmatrix} = e^{ik_0\Delta(z_2-z_1)} \begin{pmatrix} E^\perp(z_1) \\ Z_0 H^\perp(z_1) \end{pmatrix}
+    \vec{G}(z_2) = e^{ik_0\Delta(z_2-z_1)} \vec{G}(z_1) \,,
 \end{equation}
 která lze spočíst diagonalizací\footnote{Obecně vzato nemusí být diagonalizovatelná, dovoluje však maximálně dvounásobnou degeneraci (dva módy postupné $+z$ a dva $-z$), takže v nejpatologičtějším případě má Jordanův tvar dvou $2\times2$ bloků.} obecně nehermitovské $4\times 4$ matice $\Delta$.
 Matice má 4 komplexní vlastní čísla odpovídající vlnovým vektorům příslušných vlastních módů, které lze rozdělit do dvou skupin:
@@ -92,7 +84,7 @@ v Berremanově metodě se uplatňuje pouze jako pomocný výpočet jinak již do
 Diagonalizace a hledání vlastních módů jsou vysoce nelineární operace, jsou singulární v okolí degenerací (limita izotropního $\varepsilon$, či směr paprsku shodný s optickou osou) a někdy v nich dokonce selhávají\cite{xuOpticalDegeneraciesAnisotropic2000,wuSingularitiesMatrixFormalisms2018,garibelloSingularityYehTransfer2020,bertrandGeneralAnalyticalTreatment2001}.
 
 Tento rozdíl je zásadní v magneto-optice, kde nás často zajímají právě drobné odchylky od izotropní $\varepsilon$, a výsledky jsou vyjádřeny do prvního řádu v těchto odchylkách.
-V Yehově formalismu obtížné počítat derivace podle složek $\varepsilon$; v \eqref{eqn:Berreman-exponenciala} je to však jednoduché\cite{bertrandGeneralAnalyticalTreatment2001}.
+V Yehově formalismu je obtížné počítat derivace podle složek $\varepsilon$; v \eqref{eqn:Berreman-exponenciala} je to však jednoduché\cite{bertrandGeneralAnalyticalTreatment2001}.
 Z uvedených důvodů v této práci používáme Berremanův formalismus, přestože magneto-optice z velké části dominuje Yehův.
 
 Poruchová teorie v Berremanově formalismu je rozvedena v dodatku \ref{app:berreman}.
@@ -101,7 +93,7 @@ Poruchová teorie v Berremanově formalismu je rozvedena v dodatku \ref{app:berr
 
 Předpokládejme, že se nám podařilo vyřešit \eqref{eqn:Berreman-master} a tedy najít matici $\mathfrak{M}$, která svazuje příčná pole na začátku $(L)$ a na konci $(R)$ multivrstvy, viz obr. \ref{fig:odraz-pruchod}
 \begin{equation}
-    \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}_{(L)}=\mathfrak{M} \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}_{(R)}
+    \vec{G}_{(L)}=\mathfrak{M} \vec{G}_{(R)}
 \end{equation}
 
 
@@ -113,10 +105,10 @@ Např. pro odraz od vzorku na tlustém substrátu je nutné uvažovat jako výst
 
 Na obou stranách si zvolíme pro $-z$ i $+z$ šířící se módy bázi lineárních polarizací, kterými definujeme Jonesovi vektory pro příslušné svazky (pro ilustraci viz obr. \ref{fig:odraz-pruchod})
 \begin{equation}
-    \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}_{(L)}=\mathfrak{D}_{(L)} \begin{pmatrix} \J^-_{(L)} \\ \J^+_{(L)} \end{pmatrix} \,, \qquad
-    \begin{pmatrix} E^\perp \\ Z_0 H^\perp \end{pmatrix}_{(R)}=\mathfrak{D}_{(R)} \begin{pmatrix} \J^-_{(R)} \\ \J^+_{(R)} \end{pmatrix} \,,
+    \vec{G}_{(L)}=\mathfrak{D}_{(L)} \begin{pmatrix} \J^-_{(L)} \\ \J^+_{(L)} \end{pmatrix} \,, \qquad
+    \vec{G}_{(R)}=\mathfrak{D}_{(R)} \begin{pmatrix} \J^-_{(R)} \\ \J^+_{(R)} \end{pmatrix} \,,
 \end{equation}
-kde $\mathfrak{D}$ diagonalizuje $\Delta$ ve smyslu, že $\mathfrak{D}\Delta \mathfrak{D}^{-1}$ je diagonální.
+kde $\mathfrak{D}$ diagonalizuje $\Delta$ ve smyslu, že $\mathfrak{D}^{-1}\Delta \mathfrak{D}$ je diagonální.
 V Yehově formalismu se nazývají dynamické matice a obsahují ve sloupcích příčná pole jednotlivých módů.
 V případě degenerace není $\mathfrak{D}$ jednoznačné -- volbou $\mathfrak{D}$ volíme bázi Jonesových vektorů.
 
@@ -134,44 +126,43 @@ Souřadnou soustavu volíme tak, aby rovina dopadu byla rovnoběžná s jednou z
 Jako bázi módů volíme lineární polarizace příčné $J_s$ a podélné $J_p$ k rovině dopadu, viz. obr. \ref{fig:odraz-pruchod}.
 Pro prostředí s indexem lomu $n$ má dynamická matice v této situaci explicitně tvar
 \begin{equation}
-    \begin{pmatrix} E_x \\ E_y \\ Z_0 H_x \\ Z_0 H_y \end{pmatrix}
+    \vec{G} = \begin{pmatrix} E_x \\ E_y \\ Z_0 H_y \\ -Z_0 H_x \end{pmatrix}
     =\begin{pmatrix}
         1 & 0 & 1 & 0 \\
         0 & \cos\alpha_t & 0 & \cos\alpha_t \\
-        0 & 1 & 0 & -1 \\
-        -\cos\alpha_t & 0 & \cos\alpha_t & 0
+        -\cos\alpha_t & 0 & \cos\alpha_t & 0 \\
+        0 & -1 & 0 & 1
     \end{pmatrix}
     \begin{pmatrix}
         J^-_{s} \\ J^-_{p} \\ J^+_s \\ J^+_{p} \,,
     \end{pmatrix}
 \end{equation}
-kde jsme označili $\cos \alpha_t = \sqrt{1-\sin^2 \alpha /n^2}$ úhel lomu\todo{upravit}.
+kde jsme označili $\cos \alpha_t = \sqrt{1-\sin^2 \alpha /n^2}$ úhel lomu.
 
-Při řešení průchodu a odrazu tedy pokládáme $\J^+_{(R)}=0$ a snažíme se vyjádřit zbylé prošlé $\J^-_{(R)} \equiv \J_t$ a odražené $\J^+_{(L)} \equiv \J_r$ pomocí známého dopadajícího $\J^-_{(L)} \equiv \J_i$, což lze pomocí matic $\mathfrak{M}$ a $\mathfrak{D}$ jednoduše z
+Při řešení průchodu a odrazu tedy pokládáme $\J^+_{(R)}=0$ a snažíme se vyjádřit zbylé prošlé $\J^-_{(R)} \equiv \J^t$ a odražené $\J^+_{(L)} \equiv \J^r$ pomocí známého dopadajícího $\J^-_{(L)} \equiv \J^i$, což lze pomocí matic $\mathfrak{M}$ a $\mathfrak{D}$ jednoduše z
 \begin{equation}
-    \begin{pmatrix} \J_i \\ \J_r \end{pmatrix}
+    \begin{pmatrix} \J^i \\ \J^r \end{pmatrix}
     =\mathfrak{D}_{(L)}^{-1} \mathfrak{M} \mathfrak{D}_{(R)} 
-    \begin{pmatrix} \J_t \\ 0 \end{pmatrix} \,,
+    \begin{pmatrix} \J^t \\ 0 \end{pmatrix} \,,
 \end{equation}
 což vede na Jonesovy transmisní a reflexní matice Fresnelových koeficientů v bázi s- a p-polarizací
 \begin{equation}
-    \begin{pmatrix} J_{r-s} \\ J_{r-p} \end{pmatrix}
+    \begin{pmatrix} J^r_s \\ J^r_p \end{pmatrix}
         =\begin{pmatrix} r_{ss} & r_{sr} \\ r_{ps} & r_{pp} \end{pmatrix}
-        \begin{pmatrix} J_{i-s} \\ J_{i-p} \end{pmatrix} 
-        \,, \qquad \begin{pmatrix} J_{t-s} \\ J_{t-p} \end{pmatrix}
+        \begin{pmatrix} J^i_s \\ J^i_p \end{pmatrix} 
+        \,, \qquad \begin{pmatrix} J^t_s \\ J^t_p \end{pmatrix}
         =\begin{pmatrix} t_{ss} & t_{sp} \\ t_{ps} & t_{pp} \end{pmatrix}
-        \begin{pmatrix} J_{i-s} \\ J_{i-p} \end{pmatrix} \,.
+        \begin{pmatrix} J^i_s \\ J^i_p \end{pmatrix} \,.
 \end{equation}
 
 Multivrstva složená pouze z izotropních vrstev nemíchá s- a p-polarizaci, mimodiagonální členy jsou nulové.
 Pokud je jedna nebo více vrstev pouze slabě anizotropní, projeví se to malými nenulovými mimodiagonálními členy.
 Při dopadu např. s-polarizace pak prošlé a odražené světlo nabyde malé amplitudy p-polarizace, v elipsometrických parametrech se to projeví stočením hlavní roviny polarizace $\Delta \beta$ a elipticitou $\chi$; podobně pro dopadající p-polarizaci. 
-Oba jevy souhrnně popisuje tzv. komplexní parametr \todo{ověřit}stočení\cite{silberQuadraticMagnetoopticKerr2019a}, v reflexi
+Oba jevy souhrnně popisuje tzv. komplexní parametr stočení\cite{silberQuadraticMagnetoopticKerr2019a}, v reflexi s naší konvencí
 \begin{equation}
 \label{eqn:komplexni-rotace}
-    \Psi_s \equiv \Delta \beta_s - i \chi_s \approx \frac{r_{ps}}{r_{ss}} 
-    \,, \qquad \Psi_p \equiv \Delta \beta_p - i \chi_p \approx -\frac{r_{sp}}{r_{pp}} \,,
+    \Psi_s \equiv \Delta \beta_s + i \chi_s \approx \frac{r_{ps}}{r_{ss}} 
+    \,, \qquad \Psi_p \equiv \Delta \beta_p + i \chi_p \approx -\frac{r_{sp}}{r_{pp}} \,.
 \end{equation}
-kde jsme kvůli přechodu k opačné točivosti soustavy použili $-i\chi$, abychom se vyhnuli komplexnímu sdružení reflexních koeficientů.
-V průchodu komplexním stočení jsou reflexní koeficienty nahrazeny transmisními a druhý člen je $+i\chi$, protože nedochází k přechodu k bázi s opačnou točivostí.
+V průchodu jsou reflexní koeficienty nahrazeny transmisními.
 Komplexní parametr stočení se používá při popisu magneto-optických Kerrových jevů.
