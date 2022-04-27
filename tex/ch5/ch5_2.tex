@@ -6,34 +6,50 @@
 
 Měření proběhlo při teplotě \SI{420}{\kelvin} v reflexní geometrii, schéma je na obr. \ref{fig:ferh-fm-schema-data} (a).
 Úhel dopadu byl \SI{0.5}{\degree}.
-Orientace vzorku byla vždy přibližně $\gamma\approx\SI{0}{\degree}$ (viz obr. \ref{}), kromě jednoho kontrolního měření při $\lambda=\SI{1600}{\nano\meter}$, ve kterém bylo $\gamma\approx\SI{-90}{\degree}$.
-Tento bod je ve všech obrázcích náležitě označen.
+Orientace vzorku byla vždy přibližně $\gamma\approx\SI{0}{\degree}$ (viz obr. \ref{fig:vzorek-ferh} (a)), kromě jednoho kontrolního měření při $\lambda=\SI{1600}{\nano\meter}$, ve kterém bylo $\gamma\approx\SI{-90}{\degree}$.
 Příklad změřených dat je na obr. \ref{fig:ferh-fm-schema-data} (b).
-
 Všechny vlnové délky byly změřeny s velikostí pole $\Hext=\SI{50}{\milli\tesla}$, některé navíc s $\Hext=\SI{207}{\milli\tesla}$.
-Výsledná magnetická anizotropie je znázorněná na obr. \ref{fig:ferh-fm-schema-data} (c), všechny vlnové délky jsou v dobré shodě (pro každé $\Hext$ zvlášť).
-MO koeficienty jsou znázorněny na obr. \ref{fig:ferh-fm-pmld}.
 
-Zde je patrný již dvakrát zmíněný problém: uniaxiální magnetická anizotropie není konzistentní napříč velikostmi $\Hext$ a natočeními vzorku $\gamma$.
-Přibližně konstantní poměr $k_u/\Hext$ a její směr (v soustavě spojené s magnetem) nezávislý na natočení vzorku napovídá, že nejde o anizotropii vzorku, ale magnetu.
-Pro více informací viz dodatek \ref{app:magneticka-anizotropie}.
+Výsledná magnetická anizotropie je znázorněná na obr. \ref{fig:ferh-anizotropie}.
+Z výsledků je patrný již dvakrát zmíněný problém: uniaxiální magnetická anizotropie není konzistentní napříč velikostmi $\Hext$ a natočeními vzorku $\gamma$.
+$\tilde{k}_u$ by mělo při rotaci vzorku o \SI{90}{\degree} podle \eqref{eqn:tilda-k} změnit znaménko, což se neděje.
+Naopak je na rotaci vzorku nezávislé a je úměrné velikosti pole $\Hext$.
+To naznačuje, že změřené $\tilde{k}_u$ pochází od magnetu, a uniaxiální anizotropie samotného vzorku je proti ní velice malé.
+
+Kubická $\tilde{k}_4$ by měla podle \eqref{eqn:tilda-k} zůstat nezměněna při rotaci o \SI{90}{\degree}.
+Při malé nepřesnosti natočení se ale otočí v komplexní rovině o čtyřnásobek dodatečného úhlu.
+Podle obr. \ref{fig:ferh-anizotropie} (b) by to odpovídalo dodatečné rotaci o $\approx \SI{5}{\degree}$, což je přesvědčivé.
+Kubickou anizotropní konstantu tedy považujeme za věrohodně určenou, s hodnotou\todo{overit chybu}
+\begin{equation}
+    k_4 (\textrm{FR06}) = \SI{5.2(2)}{\milli\tesla} \,.
+\end{equation}
+
+Určení MLD koeficientů $P$ je necitlivé na nepřesnosti v $\vHext$, spektrální závislost je vynesena na obr. \ref{fig:ferh-fm-pmld}.
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{}
-    \caption{(a) schéma (b) data}
+    \begin{subfigure}{.3\textwidth}
+        \centering
+        \includegraphics{./img/svg/ferh-schema.drawio.pdf}
+    \end{subfigure}
+    \begin{subfigure}{.65\textwidth}
+        \includegraphics{./data/out/ferh-data.pdf}
+    \end{subfigure}
+    \caption{Měření FeRh v reflexní geometrii. (a) Schéma. (b) Ilustrace změřených dat s $\lambda=\SI{1600}{\nano\meter}$ a $\Hext=\SI{50}{\milli\tesla}$, po symetrizaci v poli a polohách WP2.}
     \label{fig:ferh-fm-schema-data}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
+    \includegraphics{./data/out/ferh-spatna-anizotropie.pdf}
+    \caption{Výsledky magnetických anizotropních konstant FeRh. (a, c) Uniaxiální. (b, d) Kubická. Na (a, b) jsou zobrazeny pouze střední hodnoty odhadů pro čtyři kombinace různých velikostí pole a rotace vzorku, čtverci jsou naznačeny oblasti zobrazené v (c, d). (c, d) Zaměření na $\Hext=\SI{50}{\milli\tesla}$, $\gamma=\SI{0}{\degree}$, zobrazeny $2\sigma$ oblasti měřené jednotlivými vlnovými délkami.}
+    \label{fig:ferh-anizotropie}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
     \missingfigure{}
-    \caption{pmld}
+    \caption{Spektrální závislost reflexních MO koeficientů $P$ vzorku FeRh při teplotě \SI{420}{\kelvin}.}
     \label{fig:ferh-fm-pmld}
 \end{figure}
 
-\subsection{Měření přechodu feromagnet--antiferomagnet}
-\label{chap:ferh-field-cooling}
-
-Jak bylo zmíněno v oddíle \ref{chap:vzorek-ferh}, polohu Néelova vektoru ve FeRh lze ovlivnit pomocí chlazení ve vnějším poli.
-Předpokládáme, že po aplikaci pole ve směru $\phih$ ve FM fázi (\SI{420}{\kelvin}) a následnému zchlazení do AFM fáze (\SI{320}{\kelvin}) bude vzorek v AFM stavu popsaném Néelovým vektorem v rovině vzorku, jeho směr označíme $\phin(\phih)$.

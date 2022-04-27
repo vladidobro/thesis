@@ -5,17 +5,18 @@
 \label{chap:vysledky-cofe-roomt}
 
 Měření v transmisní geometrii při pokojové teplotě je nejjednodušší, protože nevyžaduje žádných zrcadel mezi vzorkem a můstkem.
-Schéma aparatury je znázorněno na obr. \ref{fig:vysledky-cofe-schema-data} (a).
-Příklad změřených dat a proloženého fitovaného modelu je na obr. \ref{fig:vysledky-cofe-schema-data} (b).
+Aparatura byla použita ve stejném stavu jako je znázorněna schématem na obr. \ref{fig:mustek-desticka-ilustrace} (b).
+Ilustrace změřených dat je na obr. \ref{fig:vysledky-cofe-schema-data}.
 Výsledky fitu MO koeficientů $P$ jsou na obr. \ref{fig:vysledky-cofe-PMLD}.
 
 Znázornění výsledků fitu magnetické anizotropie je na obr. \ref{fig:vysledky-cofe-roomt-anizotropie}.
-\todo{napsat výsledky anizotropie}
+Výsledky určení magnetických anizotropních konstant pomocí různých vlnových délek se velice dobře shodují. 
+Z obrázků je také zřejmé, že nejistota konstant je pouze mírně podhodnocena.
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{}
-    \caption{CoFe v transmisní geometrii při pokojové teplotě. (a) Schéma experimentu. (b) Ilustrace měřených dat ($\lambda=\SI{1050}{\nano\meter}$).}
+    \includegraphics{./data/out/cofert-data.pdf}
+    \caption{CoFe v transmisní geometrii při pokojové teplotě. (a) Ilustrace měřených dat ($\lambda=\SI{620}{\nano\meter}$). (b) Stejná data po symetrizaci v poli a filtraci frekvencí $2\beta$.}
     \label{fig:vysledky-cofe-schema-data}
 \end{figure}
 
@@ -26,19 +27,13 @@ Znázornění výsledků fitu magnetické anizotropie je na obr. \ref{fig:vysled
     \label{fig:vysledky-cofe-roomt-anizotropie}
 \end{figure}
 
-\begin{figure}[htbp]
-    \centering
-    \missingfigure{}
-    \caption{PMLD cofe roomt, lowt}
-    \label{fig:vysledky-cofe-PMLD}
-\end{figure}
 
 \subsection{Měření při kryogenní teplotě}
 \label{chap:vysledky-cofe-lowt}
 
-Měření proběhlo při nejnižší možné teplotě dosažitelné použitým kryostatem, tj. přibližně \SI{15}{\kelvin}.
+Měření proběhlo při nejnižší teplotě dosažitelné kryostatem, tj. přibližně \SI{15}{\kelvin}.
 Měření v transmisní geometrii je při zchlazeném kryostatu výrazně složitější, viz obr. \ref{fig:vysledky-cofe-lowt-schema-data} (a).
-První ze zrcadel je umístěno uvnitř komory kryostatu, druhé -- kompenzační -- je venku.
+První ze zkřížených zrcadel je umístěno uvnitř komory kryostatu, druhé -- kompenzační -- je venku.
 Není proto apriori zřejmé, zda se zrcadla skutečně kompenzují, když jsou udržovány na tak rozdílných teplotách.
 Překvapivě tomu tak ale je: i při zběžném nastavení zrcadel byla po obou odrazech naměřena v celém spektru elipticita $<\SI{1}{\degree}$ pro vstupní polarizaci $\beta=45$, \SI{135}{\degree} (rovnoměrný mix s- a p-).
 
@@ -49,13 +44,49 @@ Faradayův jev je lichý v magnetizaci (okénka) a je nezávislý na natočení 
 Stočení po symetrizaci ve vnějším poli a vybrání $\beta$-závislosti s frekvencí $2\beta$ je na obr. \ref{fig:vysledky-cofe-lowt-schema-data} (c).
 Signál je posléze fitovaný modelem popsaným v kap. \ref{chap:4} a poměrně překvapivě dává přibližně stejnou magnetickou anizotropii pro většinu vlnových délek, viz obr. \ref{fig:vysledky-cofe-lowt-schema-data} (d).
 Právě kvůli Faradayově jevu v okénkách považujeme transmisní geometrii při nízké teplotě za nejméně spolehlivou.
+Obecně je amplituda vysoká ve viditelné oblasti, zatímco v infračervené jsou data téměř neovlivněna.
 
 Spektrální závislost výsledných MO koeficientů je vynesena na obr. \ref{fig:vysledky-cofe-PMLD}, společně s těmi měřenými při pokojové teplotě.
+Výsledná magnetická anizotropie je na obr. \ref{fig:vysledky-cofe-lowt-anizotropie}.
+Shrnutí magnetických anizotropních konstant pro obě měřené teploty je v tabulce \ref{tab:cofe-anizotropie}.
 
 \begin{figure}[htbp]
     \centering
-    \missingfigure{}
-    \caption{(a) schema, (b) data puvodni, (c) data symetrizovana (d) mag anizotropie}
+    \begin{subfigure}{.3\textwidth}
+        \centering
+        \includegraphics{./img/svg/cofe-lt-schema.drawio.pdf}
+    \end{subfigure}
+    \begin{subfigure}{.67\textwidth}
+        \centering
+        \includegraphics{./data/out/cofelt-data.pdf}
+    \end{subfigure}
+    \caption{Měření CoFe v transmisní geometrii při snížené teplotě. (a) Schéma. (b) Ilustrace změřených dat s $\lambda=\SI{620}{\nano\meter}$ a $\Hext=\SI{207}{\milli\tesla}$. (c) Stejná data po symetrizaci v poli a filtraci frekvencí $2\beta$.}
     \label{fig:vysledky-cofe-lowt-schema-data}
 \end{figure}
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{./data/out/cofe-lowt-anizotropie.pdf}
+    \caption{Výsledky magnetických anizotropních konstant CoFe při \SI{15}{\kelvin}. (a) Uniaxiální. (b) Kubická. Zobrazeny jsou $2\sigma$ oblasti měřené jednotlivými vlnovými délkami.}
+    \label{fig:vysledky-cofe-lowt-anizotropie}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    %\includegraphics{./data/out/cofe-pmld.pdf}
+    \caption{PMLD cofe roomt, lowt}
+    \label{fig:vysledky-cofe-PMLD}
+\end{figure}
+
+\begin{table}[tp]
+    \caption{Magnetická anizotropie CoFe.}
+    \label{tab:cofe-anizotropie}
+    \centering
+    \begin{tabular}{cccc}
+        \toprule
+        $T$ (\si{\kelvin}) & $k_4$ (\si{\milli\tesla}) & $k_u$ (\si{\milli\tesla}) & $\phiu$ (\si{\degree}) \\ \midrule[\heavyrulewidth]
+        295 & 0 & 0 & 0 \\
+        15 & 0 & 0 & 0 \\
+        \bottomrule 
+    \end{tabular} 
+\end{table}

@@ -17,6 +17,7 @@ Se vzorečkem je ještě jeden problém: $\phim$ v něm vystupuje pouze skrze li
 Shodná magnetická anizotropie je ale ve výsledku jediným spolehlivým kritériem, které nás dokáže přesvědčit o správnosti změřených dat.
 Přídavný požadavek na $P$ a $\varphi_O$, který zde přijmeme, je takový, že měřené stočení je MO jevem maximálně kvadratickým v magnetizaci vzorku $\vec{M}$.
 Uvidíme, že tento požadavek je k určení magnetické anizotropie dostačující (viz oddíl \ref{chap:urceni-magneticke-anizotropie}), tj. zajišťuje vzájemnou jednoznačnost $\Delta\beta$ a $\phim$.
+Pro kvalitativní analýzu je vyjádření \eqref{eqn:PMLD-ansatz} užitečné, protože dovoluje posoudit, zda se v měřeném signálu neobjevují MO jevy vyšších řádů\footnote{Např. v případě [111]-normálově orientovaných kubických vzorků, jako bylo pozorováno v \cite{silberQuadraticMagnetoopticKerr2019a}.}.
 
 Vzhledem k libovolnosti funkcí $P$ a $\varphi_O$ je jediná informace obsažená v ansatzu \eqref{eqn:PMLD-ansatz} vzájemná závislost signálu pro různá $\beta$.
 Ta je založena na dvou předpokladech.
@@ -95,38 +96,39 @@ Používaný model je v celé kráse
     \label{eqn:PMLD-matice}
     \textrm{d}\beta &= && P_{11} \cos2\phim\cos2\beta + P_{12}\cos2\phim\sin2\beta \\
                     & && + P_{21}\sin2\phim\cos2\beta + P_{22}\sin2\phim\sin2\beta \\
-                    &\equiv & & P_+ \sin(2\phim - 2\beta - 2\alpha_+) \\
-                    &  & & + P_- \sin(2\phim + 2\beta - 2\alpha_-)
+                    &\equiv & & P_+ \sin\left[2(\phim - \beta)\right] - 2\alpha_+) \\
+                    &  & & + P_- \sin(2\left[\phim + \beta - 2\gamma\right] - 2\alpha_-)
 \end{alignat}
 s vyjádřením parametrů dvěma ekvivalentními způsoby.
 Pro účely fitu používáme vyjádření první rovností, protože je v parametrech lineární.
-Pro prezentování výsledků používáme druhý způsob.
-
-Pro [100]-normálově orientovaný kubický vzorek s hlavními krystalografickými směry rovnoběžnými s osami $x$, $y$ má reflexní i transmisní matice tvar (s položeným $R_0=1$)
-\begin{equation}
+Pro prezentování výsledků používáme druhý způsob\footnote{Vztah obou vyjádření je v principu stejný jako vyjádření polarizace světla v bázi kolmých lineárních polarizací ($P_{ij}$) nebo kruhových polarizací($P_{+/-}$)}.
+Zároveň jsme naznačili, jakým způsobem se oba členy transformují při rotaci vzorku\footnote{Včetně rotace roviny dopadu při nekolmém odrazu.} v rovině $xy$ úhlem $\gamma$.
+První $P_+$ je izotropní a nezáleží na $\gamma$, druhý $P_-$ záleží na $\gamma$ a je symetrií zakázán pro izotropní vzorky.
+Při zahrnutí $\gamma$-závislosti jako v \eqref{eqn:PMLD-matice} jsou již $P_{+/-}$, $\alpha_{+/-}$ nezávislé na rotaci vzorku.
+Odpovídající reflexní a transmisní matice je
+\begin{align}
     \label{eqn:dR-kubicky}
-    \textrm{d}\mathcal{R}_M = P_+ \begin{pmatrix} \cos2\phim & \sin2\phim\\ \sin2\phim & -\cos2\phim  \end{pmatrix}
-    + P_- \begin{pmatrix} \cos2\phim & -\sin2\phim\\ -\sin2\phim & -\cos2\phim \end{pmatrix}
-\end{equation}
-kde jsme přímo dosadili fenomenologické koeficienty $P$.
+    \textrm{d}\mathcal{R}_M = &P_+ \left[\sigma_1\cos2(\phim-\alpha_+) + \sigma_2 \sin2(\phim-\alpha_+)\right] \\ 
+                              & + P_- \left[\sigma_1\cos2(\phim-\alpha_- - 2\gamma) - \sigma_2 \sin2(\phim-\alpha_--2\gamma) \right]
+\end{align}
 Člen úměrný $P_+$ otáčí svou optickou osu spolu s magnetizací, člen $P_-$ opačným směrem.
+
+Pro [100]-normálově orientovaný kubický vzorek mají Jonesovy matice pro $\gamma=\SI{0}{\degree}$ (měřeno od jedné z hlavních krystalografických os) stejný tvar jako \eqref{eqn:dR-kubicky} s $\alpha_{+/-}=0$.
 Pro souvislost se složkami MO tenzorů a materiálových parametrů nemagnetických vrstev viz dodatek \ref{app:berreman}.
 Zde pouze uvedeme, že $P_+$, resp. $P_-$ jsou úměrné\todo{dosadit z dodatku} $(G_s-K^2/n^2)$, resp. $\Delta G$ se stejnou konstantou úměrnosti.
 
-Vyjádřením \eqref{eqn:dR-kubicky} pro vzorek natočený o obecný úhel $\gamma$ bychom zjistili, že první člen je nezávislý na $\gamma$ a $\alpha_\textrm{+}=0$, zatímco pro druhý člen platí $\alpha_\textrm{-}=\gamma$.
-Přestože $\alpha_\textrm{+}$ by teoreticky mělo být nulové, ve zpracování ho připouštíme, ale přikládáme mu nový význam.
 Souřadné soustavy polarizace ($\beta$) a magnetu ($\phih$, $\phim$) byly stanoveny zcela odlišnými způsoby a pravděpodobně jsou spojeny vzájemnou rotací o malý úhel ($<\SI{5}{\degree}$).
-Úhlu $\alpha_\textrm{ISO}$ tedy přikládáme tento význam a kontrolujeme, jestli není příliš vysoké.
-S takovým nenulovým ofsetem je anizotropní část $\alpha_\textrm{ANISO}=\alpha_\textrm{ISO}+\gamma$.
+Proto, přestože $\alpha_{+/-}$ jsou pro kubický vzorek zakázané, ve zpracování je připouštíme a přikládáme jim nový význam zmíněného ofsetu.
+Přitom pokládáme $\alpha_+ = \alpha_-$, takže sada parametrů odpovídající čtyřem $P_{ij}$ je $P_+$, $P_-$, $\alpha_{+/-}$, $\gamma$: jsme schopni určit i rotaci vzorku.
 
-V soustavě spojené se vzorkem používáme ještě jednu parametrizaci, která vyjadřuje sílu kvadratického jevu při magnetizaci ve význačných směrech [100] a [110] a lze vizuálně přibližně odečítat z měřených dat (pro případ $\alpha_\textrm{ANISO}=0$)
+V soustavě spojené se vzorkem používáme ještě jednu parametrizaci, která vyjadřuje sílu kvadratického jevu při magnetizaci ve význačných směrech [100] a [110] a lze vizuálně přibližně odečítat z měřených dat
 \begin{equation}
     \Delta\beta = P_{[100]} \cos 2 (\phim-\gamma) \sin 2(\beta-\gamma) + P_{[110]} \sin 2 (\phim-\gamma) \cos 2(\beta-\gamma)
 \end{equation}
 Při orientaci polarizace ve směru [100] ($\beta=\gamma$) je amplituda změřené křivky $\Delta\beta(\phim)$ přímo $P_{[110]}$, při polarizaci ve směru [1-10] ($\beta=\gamma-\SI{45}{\degree}$) je amplituda $P_{[100]}$, viz obr. \ref{fig:urceni-MLD-ilustrace}.
 Platí
 \begin{equation}
-    P_{[100]} = P_\textrm{ISO} + P_\textrm{ANISO} \,,\quad P_{[110]} = P_\textrm{ISO} - P_\textrm{ANISO} \,.
+    P_{[100]} = P_+ + P_- \,,\quad P_{[110]} = P_+ - P_- \,.
 \end{equation}
 
 \begin{figure}[htbp]

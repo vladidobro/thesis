@@ -65,13 +65,14 @@ class MolzillaFile:
                     'normalize_col': 'A-B',
                     'normalize_by_col': 'A+B',
                     'normalize_method': 'intensity',
-                    'keep_and_rename': {'phih':'phih','A-B':'rotation','A+B':'intensity'}}
+                    'keep_and_rename': {'phih':'phih','A-B':'rotation','A+B':'intensity'},
+                    'symmetrize_h': True}
         opts = def_opts | self.opts | kwargs #default is overriden first by self.opts, then kwargs
         
         self.average_cycles(**opts)
         self.substract_endpoints(**opts)
         self.substract_mean(**opts)
-        self.symmetrize_h(**opts)
+        if opts['symmetrize_h']: self.symmetrize_h(**opts)
         self.normalize(**opts)
         
         self.data = self.data[opts['keep_and_rename'].keys()]
