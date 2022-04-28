@@ -17,22 +17,23 @@ Pro ideální prvky platí v Jonesově formalismu
     \J_\textrm{A} = \mathcal{T}_\textrm{A} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,&, \quad 
     \mathcal{T}_\textrm{A}=\begin{pmatrix} 0&0\\0&1 \end{pmatrix} \,, \\
     \J_\textrm{B} = \mathcal{T}_\textrm{B} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,&, \quad
-    \mathcal{T}_\textrm{B}=\begin{pmatrix} 0&1\\0&0 \end{pmatrix} \,,\\
-    \mathcal{T}_{\lambda/2}=\mathcal{R}(\theta_{\lambda/2})\begin{pmatrix} -1&0\\0&1 \end{pmatrix}\mathcal{R}(-\theta_{\lambda/2}) \,&, \quad
-    \mathcal{R}(\theta)=\begin{pmatrix} \cos\theta&\sin\theta\\-\sin\theta&\cos\theta \end{pmatrix} \,.
+    \mathcal{T}_\textrm{B}=\begin{pmatrix} 1&0\\0&0 \end{pmatrix} \,,\\
+    \mathcal{T}_{\lambda/2}=\mathcal{R}(\theta_{\lambda/2})\begin{pmatrix} 1&0\\0&-1 \end{pmatrix}\mathcal{R}(-\theta_{\lambda/2}) \,&, \quad
+    \mathcal{R}(\theta)=\begin{pmatrix} \cos\theta&-\sin\theta\\\sin\theta&\cos\theta \end{pmatrix} \,.
 \end{align}
 
-Dosazením Jonesova vektoru \eqref{eqn:Jones-elipsa} odpovídajícímu natočení hlavní roviny polarizace $\beta$ a elipticitě $\chi$ dostaneme rozdíl intenzit\todo{opsat ze sesitu}
+Dosazením Jonesova vektoru \eqref{eqn:Jones-elipsa} odpovídajícímu natočení hlavní roviny polarizace $\beta$ a elipticitě $\chi$ dostaneme rozdíl intenzit
 \begin{equation}
-    I_\textrm{A}-I_\textrm{B}\equiv\J_\textrm{A}^\dagger\J_\textrm{A}-\J_\textrm{B}^\dagger\J_\textrm{B}=I\sin(2\beta-4\theta_{\lambda/2})\cos2\chi \,, \quad I_\textrm{A}+I_\textrm{B}=I
+    I_\textrm{A}-I_\textrm{B}\equiv\J_\textrm{A}^\dagger\J_\textrm{A}-\J_\textrm{B}^\dagger\J_\textrm{B}=-I\cos2\chi \cos(2\beta-4\theta_{\lambda/2}) \,, \quad I_\textrm{A}+I_\textrm{B}=I
 \end{equation}
 
-Vyvážením můstku nastavíme $\sin(2\beta-4\theta_{\lambda/2})=0$. 
+Vyvážením můstku nastavíme $\cos(2\beta-4\theta_{\lambda/2})=0$. 
 V řeči diferenciálních forem pak pro malé změny $\J_\textrm{in}$ (vyjádřené pomocí $\textrm{d}\beta, \textrm{d}\chi, \textrm{d}I$) platí
 \begin{equation}
 \label{eqn:A-B-mustek}
-    \textrm{d}(I_\textrm{A}-I_\textrm{B})=2I\cos(2\chi) \textrm{d}\beta \,.
+    \textrm{d}(I_\textrm{A}-I_\textrm{B})=\pm 2I\cos(2\chi) \textrm{d}\beta \,,
 \end{equation}
+kde znaménko je určeno tím, jaký konkrétní uzel $\cos(2\beta-4\theta_{\lambda/2})$ byl vyvážením můstku nastaven.
 V měřeném signálu se tedy neprojeví změny elipticity ani intenzity.
 Pro vstupní lineární polarizaci ($\chi=0$) můžeme měřený rozdílový signál normovat součtovým a dostat
 \begin{equation}

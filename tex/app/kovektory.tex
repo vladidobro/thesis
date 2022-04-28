@@ -13,7 +13,7 @@ kde jsme označili $\Dtks^\textrm{A}=(1, 0, 0, 0)$ ``Stokesův kovektor`` detekt
 Tečka ($\cdot$) značí kontrakci\footnote{``Skalární součin''.}.
 
 Stejně jako můžeme světelný svazek popisovat Stokesovými vektory v různých místech jeho dráhy, můžeme i signál měřený detektory popisovat vzhledem ke Stokesovým vektorům v různých místech.
-Označíme jedním apostrofem kovektory vzhledem ke světlu vstupujícímu do děliče $\Dtks'$ a vzhledem ke světlu před destičkou $\Dtks''$
+Označíme jedním apostrofem kovektory vzhledem ke světlu vstupujícímu do děliče $\Dtks'$ a vzhledem ke světlu před destičkou $\Dtks''$.
 Vyjádřením $\Stks^\textrm{A}$ pomocí Stokesova vektoru vstupujícího do můstku $\Stks^\textrm{in}$ a Muellerových matic půlvlnné destičky a polarizačního děliče 
 \begin{equation}
     I_\textrm{A}= \Dtks^\textrm{A} \cdot \left( \M_\textrm{A} \M_{\lambda/2} \Stks^\textrm{in} \right) = \left( \Dtks^\textrm{A} \M_\textrm{A} \M_{\lambda/2}\right) \cdot \Stks^\textrm{in} \equiv {\Dtks''}^\textrm{A} \cdot \Stks^\textrm{in}  \,,
@@ -24,16 +24,16 @@ Stejně lze zřejmě činit i pro detektor B.
 Rozdílové a součtové napětí je pak
 \begin{align}
 \label{eqn:af}
-\Udif = \left( {\Dtks'}^\textrm{A}-{\Dtks'}^\textrm{B}\right) \cdot \Stks^\textrm{in} \equiv {\Dtks''}^\textrm{A-B}\cdot \Stks^\textrm{in} \,, \\
-\Usum = \left({\Dtks'}^\textrm{A}+{\Dtks'}^\textrm{B}\right) \cdot \Stks^\textrm{in} \equiv {\Dtks''}^\textrm{A+B}\cdot \Stks^\textrm{in} \,.
+\Udif = \left( {\Dtks'}^\textrm{A}-{\Dtks'}^\textrm{B}\right) \cdot \M_{\lambda/2} \Stks^\textrm{in} \equiv {\Dtks''}^\textrm{A-B}\cdot \Stks^\textrm{in} \,, \\
+\Usum = \left({\Dtks'}^\textrm{A}+{\Dtks'}^\textrm{B}\right) \cdot \M_{\lambda/2}\Stks^\textrm{in} \equiv {\Dtks''}^\textrm{A+B}\cdot \Stks^\textrm{in} \,.
 \end{align}
 
-Měřené signály jsou lineární ve vstupních Stokesových vektorech a jsou tedy reprezentovány lineárními formamy, zde ${\Dtks''}^\textrm{A-B}$ a ${\Dtks''}^\textrm{A+B}$.
+Měřené signály jsou lineární ve vstupních Stokesových vektorech a jsou tedy reprezentovány lineárními formami, zde ${\Dtks''}^\textrm{A-B}$ a ${\Dtks''}^\textrm{A+B}$.
 Pro ideální půlvlnnou destičku a polarizační dělič jako v oddílu \ref{chap:mustek-kap2} jsou Muellerovy matice (A měří $E_y$, B měří $E_x$)
 \begin{align}
     \M_\textrm{A} = \frac{1}{2}\begin{pmatrix} 1&-1&0&0 \\ -1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} \,,\quad 
     \M_\textrm{B} = \frac{1}{2}\begin{pmatrix} 1&1&0&0 \\ 1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} \,, \\
-    \M_{\lambda/2} = \begin{pmatrix} 1&0&0&0 \\ 0&\cos4\theta_{\lambda/2}&\sin4\theta_{\lambda/2}&0 \\ 0&-\sin4\theta_{\lambda/2}&\cos4\theta_{\lambda/2}&0 \\ 0&0&0&-1 \end{pmatrix}
+    \M_{\lambda/2} = \begin{pmatrix} 1&0&0&0 \\ 0&\cos4\theta_{\lambda/2}&\sin4\theta_{\lambda/2}&0 \\ 0&\sin4\theta_{\lambda/2}&-\cos4\theta_{\lambda/2}&0 \\ 0&0&0&-1 \end{pmatrix}
 \end{align}
 a Stokesovy kovektory jsou po dosazení
 \begin{align}
@@ -55,12 +55,11 @@ Pro nenulové $d_0$ je nulová plocha kužel.
 Pro body neležící na nulovém kuželu však $\Udif$ není určeno vzdáleností od kužele.
 Pro body na Poincarého sféře je signál úměrný vzdálenosti od roviny, která vznikne průnikem nulového kuželu s Poincarého sférou (vždy kružnice); stejnou konstrukci lze provést i pro body mimo Poincarého sféru ($I\neq1$), posunutí roviny však závisí na $I$.
 
-Uvedený postup selhává, pokud $d_0>|\vec{d}|\equiv|(d_1, d_2, d_3)|$, protože pak neexistují nenulové vektory, pro které je signál nulový; neexistuje nulová plocha.
+Uvedený postup selhává, pokud $d_0>|\vec{d}|\equiv|(d_1, d_2, d_3)|$, protože pak ne\-existují nenulové vektory, pro které je signál nulový; neexistuje nulová plocha.
 Nicméně pro každé konstantní $I$ je stále signál úměrný vzdálenosti od určité roviny, tentokrát však ležící mimo sféru vektorů s intenzitou $I$.
 
-Z provedené diskuze vyplývá jako nejvýhodnější znázorňovat Stokesovy kovektory jednotně pomocí \emph{nulové kružnice}, která je průsečíkem nulového kužele s Poincarého sférou, a případně jejím normálovým 3-vektorem $\vec{d}$, kterým je znázorněna konstanta úměrnosti mezi signálem a grafickou vzdáleností.
-Případ $d_0>|\vec{d}|$ v této práci nepoužíváme (formalismus používáme pro popis optického můstku, ve kterém se takové kovektory nevyskytují), ale znázorňovali bychom ho také 3-vektorem $\vec{d}$ a ``nulovou''\footnote{Která vzhledem k tomu, že leží mimo Poincarého sféru, odpovídá nedosažitelným Stokesovým vektorům $|\vec{s}|>s_0$.} rovinou příslušnou Poincarého sféře.
-Viz obr. \ref{fig:mustek-znazorneni-kovektoru} (b).
+Z provedené diskuze vyplývá jako nejvýhodnější znázorňovat Stokesovy kovektory jednotně pomocí \emph{nulové kružnice}, která je průsečíkem nulového kužele s Poincarého sférou, a případně jejím normálovým 3-vektorem $\vec{d}$, kterým je znázorněna konstanta úměrnosti mezi signálem a geometrickou vzdáleností.
+Případ $d_0>|\vec{d}|$ v této práci nepoužíváme (soustředíme se na popis optického můstku, ve kterém se takové kovektory nevyskytují), ale znázorňovali bychom ho také 3-vektorem $\vec{d}$ a ``nulovou''\footnote{Která vzhledem k tomu, že leží mimo Poincarého sféru, odpovídá nedosažitelným Stokesovým vektorům $|\vec{s}|>s_0$.} rovinou příslušnou Poincarého sféře.
 
 \begin{figure}[htbp]
     \centering

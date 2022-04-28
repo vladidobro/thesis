@@ -35,7 +35,10 @@ draw(prus -- prus+pol*rotate(angle=90, u=O, v=Z)*(len*prusbet), blue, arrow=Arro
 draw(prus -- prus+pol*(len*Z), blue, arrow=Arrow3(), L=Label("$\textrm{d}\chi$", p=black, position=EndPoint,align=W));
 draw(prus -- prus+kov*(len*Y), red ,arrow=Arrow3(), L=Label("$\textrm{d}U_\textrm{A-B}$", p=black , position=EndPoint,align=S));
 
-
+dot(X);
+dot(-X);
+dot(kov*X);
+dot(kov*(-X));
 
 draw(pol*uncirc, blue+dashed);
 draw(kov*circle(c=O, r=1, normal=Y), red);
