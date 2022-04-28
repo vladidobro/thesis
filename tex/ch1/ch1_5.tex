@@ -1,13 +1,20 @@
 \section{Magnetická anizotropie}
 \label{chap:magneticka-anizotropie}
 
-\todo{diskuze}Magnetizace $\vec{M}$ materiálu není veličina, která by se dala v experimentu přímo ovládat.
+Magnetizace $\vec{M}$ materiálu není veličina, která by se dala v experimentu přímo ovládat.
 V experimentu můžeme aplikovat vnější pole $\vHext$ a materiál si sám najde rovnovážnou polohu $\vec{M}$.
 Na druhou stranu magnetooptické vlastnosti, jak je patrné z předchozího oddílu, závisí od $\vec{M}$.
 Tento oddíl se věnuje vztahu mezi $\vec{M}$ a $\vHext$.
 
-Zanedbáme problémy spojené s demagnetizačními poli a budeme pro ilustraci uvažovat systém s homogenní magnetizací.
-Pokud je udržovaný na teplotě $T$, udává jeho termodynamické vlastnosti hustota volné energie $F(T,\vec{M})$ \cite{callenThermodynamicsIntroductionThermostatistics1985}.
+Pro ilustraci budeme uvažovat systém s homogenní magnetizací.
+Z vnitřní energie vyčleníme energii samotného vnějšího magnetického pole, které by bylo přítomno i při absenci systému, a zahrneme pouze magnetickou energii spojenou se systémem tak, jak je popsáno v dodatku učebnice \cite{callenThermodynamicsIntroductionThermostatistics1985}.
+Vnější pole $\vHext$ tedy uvažujeme jako čistě pole tvořené externími zdroji a nezahrnuje demagnetizační pole.
+Magnetický příspěvek hustoty vnitřní energie pak má tvar\cite{callenThermodynamicsIntroductionThermostatistics1985} 
+\begin{equation}
+    \textrm{d} U_\textrm{mag} = \mu_0 \vHext \cdot \textrm{d}\vec{M}\,.
+\end{equation}
+
+Pokud je udržovaný na teplotě $T$, udává jeho termodynamické vlastnosti hustota volné energie $F(T,\,\vec{M})$\cite{callenThermodynamicsIntroductionThermostatistics1985}.
 Aby mohl být systém v rovnováze při konkrétním $\vec{M}$, musí externí pole jakožto přidružený intenzivní parametr splňovat
 \begin{equation} 
 \label{eqn:Hext=gradF}
@@ -16,7 +23,7 @@ Aby mohl být systém v rovnováze při konkrétním $\vec{M}$, musí externí p
 
 Radši bychom ale znali rovnovážné $\vec{M}$ v situaci, kdy je systém obklopen magnetickým polem $\vHext$ tvořeným např. cívkami elektromagnetu.
 Mezi magnetem a studovaným systémem dochází k výměně energie prostřednictvím magnetického pole, systém je v kontaktu s "magnetickým rezervoárem" a v rovnováze proto dochází k minimalizaci \emph{celkové} volné energie.
-V souladu s teorií termodynamických potenciálů tedy přejdeme k Legendrově transformaci v $\vHext$ -- hustotě ``magnetické entalpie''\footnote{Někdy označované jako magnetický Gibbsův potenciál.} systému\cite{castellanoThermodynamicPotentialsSimple2003}\todo{skutecne plus?}
+V souladu s teorií termodynamických potenciálů tedy přejdeme k Legendrově transformaci v $\vHext$ -- hustotě ``magnetické entalpie''\footnote{Někdy označované jako magnetický Gibbsův potenciál.} systému\cite{castellanoThermodynamicPotentialsSimple2003}
 \begin{equation} 
 \label{eqn:magneticka-entalpie}
     \Omega(T,\vHext)= -\mu_0\vHext\cdot\vec{M}(\vHext)+F\left(\vec{M}(\vHext)\right) \,.
@@ -90,10 +97,10 @@ kde c. c. značí komplexně sdružený předešlý výraz zvláštní normaliza
     \tilde{k}_4 = k_4 e^{i4\gamma} \,, \quad \tilde{k}_u = k_u e^{i2(\gamma+\phiu)} \,.
 \end{equation}
 
-Pro in-plane magnetickou anizotropii se zavádí tzv. \emph{torque}\footnote{Česky točivý moment.} $L=\textrm{d}F/\textrm{d}\phim$.
-Podmínka minima $\Omega$ má pak tvar\todo{spravne?}
+Pro in-plane magnetickou anizotropii se zavádí tzv. \emph{torque}\footnote{Česky točivý moment.} $L=-\textrm{d}F/\textrm{d}\phim$.
+Podmínka minima $\Omega$ má pak tvar
 \begin{equation}
-    \frac{L(\phim)}{M_s} = \mu_0\Hext \sin (\phim-\phih) \,.
+    L(\phim) = \mu_0\Hext M_s \sin (\phim-\phih) \,.
 \end{equation}
 
 Existence volné energie má netriviální důsledek na tvar závislosti $\vec{M}(\vHext)$ -- podmínku integrability.
@@ -107,4 +114,4 @@ za podmínky, že $\phim$ je spojitou funkcí $\phih$ - nedochází k přeskoků
 Důsledkem je např. intuitivní fakt, že z myslitelných průběhů $\phim(\phih)=\phih+c$ je jediný možný ten, pro který $c=0$;
 není možné, aby magnetizace konzistentně ``předbíhala'' nebo se ``opožďovala'' za přiloženým polem.
 Pokud z experimentu dokážeme určit pouze $\text{d}\phim/\text{d}\phih$, podmínka \eqref{eqn:podminka-integrability} nám dovoluje určit integrační konstantu.
-Obecný tvar a podrobnosti jsou uvedeny v dodatku \ref{app:magneticka-anizotropie}.
+Podrobnosti jsou uvedeny v dodatku \ref{app:magneticka-anizotropie}.
