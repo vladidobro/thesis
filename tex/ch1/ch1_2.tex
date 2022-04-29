@@ -17,8 +17,8 @@ Vektor $\vec{E}$ opisuje v čase obecně elipsu v rovině kolmé na směr šíř
 Jedná se o $\beta$ -- úhel natočení hlavní poloosy polarizace, a $\chi$ -- úhel elipticity, zde dále nazývaný zkráceně elipticita.
 Pro popis ekvivalentní $E_x$ a $E_y$ je třeba přidat intenzitu $I$ a časový posun $\delta_0$, který má význam času, ve kterém $\vec{E}(t)$ protíná hlavní poloosu.
 
-Konvenci točivosti světla používáme následující: při podle pohledu \emph{od zdroje} obíhá pravotočivé světlo v dané rovině po směru hodinových ručiček.
-Točivost se v parametrech projevuje vzájemným znaménkem $\chi$ a točivosti systému, ve kterém je $\chi$ definováno (viz další oddíl).
+Konvenci točivosti světla používáme následující: při pohledu \emph{od zdroje} obíhá pravotočivé světlo v dané rovině po směru hodinových ručiček.
+Točivost se v parametrech projevuje vzájemným znaménkem $\chi$ a točivosti systému, ve kterém je $\chi$ definováno (viz další oddíl \ref{chap:Jones}).
 Viz obr. \ref{fig:polarizacni-elipsa}.
 
 \begin{figure}[htbp]
@@ -43,9 +43,8 @@ Prostor Jonesových vektorů je přirozeně normovaný intenzitou \eqref{eqn:Poy
     \begin{pmatrix} J_{2x} \\ J_{2y} \end{pmatrix} \,, 
     \qquad I(\J)=\J^\dagger \J
 \end{equation}
-Dvě polarizace/Jonesovy vektory jsou ``ortogonální'' ($\J_1^\dagger \J_2=0$)\todopn{diskuze}, pokud je celková intenzita prostý součet intenzit v obou polarizacích.
 
-Akci každého lineární polarizačního prvku, lze popsat jako lineární transformaci Jonesova vektoru -- transformaci Jonesovou $2\times 2$ komplexní maticí $\mathcal{T}$.
+Akci každého lineárního polarizačního prvku lze popsat jako lineární transformaci Jonesova vektoru -- transformaci Jonesovou $2\times 2$ komplexní maticí $\mathcal{T}$.
 Jonesovy matice lze použít i pro popis polarizačního děliče: každé rameno pak má vlastní matici.
 
 Sadě parametrů $\beta$, $\chi$, $I$, $\delta$ odpovídá Jonesův vektor
@@ -123,7 +122,7 @@ Ortogonální polarizace jsou zobrazeny na body středově souměrné podle poč
 \end{figure}
 
 I Muellerovy matice musí splňovat určité podmínky.
-Přestože libovolná myslitelná 4x4 reálná matice je dána 16 reálnými parametry, nedepolarizační (také nazývaná čistá\footnote{Ve smyslu čistého (nesmíšeného, angl. pure) stavu v kvantové mechanice.}) Muellerova matice je dána pouze 7 reálnými čisly\footnote{Jonesova matice je dána 4 komplexními čísly --- 8 reálných parametrů, ale při přechodu k Muellerově matici ztratíme informaci o celkové fázi.}. \cite{ossikovskiDifferentialMatrixFormalism2011}
+Přestože libovolná myslitelná 4x4 reálná matice je dána 16 reálnými parametry, nedepolarizační (také nazývaná čistá\footnote{Ve smyslu čistého (nesmíšeného, angl. pure) stavu v kvantové mechanice.}) Muellerova matice je dána pouze 7 reálnými čisly\footnote{Jonesova matice je dána 4 komplexními čísly --- 8 reálných parametrů, ale při přechodu k Muellerově matici ztratíme informaci o celkové fázi.}\cite{ossikovskiDifferentialMatrixFormalism2011}.
 
 Pro pozdější použití uvedeme totální diferenciál Stokesova vektoru (jakým způsobem se mění, při malé změně $\beta$, $\chi$, $I$)
 \begin{equation}
@@ -138,7 +137,7 @@ Pro pozdější použití uvedeme totální diferenciál Stokesova vektoru (jak�
 Dále se zaměříme na to, jakým způsobem působí čisté Muellerovy matice, a jak jejich akci znázornit \emph{zobrazením Poincarého sféry}\cite{gilReviewMuellerMatrix2014,ossikovskiPoincareSphereMapping2013}.
 V případě depolarizačních prvků se ke znázornění používá trojice tzv. charakteristických elipsoidů, pro čisté prvky stačí zkoumat, jakým způsobem se změní body ležící na Poincarého sféře.
 
-Nejdříve spomeneme větu z lineární algebry o polárním rozkladu matice\cite{motlPestujemeLinearniAlgebru2002}: Každou komplexní matici $\mathcal{T}$ lze jednoznačně rozložit na součin unitární $\mathcal{U}$ a pozitivně semidefinitní hermitovské $\mathcal{H}_1, \mathcal{H}_2$ matice v libovolném pořadí, $\mathcal{T}=\mathcal{U}\mathcal{H}_1 = \mathcal{H}_2 \mathcal{U}$.
+Nejdříve připomeneme větu z lineární algebry o polárním rozkladu matice\cite{motlPestujemeLinearniAlgebru2002}: Každou komplexní matici $\mathcal{T}$ lze jednoznačně rozložit na součin unitární $\mathcal{U}$ a pozitivně semidefinitní hermitovské $\mathcal{H}_1, \mathcal{H}_2$ matice v libovolném pořadí, $\mathcal{T}=\mathcal{U}\mathcal{H}_1 = \mathcal{H}_2 \mathcal{U}$.
 
 \paragraph{Čistý retardér}
 
