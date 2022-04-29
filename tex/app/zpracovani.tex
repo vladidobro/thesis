@@ -1,2 +1,38 @@
-\section{Detaily statistického zpracování}
+\section{Detaily zpracování dat}
 \label{app:zpracovani}
+
+\subsection*{Předzpracování dat}
+
+Měřící proceduru vždy provádíme v několika navazujících cyklech.
+Koncový stav cyklu je vždy shodný s počátečním ($\phih=\SI{0}{\degree}$ a \SI{360}{\degree}).
+Optický můstek však trpí dlouhodobou mechanickou nestabilitou (tzv. drift), takže rozdílové napětí na konci cyklu nereplikuje hodnotu na začátku.
+Pro odstranění alespoň části tohoto jevu od každého cyklu odečítáme lineární funkci takovou, aby se počáteční i koncový bod rovnal.
+Koncový bod je pak duplicitní, takže ho dále vyřadíme ze zpracování.
+Ze všech cyklů pak vezmeme aritmetický průměr.
+Pro snadné vykreslování od výsledné křivky odečteme její střední hodnotu.
+
+Symetrizaci v magnetickém poli $\vHext$ podle \eqref{eqn:symetrizace-H} nemůžeme provést přímo, protože pro každou změřenou hodnotu $\phih$ se směr opačného změřeného pole mírně liší od $\phih+\SI{180}{\degree}$.
+V takovém případě bereme jako výsledné $\phih$ aritmetický průměr obou hodnot (po odečtení \SI{180}{\degree}).
+
+\subsection*{Vztah MO koeficientů $P$}
+
+Převod mezi koeficienty $P_{ij}$ a $P_{+/-}$, $\pi_{+/-}$ poskytuje matice
+\begin{equation}
+    \begin{pmatrix} P_+ e^{i2\pi_+} \\ P_- e^{i2\pi_-} \end{pmatrix}
+    = \frac{1}{2}
+    \begin{pmatrix} +i & -1 & -i & +1 \\ -1 & -i & -1 & -i \end{pmatrix}
+    \begin{pmatrix} P_{11}\\P_{12}\\P_{21}\\P_{22} \end{pmatrix}  \,.
+\end{equation}
+
+
+\subsection*{Určení nejistot}
+
+Nejistoty veličin určených metodou nejmenších čtverců určujeme standardním způsobem.\todocite{}
+V okolí minima cílové funkce numericky spočítáme matici druhých derivací (zde určujeme koeficienty $c_i$)
+\begin{equation}
+    \frac{\partial^2 \mathcal{L}}{\partial c_i \partial c_j} = H_{ij} \,,
+\end{equation}
+kterou následně normujeme odhadem variance chyb $\sigma^2 = \mathcal{L}_\textrm{min}/(n-m)$, kde $n$ je počet měřených bodů a $m$ počet fitovaných parametrů parametrů.
+Inverzí matice $H/\sigma^2$ je pak kovarianční matice, na jejíž diagonále jsou variance fitovaných parametrů.
+
+Oblasti spolehlivosti $1\sigma$, $2\sigma$, resp. $3\sigma$ jsou přibližně\footnote{Platí přesně pro lineární regresi.} ohraničené křivkou $\mathcal{L}=\mathcal{L}_\textrm{min}(1+j/(n-m))$, kde $j=1$, $4$, resp. $9$.

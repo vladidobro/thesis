@@ -1,43 +1,121 @@
 \section{Dodatky k magnetické anizotropii}
 \label{app:magneticka-anizotropie}
 
-\todo{revize}
+\subsection*{Podmínka integrability}
 
-\subsection*{Podmínky integrability}
-
-Zvolíme-li uzavřenou křivku v $\M$ prostoru, a budeme podél ní integrovat \eqref{e:Hext=gradF}, dostaneme
-\begin{equation} \label{e:mag integral 1}
-    \oint \mu_0\vHext(\vec{M}) \cdot \textrm{d}\vec{M} = \oint \nabla_{\vec{M}} F \cdot \text{d}\vec{M} = F(\vec{M}_\textrm{start})-F(\vec{M}_\textrm{end})=0 \,.
-\end{equation}
-Přechodem k experimentálně ovladatelným souřadnicím $\vHext$
-\begin{equation} \label{e:substituce M}
-\textrm{d}\M=\begin{pmatrix}\textrm{d}M_x \\ \textrm{d}M_y \\ \textrm{d}M_z \end{pmatrix}
-=\begin{pmatrix}
-\frac{\partial M_x}{\partial H_x} & \frac{\partial M_x}{\partial H_y} & \frac{\partial M_x}{\partial H_z} \\
-\frac{\partial M_y}{\partial H_x} & \frac{\partial M_y}{\partial H_y} & \frac{\partial M_y}{\partial H_z} \\
-\frac{\partial M_z}{\partial H_x} & \frac{\partial M_z}{\partial H_y} & \frac{\partial M_z}{\partial H_z} \\
-\end{pmatrix}
-\begin{pmatrix}\textrm{d}H_x \\ \textrm{d}H_y \\ \textrm{d}H_z \end{pmatrix}
-\equiv\left( \frac{\textrm{d}\vec{M}}{\textrm{d}\vHext} \right) \textrm{d}\vHext
-\end{equation}
-dostáváme z \eqref{e:mag integral 1} podmínku na průběh $\vec{M}(\vHext)$ po uzavřené křivce $\vHext$ 
+Integrací podmínky \eqref{eqn:torque} pro rovnovážnou polohu magnetizace $\phim$ po uzavřené křivce dostaneme
 \begin{equation}
-    \oint \mu_0 \vHext \cdot \left( \frac{\textrm{d}\vec{M}}{\textrm{d}\vHext} \right) \textrm{d}\vHext = 0 \,,
+    0 = - F(2\pi) + F(0) = \oint_0^{2\pi} L(\phim) \textrm{d}\phim = \mu_0 \Hext M_S \oint_0^{2\pi} \sin(\phim-\phih) \textrm{d}\phim \,.
 \end{equation}
-která platí, pokud jsme mohli provést substituci \eqref{e:substituce M}, tj. pokud je na ní $\vec{M}(\vHext)$ spojité, nedochází k přeskokům.
-Striktně vzato bychom ji mohli použít i v případě, kdy dochází k vratným\footnote{Ve smyslu vratného termodynamického procesu.} přeskokům, tj. výchozí i koncové $\vec{M}$ mají stejnou volnou energii; nedochází k hysterezi.
 
-Přímým dosazením pro případ, kdy se $\vHext$ otočí v rovině $xy$ o \SI{360}{\degree} s konstantní amplitudou a saturovanou in-plane $\vec{M}$ (jako v \eqref{e:magnetizace v rovine})
+Přechodem k experimentálně ovladatelnému úhlu pole $\phih$ dostaneme podmínku integrability
 \begin{equation}
-    \left( \frac{\textrm{d}\vec{M}}{\textrm{d}\vHext} \right) \text{d}\vHext=\begin{pmatrix}
-    -\sin \phim \\ \cos \phim \\ 0
-    \end{pmatrix} \frac{\textrm{d}\phim}{\textrm{d}\phih}  \textrm{d}\phih \,,
+    \oint_0^{2\pi} \frac{\textrm{d}\phim}{\textrm{d}\phih}\sin(\phim-\phih)\textrm{d}\phih = 0
 \end{equation}
-dostáváme
-\begin{equation} \label{e:M integracni konstanta dodatek}
-\mu_0\Hext M_S \int_{0}^{2\pi}  \frac{\textrm{d}\phim}{\textrm{d}\phih} \sin\left(\phih-\phim\right) \textrm{d}\phih=0 \,.
+která platí, pokud jsme mohli provést substituci, tj. pokud je $\phim(\phih)$ spojité, nedochází k přeskokům.
+Striktně vzato bychom ji mohli použít i v případě, kdy dochází k vratným\footnote{Ve smyslu vratného termodynamického procesu.} přeskokům, tj. výchozí i koncové $\phim$ mají stejnou hodnotu volné energie; nedochází k hysterezi.
+
+\subsection*{Derivace $\phim$ podle $\phih$}
+
+Směr magnetizace $\phim$ pro daný směr pole $\phih$ je dán minimalizací magnetické entalpie \eqref{eqn:magneticka-entalpie-v-rovine} nebo ekvivalentně podmínkou nulového celkového momentu \eqref{eqn:torque}.
+
+Derivaci $\textrm{d}\phim/\textrm{d}\phih$ určíme pomocí implicitní derivace \eqref{eqn:torque} podle $\phih$
+\begin{equation}
+    \frac{\textrm{d}L}{\textrm{d}\phim}\frac{\textrm{d}\phim}{\textrm{d}\phih} = \mu_0\Hext M_S \cos(\phim-\phih)\left( \frac{\textrm{d}\phim}{\textrm{d}\phih} - 1  \right) \,,
+\end{equation}
+po úpravě pak 
+\begin{equation}
+    \label{eqn:app-integrabilita}
+    \frac{\textrm{d}\phim}{\textrm{d}\phih} = \frac{1}{1-\frac{\textrm{d}L}{\textrm{d}\phim}\frac{1}{\mu_0\Hext M_S \cos(\phim-\phih)}} \,.
 \end{equation}
 
 \subsection*{Přibližný výpočet $\phim$}
 
+Zaměříme se na to, jakým způsobem se $\phim$ změní při změně volné energie $F \mapsto F + \delta F$ (a $L \mapsto L+\delta L$).
+Nejdříve označíme normovaný torque $l = L/\mu\Hext M_S$.
+Vyjdeme opět z podmínky \eqref{eqn:torque}, která má tvar
+\begin{equation}
+    \label{eqn:priblizne-delta-mag}
+ l(\phim+\delta\phim)+\delta l(\phim+\delta\phim) = \mu\Hext M_S \sin(\phim+\delta \phim-\phih) \,.
+\end{equation}
+Rozvinutím funkcí $l(\phim)$, $\delta l(\phim)$ a $\sin(\phim-\phih)$ a následným porovnáním členů lze určit $\delta\phim$ do požadovaného řádu v $\delta l$.
+Do druhého řádu v $\delta \phim$ má \eqref{eqn:priblizne-delta-mag} tvar (čárka značí derivaci podle $\phim$)
+\begin{align}
+    l'(\phim)\delta\phim+l''(\phim)\frac{\delta\phim^2}{2} + \delta l(\phim) + \delta l' (\phim)\delta\phim = \\
+    = \cos(\phim-\phih) \delta\phim - \sin(\phim-\phih) \frac{\delta\phim^2}{2} \,.
+\end{align}
+
+Posbíráním členů prvního řádu dostaneme
+\begin{equation}
+    l'(\phim)\delta\phim^{(1)} + \delta l(\phim) = \cos(\phim-\phih)\delta\phim^{(1)} \,,
+\end{equation}
+takže oprava prvního řádu je
+\begin{equation}
+    \delta\phim^{(1)} = \frac{\delta l(\phim)}{cos(\phim-\phih)-l'(\phim)} \,.
+\end{equation}
+
+Pomocí tohoto vzorce je možné analyticky počítat Jacobiho matici (a tedy gradient cílové funkce $\mathcal{L}$) úlohy nejmenších čtverců \eqref{eqn:anizotropie-fit}.
+Členy druhého řádu jsou pak
+\begin{align}
+    l'(\phim)\delta\phim^{(2)} +  l''(\phim) \frac{\left(\delta\phim^{(1)}\right)^2}{2} + \delta l'(\phim)\delta\phim^{(1)} = \\
+    = \cos(\phim-\phih)\delta\phim^{(2)} - \sin(\phim-\phih) \frac{(\delta\phim^{(1)})^2}{2} \,,
+\end{align}
+takže oprava druhého řádu je
+\begin{equation}
+    \delta\phim^{(2)} = \frac{\delta\phim^{(1)}}{\cos(\phim-\phih)-l'(\phim)}\left[ \delta l'(\phim) + \frac{\delta\phim^{(1)}}{2} \left( l''(\phim)+\sin(\phim-\phih) \right)   \right] \,.
+\end{equation}
+
+V okolí nulové anizotropie ($l=0$) mají oba řády jednoduchý tvar
+\begin{equation}
+    \delta\phim^{(1)} = \delta l(\phih) \,,\quad \delta\phim^{(1)}+\delta\phim^{(2)} = \delta l(\phih)\left( 1+\delta l'(\phih) \right) \,.
+\end{equation}
+
+Výpočetně nenáročně lze $\phim$ počítat ještě jinou metodou.
+Po úpravě \eqref{eqn:torque} má podmínka na rovnovážné $\phim$ tvar
+\begin{equation}
+    \label{eqn:phim-arcsin}
+    \phim = \phih + \arcsin{l(\phim)} \,.
+\end{equation}
+
+Opakovanou aplikací zobrazení $\phim \mapsto \phih + \arcsin{l(\phim)}$ se startovním bodem $\phim = \phih$ lze často dosáhnout pevného bodu splňujícího \eqref{eqn:phim-arcsin}.
+Kýžené $\phim$ je tak nalezeno za pomoci nižšího počtu vyhodnocení funkce $l$ než v případě minimalizace volné energie, či numerického řešení \eqref{eqn:torque}.
+Metoda ale selhává pro příliš silné anizotropie.
+
 \subsection*{Určení volné energie z nepřesného pole}
+
+Je myslitelné, že přesnost dodatečných měření magnetického pole nebude dostatečná a bude nutné kalibraci provést pomocí magneto-optických měření.
+Proto zde uvedeme, jakým způsobem se nepřesnosti v $\vHext$ projevují ve výsledcích určení magnetické anizotropie.
+
+Označme skutečné pole používané v experimentu $\vec{H}$ a nominální (nepřesné) pole $\vec{H}'$, stejně tak skutečný torque $L$ a torque určený za předpokladu nominálního pole $L'$.
+Také označíme vektorový součin v rovině $\vec{M}\times\vec{H}\equiv M_S |\vec{H}|\sin(\phim-\phih)$.
+Podmínka nulového torque je pomocí něho zapsána jako 
+\begin{equation}
+    \label{eqn:torque-soucin}
+    L(\phim) = \mu_0 \vec{M} \times \vec{H} \,.
+\end{equation}
+
+
+Výsledkem analýzy z oddílu \ref{chap:urceni-magneticke-anizotropie} je principiálně průběh $\phim$ pro každé jednotlivé přiložené pole, avšak s neznámým konstantním celkovým pootočením (aditivní konstanta k $\phim$).
+Celkové pootočení je určené pomocí podmínky integrability \eqref{eqn:app-integrabilita}, ve které ale vystupuje magnetické pole $\vHext$, takže bude při použití $\vec{H}'$ jiné než při použití $\vec{H}$.
+To samo o sobě není překvapivé, obě posloupnosti polí můžou být navzájem pootočené.
+Jenže v podmínce integrability vystupuje $\vHext$ v kombinaci s magnetizací, takže s nepřesným nominálním polem $\vec{H}'$ bude celkové pootočení záviset i na magnetické anizotropii vzorku.
+Jinými slovy, i za předpokladu, že všechny ostatní aspekty experimentu a zpracování jsou ve všech směrech ideální, při změření dvou vzorků s různou magnetickou anizotropií nebudou po provedení analýzy výsledné směry magnetizace $\phim=0$ shodné.
+Pokud v analýze používáme nepřesné $\vHext$, je souřadná soustava magnetického pole a magnetizace závislá na parametrech měřeného vzorku.
+To se případně projeví rozdílem určených parametrů $\pi_+$ ze vztahu \eqref{eqn:PMLD-matice}, které vyjadřují úhel vzájemné rotace soustavy magnetu a polarizace.
+
+Intuitivně k takové situaci dochází, pokud je $\vec{H}'$ oproti $\vec{H}$ otočeno převážně jedním směrem v okolí snadných os prvního vzorku, a převážně opačným směrem v okolí snadných os druhého vzorku.
+Tento efekt je ale pravděpodobně malý, ve zbývající diskuzi ho ignorujeme.
+
+Předpokládejme, že z experimentu máme již určen průběh $\vec{M}$.
+Skutečný torque $L$ souvisí se skutečným $\vec{H}$ vztahem \eqref{eqn:torque-soucin}.
+Naopak výsledek analýzy $L'$ byl určen aplikací stejného vztahu, ale s nominálním $\vec{H}'$
+\begin{equation}
+    L' = \mu_0 \vec{M}\times\vec{H}' \,.
+\end{equation}
+
+Situace tedy není tak jednoduchá, že by anizotropie magnetického pole zanášela do experimentu konstantní magnetickou anizotropii, protože
+\begin{equation}
+    \label{eqn:pridana-anizotropie}
+L -L' = \mu \vec{M} \times (\vec{H}-\vec{H}')
+\end{equation}
+také nezávisí jen na nepřesnosti pole vyjádřené $\vec{H}-\vec{H}'$, ale i na magnetické anizotropii vzorku.
