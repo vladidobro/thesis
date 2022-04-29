@@ -12,3 +12,24 @@ Vladislav Wohlrath
 5.5. -  odevzdání elektronické verze
 
 9.5. - odevzdání listinné verze
+
+### Výsledky
+
+co delam
+
+proc delam
+
+co presne jsem nameril
+
+srovnani s literaturou
+
+co z toho vyvozuju 
+
+zaver
+
+### Poznamky
+
+prolozeny fit
+presunout nepresnosti magnetickeho pole do vysledku
+
+jednu dlouhou tabulku cofe

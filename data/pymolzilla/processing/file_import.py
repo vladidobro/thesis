@@ -301,6 +301,10 @@ class MeasurementSet:
         if inplace: self.data = new_data
         return new_data
 
+    @staticmethod
+    def _Pij2Ppm(Pij):
+        pass
+
     def plot_all(self, ax=None, **kwargs):
         if ax is None:
             fig, ax = plt.subplots()

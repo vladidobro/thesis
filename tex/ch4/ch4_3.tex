@@ -121,6 +121,7 @@ Naopak $P_-$ je v izotropních vzorcích zakázán symetrií.
 Při kolmém dopadu jsou Jonesovy matice úměrné $\varepsilon^\perp-\varepsilon^\vert\varepsilon^-/n^2$ (viz oddíl \ref{chap:optika-v-multivrstvach}, dodatek \ref{app:berreman}).
 Pro [100]-normálově orientovaný kubický vzorek můžeme dosadit tvar magnetické permitivity a dostat (pro $\gamma$ značící směr jedné z hlavních krystalografických os)
 \begin{align}
+    \label{eqn:PMLD-kubicke}
     P_+ = P_0 \left(\frac{G_s}{2} - \frac{K^2}{n^2}\right) \frac{M_S^2}{2} \,,\quad \pi_+=0 \,,\\
     P_- = P_0 \left(\frac{\Delta G}{2}\right) \frac{M_S^2}{2} \,,\quad \pi_-=2\gamma
 \end{align}
@@ -132,21 +133,23 @@ Souřadné soustavy polarizace ($\beta$) a magnetu ($\phih$, $\phim$) byly toti�
 Oběma úhlům $\pi_+ \equiv \pi_--2\gamma$ tedy přikládáme nový význam zmíněného ofsetu.
 Úhel rotace vzorku $\gamma$ se pak určí jako $2\gamma = \pi_- - \pi_+$.
 
-V soustavě spojené se vzorkem používáme ještě jednu parametrizaci, která vyjadřuje sílu kvadratického jevu při magnetizaci ve význačných směrech [100] a [110] a lze je vizuálně přibližně odečítat z měřených dat.
-Pokud $\gamma$ označuje úhel natočení krystalografického směru [100] studovaného vzorku\footnote{V našem případě tak nečiníme u vzorku FeRh.}, pak
+Pro kubické vzorky používáme v soustavě spojené se vzorkem ještě jednu parametrizaci.
+Označíme $\gamma$ úhel natočení [100], [110] nebo některý z jim ekvivalentních krystalografických směrů magnetické vrstvy.
+Parametry $P_\gamma$, resp. $P_{\gamma+\SI{45}{\degree}}$ pak vyjadřují sílu kvadratického jevu při magnetizaci ve význačných směrech $\gamma$ a $\gamma+\SI{45}{\degree}$ a lze je vizuálně přibližně odečítat z měřených dat.
+Dosazením \eqref{eqn:PMLD-kubicke} do \eqref{eqn:PMLD-matice} platí
 \begin{equation}
-    \Delta\beta = -P_{[100]} \cos 2 (\phim-\gamma) \sin 2(\beta-\gamma) + P_{[110]} \sin 2 (\phim-\gamma) \cos 2(\beta-\gamma) \,.
+    \Delta\beta = -P_\gamma \cos 2 (\phim-\gamma) \sin 2(\beta-\gamma) + P_{\gamma+\SI{45}{\degree}} \sin 2 (\phim-\gamma) \cos 2(\beta-\gamma) \,.
 \end{equation}
-Při orientaci polarizace ve směru [100] ($\beta=\gamma$, na obrázku \SI{0}{\degree}) je amplituda změřené křivky $\Delta\beta(\phih)$ přímo $P_{[110]}$, při polarizaci ve směru [110] ($\beta=\gamma+\SI{45}{\degree}$, na obrázku \SI{45}{\degree}) je amplituda $P_{[100]}$, viz obr. \ref{fig:urceni-MLD-ilustrace}.
+Při orientaci polarizace $\beta=\gamma$ je amplituda změřené křivky $\Delta\beta(\phih)$ přímo $P_{\gamma}$, při polarizaci ve směru $\beta=\gamma+\SI{45}{\degree}$ je amplituda $P_{\gamma+\SI{45}{\degree}}$, viz obr. \ref{fig:urceni-MLD-ilustrace}.
 Platí
 \begin{equation}
-    P_{[100]} =  P_+ + P_- \,,\quad P_{[110]} = P_+ - P_- \,.
+    P_{\gamma} =  P_+ + P_- \,,\quad P_{\gamma+\SI{45}{\degree}} = P_+ - P_- \,.
 \end{equation}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{./data/out/pmld-ukazka.pdf}
-    \caption{Určení MLD koeficientů $P$. Měřená data s CoFe, pokojová teplota, \SI{1050}{\nano\meter}. Hodnoty $P$ lze odečítat přímo z grafu. Krystalografický směr CoFe [100] je rovnoběžný s $\phih = \SI{0}{\degree}$.}
+    \caption{Určení MLD koeficientů $P$. Měřená data s CoFe, pokojová teplota, \SI{1050}{\nano\meter}, $\gamma\approx\SI{0}{\degree}$. Hodnoty $P$ lze odečítat přímo z grafu, na obrázku jsou oba vyznačené koeficienty kladné.}
     \label{fig:urceni-MLD-ilustrace}
 \end{figure}
 

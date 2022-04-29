@@ -66,6 +66,7 @@ class ExperimentRotmld(Experiment):
 
     def postprocess(self):
         self.df['k_canon'] = self.df.apply(lambda row: row['obj'].fit_anisotropy.free_energy.k_canon, axis=1)
+        self.df['Pij'] = self.df.apply(lambda row: row['obj'].fit_anisotropy.pmldfit, axis=1)
 
 class cofe_room_t(ExperimentRotmld):
     def __init__(self):
