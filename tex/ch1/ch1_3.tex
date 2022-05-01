@@ -27,11 +27,11 @@ S uvážením \eqref{eqn:pricne-vlnove-vektory} mají Maxwellovy rovnice maticov
 \begin{equation}
 \label{eqn:Berreman-6x6}
     \begin{pmatrix}
-        0 & +i\partial_z/k_0 & N_y & -1 & 0 & 0 \\
-        -i\partial_z/k_0 & 0 & -N_x & 0 & -1 & 0 \\
+        0 & -\partial_z/ik_0 & N_y & -1 & 0 & 0 \\
+        \partial_z/ik_0 & 0 & -N_x & 0 & -1 & 0 \\
         -N_y & N_x & 0 & 0 & 0 & -1 \\
-        \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} & 0 & +i\partial_z/k_0 & N_y \\
-        \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} & -i\partial_z/k_0 & 0 & -N_x \\
+        \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} & 0 & -\partial_z/ik_0 & N_y \\
+        \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} & \partial_z/ik_0 & 0 & -N_x \\
         \varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} & -N_y & N_x & 0
     \end{pmatrix}
     \begin{pmatrix}
@@ -55,7 +55,7 @@ Nejdříve ale zavedeme úsporný blokově maticový zápis
 
 Třetí a šestá rovnice mají tvar
 \begin{equation}
-    N^T \rho E^\perp + Z_0 H_z =0 \,, \qquad \varepsilon^- E^\perp + N^T H^\perp + \varepsilon_{33} E_z=0 \,,
+    N^T \rho E^\perp - Z_0 H_z =0 \,, \qquad \varepsilon^- E^\perp + N^T H^\perp + \varepsilon_{33} E_z=0 \,,
 \end{equation}
 vyřešením, dosazením do \eqref{eqn:Berreman-6x6} a úpravou dostáváme
 \begin{equation} 
@@ -63,7 +63,7 @@ vyřešením, dosazením do \eqref{eqn:Berreman-6x6} a úpravou dostáváme
     \partial_z \vec{G}
     = i k_0 \Delta \vec{G}
     \equiv i k_0 \begin{pmatrix}
-        -\frac{N\varepsilon^-}{\varepsilon_{33}} & 1-NN^T \\ \varepsilon^\perp - \frac{\varepsilon^\vert\varepsilon^-}{\varepsilon_{33}} - \rho NN^T \rho & - \frac{\varepsilon^\vert N^T}{\varepsilon_{33}}
+        -\frac{N\varepsilon^-}{\varepsilon_{33}} & 1-\frac{NN^T}{\varepsilon_{33}} \\ \varepsilon^\perp - \frac{\varepsilon^\vert\varepsilon^-}{\varepsilon_{33}} - \rho N(\rho N)^T & - \frac{\varepsilon^\vert N^T}{\varepsilon_{33}}
     \end{pmatrix}
     \vec{G} \,.
 \end{equation}
@@ -93,6 +93,7 @@ Poruchová teorie v Berremanově formalismu je rozvedena v dodatku \ref{app:berr
 
 Předpokládejme, že se nám podařilo vyřešit \eqref{eqn:Berreman-master} a tedy najít matici $\mathfrak{M}$, která svazuje příčná pole na začátku $(L)$ a na konci $(R)$ multivrstvy, viz obr. \ref{fig:odraz-pruchod}
 \begin{equation}
+    \label{eqn:prenosova-matice-M}
     \vec{G}_{(L)}=\mathfrak{M} \vec{G}_{(R)}
 \end{equation}
 
@@ -105,6 +106,7 @@ Např. pro odraz od vzorku na tlustém substrátu je nutné uvažovat jako výst
 
 Na obou stranách si zvolíme pro $-z$ i $+z$ šířící se módy bázi lineárních polarizací, kterými definujeme Jonesovi vektory pro příslušné svazky (pro ilustraci viz obr. \ref{fig:odraz-pruchod})
 \begin{equation}
+    \label{eqn:dynamicke-LR}
     \vec{G}_{(L)}=\mathfrak{D}_{(L)} \begin{pmatrix} \J^-_{(L)} \\ \J^+_{(L)} \end{pmatrix} \,, \qquad
     \vec{G}_{(R)}=\mathfrak{D}_{(R)} \begin{pmatrix} \J^-_{(R)} \\ \J^+_{(R)} \end{pmatrix} \,,
 \end{equation}
@@ -126,6 +128,7 @@ Souřadnou soustavu volíme tak, aby rovina dopadu byla rovnoběžná s jednou z
 Jako bázi módů volíme lineární polarizace příčné $J_s$ a podélné $J_p$ k rovině dopadu, viz. obr. \ref{fig:odraz-pruchod}.
 Pro prostředí s indexem lomu $n$ má dynamická matice v této situaci explicitně tvar
 \begin{equation}
+    \label{eqn:D-sp}
     \vec{G} = \begin{pmatrix} E_x \\ E_y \\ Z_0 H_y \\ -Z_0 H_x \end{pmatrix}
     =\begin{pmatrix}
         1 & 0 & 1 & 0 \\
@@ -141,6 +144,7 @@ kde jsme označili $\cos \alpha_t = \sqrt{1-\sin^2 \alpha /n^2}$ úhel lomu.
 
 Při řešení průchodu a odrazu tedy pokládáme $\J^+_{(R)}=0$ a snažíme se vyjádřit zbylé prošlé $\J^-_{(R)} \equiv \J^t$ a odražené $\J^+_{(L)} \equiv \J^r$ pomocí známého dopadajícího $\J^-_{(L)} \equiv \J^i$, což lze pomocí matic $\mathfrak{M}$ a $\mathfrak{D}$ jednoduše z
 \begin{equation}
+    \label{eqn:rovnice-odraz-pruchod}
     \begin{pmatrix} \J^i \\ \J^r \end{pmatrix}
     =\mathfrak{D}_{(L)}^{-1} \mathfrak{M} \mathfrak{D}_{(R)} 
     \begin{pmatrix} \J^t \\ 0 \end{pmatrix} \,,

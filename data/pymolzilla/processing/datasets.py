@@ -66,7 +66,32 @@ class ExperimentRotmld(Experiment):
 
     def postprocess(self):
         self.df['k_canon'] = self.df.apply(lambda row: row['obj'].fit_anisotropy.free_energy.k_canon, axis=1)
-        self.df['Pij'] = self.df.apply(lambda row: row['obj'].fit_anisotropy.pmldfit, axis=1)
+        self.df['Pij'] = self.df.apply(lambda row: np.array([row['obj'].fit_anisotropy.pmldfit.results[0].params[1],
+                                                             row['obj'].fit_anisotropy.pmldfit.results[0].params[2],
+                                                             row['obj'].fit_anisotropy.pmldfit.results[1].params[1],
+                                                             row['obj'].fit_anisotropy.pmldfit.results[1].params[2]]), axis=1)
+        self.df['dPij'] = self.df.apply(lambda row: np.array([row['obj'].fit_anisotropy.pmldfit.results[0].bse[1],
+                                                             row['obj'].fit_anisotropy.pmldfit.results[0].bse[2],
+                                                             row['obj'].fit_anisotropy.pmldfit.results[1].bse[1],
+                                                             row['obj'].fit_anisotropy.pmldfit.results[1].bse[2]]), axis=1)
+
+
+        self.df['Ppm'] = self.df.apply(lambda row: self._Pij2Ppm(row['Pij']), axis=1)
+        self.df['Pp'] = self.df.apply(lambda row: abs(row['Ppm'][0]), axis=1)
+        self.df['Pm'] = self.df.apply(lambda row: abs(row['Ppm'][1]), axis=1)
+        self.df['Pip'] = self.df.apply(lambda row: 0.5*np.degrees(np.angle(row['Ppm'][0])), axis=1)
+        self.df['Pim'] = self.df.apply(lambda row: 0.5*np.degrees(np.angle(row['Ppm'][1])), axis=1)
+        self.df['Pp'] *= (-1)**np.round(self.df['Pip']/90)
+        self.df['Pm'] *= (-1)**np.round(self.df['Pim']/90)
+        self.df['Pip'] -= np.round(self.df['Pip']/90)
+        self.df['Pim'] -= np.round(self.df['Pim']/90)
+
+
+    @staticmethod
+    def _Pij2Ppm(Pij):
+        P_prevod = 0.5*np.array([[-1j,1,-1,-1j],[1j,-1,-1,-1j]])
+        return np.dot(P_prevod, Pij)
+
 
 class cofe_room_t(ExperimentRotmld):
     def __init__(self):
