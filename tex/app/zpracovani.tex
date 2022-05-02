@@ -3,9 +3,9 @@
 
 \subsection*{Předzpracování dat}
 
-Měřící proceduru vždy provádíme v několika navazujících cyklech.
+Měřící proceduru, v rámci které detekujeme závislost magneto-optického signálu na směru externího magnetického pole konstantní velikosti, vždy provádíme v několika navazujících cyklech.
 Koncový stav cyklu je vždy shodný s počátečním ($\phih=\SI{0}{\degree}$ a \SI{360}{\degree}).
-Optický můstek však trpí dlouhodobou mechanickou nestabilitou (tzv. drift), takže rozdílové napětí na konci cyklu nereplikuje hodnotu na začátku.
+Optický můstek však trpí dlouhodobou mechanickou nestabilitou (tzv. drift), takže rozdílové napětí na konci cyklu většinou nereplikuje hodnotu na začátku.
 Pro odstranění alespoň části tohoto jevu od každého cyklu odečítáme lineární funkci takovou, aby se počáteční i koncový bod rovnal.
 Koncový bod je pak duplicitní, takže ho dále vyřadíme ze zpracování.
 Ze všech cyklů pak vezmeme aritmetický průměr.
@@ -33,6 +33,6 @@ V okolí minima cílové funkce numericky spočítáme matici druhých derivací
     \frac{\partial^2 \mathcal{L}}{\partial c_i \partial c_j} = H_{ij} \,,
 \end{equation}
 kterou následně normujeme odhadem variance chyb $\sigma^2 = \mathcal{L}_\textrm{min}/(n-m)$, kde $n$ je počet měřených bodů a $m$ počet fitovaných parametrů modelu.
-Inverzí matice $H/\sigma^2$ je pak kovarianční matice, na jejíž diagonále jsou variance fitovaných parametrů.
+Matice inverzní k $H/\sigma^2$ je pak kovarianční matice, na jejíž diagonále jsou variance fitovaných parametrů.
 
 Oblasti spolehlivosti $1\sigma$, $2\sigma$, resp. $3\sigma$ jsou přibližně\footnote{Platí přesně pro lineární regresi.} ohraničené křivkou $\mathcal{L}=\mathcal{L}_\textrm{min}(1+j/(n-m))$, kde $j=1$, $4$, resp. $9$.

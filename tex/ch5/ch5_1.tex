@@ -27,23 +27,26 @@ Z obrázků je také zřejmé, že nejistota konstant je pouze mírně podhodnoc
     \label{fig:vysledky-cofe-roomt-anizotropie}
 \end{figure}
 
-\subsubsection{Nepřesnosti magnetického pole}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{./data/out/cofe-pmld.pdf}
+    \caption{PMLD cofe roomt, lowt}
+    \label{fig:vysledky-cofe-PMLD}
+\end{figure}
 
-Z experimentálních výsledků uvedených dále v kapitole \ref{chap:5} vychází, že určení magnetické anizotropie uvedenou metodou je velice spolehlivé.
-Konkrétně, s danou měřicí procedurou (tj. nastavovanou posloupností proudů v cívkách elektro-magnetů) a neměnnou pozicí vzorku jsou téměř v dokonalé shodě anizotropní konstanty určené různými vlnovými délkami, jak by se dalo očekávat.
-Vzhledem k rozmanité spektrální závislosti MO koeficientů (viz výsledky v kap. \ref{chap:5}) to dokazuje, že měřený signál skutečně pochází od vzorku a je dobře popsán modelem \eqref{eqn:anizotropie-fit}.
-Problém však někdy nastává při porovnání různých měřicích procedur či pozic vzorku.
-Tato nepříjemnost byla pozorována se vzorkem FeRh (viz oddíl \ref{chap:ferh-fm}), kde je magnetická anizotropie velice slabá.
 
-Tento vzorek byl měřen se dvěma velikostmi $\Hext = 50$, \SI{207}{\milli\tesla}.
-V obou případech byla naměřená uniaxiální anizotropie ve stejném směru, avšak s jinou velikostí.
-Zachoval se však poměr $k_u/\Hext$, což napovědělo, že problém pochází od magnetu.
-Měření bylo následně zopakováno se vzorkem in-plane otočeným o \SI{90}{\degree} -- výsledkem byla uniaxiální anizotropie ve stejném \emph{experimentálním} směru, tzn. o \SI{-90}{\degree} otočená v soustavě spojené se vzorkem, což samozřejmě nedává fyzikální smysl.
-
-Pravděpodobnou příčinou tohoto problému je, že vlastní metoda je sice velice citlivá a spolehlivá, ale skutečná magnetická pole $\vHext$ realizovaná v experimentu jsou (vlivem neideálně kompenzované hystereze jednotlivých pólových nástavců cívek v elektromagnetu) mírně odlišná od nominálních hodnot použitých při analýze.
-V době odevzdání této práce jsou v přípravě dodatečná zpřesňující měření magnetického pole, které umožní z již naměřených dat určit správnou magnetickou anizotropii.
-
-Důsledky odlišnosti reálného a domnělého magnetického pole pro analýzu magnetické anizotropie se mimo jiné věnuje dodatek \ref{app:magneticka-anizotropie}.
+\begin{table}[tp]
+    \caption{Magnetická anizotropie CoFe.}
+    \label{tab:cofe-anizotropie}
+    \centering
+    \begin{tabular}{cccc}
+        \toprule
+        $T$ (\si{\kelvin}) & $k_4$ (\si{\milli\tesla}) & $k_u$ (\si{\milli\tesla}) & $\phiu$ (\si{\degree}) \\ \midrule[\heavyrulewidth]
+        295 & 0 & 0 & 0 \\
+        15 & 0 & 0 & 0 \\
+        \bottomrule 
+    \end{tabular} 
+\end{table}
 
 \subsection{Měření při kryogenní teplotě}
 \label{chap:vysledky-cofe-lowt}
@@ -69,16 +72,17 @@ Shrnutí magnetických anizotropních konstant pro obě měřené teploty je v t
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{.3\textwidth}
-        \centering
-        \includegraphics{./img/svg/cofe-lt-schema.drawio.pdf}
-    \end{subfigure}
-    \begin{subfigure}{.67\textwidth}
-        \centering
+    \includegraphics{./img/svg/cofe-lt-schema.drawio.pdf}
+    \caption{Schéma aparatury pro měření v transmisní geometrii za použití kryostatu. (a) Půdorys. (b) Bokorys, detail na komoru kryostatu.
+    Světlo prochází horním okénkem, ve kterém se vlivem polárního magnetického pole indukuje Faradayův jev.}
+    \label{fig:vysledky-cofe-lowt-schema}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
         \includegraphics{./data/out/cofelt-data.pdf}
-    \end{subfigure}
-    \caption{Měření CoFe v transmisní geometrii při snížené teplotě. (a) Schéma. (b) Ilustrace změřených dat s $\lambda=\SI{620}{\nano\meter}$ a $\Hext=\SI{207}{\milli\tesla}$. (c) Stejná data po symetrizaci v poli a filtraci frekvencí $2\beta$.}
-    \label{fig:vysledky-cofe-lowt-schema-data}
+        \caption{Měření CoFe v transmisní geometrii při \SI{15}{\kelvin}, $\lambda=\SI{620}{\nano\meter}$, $\Hext=\SI{207}{\milli\tesla}$. (a) Hrubá změřená data. (b) Stejná data po symetrizaci v poli a filtraci frekvencí $2\beta$.}
+    \label{fig:vysledky-cofe-lowt-data}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -88,22 +92,4 @@ Shrnutí magnetických anizotropních konstant pro obě měřené teploty je v t
     \label{fig:vysledky-cofe-lowt-anizotropie}
 \end{figure}
 
-\begin{figure}[htbp]
-    \centering
-    %\includegraphics{./data/out/cofe-pmld.pdf}
-    \caption{PMLD cofe roomt, lowt}
-    \label{fig:vysledky-cofe-PMLD}
-\end{figure}
 
-\begin{table}[tp]
-    \caption{Magnetická anizotropie CoFe.}
-    \label{tab:cofe-anizotropie}
-    \centering
-    \begin{tabular}{cccc}
-        \toprule
-        $T$ (\si{\kelvin}) & $k_4$ (\si{\milli\tesla}) & $k_u$ (\si{\milli\tesla}) & $\phiu$ (\si{\degree}) \\ \midrule[\heavyrulewidth]
-        295 & 0 & 0 & 0 \\
-        15 & 0 & 0 & 0 \\
-        \bottomrule 
-    \end{tabular} 
-\end{table}
