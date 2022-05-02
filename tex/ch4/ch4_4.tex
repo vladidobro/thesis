@@ -14,7 +14,7 @@ V této práci se omezujeme na kvadratické členy (po odstranění lineárních
     \Udif(\phih) = b_0 + b_\textrm{c} \cos2\phim(\phih) + b_\textrm{s} \sin2\phim(\phih) \,.
 \end{equation}
 Omezení na kvadratické členy však není nezbytné.
-Pokud z předpokládané symetrie problému vycházejí i jiné členy (např. pro [111] normálově orientované kubické vzorky členy harmonické v $3\phim$, $6\phim$), není problém je do \eqref{eqn:anizotropie-fit} zahrnout.
+Pokud z předpokládané symetrie problému vycházejí i jiné členy (např. pro [111]-normálově orientované kubické vzorky členy harmonické v $3\phim$, $6\phim$), není problém je do \eqref{eqn:anizotropie-fit} zahrnout.
 Stejně tak není nutné provádět symetrizaci v $\vHext$ pro odstranění lineárních jevů, a místo toho zahrnout členy harmonické v $1\phim$.
 Níže popsaná metoda teoreticky (ověřeno na simulacích bez šumu) funguje s libovolným počtem členů, který nepřesáhne určitou mez, za kterou je fit degenerovaný.
 Jediný problém, který s sebou přidávání parametrů přináší, je zřejmé zvyšování jejich počtu.
@@ -25,7 +25,7 @@ Nejprve uvedeme pár poznámek o degeneraci.
 Pokud změříme $n$ různých (s lineárně nezávislými koeficienty $b$) závislostí $\Udif(\phim)$ (například pro různé polarizace $\beta$) pro $m$ hodnot $\phih$, pak je naším cílem zjistit celkem $m+3n$ parametrů -- $m$ hodnot $\phim(\phih)$ a $3\times n$ parametrů \eqref{eqn:anizotropie-fit} -- z $n\times m$ změřených bodů.
 Pro $n=1$ je vždy parametrů více než dat, pro $n\geq 2$ je situace v pořádku (typicky $m>\,$počet členů v rozvoji).
 Rozdíl mezi $n=1,\,2$ lze intuitivně pochopit na jiné formálně ekvivalentní úloze.
-Po vykreslení bodů $(\Udif^{(1)}(\phih), \Udif^{(2)}(\phih)$ do roviny\footnote{Pokud měříme jen $\Udif^{(1)}$, pak pokládáme $\Udif^{(2)}=0$} leží podle \eqref{eqn:anizotropie-fit} body na nějaké elipse.
+Po vykreslení bodů $(\Udif^{(1)}(\phih), \Udif^{(2)}(\phih)$ do roviny\footnote{Pokud měříme jen $\Udif^{(1)}$, pak pokládáme $\Udif^{(2)}=0$.} leží podle \eqref{eqn:anizotropie-fit} body na nějaké elipse.
 V této analogii je naším úkolem elipsu identifikovat, a zároveň pro každý bod určit, v které části elipsy leží (což odpovídá $\phim(\phih)$).
 Pro obyčejnou elipsu to je jednoznačné, pokud však $n=1$, nebo jsou trojice parametrů $b$ pro obě měření lineárně závislé, je elipsa redukovaná na přímku.
 U té řešení jednoznačné není -- délka úsečky může být libovolná delší než nejvzdálenější naměřené body.
@@ -57,7 +57,7 @@ Přesto je však jistější jí po provedení fitu aplikovat a vybrat tu správ
 V praxi je měřeno mnoho hodnot $\phih$, a přestože je uvedená metoda zcela spolehlivá v simulacích, v přítomnosti šumu zpravidla nelze spoléhat na výsledky fitů s více než 20 parametry.
 Proto závislost $\phim(\phih)$ parametrizujeme menším počtem parametrů než $\phim$ pro každé měřené $\phih$.
 V případě námi měřených vzorků používáme parametrizaci Stonerova-Wohlfarthova modelu \eqref{eqn:SW-funkcional} s kubickou $k_4$ a uniaxiální $k_u$ anizotropní konstantou, jimi svíraným úhlem $\phiu$ a in-plane rotací vzorku $\gamma$.
-Pro potřeby fitu je výrazně výhodnější místo nich používat ekvivalentní parametrizaci pomocí $\tilde{k}_4$ a $\tilde{k}_u$\footnote{Jejich reálné a imaginární části.} (viz \eqref{eqn:funkcional-otoceny}), která ale navíc zachovává přirozenou topologii parametrického prostoru\footnote{V tomto vyjádření např. splývají $\phiu$ a $\phiu+\SI{180}{\degree}$, nebo $k_u=0$ pro všechna $\phiu$} a místo $\phiu$ používá $\gamma+\phiu$, tedy směr uniaxiální anizotropie v experimentální souřadné soustavě.
+Pro potřeby fitu je výrazně výhodnější místo nich používat ekvivalentní parametrizaci pomocí $\tilde{k}_4$ a $\tilde{k}_u$\footnote{Jejich reálné a imaginární části.} (viz \eqref{eqn:funkcional-otoceny}), která ale navíc zachovává přirozenou topologii parametrického prostoru\footnote{V tomto vyjádření např. splývají $\phiu$ a $\phiu+\SI{180}{\degree}$, nebo $k_u=0$ pro všechna $\phiu$.} a místo $\phiu$ používá $\gamma+\phiu$, tedy směr uniaxiální anizotropie v experimentální souřadné soustavě.
 To umožňuje její směr spolehlivě určit např. v případě, kdy je kubická anizotropie z nějakého důvodu zatížena velkou chybou (např. je mnohem slabší než uniaxiální).
 
 V této podobě výpočet cílové funkce $\mathcal{L}(\Re\tilde{k}_4,\,\Im\tilde{k}_4,\,\Re\tilde{k}_u,\,\Im\tilde{k}_u)$ probíhá ve třech krocích

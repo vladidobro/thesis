@@ -19,7 +19,6 @@
 
 % bibliografie
 \RequirePackage{csquotes}
-\RequirePackage[sorting=none]{biblatex}
 
 % fonty nefungují řů s lualatexem
 %\RequirePackage[T1]{fontenc}

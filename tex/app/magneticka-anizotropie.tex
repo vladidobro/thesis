@@ -10,7 +10,7 @@ Integrací podmínky \eqref{eqn:torque} pro rovnovážnou polohu magnetizace $\p
 
 Přechodem k experimentálně ovladatelnému úhlu pole $\phih$ dostaneme podmínku integrability
 \begin{equation}
-    \oint_0^{2\pi} \frac{\textrm{d}\phim}{\textrm{d}\phih}\sin(\phim-\phih)\textrm{d}\phih = 0
+    \oint_0^{2\pi} \frac{\textrm{d}\phim}{\textrm{d}\phih}\sin(\phim-\phih)\textrm{d}\phih = 0 \,,
 \end{equation}
 která platí, pokud jsme mohli provést substituci, tj. pokud je $\phim(\phih)$ spojité, nedochází k přeskokům.
 Striktně vzato bychom ji mohli použít i v případě, kdy dochází k vratným\footnote{Ve smyslu vratného termodynamického procesu.} přeskokům, tj. výchozí i koncové $\phim$ mají stejnou hodnotu volné energie; nedochází k hysterezi.
@@ -40,10 +40,10 @@ Vyjdeme opět z podmínky \eqref{eqn:torque}, která má tvar
 \end{equation}
 Rozvinutím funkcí $l(\phim)$, $\delta l(\phim)$ a $\sin(\phim-\phih)$ a následným porovnáním členů lze určit $\delta\phim$ do požadovaného řádu v $\delta l$.
 Do druhého řádu v $\delta \phim$ má \eqref{eqn:priblizne-delta-mag} tvar (čárka značí derivaci podle $\phim$)
-\begin{align}
+\begin{multline}
     l'(\phim)\delta\phim+l''(\phim)\frac{\delta\phim^2}{2} + \delta l(\phim) + \delta l' (\phim)\delta\phim = \\
     = \cos(\phim-\phih) \delta\phim - \sin(\phim-\phih) \frac{\delta\phim^2}{2} \,.
-\end{align}
+\end{multline}
 
 Posbíráním členů prvního řádu dostaneme
 \begin{equation}
@@ -56,14 +56,15 @@ takže oprava prvního řádu je
 
 Pomocí tohoto vzorce je možné analyticky počítat Jacobiho matici (a tedy gradient cílové funkce $\mathcal{L}$) úlohy nejmenších čtverců \eqref{eqn:anizotropie-fit}.
 Členy druhého řádu jsou pak
-\begin{align}
+\begin{multline}
     l'(\phim)\delta\phim^{(2)} +  l''(\phim) \frac{\left(\delta\phim^{(1)}\right)^2}{2} + \delta l'(\phim)\delta\phim^{(1)} = \\
     = \cos(\phim-\phih)\delta\phim^{(2)} - \sin(\phim-\phih) \frac{(\delta\phim^{(1)})^2}{2} \,,
-\end{align}
+\end{multline}
 takže oprava druhého řádu je
-\begin{equation}
-    \delta\phim^{(2)} = \frac{\delta\phim^{(1)}}{\cos(\phim-\phih)-l'(\phim)}\left[ \delta l'(\phim) + \frac{\delta\phim^{(1)}}{2} \left( l''(\phim)+\sin(\phim-\phih) \right)   \right] \,.
-\end{equation}
+\begin{multline}
+    \delta\phim^{(2)} = \frac{\delta\phim^{(1)}}{\cos(\phim-\phih)-l'(\phim)} \\ 
+                      \left[ \delta l'(\phim) + \frac{\delta\phim^{(1)}}{2} \left( l''(\phim)+\sin(\phim-\phih) \right)   \right] \,.
+\end{multline}
 
 V okolí nulové anizotropie ($l=0$) mají oba řády jednoduchý tvar
 \begin{equation}
@@ -116,6 +117,6 @@ Naopak výsledek analýzy $L'$ byl určen aplikací stejného vztahu, ale s nomi
 Situace tedy není tak jednoduchá, že by anizotropie magnetického pole zanášela do experimentu konstantní magnetickou anizotropii, protože
 \begin{equation}
     \label{eqn:pridana-anizotropie}
-L -L' = \mu \vec{M} \times (\vec{H}-\vec{H}')
+L -L' = \mu \vec{M} \times (\vec{H}-\vec{H}') \,,
 \end{equation}
 také nezávisí jen na nepřesnosti pole vyjádřené $\vec{H}-\vec{H}'$, ale i na magnetické anizotropii vzorku.

@@ -19,8 +19,9 @@ Z termodynamických úvah plynou Onsagerovy relace reciprocity\cite{onsagerRecip
 takže $\varepsilon^{(0)}$ a $\varepsilon^{(+)}$ jsou symetrické, zatímco $\varepsilon^{(-)}$ je antisymetrický.
 
 Magnetická závislost permitivity se obvykle rozvíjí do mocninné řady v $\vec{M}$ \cite{visnovskyOpticsMagneticMultilayers2018}
-\begin{align} 
+\begin{equation} 
 \label{eqn:MO-tenzory}
+\begin{split}
     \varepsilon_{ij}(\vec{M})&=\varepsilon^{(0)}_{ij}
         + \sum_{k=1}^{3}\left[ \frac{\partial \varepsilon_{ij}}{\partial M_k}\right]_{\vec{M}=0} M_k 
         + \sum_{k,l=1}^{3} \frac{1}{2}\left[ \frac{\partial^2 \varepsilon_{ij}}{\partial M_k \partial M_l}\right]_{\vec{M}=0} M_k M_l + \dots 
@@ -28,7 +29,8 @@ Magnetická závislost permitivity se obvykle rozvíjí do mocninné řady v $\v
         + \sum_{k=1}^{3}K_{ijk} M_k 
         + \sum_{k,l=1}^{3} G_{ijkl} M_k M_l + \dots
         =\varepsilon^{(0)}_{ij} +\varepsilon^{(1)}_{ij} +\varepsilon^{(2)}_{ij} + \dots
-\end{align}
+\end{split}
+\end{equation}
 kde jsme explicitně uvedli první dva řády, které definují \emph{lineární MO tenzor} $\mathbb{K}$ a \emph{kvadratický MO tenzor} $\mathbb{G}$.
 Vyšší řády se většinou zanedbávají.
 Je dobré ale mít na paměti, že zakončením rozvoje na určitém řádu nejen snižujeme přesnost, ale také uměle zvyšujeme symetrii $\varepsilon(\vec{M})$ \cite{silberQuadraticMagnetoopticKerr2019a}.
@@ -42,20 +44,20 @@ Izotropní i kubický materiál mají izotropní nemagnetickou permitivitu (inde
 \begin{equation}
     \varepsilon^{(0)}=\begin{pmatrix}
         n^2 & 0 & 0 \\ 0 & n^2 & 0 \\ 0 & 0 & n^2
-    \end{pmatrix} \,,
+    \end{pmatrix} ,
 \end{equation}
 oba také mají izotropní $\mathbb{K}$
-\begin{equation}
+\begin{align}
     \label{eqn:permitivita-kub-K}
-    \begin{pmatrix} \varepsilon^{(1)}_{yz}=-\varepsilon^{(1)}_{zy} \\ \varepsilon^{(1)}_{zx}=-\varepsilon^{(1)}_{xz} 
+    \begin{pmatrix} \varepsilon^{(1)}_{yz} =-\varepsilon^{(1)}_{zy} \\ \varepsilon^{(1)}_{zx}=-\varepsilon^{(1)}_{xz} 
         \\ \varepsilon^{(1)}_{xy}=-\varepsilon^{(1)}_{yx}\end{pmatrix}
-    =\begin{pmatrix} K & 0 & 0 \\ 0 & K & 0 \\ 0 & 0 & K \end{pmatrix}
+    &= K
     \begin{pmatrix}M_x \\ M_y \\ M_z\end{pmatrix} 
-    \,, \,\, \varepsilon^{(1)}= K 
-    \begin{pmatrix} 0 & M_z & -M_y \\ -M_z & 0 & M_x \\ M_y & -M_x & 0 \end{pmatrix} \,,
-\end{equation}
+    , & \varepsilon^{(1)} &= K 
+    \begin{pmatrix} 0 & M_z & -M_y \\ -M_z & 0 & M_x \\ M_y & -M_x & 0 \end{pmatrix} ,
+\end{align}
 ale v druhém řádu už se liší.
-Pro kubický materiál platí (používáme 2-indexovou notaci jako \cite{hamrlovaQuadraticinmagnetizationPermittivityConductivity2013})
+Pro kubický materiál s hlavními krystalografickými směry ve směrech souřadných os platí (používáme 2-indexovou notaci jako \cite{hamrlovaQuadraticinmagnetizationPermittivityConductivity2013})
 \begin{equation}
     \begin{pmatrix}
         \varepsilon^{(2)}_{xx} \\ \varepsilon^{(2)}_{yy} \\ \varepsilon^{(2)}_{zz} 
@@ -71,24 +73,24 @@ Pro kubický materiál platí (používáme 2-indexovou notaci jako \cite{hamrlo
         0 & 0 & 0 & 0 & 2G_{44} & 0 \\
         0 & 0 & 0 & 0 & 0 & 2G_{44}
     \end{pmatrix}
-    \begin{pmatrix} M_x^2 \\ M_y^2 \\ M_z^2 \\ M_y M_z \\ M_z M_x \\ M_x M_y \end{pmatrix} \,,
+    \begin{pmatrix} M_x^2 \\ M_y^2 \\ M_z^2 \\ M_y M_z \\ M_z M_x \\ M_x M_y \end{pmatrix} ,
 \end{equation}
 pro izotropní navíc $\Delta G \equiv G_{11}-G_{12}-2G_{44}=0$.
 Pro pozdější použití uvedeme pro speciální případ $M_z=0$
-\begin{align}
+\begin{multline}
     \label{eqn:permitivita-kub-G-xy}
-    \varepsilon^{(2)} =& G_{12} |\vec{M}|^2 \\ 
-    &+ \frac{G_s}{2} \begin{pmatrix}
+    \varepsilon^{(2)} = G_{12} |\vec{M}|^2 \\ 
+    + \frac{G_s}{2} \begin{pmatrix}
         M_x^2 & M_x M_y & 0 \\ M_x M_y & M_y^2 & 0 \\ 0 & 0 & 0
     \end{pmatrix}
     + \frac{\Delta G}{2} \begin{pmatrix}
         M_x^2 & -M_xM_y & 0 \\ -M_xM_y & M_y^2 & 0 \\ 0 & 0 & 0
-    \end{pmatrix}
-\end{align}
+    \end{pmatrix} ,
+\end{multline}
 kde $G_s=G_{11}-G_{12}+2G_{44}$.
 Pro úplnost připomeneme, že složky MO tenzorů jsou stejně jako relativní permitivita $\varepsilon$ komplexní, bezrozměrné a frekvenčně závislé.
 Pokud je materiál dobře popsaný MO tenzory, lze pro libovolné $\vec{M}$ dosazením do \eqref{eqn:MO-tenzory} získat $\varepsilon$, aplikovat metodu z oddílu \ref{chap:optika-v-multivrstvach} a tak spočítat všechny myslitelné transmisní a reflexní koeficienty.
 
-Uvedený přístup není možné použít v případě, že osvětlované místo vzorku není tvořené homogenním $\vec{M}$, ale je tvořené více doménami, ve kterých se $\vec{M}$ liší.
+Uvedený přístup není možné použít v případě, že osvětlované místo vzor\-ku není tvořené homogenním $\vec{M}$, ale je tvořené více doménami, ve kterých se $\vec{M}$ liší.
 $\vec{M}$ je ve více-doménovém stavu dané průměrem přes domény.
 Pro $\mathbb{K}$ to nečiní problém, protože pro průměrné $\vec{M}$ dostaneme průměrné $\varepsilon$, ale pro $\mathbb{G}$ to již neplatí.

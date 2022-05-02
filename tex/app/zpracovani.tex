@@ -21,7 +21,7 @@ Převod mezi koeficienty $P_{ij}$ a $P_{+/-}$, $\pi_{+/-}$ poskytuje matice
     \begin{pmatrix} P_+ e^{i2\pi_+} \\ P_- e^{i2\pi_-} \end{pmatrix}
     = \frac{1}{2}
     \begin{pmatrix} -i & 1 & -1 & -i \\ i & -1 & -1 & -i \end{pmatrix}
-    \begin{pmatrix} P_{11}\\P_{12}\\P_{21}\\P_{22} \end{pmatrix}  \,.
+    \begin{pmatrix} P_{11}\\P_{12}\\P_{21}\\P_{22} \end{pmatrix}  .
 \end{equation}
 
 
@@ -32,7 +32,7 @@ V okolí minima cílové funkce numericky spočítáme matici druhých derivací
 \begin{equation}
     \frac{\partial^2 \mathcal{L}}{\partial c_i \partial c_j} = H_{ij} \,,
 \end{equation}
-kterou následně normujeme odhadem variance chyb $\sigma^2 = \mathcal{L}_\textrm{min}/(n-m)$, kde $n$ je počet měřených bodů a $m$ počet fitovaných parametrů parametrů.
+kterou následně normujeme odhadem variance chyb $\sigma^2 = \mathcal{L}_\textrm{min}/(n-m)$, kde $n$ je počet měřených bodů a $m$ počet fitovaných parametrů modelu.
 Inverzí matice $H/\sigma^2$ je pak kovarianční matice, na jejíž diagonále jsou variance fitovaných parametrů.
 
 Oblasti spolehlivosti $1\sigma$, $2\sigma$, resp. $3\sigma$ jsou přibližně\footnote{Platí přesně pro lineární regresi.} ohraničené křivkou $\mathcal{L}=\mathcal{L}_\textrm{min}(1+j/(n-m))$, kde $j=1$, $4$, resp. $9$.

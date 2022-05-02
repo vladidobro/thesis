@@ -34,15 +34,15 @@ Viz obr. \ref{fig:polarizacni-elipsa}.
 
 Jonesovy vektory\cite{azzamEllipsometryPolarizedLight1977} jsou tvořeny přímo komplexními amplitudami polí v rovině kolmé na vektor šíření
 \begin{equation}
-    \J=\begin{pmatrix} E_{x} \\ E_{y} \end{pmatrix} \,.
+    \J=\begin{pmatrix} E_{x} \\ E_{y} \end{pmatrix} .
 \end{equation}
 
-Prostor Jonesových vektorů je přirozeně normovaný intenzitou \eqref{eqn:Poynting}, která je dána skalárním součinem
-\begin{equation}
-    \J_1^\dagger \J_2= \begin{pmatrix} J_{1x}^* & J_{1y}^* \end{pmatrix}
-    \begin{pmatrix} J_{2x} \\ J_{2y} \end{pmatrix} \,, 
-    \qquad I(\J)=\J^\dagger \J
-\end{equation}
+Prostor Jonesových vektorů je přirozeně normovaný intenzitou \eqref{eqn:Poynting}, kte\-rá je dána skalárním součinem
+\begin{align}
+    \J_1^\dagger \J_2 &= \begin{pmatrix} J_{1x}^* & J_{1y}^* \end{pmatrix}
+    \begin{pmatrix} J_{2x} \\ J_{2y} \end{pmatrix} , 
+                      & I(\J) & =\J^\dagger \J \,.
+\end{align}
 
 Akci každého lineárního polarizačního prvku lze popsat jako lineární transformaci Jonesova vektoru -- transformaci Jonesovou $2\times 2$ komplexní maticí $\mathcal{T}$.
 Jonesovy matice lze použít i pro popis polarizačního děliče: každé rameno pak má vlastní matici.
@@ -53,7 +53,7 @@ Sadě parametrů $\beta$, $\chi$, $I$, $\delta$ odpovídá Jonesův vektor
     \J=\sqrt{I} e^{i\delta} \begin{pmatrix}
         \cos \chi \cos \beta - i \sin \chi \sin \beta \\
         \cos \chi \sin \beta + i \sin \chi \cos \beta
-    \end{pmatrix} \,.
+    \end{pmatrix} .
 \end{equation}
 
 Zde je na místě poznámka o točivosti.
@@ -75,18 +75,21 @@ Vzhledem k povaze prováděných experimentů se zřejmě jedná o daleko menš�
 Ucelený přehled, ze kterého vychází tento oddíl, lze nalézt v \cite{gilReviewMuellerMatrix2014,ossikovskiPoincareSphereMapping2013}.
 Stokesovy parametry obecně mohou narozdíl od Jonesových vektorů popsat i nepolarizované světlo,
 v této práci si však vystačíme s plně polarizovaným světlem a proto je nebudeme definovat obecně, ale pomocí Jonesových vektorů
+\begin{subequations}
+\label{eqn:stokesovy-parametry}
 \begin{alignat}{3}
     s_0 &\equiv J_x^* J_x+J_y^* J_y &\equiv \J^\dagger \sigma_0 \J &= I \,,\\
     s_1 &\equiv J_x^* J_x-J_y^* J_y &\equiv \J^\dagger \sigma_1 \J &= I \cos 2\chi \cos 2\beta \,,  \\
     s_2 &\equiv J_x^* J_y+J_y^* J_x &\equiv \J^\dagger \sigma_2 \J &= I \cos 2\chi \sin 2\beta \,, \\
     s_3 &\equiv -i J_x^* J_y+i J_y^* J_x  &\equiv \J^\dagger \sigma_3 \J &= I \sin 2\chi \,,
 \end{alignat}
+\end{subequations}
 kde jsme je druhými rovnostmi vyjádřili jako střední hodnoty vhodných $2\times 2$ hermitovských matic $\sigma_{i}$. Ty jsou
 \begin{align}
-    \sigma_0=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} ,\,\,
-    \sigma_1=\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} ,\,\,
-    \sigma_2=\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} ,\,\,
-    \sigma_3=\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}
+    \sigma_0& =\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} ,&
+    \sigma_1& =\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} ,&
+    \sigma_2& =\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} ,&
+    \sigma_3& =\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}
 \end{align}
 a můžeme je rozeznat jako jednotkovou matici a přerovnané Pauliho matice.
 Tvoří komplexní bázi obecných komplexních $2\times 2$ matic, s omezením na reálné koeficienty pak bázi hermitovských matic. 
@@ -111,12 +114,12 @@ Pro plně polarizované světlo nejsou Stokesovy parametry nezávislé, platí t
     s_0=\sqrt{s_1^2+s_2^2+s_3^2}
 \end{equation}
 a tedy k vyjádření polarizačního stavu stačí \emph{redukovaný} Stokesův vektor $(s_1, s_2, s_3)^T$, který lze graficky zanést do třírozměrného prostoru.
-Polarizace s jednotkovou intenzitou se zobrazují na tzv. Poincarého sféře jako na obr. \ref{fig:Poincareho-sfera}.
+Polarizace s~jednotkovou intenzitou se zobrazují na tzv. Poincarého sféře jako na obr.~\ref{fig:Poincareho-sfera}.
 Ortogonální polarizace jsou zobrazeny na body středově souměrné podle počátku.
 
 \begin{figure}[htbp]
     \centering
-    \input{./img/asy/poincareho-sfera.asy}
+    \asypic{\input{./img/asy/poincareho-sfera.asy}}
     \caption{Poincarého sféra. Je vyznačen rovník lineárních polarizací (rovina $s_3=0$, $\chi=0$) a póly kruhových polarizací $\chi=\pm \pi/4$.}
     \label{fig:Poincareho-sfera}
 \end{figure}
@@ -150,43 +153,47 @@ $\mathcal{U}$ lze diagonalizovat a její vlastní čísla jsou komplexní fázov
 Tyto dva vlastní módy mají po průchodu prvkem stejný polarizační stav, akce Muellerovy matice na Poincarého sféru má tedy za následek rotaci sféry kolem osy procházející těmito vlastními módy.
 Úhel rotace je dán fázovým zpožděním $\delta'=\delta_2-\delta_1$.
 Ve speciálním případě $\J_1=(1,0)^T$ a $\J_2=(0,1)^T$ je Jonesova a Muellerova matice
-\begin{equation}
+\begin{align}
 \label{eqn:cisty-retarder}
-    \mathcal{U}=\begin{pmatrix}
+\mathcal{U}
+& =\begin{pmatrix}
         e^{i\delta_1} & 0 \\ 0 & e^{i\delta_2}
-        \end{pmatrix} \,, \qquad
-    \mathbb{U}=\begin{pmatrix}
+        \end{pmatrix} ,
+& \mathbb{U}
+& =\begin{pmatrix}
         1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\
         0 & 0 & \cos\delta' & -\sin\delta' \\ 0 & 0 & \sin\delta' & \cos\delta'
-        \end{pmatrix} \,.
-\end{equation}
+        \end{pmatrix} .
+\end{align}
 
 \paragraph{Čistý diatenuátor}
 
 Pro prvek reprezentovaný pozitivně semidefinitní hermitovskou Jonesovou maticí $\mathcal{H}$ existují dva ortogonální vlastní módy s reálnými nezápornými vlastními čísly -- různými koeficienty útlumu.
 Normalizací matice tak, že větší z vlastních čísel se rovná 1, lze psát s reálným nezáporným $\eta$
 \begin{equation}
-    \mathcal{H}=\J_1 \J_1^\dagger + \eta \J_2 \J_2^\dagger \,.
+    \mathcal{H}=\J_1 \J_1^\dagger + \eta \J_2 \J_2^\dagger .
 \end{equation}
 
 Jedná se o obecný polarizátor, který $\J_1$ propustí zcela a $\J_2$ propustí s amplitudovou propustností $\eta$.
-Ve speciálním případě $\J_1=(1,0)^T$ a $\J_2=(0,1)^T$ je Jonesova a Muellerova matice
-\begin{equation}
-    \mathcal{H}=\begin{pmatrix}
+Ve speciálním případě $\J_1=(1,0)^T$ a $\J_2=\allowbreak(0,1)^T$ je Jonesova a Muellerova matice
+\begin{align}
+    \mathcal{H}
+    &=\begin{pmatrix}
         1 & 0 \\ 0 & \eta
-        \end{pmatrix} \,, \qquad
-    \mathbb{H}=\begin{pmatrix}
+        \end{pmatrix} ,
+    &\mathbb{H}
+    &=\begin{pmatrix}
         \frac{1+\eta^2}{2} & \frac{1-\eta^2}{2} & 0 & 0 \\ \frac{1-\eta^2}{2} & \frac{1+\eta^2}{2} & 0 & 0 \\
         0 & 0 & \eta & 0 \\ 0 & 0 & 0 & \eta
-        \end{pmatrix} \,.
-\end{equation}
+        \end{pmatrix} .
+\end{align}
 
 Pro body na Poincarého sféře dosadíme $s_0^\textrm{in}=1$ a dostaneme
 \begin{equation}
     \begin{pmatrix} s_1 \\ s_2 \\ s_3 \end{pmatrix}_{\textrm{out}}
     =\begin{pmatrix} \frac{1+\eta^2}{2} & 0 & 0 \\ 0 & \eta & 0 \\ 0 & 0 & \eta \end{pmatrix}
     \begin{pmatrix} s_1 \\ s_2 \\ s_3  \end{pmatrix}_{\textrm{in}}
-    +\begin{pmatrix} \frac{1-\eta^2}{2} \\ 0 \\ 0 \end{pmatrix}
+    +\begin{pmatrix} \frac{1-\eta^2}{2} \\ 0 \\ 0 \end{pmatrix} .
 \end{equation}
 Jedná se tedy o kontrakci v rovině $s_2s_3$ faktorem $\eta$, ve směru $s_1$ faktorem $(1+\eta^2)/2$ a zároveň posunutím o $(1-\eta^2)/2$.
 Ekvivalentně lze mluvit o kontrakci stejným faktorem se středem\footnote{$(s_1^\textrm{out}-1)=(s_1^\textrm{in}-1)(1-\eta^2)/2$.} v $s_3=1$.
@@ -198,13 +205,13 @@ Zobrazení Poincarého sféry nachází využití především pro depolarizačn
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{.3\textwidth}
+    \begin{subfigure}{.4\textwidth}
         \centering
-        \input{./img/asy/akce-muelleru-U.asy}
+        \asypic{\input{./img/asy/akce-muelleru-U.asy}}
     \end{subfigure}
-    \begin{subfigure}{.67\textwidth}
+    \begin{subfigure}{.55\textwidth}
         \centering
-        \input{./img/asy/akce-muelleru-H.asy}
+        \asypic{\input{./img/asy/akce-muelleru-H.asy}}
     \end{subfigure}
     \caption{Zobrazení Poincarého sféry čistými Muellerovými maticemi. (a) čistý retardér (rotace sféry), (b) čistý diatenuátor (protáhnutí a posunutí sféry).}
     \label{fig:UH-Mueller}

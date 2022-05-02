@@ -22,25 +22,31 @@ kde jsme druhou rovností naznačili asociativitu maticového násobení, která
 
 Stejně lze zřejmě činit i pro detektor B.
 Rozdílové a součtové napětí je pak
-\begin{align}
+\begin{subequations}
 \label{eqn:af}
-\Udif = \left( {\Dtks'}^\textrm{A}-{\Dtks'}^\textrm{B}\right) \cdot \M_{\lambda/2} \Stks^\textrm{in} \equiv {\Dtks''}^\textrm{A-B}\cdot \Stks^\textrm{in} \,, \\
-\Usum = \left({\Dtks'}^\textrm{A}+{\Dtks'}^\textrm{B}\right) \cdot \M_{\lambda/2}\Stks^\textrm{in} \equiv {\Dtks''}^\textrm{A+B}\cdot \Stks^\textrm{in} \,.
+\begin{align}
+    \Udif &= \left( {\Dtks'}^\textrm{A}-{\Dtks'}^\textrm{B}\right) \cdot \M_{\lambda/2} \Stks^\textrm{in} \equiv {\Dtks''}^\textrm{A-B}\cdot \Stks^\textrm{in} \,, \\
+    \Usum &= \left({\Dtks'}^\textrm{A}+{\Dtks'}^\textrm{B}\right) \cdot \M_{\lambda/2}\Stks^\textrm{in} \equiv {\Dtks''}^\textrm{A+B}\cdot \Stks^\textrm{in} \,.
 \end{align}
+\end{subequations}
 
 Měřené signály jsou lineární ve vstupních Stokesových vektorech a jsou tedy reprezentovány lineárními formami, zde ${\Dtks''}^\textrm{A-B}$ a ${\Dtks''}^\textrm{A+B}$.
 Pro ideální půlvlnnou destičku a polarizační dělič jako v oddílu \ref{chap:mustek-kap2} jsou Muellerovy matice (A měří $E_y$, B měří $E_x$)
-\begin{align}
-    \M_\textrm{A} = \frac{1}{2}\begin{pmatrix} 1&-1&0&0 \\ -1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} \,,\quad 
-    \M_\textrm{B} = \frac{1}{2}\begin{pmatrix} 1&1&0&0 \\ 1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} \,, \\
+\begin{subequations}
+\begin{gather}
+    \M_\textrm{A} = \frac{1}{2}\begin{pmatrix} 1&-1&0&0 \\ -1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} ,\qquad 
+    \M_\textrm{B} = \frac{1}{2}\begin{pmatrix} 1&1&0&0 \\ 1&1&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{pmatrix} , \\
     \M_{\lambda/2} = \begin{pmatrix} 1&0&0&0 \\ 0&\cos4\theta_{\lambda/2}&\sin4\theta_{\lambda/2}&0 \\ 0&\sin4\theta_{\lambda/2}&-\cos4\theta_{\lambda/2}&0 \\ 0&0&0&-1 \end{pmatrix}
-\end{align}
+\end{gather}
+\end{subequations}
 a Stokesovy kovektory jsou po dosazení
+\begin{subequations}
 \begin{align}
-    {\Dtks'}^\textrm{A-B}=(0, -1, 0, 0) \,, \\
-    {\Dtks''}^\textrm{A-B}=-(0, \cos4\theta_{\lambda/2}, \sin4\theta_{\lambda/2}, 0) \,, \label{eqn:Uab-Mueller} \\
-    {\Dtks''}^\textrm{A+B}=(1, 0, 0, 0) \,.
+    {\Dtks'}^\textrm{A-B} &=(0, -1, 0, 0) \,, \\
+    {\Dtks''}^\textrm{A-B} &=-(0, \cos4\theta_{\lambda/2}, \sin4\theta_{\lambda/2}, 0) \,, \label{eqn:Uab-Mueller} \\
+    {\Dtks''}^\textrm{A+B} &=(1, 0, 0, 0) \,.
 \end{align}
+\end{subequations}
 
 Místo sledování, co se při průchodu optickými prvky děje se všemi myslitelnými vstupními Stokesovými vektory, je výhodnější sledovat, jak se mění konstantní detektorové kovektory.
 Navíc Stokesovy kovektory lze pro plně polarizováné světlo přímočaře graficky znázorňovat v trojrozměrném prostoru redukovaných Stokesových vektorů.
@@ -63,7 +69,7 @@ Případ $d_0>|\vec{d}|$ v této práci nepoužíváme (soustředíme se na popi
 
 \begin{figure}[htbp]
     \centering
-    \input{./img/asy/kovek-1.asy}
+    \asypic{\input{./img/asy/kovek-1.asy}}
     \caption{Nulové plochy Stokesových kovektorů s nulovou (růžově) a nenulovou (zeleně) nultou složkou $d_0$. Průnikem s Poincarého sférou vznikne \emph{nulová} kružnice.}
     \label{fig:mustek-znazorneni-kovektoru}
 \end{figure}

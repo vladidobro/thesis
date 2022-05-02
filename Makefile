@@ -37,7 +37,7 @@ LATEX=rubber --unsafe --pdf --synctex --module lualatex -W all
 .DEFAULT_GOAL:= thesis
 .PHONY: all thesis abstract defense
 .PHONY: data svg
-.PHONY: version see verapdf
+.PHONY: version see verapdf updateverapdf
 .PHONY: clean mostlyclean cleanimg cleanpdf cleandata cleantex
 .PHONY: help echoes 
 
@@ -53,9 +53,11 @@ data:
 svg:
 	$(MAKE) -C img/svg all
 
+updateverapdf:
+	curl https://cuni.cz/UK-7987-version1-custom8.xml > verapdf_profile.xml
+
 verapdf: thesis
-	curl https://cuni.cz/UK-7987-version1-custom8.xml > /tmp/verapdf_profile
-	verapdf -p /tmp/verapdf_profile thesis.pdf | grep "<validationReport"
+	verapdf -p verapdf_profile.xml thesis.pdf
 
 see: thesis ## open with synctex enabled
 	synctex-forward --servername $(NVIMSERVER) thesis.pdf $(STXLINE) $(STXCOL) $(STXFILE)

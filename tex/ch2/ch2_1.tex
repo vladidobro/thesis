@@ -1,6 +1,6 @@
 \section{Optický můstek}
 \label{chap:mustek-kap2}
-V MO experimentech, ve kterých se měří stočení hlavní roviny polarizace či elipticita, se často využívá schéma optického můstku\footnote{angl. \emph{optical bridge}, také \emph{differential intensity measurement}.}\cite{silberQuadraticMagnetoopticKerr2019a}.
+V MO experimentech, ve kterých se měří stočení hlavní roviny polarizace či elipticita, se často využívá schéma optického můstku\footnote{Angl. \emph{optical bridge}, také \emph{differential intensity measurement}.}\cite{silberQuadraticMagnetoopticKerr2019a}.
 V jednoduché formě je znázorněn na obr. \ref{fig:mustek-schema}.
 
 \begin{figure}[htbp]
@@ -13,19 +13,22 @@ V jednoduché formě je znázorněn na obr. \ref{fig:mustek-schema}.
 Ústředním prvkem je polarizační dělič (často typu Glan Laser či Wollastonův hranol), který rozdělí svazek do dvou lineárně polarizovaných ramen.
 Při měření je nejprve nastaven úhel rotace půlvlnné destičky $\theta_{\lambda/2}$ (tzv. ``vyvážení můstku'') tak, aby oba detektory naměřily stejnou intenzitu.
 Pro ideální prvky platí v Jonesově formalismu
+\begin{subequations}
+\label{eqn:ideal-mustek}
 \begin{align}
-    \J_\textrm{A} = \mathcal{T}_\textrm{A} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,&, \quad 
-    \mathcal{T}_\textrm{A}=\begin{pmatrix} 0&0\\0&1 \end{pmatrix} \,, \\
-    \J_\textrm{B} = \mathcal{T}_\textrm{B} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,&, \quad
-    \mathcal{T}_\textrm{B}=\begin{pmatrix} 1&0\\0&0 \end{pmatrix} \,,\\
-    \mathcal{T}_{\lambda/2}=\mathcal{R}(\theta_{\lambda/2})\begin{pmatrix} 1&0\\0&-1 \end{pmatrix}\mathcal{R}(-\theta_{\lambda/2}) \,&, \quad
-    \mathcal{R}(\theta)=\begin{pmatrix} \cos\theta&-\sin\theta\\\sin\theta&\cos\theta \end{pmatrix} \,.
+    \J_\textrm{A} &= \mathcal{T}_\textrm{A} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,, & 
+    \mathcal{T}_\textrm{A} &=\begin{pmatrix} 0&0\\0&1 \end{pmatrix} , \\
+    \J_\textrm{B} &= \mathcal{T}_\textrm{B} \mathcal{T}_{\lambda/2} \J_\textrm{in} \,, &
+    \mathcal{T}_\textrm{B} & =\begin{pmatrix} 1&0\\0&0 \end{pmatrix} ,\\
+    \mathcal{T}_{\lambda/2} &=\mathcal{R}(\theta_{\lambda/2})\begin{pmatrix} 1&0\\0&-1 \end{pmatrix}\mathcal{R}(-\theta_{\lambda/2}) \,, & 
+    \mathcal{R}(\theta) &=\begin{pmatrix} \cos\theta&-\sin\theta\\\sin\theta&\cos\theta \end{pmatrix} .
 \end{align}
+\end{subequations}
 
 Dosazením Jonesova vektoru \eqref{eqn:Jones-elipsa} pro natočení hlavní roviny polarizace $\beta$ a elipticitu $\chi$ dostaneme rozdíl intenzit
-\begin{equation}
-    I_\textrm{A}-I_\textrm{B}\equiv\J_\textrm{A}^\dagger\J_\textrm{A}-\J_\textrm{B}^\dagger\J_\textrm{B}=-I\cos2\chi \cos(2\beta-4\theta_{\lambda/2}) \,, \quad I_\textrm{A}+I_\textrm{B}=I
-\end{equation}
+\begin{align}
+    I_\textrm{A}-I_\textrm{B}\equiv\J_\textrm{A}^\dagger\J_\textrm{A}-\J_\textrm{B}^\dagger\J_\textrm{B}&=-I\cos2\chi \cos(2\beta-4\theta_{\lambda/2}) \,, & I_\textrm{A}+I_\textrm{B}&=I
+\end{align}
 
 Vyvážením můstku nastavíme $\cos(2\beta-4\theta_{\lambda/2})=0$. 
 V řeči diferenciálních forem pak pro malé změny $\J_\textrm{in}$ (vyjádřené pomocí $\textrm{d}\beta, \textrm{d}\chi, \textrm{d}I$) platí
@@ -41,7 +44,7 @@ Pro vstupní lineární polarizaci ($\chi=0$) můžeme měřený rozdílový sig
     \frac{1}{2}\frac{I_\textrm{A}-I_\textrm{B}}{I_\textrm{A}+I_\textrm{B}}=\Delta\beta \,,
 \end{equation}
 kde jsme označili $\Delta\beta$ stočení polarizace.
-Vhodným vložením čtvrtvlnné destičky lze měřit i elipticitu\cite{silberQuadraticMagnetoopticKerr2019a}.
+Vhodným vložením čtvrtvlnné des\-tič\-ky lze měřit i elipticitu\cite{silberQuadraticMagnetoopticKerr2019a}.
 
 Optický můstek vždy měří pouze relativní změny $\Delta\beta$ (příp. $\Delta\chi$) vůči vyváženému stavu, který se nemusí shodovat s ``referenčním''\footnote{Většinou nedosažitelný stav $\vec{M}=0$.} stavem, vůči kterému je $\Delta\beta$ modelováno.
 Tuto skutečnost vyjadřujeme neznámou aditivní konstantou $\xi$ ($\Delta\beta_\textrm{měření}=\Delta\beta_\textrm{model}+\xi$).

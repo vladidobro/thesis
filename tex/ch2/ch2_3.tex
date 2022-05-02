@@ -8,17 +8,19 @@ Předpokladem pro oddělení lineárního a kvadratického příspěvku, který 
 je zde symetrie in-plane inverze magnetické anizotropie, tj. $\vec{M}(-\vHext)=-\vec{M}(\vHext) \Leftrightarrow \phim(\phih+\SI{180}{\degree})=\phim(\phih)+\SI{180}{\degree}$.
 Pokud není narušená, lineární $\Psi^L$, resp. kvadratický $\Psi^Q$ příspěvek signálu je lichý, resp. sudý nejen v $\vec{M}$, ale i v $\vHext$;
 proto je možné je jednoduše oddělit\footnote{V původních článcích je Kerrova rotace $\Psi$ značena $\Phi$.}
+\begin{subequations}
+\label{eqn:rotmoke-separace}
 \begin{align}
-    \label{eqn:rotmoke-separace}
     \Psi^L(\phih)&=\frac{1}{2} \left[ \Psi(\phih+\SI{180}{\degree}) - \Psi(\phih) \right] 
     \,, \\ \Psi^Q(\phih)&=\frac{1}{2} \left[ \Psi(\phih+\SI{180}{\degree}) + \Psi(\phih) \right] \,.
 \end{align}
+\end{subequations}
 
 Lineární signál má podle \eqref{eqn:QMOKE-vzorec} jednoduchou závislost na směru magnetizace, takže z něj lze odečíst magnetickou anizotropii, tj. $\phim(\phih)$
-\begin{equation}
+\begin{align}
     \label{eqn:rotmoke-anizotropie}
-    \Psi^L(\phih)\propto \cos(\phim(\phih)) \,, \qquad \cos \phim=\Psi^L(\phih)/\Psi^L_\textrm{max} \,,
-\end{equation}
+    \Psi^L(\phih) &\propto \cos(\phim(\phih)) \,, & \cos \phim &=\Psi^L(\phih)/\Psi^L_\textrm{max} \,,
+\end{align}
 kde $\Psi^L_\textrm{max}$ je maximální naměřený lineární signál pro $\phim=\SI{0}{\degree}$.
 
 \begin{figure}[htbp]

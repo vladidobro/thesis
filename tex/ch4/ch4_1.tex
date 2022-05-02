@@ -46,21 +46,28 @@ Metodou nejmenších čtverců rozumíme hledání parametrů minimalizujících
 kde v tomto případě $\Delta\beta_\textrm{měření}$, $\Delta\beta_\textrm{model}$, značí levou, resp. pravou stranu \eqref{eqn:PMLD-naivni}.
 
 Problém lze jednoduchou transformací pomocí součtových vzorců převést na lineární
-\begin{align}
+\begin{equation}
 \label{eqn:PMLD-linearizovane}
+\begin{split}
 \Delta\beta =\xi(\beta) &+ P\left(\phim(\phih)\right)\sin\left(2\phim(\phih)\right)\cos(2\beta) 
            \\&-P\left(\phim(\phih)\right)\cos\left(2\phim(\phih)\right)\sin(2\beta) \,,
-\end{align}
+\end{split}
+\end{equation}
 který lze vyřešit rozvedením $\Delta\beta$ a $\xi$ do Fourierových řad\footnote{S konečným vzorkováním se jedná o diskrétní Fourierovu trasformaci, obor $k$ je omezený.} v $\beta$
+\begin{subequations}
 \begin{align}
     \Delta\beta(\phih, \beta) &= \sum_{k=-\infty}^\infty \Delta\beta_k(\phih) e^{ik\beta} \,,\\
     \xi(\beta) &= \sum_{k=-\infty}^\infty \xi_k e^{ik\beta}  \,.
 \end{align}
+\end{subequations}
 Řešením je pak
-\begin{align}
+\begin{subequations}
+\label{eqn:reseni-ctverce-fourier}
+\begin{gather}
     \xi_k = \overline{\Delta\beta_{k}} \quad \textrm{pro} \,\, k\neq\pm2 \,,\\
-    \frac{1}{2}P(\phim(\phih)) e^{\mp i2\phim(\phih)} + \xi_{\pm2} = \Delta\beta_{\pm2}(\phih) \,,\label{eqn:reseni-ctverce-fourier}
-\end{align}
+    \frac{1}{2}P(\phim(\phih)) e^{\mp i2\phim(\phih)} + \xi_{\pm2} = \Delta\beta_{\pm2}(\phih) \,,
+\end{gather}
+\end{subequations}
 kde $\overline{\Delta\beta_k}$ značí průměr přes $\phih$.
 Z \eqref{eqn:reseni-ctverce-fourier} je vidět, že úloha je degenerovaná: existují různé sady parametrů, které produkují stejná naměřená data.
 Dimenze degenerace je 2 a odpovídá reálné a imaginární části $\xi_2=\xi_{-2}^*$.
@@ -70,7 +77,7 @@ Jinými slovy, pro kubické vzorky fit degenerovaný není, platí pro ně toti�
 Tak lze z měřených dat určit kýžené závislosti $P(\phim)$ a $\phim(\phih)$.
 
 Na úvodních datech naměřených ve vzorku CoFe ilustrujeme nedostatky původní verze experimentu.
-Měření proběhlo při pokojové teplotě v transmisní geometrii podle schématu na obr. \ref{fig:zakladni-schema} (a) s tím rozdílem, že chyběl ``čistící'' polarizátor P1 a vnější komora kryostatu, takže svazek neprocházel přes skleněná okénka.
+Měření proběhlo při pokojové teplotě v trans\-mis\-ní geometrii podle schématu na obr. \ref{fig:zakladni-schema} (a) s tím rozdílem, že chyběl ``čistící'' polarizátor P1 a vnější komora kryostatu, takže svazek neprocházel přes skleněná okénka.
 Ilustrace změřených dat je na obr. \ref{fig:g-uvod-data} (a).
 
 Z obrázku je na první pohled patrný první problém.

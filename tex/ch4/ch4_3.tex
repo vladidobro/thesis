@@ -24,11 +24,13 @@ Ta je založena na dvou předpokladech.
 Zaprvé musí být průchod/odraz přibližně izotropní, tj. nultý člen rozvoje transmisní/reflexní Jonesovy matice (zde obě značíme $\mathcal{R}$) musí být přibližně úměrný jednotkové matici.
 V praxi to znamená téměř kolmý dopad a přibližně izotropní tenzor permitivity vzorku.
 Označíme odchylku od jednotkové matice $\mathcal{R}'$ a rozdělíme ji na ``nemagnetickou'' a ``magnetickou'' část (po vytknutí celkového faktoru $R_0$).
-\begin{align}
+\begin{equation}
 \label{eqn:PMLD-Jones}
+\begin{split}
 \mathcal{R}(\vec{M}) &= R_0 \left[ \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \mathcal{R}'(\vec{M}) \right] \\
-                     &= R_0 \left[ \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \mathcal{R}'_0 + \mathcal{R}'_M(\vec{M}) \right]
-\end{align}
+                     &= R_0 \left[ \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \mathcal{R}'_0 + \mathcal{R}'_M(\vec{M}) \right] \,.
+\end{split}
+\end{equation}
 Pro jednoduchost zápisu dále vypustíme celkový faktor $R_0$ (pokládáme $R_0=1$), který se ve výpočtu nijak neprojeví.
 Pokud je $\mathcal{R}'$ malé, je rozumné uvažovat, že můstek je vyvážen pro stejnou lineární polarizaci, jako je ta dopadající.
 Díky tomu je pak možné spočítat, na které prvky reflexní matice je měřený signál citlivý.
@@ -37,18 +39,22 @@ Po případném elipsometrickém změření $\mathcal{R}'_0$ je možné správno
 
 Pomocí Stokesových kovektorů lze jednoduše vyjádřit stočení a elipticitu do prvního řádu v $\mathcal{R}'$.
 Pro dané vstupní $\beta$ (Stokesův vektor $\Stks(\beta)$) zavedeme kovektory\footnote{Argument $\beta$ zde značí, pro jaké $\beta$ je daný kovektor platný. Horní index $\beta$ či $\chi$ značí, jestli kovektor měří stočení či elipticitu.} $\Dtks^\beta(\beta)=\frac{1}{2}(0, -\sin2\beta, \cos2\beta, 0)$, resp. $\Dtks^\chi(\beta)=\frac{1}{2}(0, 0, 0, 1)$, které měří stočení, resp. elipticitu vyjádřenou změnou Stokesova vektoru $\textrm{d}\Stks$:
+\begin{subequations}
 \begin{align}
-    \Dtks^\beta(\beta) \cdot \Stks(\beta) = 0 \,, \quad &\textrm{d}\beta = \Dtks^\beta \cdot \textrm{d}\Stks \\
-    \Dtks^\chi(\beta) \cdot \Stks(\beta) = 0 \,, \quad &\textrm{d}\chi = \Dtks^\chi \cdot \textrm{d}\Stks \,.
+    \Dtks^\beta(\beta) \cdot \Stks(\beta) &= 0 \,, &\textrm{d}\beta &= \Dtks^\beta \cdot \textrm{d}\Stks \\
+    \Dtks^\chi(\beta) \cdot \Stks(\beta) &= 0 \,, & \textrm{d}\chi &= \Dtks^\chi \cdot \textrm{d}\Stks \,.
 \end{align}
+\end{subequations}
 Rozvedeme Muellerovu matici \eqref{eqn:Mueller-rozklad} vzorku do prvního řádu\footnote{Striktně vzato po tomto kroku již nejde o mocninný rozvoj měřeného signálu v $\vec{M}$, protože zahazujeme některé kvadratické členy a ponecháváme jiné.
 Pro malá stočení jsou však zahozené členy silně potlačeny.} v $\mathcal{R}'$ (vyjádřeného diferenciálem $\textrm{d}\mathcal{R}$ v okolí jednotkové matice\footnote{Píšeme $\mathcal{R}= \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \textrm{d}\mathcal{R}$.}) 
-\begin{align}
+\begin{subequations}
 \label{eqn:dif-Mueller}
-\textrm{d}M_{00} = \Re \operatorname{Tr} \lbrace\textrm{d}\mathcal{R} \rbrace\\
-    \textrm{d}M_{i0} = \textrm{d}M_{0i} = \Re \operatorname{Tr} \lbrace \sigma_i \textrm{d}\mathcal{R} \rbrace \\
-    \textrm{d}M_{ij} = \delta_{ij} \Re\operatorname{Tr}\lbrace\textrm{d}\mathcal{R}\rbrace + \epsilon_{ijk} \Im\operatorname{Tr}\lbrace\sigma_k\textrm{d}\mathcal{R}\rbrace
+\begin{align}
+    \textrm{d}M_{00} &= \Re \operatorname{Tr} \lbrace\textrm{d}\mathcal{R} \rbrace\\
+    \textrm{d}M_{i0} &= \textrm{d}M_{0i} = \Re \operatorname{Tr} \lbrace \sigma_i \textrm{d}\mathcal{R} \rbrace \\
+    \textrm{d}M_{ij} &= \delta_{ij} \Re\operatorname{Tr}\lbrace\textrm{d}\mathcal{R}\rbrace + \epsilon_{ijk} \Im\operatorname{Tr}\lbrace\sigma_k\textrm{d}\mathcal{R}\rbrace
 \end{align}
+\end{subequations}
 pro $i,\,j = 1,\,2,\,3$.
 
 Stočení
@@ -57,12 +63,12 @@ Stočení
 \end{equation}
 a elipticita
 \begin{equation}
-    \textrm{d}\chi = \frac{1}{2}\begin{pmatrix} \textrm{d}M_{30}&\textrm{d}M_{31}&\textrm{d}M_{32} \end{pmatrix} \begin{pmatrix} 1\\\cos2\beta\\\sin2\beta \end{pmatrix} \,,
+    \textrm{d}\chi = \frac{1}{2}\begin{pmatrix} \textrm{d}M_{30}&\textrm{d}M_{31}&\textrm{d}M_{32} \end{pmatrix} \begin{pmatrix} 1\\\cos2\beta\\\sin2\beta \end{pmatrix} 
 \end{equation}
 jsou po dosazení \eqref{eqn:dif-Mueller} kompaktně
 \begin{equation}
     \label{eqn:dbeta-stokes}
-    \textrm{d}\beta + i \textrm{d}\chi = \frac{1}{2} \operatorname{Tr} \lbrace \left( -\sigma_1\sin2\beta+\sigma_2\cos2\beta+i\sigma_3   \right) \textrm{d}\mathcal{R} \rbrace
+    \textrm{d}\beta + i \textrm{d}\chi = \frac{1}{2} \operatorname{Tr} \lbrace \left( -\sigma_1\sin2\beta+\sigma_2\cos2\beta+i\sigma_3   \right) \textrm{d}\mathcal{R} \rbrace \,.
 \end{equation}
 
 Vidíme, že v okolí izotropního odrazu/průchodu jsou jediné povolené $\beta$-závislosti stočení a elipticity dané třemi členy: $\cos2\beta$, $\sin2\beta$ a konstantou\footnote{Stočení konstantní pro všechna $\beta$. Např. Faradayův jev je způsoben tímto členem.}.
@@ -82,7 +88,7 @@ Zajímáme se pouze o kvadratické jevy, proto je od lineárních oddělíme ste
 Předpokládáme in-plane magnetickou anizotropii s dvoučetnou rotační symetrií, pak platí $\phim(\phih+\SI{180}{\degree})=\phim(\phih)+\SI{180}{\degree}$ a symetrizaci podle $\vec{M}$ můžeme provést pomocí symetrizace podle $\vHext$:
 \begin{equation}
     \label{eqn:symetrizace-H}
-    \Delta\beta^\textrm{Q}(\phih) = \frac{1}{2}\left(\Delta\beta(\phih) + \Delta\beta(\phih+\SI{180}{\degree})\right)
+    \Delta\beta^\textrm{Q}(\phih) = \frac{1}{2}\left(\Delta\beta(\phih) + \Delta\beta(\phih+\SI{180}{\degree})\right) \,.
 \end{equation}
 
 V dalším předpokládáme, že symetrizace byla provedena a $\Delta\beta^\textrm{Q}$ značíme bez indexu jako $\Delta\beta$.
@@ -93,23 +99,27 @@ V této práci jsme se o to ale nepokoušeli.
 Pro každé změřené $\beta$ máme tedy dva neznámé koeficienty funkcí $\cos2\phim$ a $\sin2\phim$.
 Za splnění předpokladů vedoucích na \eqref{eqn:dbeta-stokes} je pak $\beta$-závislost této dvojice koeficientů také popsána dvojicí koeficientů $\cos2\beta$ a $\sin2\beta$, celkem máme pro celou sadu měření 4 koeficienty.
 Používaný model je tedy
-\begin{alignat}{2}
+\begin{equation}
     \label{eqn:PMLD-matice}
-    \Delta\beta &= && \left(P_{11} \cos2\phim + P_{12}\sin2\phim\right)\cos2\beta \\
-                    & && + \left(P_{21}\cos2\phim + P_{22}\sin2\phim\right)\sin2\beta \\
-                    &\equiv & & P_+ \sin2\left[+(\phim -\pi_+) - \beta\right] \\
-                    &  & & + P_- \sin2\left[-(\phim-\pi_-) - \beta\right]
-\end{alignat}
+    \begin{split}
+    \Delta\beta &= \left(P_{11} \cos2\phim + P_{12}\sin2\phim\right)\cos2\beta \\
+                    & \quad + \left(P_{21}\cos2\phim + P_{22}\sin2\phim\right)\sin2\beta \\
+                    &\equiv P_+ \sin2\left[+(\phim -\pi_+) - \beta\right] \\
+                    & \quad + P_- \sin2\left[-(\phim-\pi_-) - \beta\right]
+    \end{split}
+\end{equation}
 s vyjádřením parametrů dvěma ekvivalentními způsoby.
 Pro účely fitu používáme vyjádření první rovností, protože je v parametrech lineární.
-Pro prezentování výsledků používáme druhý způsob\footnote{Vztah obou vyjádření je v principu stejný jako vyjádření polarizace světla v bázi kolmých lineárních polarizací ($P_{ij}$) nebo kruhových polarizací ($P_{+/-}$)}.
+Pro prezentování výsledků používáme druhý způsob\footnote{Vztah obou vyjádření je v principu stejný jako vyjádření polarizace světla v bázi kolmých lineárních polarizací ($P_{ij}$) nebo kruhových polarizací ($P_{+/-}$).}.
 
 Odpovídající Jonesova matice je 
-\begin{align}
+\begin{equation}
     \label{eqn:dR-kubicky}
-    \textrm{d}\mathcal{R}_M = &P_+ \left[\sigma_1\cos2(\phim-\pi_+) + \sigma_2 \sin2(\phim-\pi_+)\right] \\ 
-                              & + P_- \left[\sigma_1\cos2(\phim-\pi_-) - \sigma_2 \sin2(\phim-\pi_-) \right] \,,
-\end{align}
+    \begin{split}
+        \textrm{d}\mathcal{R}_M &= P_+ \left[\sigma_1\cos2(\phim-\pi_+) + \sigma_2 \sin2(\phim-\pi_+)\right] \\ 
+                              & \quad+ P_- \left[\sigma_1\cos2(\phim-\pi_-) - \sigma_2 \sin2(\phim-\pi_-) \right] \,,
+\end{split}
+\end{equation}
 vidíme tedy, že člen úměrný $P_+$ otáčí svou optickou osu spolu s magnetizací, člen $P_-$ opačným směrem.
 
 Při otáčení vzorku v rovině $xy$ jsou $P_+$, $P_-$, $\pi_+$ nezávislé na úhlu natočení $\gamma$.
@@ -120,11 +130,13 @@ Naopak $P_-$ je v izotropních vzorcích zakázán symetrií.
 
 Při kolmém dopadu jsou Jonesovy matice úměrné $\varepsilon^\perp-\varepsilon^\vert\varepsilon^-/n^2$ (viz oddíl \ref{chap:optika-v-multivrstvach}, dodatek \ref{app:berreman}).
 Pro [100]-normálově orientovaný kubický vzorek můžeme dosadit tvar magnetické permitivity a dostat (pro $\gamma$ značící směr jedné z hlavních krystalografických os)
-\begin{align}
+\begin{subequations}
     \label{eqn:PMLD-kubicke}
-    P_+ = P_0 \left(\frac{G_s}{2} - \frac{K^2}{n^2}\right) \frac{M_S^2}{2} \,,\quad \pi_+=0 \,,\\
-    P_- = P_0 \left(\frac{\Delta G}{2}\right) \frac{M_S^2}{2} \,,\quad \pi_-=2\gamma
+\begin{align}
+    P_+ &= P_0 \left(\frac{G_s}{2} - \frac{K^2}{n^2}\right) \frac{M_S^2}{2} \,, & \pi_+ &=0 \,,\\
+    P_- &= P_0 \left(\frac{\Delta G}{2}\right) \frac{M_S^2}{2} \,, & \pi_- &=2\gamma
 \end{align}
+\end{subequations}
 s ``extrakčním faktorem'' $P_0$, který vyjadřuje, jakou měrou se v Jonesově matici projevují změny permitivity, a závisí na nemagnetických parametrech vzorku, tj. tloušťce vrstev, jejich indexech lomu, atd.
 Po dosazení do \eqref{eqn:PMLD-matice} je vzorec ekvivalentní \eqref{eqn:QMOKE-vzorec} v kolmém dopadu ($P_0$ je obdobou konstant $A_{s/p}$).
 
@@ -142,9 +154,9 @@ Dosazením \eqref{eqn:PMLD-kubicke} do \eqref{eqn:PMLD-matice} platí
 \end{equation}
 Při orientaci polarizace $\beta=\gamma$ je amplituda změřené křivky $\Delta\beta(\phih)$ přímo $P_{\gamma}$, při polarizaci ve směru $\beta=\gamma+\SI{45}{\degree}$ je amplituda $P_{\gamma+\SI{45}{\degree}}$, viz obr. \ref{fig:urceni-MLD-ilustrace}.
 Platí
-\begin{equation}
-    P_{\gamma} =  P_+ + P_- \,,\quad P_{\gamma+\SI{45}{\degree}} = P_+ - P_- \,.
-\end{equation}
+\begin{align}
+    P_{\gamma} &=  P_+ + P_- \,, & P_{\gamma+\SI{45}{\degree}} &= P_+ - P_- \,.
+\end{align}
 
 \begin{figure}[htbp]
     \centering

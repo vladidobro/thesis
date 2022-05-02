@@ -15,12 +15,12 @@ $\Dtks'$ značíme kovektory vzhledem ke světlu před děličem, $\Dtks''$ vzhl
     \centering
     \begin{subfigure}{.35\textwidth}
         \centering
-        \input{./img/asy/kovek-2.asy}
-    \end{subfigure}
+        \asypic{\input{./img/asy/kovek-2.asy}}
+    \end{subfigure}%
     \begin{subfigure}{.34\textwidth}
         \centering
-        \input{./img/asy/kovek-3.asy}
-    \end{subfigure}
+        \asypic{\input{./img/asy/kovek-3.asy}}
+    \end{subfigure}%
     \begin{subfigure}{.3\textwidth}
         \centering
         \includegraphics{./img/svg/mustek-kovektory.drawio.pdf}
@@ -43,7 +43,7 @@ Při dopadu svazku na dělič je vertikální polarizace zcela odražena a v pro
 Horizontální polarizace je ale také malou měrou odražena, takže odražený svazek není tvořen čistou vertikální polarizací. 
 Nicméně každá z dvou ortogonálních polarizací je odražena mírně odlišným směrem a po určité dráze a průchodu čočkou se prostorově oddělí, takže detektorem B snímáme pouze průmět polarizace do vertikálního směru.
 
-Vložením polarizátoru před dělič a jeho vhodným otáčením bylo možné ho zkřížit vzhledem k oběma ramenům (zvlášť) s extinkčním poměrem $I_\textrm{min}/I_\textrm{max} \approx \num{1e-4}$.
+Vložením polarizátoru před dělič a jeho vhodným otáčením bylo možné ho zkřížit vzhledem k oběma ramenům (zvlášť) s extinkčním poměrem $I_\textrm{min}/I_\textrm{max}$ přibližně \num{1e-4}.
 Díky tomu, že v každém rameni je polarizace takto kvalitně filtrovaná, se nijak neprojeví ani případná polarizační závislost detektorů.
 Jediná nedokonalost zbytku můstku (nezahrnující půlvlnnou destičku) je tedy rozdílná citlivost obou ramen na příslušné lineární polarizace.
 Ta je souhrnně způsobena jak rozdílnou propustností/odrazivostí děliče, tak nevyváženou citlivostí a zesílením obou detektorů.
@@ -54,17 +54,21 @@ Nakonec se zaměříme na to, co se stane, když před můstek umístíme zrcadl
 
 \subsubsection*{Nevyváženost ramen optického můstku}
 Rozdíl citlivostí ramen je vyjádřen $\eta$, takže vzhledem ke světlu před děličem
+\begin{subequations}
 \begin{align}
-    {\Dtks'}^\textrm{A}=\frac{1-\eta}{2}(1, -1, 0, 0) \,,\\
-    {\Dtks'}^\textrm{B}=\frac{1+\eta}{2}(1, 1, 0, 0) \,,\\
-    {\Dtks'}^\textrm{A-B}=-(\eta, 1, 0, 0) \,,\\
-    {\Dtks'}^\textrm{A+B}=(1, \eta, 0, 0) 
+    {\Dtks'}^\textrm{A}&=\frac{1-\eta}{2}(1, -1, 0, 0) \,,\\
+    {\Dtks'}^\textrm{B}&=\frac{1+\eta}{2}(1, 1, 0, 0) \,,\\
+    {\Dtks'}^\textrm{A-B}&=-(\eta, 1, 0, 0) \,,\\
+    {\Dtks'}^\textrm{A+B}&=(1, \eta, 0, 0) 
 \end{align}
+\end{subequations}
 a vzhledem ke světlu před destičkou
+\begin{subequations}
 \begin{align}
-    {\Dtks''}^\textrm{A-B}=-(\eta,\, \cos4\theta_{\lambda/2},\, \sin4\theta_{\lambda/2},\, 0) \,,\\
-    {\Dtks''}^\textrm{A+B}=(1,\, \eta\cos(\theta_{\lambda/2}),\, \eta\cos(\theta_{\lambda/2}),\, 0) 
+    {\Dtks''}^\textrm{A-B} &=-(\eta,\, \cos4\theta_{\lambda/2},\, \sin4\theta_{\lambda/2},\, 0) \,,\\
+    {\Dtks''}^\textrm{A+B} &=(1,\, \eta\cos(\theta_{\lambda/2}),\, \eta\cos(\theta_{\lambda/2}),\, 0) \,.
 \end{align}
+\end{subequations}
 
 Prvním z projevů je polarizační závislost součtového signálu (${d'_1}^\textrm{A+B}=\eta\neq0$).
 To není velký problém, protože se ve vzorci $\Delta\beta=\Udif/2\Usum$ používá pouze pro normalizaci signálu, která lze určit i jiným způsobem (viz např. oddíl \ref{chap:elipticita}). 
@@ -81,10 +85,10 @@ což pro malé $\eta$ ignorujeme.
 
 \subsubsection*{Anizotropie amplitudové propustnosti destičky}
 Jonesova a Muellerova matice destičky s přesným fázovým zpožděním $\pi/2$, ale rozdílnou propustností obou lineárních polarizací je (pro úhel natočení destičky $\theta_{\lambda/2}=0$)
-\begin{equation}
-    \mathcal{T}_{\lambda/2} = \begin{pmatrix} 1&0 \\ 0&-\eta \end{pmatrix} \,, \quad
-    \M_{\lambda/2} = \begin{pmatrix} \frac{1+\eta^2}{2}&\frac{1-\eta^2}{2}&0&0 \\ \frac{1-\eta^2}{2}&\frac{1+\eta^2}{2}&0&0 \\ 0&0&-1&0 \\ 0&0&0&-1 \end{pmatrix} \,,
-\end{equation}
+\begin{align}
+    \mathcal{T}_{\lambda/2} &= \begin{pmatrix} 1&0 \\ 0&-\eta \end{pmatrix} , &
+    \M_{\lambda/2} &= \begin{pmatrix} \frac{1+\eta^2}{2}&\frac{1-\eta^2}{2}&0&0 \\ \frac{1-\eta^2}{2}&\frac{1+\eta^2}{2}&0&0 \\ 0&0&-1&0 \\ 0&0&0&-1 \end{pmatrix} ,
+\end{align}
 kde nedokonalost destičky je vyjádřena $\eta$ (ideální destička má $\eta=1$).
 Akce takové Muellerovy matice je kombinace otočení o \SI{180}{\degree} a protáhnutí/posunutí kolem té stejné osy (viz oddíl \ref{chap:Stokes-Mueller})\footnote{To lze nahlédnout z toho, že lze Jonesovu matici psát jako součin unitární a pozitivně semi-definitní hermitovské matice, které spolu komutují: $\mathcal{T}_{\lambda/2} = \begin{pmatrix} 1&0\\0&-1 \end{pmatrix} \begin{pmatrix} 1&0\\0&\eta \end{pmatrix}$.} -- procházející lineárními polarizacemi ve směru optické osy $\theta_{\lambda/2}$.
 
@@ -92,10 +96,10 @@ Výsledkem je stejně jako v případě nevyvážených ramen posunutí nulové 
 
 \subsubsection*{Nepřesné fázové zpoždění destičky}
 Jonesova a Muellerova matice je (pro $\theta_{\lambda/2}=0$)
-\begin{equation}
-    \mathcal{T}_{\lambda/2} = \begin{pmatrix} 1&0 \\ 0&-e^{i\delta} \end{pmatrix} \,, \quad
-    \M_{\lambda/2} = \begin{pmatrix} 1&0&0&0 \\ 0&1&0&0 \\ 0&0&-\cos\delta&\sin\delta \\ 0&0&-\sin\delta&-\cos\delta \end{pmatrix} \,,
-\end{equation}
+\begin{align}
+    \mathcal{T}_{\lambda/2} &= \begin{pmatrix} 1&0 \\ 0&-e^{i\delta} \end{pmatrix} , &
+    \M_{\lambda/2} &= \begin{pmatrix} 1&0&0&0 \\ 0&1&0&0 \\ 0&0&-\cos\delta&\sin\delta \\ 0&0&-\sin\delta&-\cos\delta \end{pmatrix} ,
+\end{align}
 kde nedokonalost je vyjádřena dodatečným fázovým zpožděním $\delta$ (ideální destička má $\delta=0$).
 Muellerova matice působí jako rotace o $\SI{180}{\degree}+\delta$ kolem osy vlastních módů.
 Kvůli $\delta\neq0$ již nejsou obě osy destičky ekvivalentní.
@@ -112,7 +116,7 @@ kde jsme označili úhel průsečíku kružnice s rovníkem $2\zeta_1(\theta_{\l
 
 \begin{figure}[htbp]
     \centering
-    \input{./img/asy/kovek-4.asy}
+    \asypic{\input{./img/asy/kovek-4.asy}}
     \caption{Kovektor můstku s destičkou s nepřesným fázovým zpožděním (vzhledem ke světlu před destičkou). Zeleně úhel $2\zeta_1$, modře $2\zeta_2$.}
     \label{fig:mustek-nedokonale-desticka}
 \end{figure}
@@ -163,7 +167,7 @@ Experimentálně bylo zjištěno, že odraz od použitých zrcadel (stříbrné 
 Ve studovaném spektrálním rozsahu dosahuje světlo po jednom odrazu od zrcadla elipticity až \SI{10}{\degree}.
 Zrcadlo modelujeme jako retardér s Jonesovou maticí
 \begin{equation}
-    \mathcal{T}_m = \begin{pmatrix} 1&0\\0&e^{i\delta_\textrm{m}} \end{pmatrix} \,.
+    \mathcal{T}_m = \begin{pmatrix} 1&0\\0&e^{i\delta_\textrm{m}} \end{pmatrix} .
 \end{equation}
 
 Vzhledem k nutnosti kompenzace nedokonalosti destičky, které vyžaduje, aby do ní vstupovala přibližně lineární polarizace, se úsilí k řešení tohoto problému soustředilo na fyzickou kompenzaci vlivu zrcadla na polarizaci detekovaného svazku pomocí vložení dalšího optického prvku, který působí inverzně.
@@ -196,11 +200,11 @@ Pak je pro všechna $\beta$ následně měřen stejný mix stočení a elipticit
     \centering
     \begin{subfigure}{.6\textwidth}
         \centering
-        \input{./img/asy/kovek-5.asy}
+        \asypic{\input{./img/asy/kovek-5.asy}}
     \end{subfigure}
     \begin{subfigure}{.3\textwidth}
         \centering
-        \input{./img/asy/zrcadla.asy}
+        \asypic{\input{./img/asy/zrcadla.asy}}
     \end{subfigure}
 \caption{(a) Vliv zrcadla mezi vzorkem a optickým můstkem. Je znázorněn Stokesův kovektor ${\Dtks''}^\textrm{A-B}$ vzhledem ke světlu před můstkem (červeně) a rovník lineárních polarizací po odrazu zrcadlem (modře). Zároveň je naznačen vzájemný směr diferenciálů, který určuje kofaktory stočení a elipticity v měřeném signálu. (b) Zkřížená zrcadla, která společně působí přibližně jako neutrální prvek.}
     \label{fig:mustek-zrcadlo-data}
@@ -270,15 +274,17 @@ Změnu elipticity od vzorku $\Delta\chi$ však nelze takto jednoduše ze signál
 Vyvinuli jsme proto metodu charakterizace Stokesova kovektoru můstku, která nám dodá neznámé faktory stočení i elipticity v měřeném signálu.
 Základem metody je studium měřeného signálu pro všechny vstupní lineární polarizace.
 Pokud vyvážíme můstek pro vstupní $\beta_0$ a celkový kovektor označíme $\Dtks^{\beta_0}$, pak
-\begin{align}
+\begin{equation}
 \label{eqn:charakterizace-kovektoru-beta}
-    \Udif &= \Dtks^{\beta_0} \cdot \Stks \\ &= I \left[d^{\beta_0}_0+ \cos2\chi\left(d^{\beta_0}_1 \cos2\beta + d^{\beta_0}_2 \sin2\beta  \right) + d^{\beta_0}_3 \sin2\chi  \right] \,,\\
+\begin{split}
+    \Udif &= \Dtks^{\beta_0} \cdot \Stks \\ &= I \left[d^{\beta_0}_0+ \cos2\chi\left(d^{\beta_0}_1 \cos2\beta + d^{\beta_0}_2 \sin2\beta  \right) + d^{\beta_0}_3 \sin2\chi  \right] \\
           &\equiv I \left[ d^{\beta_0}_0+ \cos2\chi \left(d^{\beta_0}_\perp \sin \left( 2\psi^{\beta_0} - 2\beta \right) \right) + d^{\beta_0}_3 \sin2\chi \right] \,,
-\end{align}
+\end{split}
+\end{equation}
 kde jsme zavedli cylindrické souřadnice kovektoru pomocí $d^{\beta_0}_\perp$ a $\psi^{\beta_0}$.
 Ve vyváženém můstku platí (pro $\chi=0$)
 \begin{equation}
-    d^{\beta_0}_0 + d^{\beta_0}_\perp \sin \left( 2\psi^{\beta_0} - 2\beta_0 \right) = 0
+    d^{\beta_0}_0 + d^{\beta_0}_\perp \sin \left( 2\psi^{\beta_0} - 2\beta_0 \right) = 0 \,.
 \end{equation}
 
 Výpočtem gradientu v tomto vyváženém bodě pak dostaneme pro malé změny (způsobené vzorkem) polarizačního stavu (a intenzity)
@@ -303,11 +309,13 @@ K jejímu určení je potřeba splnit dvojici předpokladů.
 Zaprvé již zmíněný experimentálně ověřený fakt, že oba z detektorů lze vynulovat vhodnou lineární polarizací před děličem.
 To znamená, že vzhledem ke světlu před můstkem předpokládáme\footnote{Vyjádřenou v souřadné soustavě děliče, takže $d'_2=0$ nezahrnuje předpoklad přesné shodnosti se souřadnou soustavou světla před můstkem.}
 
-\begin{align}
+\begin{subequations}
 \label{eqn:kovektory-det-elipticita}
-{\Dtks'}^\textrm{A} = {d'}^{\textrm{A}}_0(1, -1, 0, 0) \,,\\
-{\Dtks'}^\textrm{B} = {d'}^\textrm{B}_0(1, 1, 0, 0) \,.
+\begin{align}
+    {\Dtks'}^\textrm{A} &= {d'}^{\textrm{A}}_0(1, -1, 0, 0) \,,\\
+    {\Dtks'}^\textrm{B} &= {d'}^\textrm{B}_0(1, 1, 0, 0) \,.
 \end{align}
+\end{subequations}
 
 Druhým předpokladem, který zřejmě není splněn zcela, je alespoň přibližná unitarita celé soustavy optických prvků před děličem (zachování intenzity při průchodu přes zrcadlo, destičku, \ldots).
 Pak totiž 3-kovektor $(d_1, d_2, d_3)$ zachovává svoji normu a vzhledem ke světlu od vzorku lze třetí složku (až na znaménko) určit pomocí
@@ -333,7 +341,7 @@ takže jsme již schopní určit $d^\textrm{A-B}_3$.
 Hodnoty pro A a B by měly při splnění všech předpokladů být stejné, ale v praxi se samozřejmě mírně liší.
 Pak bereme nějakou jejich vhodnou kombinaci, my jsme zvolili bez dalšího zdůvodnění geometrický průměr.
 
-Pokud nelpíme na určení absolutního znaménka elipticity, stačí znát pouze relativní znaménko $d_3$ mezi různými vyváženími můstku, tj. mezi různými $\beta_0$.
+Pokud nelpíme na určení absolutního znaménka elipticity, stačí znát pou\-ze relativní znaménko $d_3$ mezi různými vyváženími můstku, tj. mezi různými $\beta_0$.
 Absolutní hodnota znaménka pak už jen udává, jestli měříme $+\Delta\chi$ či $-\Delta\chi$.
 Relativní znaménko lze spolehlivě určit z přibližného teoretického výpočtu, viz např. oddíl o kompenzaci zrcadel výše ($\beta_0=\SI{0}{\degree}$ a $\beta_0=\SI{90}{\degree}$ mají opačná znaménka).
 
@@ -350,21 +358,23 @@ Pro určení absolutního znaménka by pak stačilo zjistit, zda je definovaná 
 Ve všech vzorcích pro $\Udif$ jsme explicitně psali faktor $I$, protože pochází ze Stokesova vektoru a ne kovektoru.
 Při měření $\beta$-závislosti napětí je ale již zahrnut, což nám usnadňuje práci.
 S fitovanými parametry $a$ v $\beta$-závislostech
+\begin{subequations}
 \begin{align}
     U^\textrm{A}(\beta) &= a^\textrm{A}_0 + a^\textrm{A}_1 \cos2\beta + a^\textrm{A}_2 \sin2\beta \,,\\
     U^\textrm{B}(\beta) &= a^\textrm{B}_0 + a^\textrm{B}_1 \cos2\beta + a^\textrm{B}_2 \sin2\beta \,,\\
     U^\textrm{A-B}(\beta) &= a^\textrm{A-B}_0 + a^\textrm{A-B}_1 \cos2\beta + a^\textrm{A-B}_2 \sin2\beta
 \end{align}
+\end{subequations}
 jsou pak kofaktory stočení a elipticity (s geometrickým průměrem faktorů od A a B)
 \begin{equation}
 \label{eqn:elipticita-kofaktory}
 \textrm{d}\Udif = \sqrt{1-\frac{{a^\textrm{A-B}_0}^2}{{a^\textrm{A-B}_1}^2+{a^\textrm{A-B}_2}^2}}\textrm{d}\beta 
-+ \sqrt[4]{\left(\frac{{a^\textrm{A}_0}^2}{{a^\textrm{A}_1}^2+{a^\textrm{A}_2}^2}-1 \right)\left(\frac{{a^\textrm{B}_0}^2}{{a^\textrm{B}_1}^2+{a^\textrm{B}_2}^2}-1 \right)}\textrm{d}\chi
++ \sqrt[4]{\left(\frac{{a^\textrm{A}_0}^2}{{a^\textrm{A}_1}^2+{a^\textrm{A}_2}^2}-1 \right)\left(\frac{{a^\textrm{B}_0}^2}{{a^\textrm{B}_1}^2+{a^\textrm{B}_2}^2}-1 \right)}\textrm{d}\chi \,.
 \end{equation}
 Změření celé závislosti $U^\textrm{A-B}(\beta)$ vyžaduje změnu zesílení, aby nedošlo k překročení měřícího rozsahu lock-inů.
 Proto používáme \eqref{eqn:elipticita-kofaktory} pouze k určení poměru obou kofaktorů
 \begin{equation}
-    \textrm{d}\Udif = g \left( \textrm{d}\beta + \frac{\sqrt[4]{\left(\frac{{a^\textrm{A}_0}^2}{{a^\textrm{A}_1}^2+{a^\textrm{A}_2}^2}-1 \right)\left(\frac{{a^\textrm{B}_0}^2}{{a^\textrm{B}_1}^2+{a^\textrm{B}_2}^2}-1 \right)}}{\sqrt{1-\frac{{a^\textrm{A-B}_0}^2}{{a^\textrm{A-B}_1}^2+{a^\textrm{A-B}_2}^2}}}\textrm{d}\chi \right) \,,
+    \textrm{d}\Udif = g \left( \textrm{d}\beta + \frac{\sqrt[4]{\left(\frac{{a^\textrm{A}_0}^2}{{a^\textrm{A}_1}^2+{a^\textrm{A}_2}^2}-1 \right)\left(\frac{{a^\textrm{B}_0}^2}{{a^\textrm{B}_1}^2+{a^\textrm{B}_2}^2}-1 \right)}}{\sqrt{1-\frac{{a^\textrm{A-B}_0}^2}{{a^\textrm{A-B}_1}^2+{a^\textrm{A-B}_2}^2}}}\textrm{d}\chi \right) \,.
 \end{equation}
 Kofaktor stočení $g$ určíme přímo: změříme několik $\beta$ v malém okolí $\beta_0$ (např. $\pm\SI{1}{\degree}$ a body proložíme přímkou; $g$ je pak její směrnicí.
 

@@ -12,7 +12,7 @@ Stupňovitým profilem zase rozumíme, že struktura je složená z konečného 
     \label{fig:vrstevnate-prostredi}
 \end{figure}
 
-Budeme řešit Maxwellovy rovnice \eqref{eqn:rot-E}, \eqref{eqn:rot-ZH}.
+Budeme řešit Maxwellovy rovnice \eqref{eqn:rot-ME}.
 Vzhledem k homogenitě v rovině $xy$ lze psát
 \begin{equation} 
 \label{eqn:pricne-vlnove-vektory}
@@ -36,7 +36,7 @@ S uvážením \eqref{eqn:pricne-vlnove-vektory} mají Maxwellovy rovnice maticov
     \end{pmatrix}
     \begin{pmatrix}
         E_x \\ E_y \\ E_z \\ Z_0 H_x \\ Z_0 H_y \\ Z_0 H_z
-    \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix} \,.
+    \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix} .
 \end{equation}
 
 Člen prvního řádu\footnote{Prvního řádu $\partial_z$.} nemá plnou hodnost; třetí a šestou rovnici lze přímo vyřešit a dosadit do ostatních.
@@ -44,19 +44,19 @@ Nejdříve ale zavedeme úsporný blokově maticový zápis
 \begin{align}
 \label{eqn:Berreman-blokove-znaceni}
     \rho = \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}
-    \,, \qquad E^\perp = \begin{pmatrix}E_x \\ E_y\end{pmatrix}
-    \,, \, H^\perp = \rho \begin{pmatrix} H_x \\ H_y\end{pmatrix} = \begin{pmatrix} H_y \\ -H_x \end{pmatrix}
-    \,, \\ \varepsilon^\perp=\begin{pmatrix}\varepsilon_{11} & \varepsilon_{12} \\ \varepsilon_{21} & \varepsilon_{22}\end{pmatrix}
-    \,, \, \varepsilon^\vert=\begin{pmatrix} \varepsilon_{13} \\ \varepsilon_{23} \end{pmatrix}
-    \,, \, \varepsilon^-=\begin{pmatrix} \varepsilon_{31} & \varepsilon_{32} \end{pmatrix}
-    \,, \qquad N = \begin{pmatrix} N_x \\ N_y \end{pmatrix}
-    \,.
+    , \quad E^\perp = \begin{pmatrix}E_x \\ E_y\end{pmatrix}
+    , \, H^\perp = \rho \begin{pmatrix} H_x \\ H_y\end{pmatrix} = \begin{pmatrix} H_y \\ -H_x \end{pmatrix}
+    , \\ \varepsilon^\perp=\begin{pmatrix}\varepsilon_{11} & \varepsilon_{12} \\ \varepsilon_{21} & \varepsilon_{22}\end{pmatrix}
+    , \, \varepsilon^\vert=\begin{pmatrix} \varepsilon_{13} \\ \varepsilon_{23} \end{pmatrix}
+    , \, \varepsilon^-=\begin{pmatrix} \varepsilon_{31} & \varepsilon_{32} \end{pmatrix}
+    , \quad N = \begin{pmatrix} N_x \\ N_y \end{pmatrix}
+    .
 \end{align}
 
 Třetí a šestá rovnice mají tvar
-\begin{equation}
-    N^T \rho E^\perp - Z_0 H_z =0 \,, \qquad \varepsilon^- E^\perp + N^T H^\perp + \varepsilon_{33} E_z=0 \,,
-\end{equation}
+\begin{align}
+    N^T \rho E^\perp - Z_0 H_z &=0 \,, & \varepsilon^- E^\perp + N^T H^\perp + \varepsilon_{33} E_z &=0 \,,
+\end{align}
 vyřešením, dosazením do \eqref{eqn:Berreman-6x6} a úpravou dostáváme
 \begin{equation} 
 \label{eqn:Berreman-master}
@@ -91,10 +91,10 @@ Poruchová teorie v Berremanově formalismu je rozvedena v dodatku \ref{app:berr
 
 \subsubsection*{Odraz a průchod}
 
-Předpokládejme, že se nám podařilo vyřešit \eqref{eqn:Berreman-master} a tedy najít matici $\mathfrak{M}$, která svazuje příčná pole na začátku $(L)$ a na konci $(R)$ multivrstvy, viz obr. \ref{fig:odraz-pruchod}
+Předpokládejme, že se nám podařilo vyřešit \eqref{eqn:Berreman-master} a tedy najít matici $\mathfrak{M}$, která svazuje příčná pole na začátku $(L)$ a na konci $(R)$ multivrstvy, viz obr.~\ref{fig:odraz-pruchod}
 \begin{equation}
     \label{eqn:prenosova-matice-M}
-    \vec{G}_{(L)}=\mathfrak{M} \vec{G}_{(R)}
+    \vec{G}_{(L)}=\mathfrak{M} \vec{G}_{(R)} \,.
 \end{equation}
 
 
@@ -105,11 +105,13 @@ Vstupní a výstupní prostředí je nutné v tomto kontextu definovat jako to p
 Např. pro odraz od vzorku na tlustém substrátu je nutné uvažovat jako výstupní prostředí substrát.
 
 Na obou stranách si zvolíme pro $-z$ i $+z$ šířící se módy bázi lineárních polarizací, kterými definujeme Jonesovi vektory pro příslušné svazky (pro ilustraci viz obr. \ref{fig:odraz-pruchod})
-\begin{equation}
+\begin{align}
     \label{eqn:dynamicke-LR}
-    \vec{G}_{(L)}=\mathfrak{D}_{(L)} \begin{pmatrix} \J^-_{(L)} \\ \J^+_{(L)} \end{pmatrix} \,, \qquad
-    \vec{G}_{(R)}=\mathfrak{D}_{(R)} \begin{pmatrix} \J^-_{(R)} \\ \J^+_{(R)} \end{pmatrix} \,,
-\end{equation}
+    \vec{G}_{(L)} 
+    &=\mathfrak{D}_{(L)} \begin{pmatrix} \J^-_{(L)} \\ \J^+_{(L)} \end{pmatrix} , 
+    & \vec{G}_{(R)} 
+    &=\mathfrak{D}_{(R)} \begin{pmatrix} \J^-_{(R)} \\ \J^+_{(R)} \end{pmatrix} ,
+\end{align}
 kde $\mathfrak{D}$ diagonalizuje $\Delta$ ve smyslu, že $\mathfrak{D}^{-1}\Delta \mathfrak{D}$ je diagonální.
 V Yehově formalismu se nazývají dynamické matice a obsahují ve sloupcích příčná pole jednotlivých módů.
 V případě degenerace není $\mathfrak{D}$ jednoznačné -- volbou $\mathfrak{D}$ volíme bázi Jonesových vektorů.
@@ -138,7 +140,7 @@ Pro prostředí s indexem lomu $n$ má dynamická matice v této situaci explici
     \end{pmatrix}
     \begin{pmatrix}
         J^-_{s} \\ J^-_{p} \\ J^+_s \\ J^+_{p} 
-    \end{pmatrix} \,,
+    \end{pmatrix} ,
 \end{equation}
 kde jsme označili $\cos \alpha_t = \sqrt{1-\sin^2 \alpha /n^2}$ úhel lomu.
 
@@ -147,26 +149,26 @@ Při řešení průchodu a odrazu tedy pokládáme $\J^+_{(R)}=0$ a snažíme se
     \label{eqn:rovnice-odraz-pruchod}
     \begin{pmatrix} \J^i \\ \J^r \end{pmatrix}
     =\mathfrak{D}_{(L)}^{-1} \mathfrak{M} \mathfrak{D}_{(R)} 
-    \begin{pmatrix} \J^t \\ 0 \end{pmatrix} \,,
+    \begin{pmatrix} \J^t \\ 0 \end{pmatrix} ,
 \end{equation}
 což vede na Jonesovy transmisní a reflexní matice Fresnelových koeficientů v bázi s- a p-polarizací
-\begin{equation}
+\begin{align}
     \begin{pmatrix} J^r_s \\ J^r_p \end{pmatrix}
-        =\begin{pmatrix} r_{ss} & r_{sr} \\ r_{ps} & r_{pp} \end{pmatrix}
+        &=\begin{pmatrix} r_{ss} & r_{sr} \\ r_{ps} & r_{pp} \end{pmatrix}
         \begin{pmatrix} J^i_s \\ J^i_p \end{pmatrix} 
-        \,, \qquad \begin{pmatrix} J^t_s \\ J^t_p \end{pmatrix}
-        =\begin{pmatrix} t_{ss} & t_{sp} \\ t_{ps} & t_{pp} \end{pmatrix}
-        \begin{pmatrix} J^i_s \\ J^i_p \end{pmatrix} \,.
-\end{equation}
+    , & \begin{pmatrix} J^t_s \\ J^t_p \end{pmatrix}
+        &=\begin{pmatrix} t_{ss} & t_{sp} \\ t_{ps} & t_{pp} \end{pmatrix}
+        \begin{pmatrix} J^i_s \\ J^i_p \end{pmatrix} .
+\end{align}
 
 Multivrstva složená pouze z izotropních vrstev nemíchá s- a p-polarizaci, mimodiagonální členy jsou nulové.
 Pokud je jedna nebo více vrstev pouze slabě anizotropní, projeví se to malými nenulovými mimodiagonálními členy.
 Při dopadu např. s-polarizace pak prošlé a odražené světlo nabyde malé amplitudy p-polarizace, v elipsometrických parametrech se to projeví stočením hlavní roviny polarizace $\Delta \beta$ a elipticitou $\chi$; podobně pro dopadající p-polarizaci. 
 Oba jevy souhrnně popisuje tzv. komplexní parametr stočení\cite{silberQuadraticMagnetoopticKerr2019a}, v reflexi s naší konvencí
-\begin{equation}
+\begin{align}
 \label{eqn:komplexni-rotace}
-    \Psi_s \equiv \Delta \beta_s + i \chi_s \approx \frac{r_{ps}}{r_{ss}} 
-    \,, \qquad \Psi_p \equiv \Delta \beta_p + i \chi_p \approx -\frac{r_{sp}}{r_{pp}} \,.
-\end{equation}
+\Psi_s \equiv \Delta \beta_s + i \chi_s &\approx \frac{r_{ps}}{r_{ss}} 
+\,, & \Psi_p \equiv \Delta \beta_p + i \chi_p &\approx -\frac{r_{sp}}{r_{pp}} \,.
+\end{align}
 V průchodu jsou reflexní koeficienty nahrazeny transmisními.
 Komplexní parametr stočení se používá při popisu magneto-optických Kerrových jevů.
