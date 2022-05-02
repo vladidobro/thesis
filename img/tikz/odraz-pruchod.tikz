@@ -8,6 +8,6 @@
     \draw[<-,lase] (-3.5,-0.7) -- node[color=black,anchor=north] {$\J^+_{(L)}$} (-2,-0.3);
     
     \draw[->,lase] (3.5,0.7) -- node[color=black,anchor=south] {$\J^+_{(R)}$} (2,0.3);
-    \draw[<-,lase] (3.5,-0.7) -- node[color=black,anchor=north] {$\J^+_{(R)}$} (2,-0.3);
+    \draw[<-,lase] (3.5,-0.7) -- node[color=black,anchor=north] {$\J^-_{(R)}$} (2,-0.3);
 \end{tikzpicture}
 

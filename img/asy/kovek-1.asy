@@ -17,12 +17,12 @@ real len=0.5;
 draw(circle(c=O, r=1, normal=Z),gray+dashed); 
 
 
-draw(surface(O -- (-Cos(ang),Sin(ang),0), c=O, axis=X), surfacepen = material(green+opacity(0.7)));
+draw(surface(O -- (-Cos(ang),Sin(ang),0), c=O, axis=X), surfacepen = material(green+opacity(0.7)) );
 draw(circle(c=-Cos(ang)*X, r=Sin(ang), normal=X),black+dashed); 
 dot((-Cos(ang),Sin(ang),0));
 dot((-Cos(ang),-Sin(ang),0));
 
-draw(surface(O -- (0,1,0), c=O, axis=X), surfacepen = material(red+opacity(0.3)));
+draw(surface(O -- (0,1,0), c=O, axis=X), surfacepen = material(red+opacity(0.3), emissivepen=red));
 draw(circle(c=O, r=1, normal=X),black+dashed); 
 dot(Y);
 dot(-Y);

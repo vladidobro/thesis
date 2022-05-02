@@ -6,7 +6,7 @@ První MO experimenty byly provedeny v \cite{wohlrathMagnetooptickaCharakterizac
 Aparatura byla vylepšena a využita ke studiu AFM materiálů v \cite{kubascikMagnetooptickeStudiumAntiferomagnetickych2019,kimakOptickaSpektroskopieAntiferomagnetu2019}.
 
 Dosavadní získané výsledky však nebyly uspokojující.
-V rámci této práce byly pro ověření zopakována měření vzorku FR06 ve FM fázi v reflexní geometrii, provedena dříve v \cite{kubascikMagnetooptickeStudiumAntiferomagnetickych2019}.
+V rámci této práce byla pro ověření zopakována měření vzorku FR06 ve FM fázi v reflexní geometrii, provedena dříve v \cite{kubascikMagnetooptickeStudiumAntiferomagnetickych2019}.
 Měření byla úspěšně replikovaná, ale problémy (ilustrované níže v této kapitole) přetrvaly.
 Jako druhá sada úvodních měření byl měřen vzorek CoFe v transmisní geometrii.
 
@@ -20,14 +20,14 @@ Dvěma nezávislým párům cívek elektromagnetu jsou postupně zadávány dvoj
 V každém kroku (daného směrem pole $\phih$) je zaznamenána hodnota rozdílového $\Udif$ a součtového $\Usum$ napětí na detektorech.
 Signál je zpracován a s předpokladem idealizovaného můstku (viz oddíl \ref{chap:mustek-kap2}) dosazen do vzorce \eqref{eqn:A-B-mustek}.
 Výsledkem je tedy průběh stočení polarizace $\Delta\beta(\phih)$.
-V praxi měříme více cyklů, způsob jakým z měřených dat získat $\Delta\beta(\phih)$ je detailně popsán v dodatku \ref{app:zpracovani}.
+V praxi měříme více cyklů, způsob získání $\Delta\beta(\phih)$ z měřených dat je detailně popsán v dodatku \ref{app:zpracovani}.
 
 Měřící procedura je pak opakována pro více $\beta$, $\lambda$ a případně $T$.
 Při změně $\beta$ či $\lambda$ je však třeba znovu vyvažovat můstek, čímž se mění aditivní konstanta vyjadřující neznámé vyvážení můstku $\xi$.
 Změřené $\Delta\beta$ pro různé $\beta$ a $\lambda$ tedy není možné přímo porovnávat.
 Zatímco měření různých $\beta$ spolu úzce souvisí, různé $\lambda$ považujeme za nezávislé, a píšeme tedy výsledek měření pro každou vlnovou délku zvlášť $\Delta\beta(\phih, \beta)$ s neznámými aditivními $\xi(\beta)$.
 
-Při změně teploty není nutné můstek znovu vyvažovat, což využíváme k měření teplotních přechodů v oddílu \ref{chap:ferh-field-cooling}.
+Při změně teploty není nutné můstek znovu vyvažovat, což bylo využito k měření teplotních přechodů v práci \cite{kubascikMagnetooptickeStudiumAntiferomagnetickych2019}.
 Pak máme $\Delta\beta(\phih, \beta, T)$ a $\xi(\beta)$.
 
 Základem původní metody zpracování, která byla použita v \cite{wohlrathMagnetooptickaCharakterizaceSpintronickych2018,kubascikMagnetooptickeStudiumAntiferomagnetickych2019,kimakOptickaSpektroskopieAntiferomagnetu2019}, byl vzorec \eqref{eqn:PMLD} platný pro kolmý odraz od izotropního vzorku se saturovanou\footnote{Nepožadujeme \emph{striktní} saturaci, takže $|\vec{M}|=M_S$, ale $\phim\neq\phih$.} in-plane magnetizací popsanou úhlem $\phim$ závisejícím na $\phih$.
@@ -91,4 +91,4 @@ V některých případech (např. \SI{405}{\nano\meter}) fit dokonce selhává �
 \end{figure}
 
 Podstata problémů byla odhalena dvojí: v prvotních experimentech byl zcela ignorován vliv zrcadel mezi vzorkem a optickým můstkem a anizotropie MLD byla nedostatečně pochopena.
-Jejich řešení a popisem konečné verze metody se věnuje zbytek této kapitoly.
+Jejich řešením a popisem konečné verze metody se věnuje zbytek této kapitoly.

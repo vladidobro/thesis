@@ -8,7 +8,7 @@ Zároveň je také nutné odstranit všechny příspěvky do signálu, které ne
 Tento požadavek je naprosto zásadní.
 
 Dále předpokládáme, že signál je dobře popsaný konečným počtem členů mocninného rozvoje v $\vec{M}$.
-V této práci se omezujeme na kvadratické členy (po odstranění lineárních jevů popsaném v předešlém oddílu -- viz vztah \eqref{eqn:PMLD-matice}), které mají vzhledem k magnetické saturaci tvar
+V této práci se omezujeme na kvadratické členy (po odstranění lineárních jevů způsobem popsaném v předešlém oddílu -- viz vztah \eqref{eqn:PMLD-matice}), které mají vzhledem k magnetické saturaci tvar
 \begin{equation}
 \label{eqn:anizotropie-fit}
     \Udif(\phih) = b_0 + b_\textrm{c} \cos2\phim(\phih) + b_\textrm{s} \sin2\phim(\phih) \,.
@@ -24,9 +24,9 @@ Pokud naměříme $\Udif$ pro sadu $\phih$, a signál je skutečně dán vzorcem
 Nejprve uvedeme pár poznámek o degeneraci.
 Pokud změříme $n$ různých (s lineárně nezávislými koeficienty $b$) závislostí $\Udif(\phim)$ (například pro různé polarizace $\beta$) pro $m$ hodnot $\phih$, pak je naším cílem zjistit celkem $m+3n$ parametrů -- $m$ hodnot $\phim(\phih)$ a $3\times n$ parametrů \eqref{eqn:anizotropie-fit} -- z $n\times m$ změřených bodů.
 Pro $n=1$ je vždy parametrů více než dat, pro $n\geq 2$ je situace v pořádku (typicky $m>\,$počet členů v rozvoji).
-Rozdíl mezi $n=1\,,2$ lze intuitivně pochopit na jiné formálně ekvivalentní úloze.
-Po vykreslení bodů $(\Udif^{(1)}(\phih), \Udif^{(2)}(\phih)$ do roviny\footnote{Pokud měříme jen $\Udif^{(1)}$, pak pokládáme $\Udif^{(2)}=0$}, leží podle \eqref{eqn:anizotropie-fit} body na nějaké elipse.
-V této analogii je naším úkolem elipsu identifikovat, a zároveň pro každý bod určit, v které části elipsy leží (, což odpovídá $\phim(\phih)$).
+Rozdíl mezi $n=1,\,2$ lze intuitivně pochopit na jiné formálně ekvivalentní úloze.
+Po vykreslení bodů $(\Udif^{(1)}(\phih), \Udif^{(2)}(\phih)$ do roviny\footnote{Pokud měříme jen $\Udif^{(1)}$, pak pokládáme $\Udif^{(2)}=0$} leží podle \eqref{eqn:anizotropie-fit} body na nějaké elipse.
+V této analogii je naším úkolem elipsu identifikovat, a zároveň pro každý bod určit, v které části elipsy leží (což odpovídá $\phim(\phih)$).
 Pro obyčejnou elipsu to je jednoznačné, pokud však $n=1$, nebo jsou trojice parametrů $b$ pro obě měření lineárně závislé, je elipsa redukovaná na přímku.
 U té řešení jednoznačné není -- délka úsečky může být libovolná delší než nejvzdálenější naměřené body.
 To s sebou nese i nejednoznačnost v $\phim(\phih)$.
@@ -38,7 +38,7 @@ To znamená, že fitem naměřených dat nelze rozlišit mezi $\phim^1$ a $\phim
 Naštestí nám však v tuto chvíli spěchá na pomoc termodynamika s podmínkou integrability \eqref{eqn:podminka-integrability}, která z každé takové třídy vybírá právě jedno $\phim(\phih)$, pro které existuje volná energie.
 
 Výhoda odděleného zpracování magnetické anizotropie a určení anizotropie MO koeficientů je taková, že je možné ho provést i v případě, kdy nejsou splněny požadavky pro určení síly MO jevů.
-Konkrétně např. není nutné kompenzovat zrcadla ani nepřesnosti vlnových destiček: tj. můžeme měřit libovolný mix stočení a elipticity.
+Konkrétně např. není nutné kompenzovat zrcadla ani nepřesnosti vlnových destiček, tj. můžeme měřit libovolný mix stočení a elipticity.
 Také je možné měřit v situacích, kdy měřený signál nemá správnou $\beta$-závislost \eqref{eqn:PMLD-matice}, tj. nekolmý dopad či vzorek s nezanedbatelnou strukturální anizotropií (tj. když konstantní člen transmisní/reflexní matice se výrazně liší od jednotkové matice).
 Není ani nutné mít při vstupu do vzorku lineárně polarizované světlo -- dokonce není ani nutné polarizační stav znát.
 Jediným předpokladem je, že reflexní matice vzorku je dobře popsaná mocninným rozvojem v $\vec{M}$.
@@ -51,7 +51,7 @@ Postupujeme tedy tak, že cílovou funkci $\mathcal{L}$ považujeme pouze za fun
 Gradientní sestup je pak aplikován pouze na parametry $\phim(\phih)$.
 Jako startovní bod iterací zpravidla volíme nulovou magnetickou anizotropii $\phim(\phih)=\phih$.
 
-V této podobě není výhodné aplikovat podmínky integrability již během fitu, protože gradient cílové funkce je kolmý na směr, který způsobuje celkové pootočení magnetizace -- gradientní sestup jí přirozeně dodržuje.
+V této podobě není výhodné aplikovat podmínky integrability již během fitu, protože gradient cílové funkce je kolmý na směr, který způsobuje celkové pootočení magnetizace -- gradientní sestup ji přirozeně dodržuje.
 Přesto je však jistější jí po provedení fitu aplikovat a vybrat tu správnou aditivní konstantu.
 
 V praxi je měřeno mnoho hodnot $\phih$, a přestože je uvedená metoda zcela spolehlivá v simulacích, v přítomnosti šumu zpravidla nelze spoléhat na výsledky fitů s více než 20 parametry.
@@ -94,25 +94,8 @@ Snadná osa se vždy nachází v regionu $\textrm{d}^2F/\textrm{d}\phim^2 > 0$ a
     \centering
     \includegraphics{./data/out/anizotropie-ukazka.pdf}
     \caption{Ilustrace určení magnetické anizotropie. Měřená data s CoFe v závislost na (a) přikládaném poli, (b) průběhu magnetizace získaném z analýzy.
-    Zvýrazněné čáry jsou ekvidistantní ve $\phim$. Jejich snížená hustota značí lehkou osu, zvýšená těžkou osu magnetizace. (c) Závislost $\phim(\phih)$ (vykreslen rozdíl).}
+    Zvýrazněné čáry jsou ekvidistantní ve $\phim$. Jejich snížená hustota značí snadnou osu, zvýšená těžkou osu magnetizace. (c) Závislost $\phim(\phih)$ (vykreslen rozdíl).}
     \label{fig:anizotropie-vizualni}
 \end{figure}
 
 
-\subsubsection{Nepřesnosti magnetického pole}
-
-Z experimentálních výsledků uvedených dále v kapitole \ref{chap:5} vychází, že určení magnetické anizotropie uvedenou metodou je velice spolehlivé.
-Konkrétně, s danou měřící procedurou (tj. nastavovanou posloupností proudů v cívkách elektro-magnetů) a neměnnou pozicí vzorku jsou téměř v dokonalé shodě anizotropní konstanty určené různými vlnovými délkami, jak by se dalo očekávat.
-Vzhledem k rozmanité spektrální závislosti MO koeficientů (viz výsledky v kap. \ref{chap:5}) to dokazuje, že měřený signál skutečně pochází od vzorku a je dobře popsán modelem \eqref{eqn:anizotropie-fit}.
-Problém však někdy nastává při porovnání různých měřících procedur či pozic vzorku.
-Tato nepříjemnost byla pozorována se vzorkem FeRh (viz oddíl \ref{chap:ferh-fm}), kde je magnetická anizotropie velice slabá.
-
-Tento vzorek byl měřen se dvěma velikostmi $\Hext = 50$, \SI{207}{\milli\tesla}.
-V obou případech byla naměřená uniaxiální anizotropie ve stejném směru, avšak s jinou velikostí.
-Zachoval se však poměr $k_u/\Hext$, což napovědělo, že problém pochází od magnetu.
-Měření bylo následně zopakováno se vzorkem in-plane otočeným o \SI{90}{\degree} -- výsledkem byla uniaxiální anizotropie ve stejném \emph{experimentálním} směru, tzn. o \SI{-90}{\degree} otočená v soustavě spojené se vzorkem, což samozřejmě nedává fyzikální smysl.
-
-Pravděpodobnou příčinou tohoto problému je, že vlastní metoda je sice velice citlivá a spolehlivá, ale skutečná magnetická pole $\vHext$ realizovaná v experimentu jsou (vlivem neideálně kompenzované hystereze jednotlivých pólových nástavců cívek v elektromagnetu) mírně odlišná od nominálních hodnot použitých při analýze.
-V době odevzdání této práce jsou v přípravě dodatečná zpřesňující měření magnetického pole, které umožní z již naměřených dat určit správnou magnetickou anizotropii.
-
-Důsledky odlišnosti reálného a domnělého magnetického pole pro analýzu magnetické anizotropie se mimojiné věnuje dodatek \ref{app:magneticka-anizotropie}.

@@ -83,8 +83,8 @@ class ExperimentRotmld(Experiment):
         self.df['Pim'] = self.df.apply(lambda row: 0.5*np.degrees(np.angle(row['Ppm'][1])), axis=1)
         self.df['Pp'] *= (-1)**np.round(self.df['Pip']/90)
         self.df['Pm'] *= (-1)**np.round(self.df['Pim']/90)
-        self.df['Pip'] -= np.round(self.df['Pip']/90)
-        self.df['Pim'] -= np.round(self.df['Pim']/90)
+        self.df['Pip'] -= np.round(self.df['Pip']/90)*90
+        self.df['Pim'] -= np.round(self.df['Pim']/90)*90
 
 
     @staticmethod

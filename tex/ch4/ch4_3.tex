@@ -1,9 +1,9 @@
 \section{Určení anizotropie MLD}
 \label{chap:anizotropie-MLD}
 
-Snaha o vystižení anizotropie MLD pomocí vzorce \eqref{eqn:PMLD-naivni} založeném na \eqref{eqn:PMLD} nebyla úspěšná.
-Výskyt $\phim$ v argumentu sinu se zakládá na argumentech symetrie; pro plně rotačně symetrické prostředí v rovině rozhraní zanáší magnetizace jediný význačný směr a osa zanesené magneto-optické anizotropie s ní pak musí splývat.
-Tento argument však selhává i pro čtyřčetnou rotační symetrii, pak totiž není důvod aby např. $\phim=\SI{10}{\degree}$ zanášelo magneto-optickou anizotropii ve stejném směru.
+Snaha o vystižení anizotropie MLD pomocí vzorce \eqref{eqn:PMLD-naivni} založeného na \eqref{eqn:PMLD} nebyla úspěšná.
+Výskyt $\phim$ v argumentu sinu se zakládá na argumentech symetrie; pro plně rotačně symetrické prostředí v rovině rozhraní je jediný význačný směr dán magnetizací, takže osa zanesené magneto-optické anizotropie s ní pak musí splývat.
+Tento argument však selhává už i pro čtyřčetnou rotační symetrii, pak totiž není důvod, aby např. $\phim=\SI{10}{\degree}$ zanášelo magneto-optickou anizotropii ve stejném směru.
 
 Správné rozšíření vzorečku by mělo tvar
 \begin{equation}
@@ -23,7 +23,7 @@ Vzhledem k libovolnosti funkcí $P$ a $\varphi_O$ je jediná informace obsažen�
 Ta je založena na dvou předpokladech.
 Zaprvé musí být průchod/odraz přibližně izotropní, tj. nultý člen rozvoje transmisní/reflexní Jonesovy matice (zde obě značíme $\mathcal{R}$) musí být přibližně úměrný jednotkové matici.
 V praxi to znamená téměř kolmý dopad a přibližně izotropní tenzor permitivity vzorku.
-Označíme odchylku od jednotkové matice $\mathcal{R}'$ a rozdělíme jí na ``nemagnetickou'' a ``magnetickou'' část (po vytknutní celkového faktoru $R_0$).
+Označíme odchylku od jednotkové matice $\mathcal{R}'$ a rozdělíme ji na ``nemagnetickou'' a ``magnetickou'' část (po vytknutí celkového faktoru $R_0$).
 \begin{align}
 \label{eqn:PMLD-Jones}
 \mathcal{R}(\vec{M}) &= R_0 \left[ \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + \mathcal{R}'(\vec{M}) \right] \\
@@ -78,7 +78,7 @@ Díky tomu se každý člen řádu $k$ mocninného rozvoje v $\vec{M}$ redukuje 
 Do druhého řádu se tedy vyskytují členy $\cos\phim$, $\sin\phim$, $\cos2\phim$, $\sin2\phim$ a konstanta, kterou nedokážeme změřit kvůli vyvažování můstku ($\xi(\beta)$).
 První dva členy jsou lineární MO jevy a většinou jsou kvůli téměř kolmému dopadu ($< \SI{1}{\degree}$) poměrně malé.
 
-Zajímáme se pouze o kvadratické jevy, proto je od lineárních odseparujeme stejným způsobem jako metoda rotujícího pole (rovnice \eqref{eqn:rotmoke-separace}).
+Zajímáme se pouze o kvadratické jevy, proto je od lineárních oddělíme stejným způsobem jako metoda rotujícího pole (rovnice \eqref{eqn:rotmoke-separace}).
 Předpokládáme in-plane magnetickou anizotropii s dvoučetnou rotační symetrií, pak platí $\phim(\phih+\SI{180}{\degree})=\phim(\phih)+\SI{180}{\degree}$ a symetrizaci podle $\vec{M}$ můžeme provést pomocí symetrizace podle $\vHext$:
 \begin{equation}
     \label{eqn:symetrizace-H}
@@ -128,7 +128,7 @@ Pro [100]-normálově orientovaný kubický vzorek můžeme dosadit tvar magneti
 s ``extrakčním faktorem'' $P_0$, který vyjadřuje, jakou měrou se v Jonesově matici projevují změny permitivity, a závisí na nemagnetických parametrech vzorku, tj. tloušťce vrstev, jejich indexech lomu, atd.
 Po dosazení do \eqref{eqn:PMLD-matice} je vzorec ekvivalentní \eqref{eqn:QMOKE-vzorec} v kolmém dopadu ($P_0$ je obdobou konstant $A_{s/p}$).
 
-Přestože pro kubický [100]-normálově orientovaný vzorek platí $\pi_+=0$ a $\pi_--2\gamma=0$, ve zpracování je připouštíme.
+Přestože pro kubický [100]-normálově orientovaný vzorek platí $\pi_+=0$ a $\pi_--2\gamma=0$, ve zpracování oba úhly připouštíme.
 Souřadné soustavy polarizace ($\beta$) a magnetu ($\phih$, $\phim$) byly totiž stanoveny zcela nezávislými způsoby a pravděpodobně jsou proto spojeny vzájemnou rotací o malý úhel ($<\SI{5}{\degree}$).
 Oběma úhlům $\pi_+ \equiv \pi_--2\gamma$ tedy přikládáme nový význam zmíněného ofsetu.
 Úhel rotace vzorku $\gamma$ se pak určí jako $2\gamma = \pi_- - \pi_+$.

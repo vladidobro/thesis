@@ -33,7 +33,7 @@ $\Dtks'$ značíme kovektory vzhledem ke světlu před děličem, $\Dtks''$ vzhl
 \label{chap:kompenzace}
 
 Jedna z výhod formalismu Stokesových kovektorů je snadné uvažování o tom, jak se detekční aparatura chová při malých změnách (nedokonalostech) optických prvků.
-Zaměříme se na tři druhy druhy nedokonalostí, z nichž se nakonec jediná vyplatí kompenzovat -- nepřesné fázové zpoždění půlvlnné destičky.
+Zaměříme se na tři druhy nedokonalostí, z nichž se nakonec jediná vyplatí kompenzovat -- nepřesné fázové zpoždění půlvlnné destičky.
 
 Pro vyvažovací půlvlnnou destičku uvažujeme dva druhy nedokonalosti: rozdílnou propustnost obou módů a fázové zpoždění lišící se od přesné hodnoty $\pi/2$.
 Kvůli symetrii však stále požadujeme, aby destička měla dvě navzájem kolmé optické osy -- dva vlastní módy navzájem ortogonálních lineárních polarizací.
@@ -46,7 +46,7 @@ Nicméně každá z dvou ortogonálních polarizací je odražena mírně odliš
 Vložením polarizátoru před dělič a jeho vhodným otáčením bylo možné ho zkřížit vzhledem k oběma ramenům (zvlášť) s extinkčním poměrem $I_\textrm{min}/I_\textrm{max} \approx \num{1e-4}$.
 Díky tomu, že v každém rameni je polarizace takto kvalitně filtrovaná, se nijak neprojeví ani případná polarizační závislost detektorů.
 Jediná nedokonalost zbytku můstku (nezahrnující půlvlnnou destičku) je tedy rozdílná citlivost obou ramen na příslušné lineární polarizace.
-Ta je souhrnně způsobena jak rozdílnou propustností/odrazivostí děliče, tak nevyváženou citlivostí a zesílení obou detektorů.
+Ta je souhrnně způsobena jak rozdílnou propustností/odrazivostí děliče, tak nevyváženou citlivostí a zesílením obou detektorů.
 
 Všechny tři zmíněné nedokonalosti uvažujeme zvlášť a zanedbáváme jejich vzájemné působení.
 Nakonec se zaměříme na to, co se stane, když před můstek umístíme zrcadlo, které je nezbytné pro oddělení dopadajícího a odraženého svazku v reflexní geometrii, a pro vyvedení svazku ven z komory kryostatu v transmisní geometrii.
@@ -176,7 +176,7 @@ Zrcadlo je retardér s osou podél $s_1$, takže podél ní otočí rovník line
 Zároveň se Stokesovým vektorem však musíme zobrazit i jeho diferenciál (změna $\beta$ před zrcadlem se projeví i změnou $\chi$ za zrcadlem).
 Viz obr. \ref{fig:mustek-zrcadlo-data} (a).
 
-Ze vzájemné orientace nulové kružnice a diferenciálu Stokesova vektoru lze graficky určit, jakými faktory se do měřeného signálu promítne $\textrm{d}\beta$ a $\textrm{d}\chi$, .
+Ze vzájemné orientace nulové kružnice a diferenciálu Stokesova vektoru lze graficky určit, jakými faktory se do měřeného signálu promítne $\textrm{d}\beta$ a $\textrm{d}\chi$.
 Pro význačné $\beta$ lze odečíst přímo z obrázku \ref{fig:mustek-zrcadlo-data} (a)
 \begin{align}
     \textrm{d}\Udif(\beta=\SI{0}{\degree}) &= 2I\left(\cos(\delta_\textrm{m})\textrm{d}\beta + \sin(\delta_\textrm{m})\textrm{d}\chi\right) \,,\\
@@ -287,7 +287,7 @@ Výpočtem gradientu v tomto vyváženém bodě pak dostaneme pro malé změny (
 \end{equation}
 
 Pokud dokážeme charakterizovat všechny složky kovektoru, dokážeme určit oba kofaktory $\textrm{d}\beta$ i $\textrm{d}\chi$.
-Po provedení dvou měření, ve kterých se kofaktory liší, je pak možné jejich určit stočení i elipticitu od vzorku.
+Po provedení dvou měření, ve kterých se kofaktory liší, je pak možné určit stočení i elipticitu od vzorku.
 
 \subsubsection*{Charakterizace kovektoru}
 
@@ -371,10 +371,4 @@ Kofaktor stočení $g$ určíme přímo: změříme několik $\beta$ v malém ok
 Pro přesné určení obou kofaktorů je žádoucí, aby měly oba přibližně stejnou velikost.
 Toho lze docílit vložením Berekova kompenzátoru mezi vyvažovací půlvlnnou destičku a polarizační dělič v optickém můstku.
 Osa kompenzátoru je nastavena diagonálně vzhledem k dvoum hlavním módům děliče a fázové zpoždění je nastaveno $\pi/4$.
-
-
-
-
-\subsubsection*{Ověření funkčnosti}
-
 
