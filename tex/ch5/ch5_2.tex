@@ -4,40 +4,93 @@
 \subsection{Měření feromagnetické fáze}
 \label{chap:ferh-fm}
 
-Měření proběhlo při teplotě \SI{420}{\kelvin} v reflexní geometrii, schéma je na obr. \ref{fig:ferh-fm-schema-data} (a).
+Měření proběhlo při teplotě \SI{420}{\kelvin} v reflexní geometrii podle schématu na obr. \ref{fig:ferh-fm-schema-data}.
 Úhel dopadu byl \SI{0.5}{\degree}.
 Orientace vzorku byla vždy přibližně $\gamma\approx\SI{0}{\degree}$ (viz obr. \ref{fig:vzorek-ferh} (a)), kromě jednoho kontrolního měření při $\lambda=\SI{1600}{\nano\meter}$, ve kterém bylo $\gamma\approx\SI{-90}{\degree}$.
-Příklad změřených dat je na obr. \ref{fig:ferh-fm-schema-data} (b).
 Všechny vlnové délky byly změřeny s velikostí pole $\Hext=\SI{50}{\milli\tesla}$, některé navíc s $\Hext=\SI{207}{\milli\tesla}$.
 
-Výsledná magnetická anizotropie je znázorněná na obr. \ref{fig:ferh-anizotropie}.
-Z výsledků je patrný již dvakrát zmíněný problém: uniaxiální magnetická anizotropie není konzistentní napříč velikostmi $\Hext$ a natočeními vzorku $\gamma$.
-$\tilde{k}_u$ by mělo při rotaci vzorku o \SI{90}{\degree} podle \eqref{eqn:tilda-k} změnit znaménko, což se neděje.
-Naopak je na rotaci vzorku nezávislé a je úměrné velikosti pole $\Hext$.
-To naznačuje, že změřené $\tilde{k}_u$ pochází od magnetu, a uniaxiální anizotropie samotného vzorku je proti ní velice malé.
+Příklad změřených dat je na obr. \ref{fig:ferh-fm-schema-data}.
+Opět jako v případě měření CoFe není patrný žádný příspěvek lineárních jevů (mezi daty před a po symetrizaci v $\vHext$ není přílišný rozdíl).
+Poznamenáme, že celá sada dat byla změřena ještě jednou s úhlem dopadu \SI{1}{\degree} (výsledky zde neuvádíme).
+Už tak nízký úhel dopadu byl dostačující na to, aby amplituda lineárních jevů byla porovnatelná s MLD a výsledky analýzy pak zdaleka nebyly tak přesvědčivé.
 
-Kubická $\tilde{k}_4$ by měla podle \eqref{eqn:tilda-k} zůstat nezměněna při rotaci o \SI{90}{\degree}.
-Při malé nepřesnosti natočení se ale otočí v komplexní rovině o čtyřnásobek dodatečného úhlu.
-Podle obr. \ref{fig:ferh-anizotropie} (b) by to odpovídalo dodatečné rotaci o $\approx \SI{5}{\degree}$, což je přesvědčivé.
-Kubickou anizotropní konstantu tedy považujeme za věrohodně určenou, s hodnotou\todo{overit chybu}
-\begin{equation}
-    k_4 (\textrm{FR06}) = \SI{5.2(2)}{\milli\tesla} \,.
-\end{equation}
-
-Určení MLD koeficientů $P$ je necitlivé na nepřesnosti v $\vHext$, spektrální závislost je vynesena na obr. \ref{fig:ferh-fm-pmld}.
+Standardní procedurou jsme určili MO koeficienty $P$ a magnetickou anizotropii vzorku.
+Spektrální závislost $P$ je vynesena na obr.~\ref{fig:ferh-fm-pmld}.
+Zde musíme však mít na paměti, že u tohoto vzorku máme úhel natočení $\gamma$ definován vzhledem ke směru FeRh[1-10] (viz obr. \ref{fig:vzorek-ferh} (a)), takže \eqref{eqn:PminusG} platí s opačným znaménkem.
+Spektrum je velice pestré, oba koeficienty několikrát mění znaménko.
+Tak silná anizotropie a spektrální závislost, pokud je nám známo, dosud nebyla pozorována.\todopn{Tady bych ocenil lepší formulaci.}
+Silná anizotropie a spektrální závislost má zřejmě významné důsledky pro metody studia materiálů pomocí MLD (např. měřením hysterézních smyček)\cite{tesarovaSystematicStudyMagnetic2014}.
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{.3\textwidth}
-        \centering
-        \includegraphics{./img/svg/ferh-schema.drawio.pdf}
-    \end{subfigure}
-    \begin{subfigure}{.65\textwidth}
-        \includegraphics{./data/out/ferh-data.pdf}
-    \end{subfigure}
-    \caption{Měření FeRh v reflexní geometrii. (a) Schéma. (b) Ilustrace změřených dat s $\lambda=\SI{1600}{\nano\meter}$ a $\Hext=\SI{50}{\milli\tesla}$, po symetrizaci v poli a polohách WP2.}
+    \includegraphics{./img/svg/ferh-schema.drawio.pdf}
+    \caption{Schéma aparatury pro měření v reflexní geometrii za použití kryostatu.}
+    \label{fig:ferh-schema}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{./data/out/ferh-data.pdf}
+    \caption{Měření FeRh v reflexní geometrii, $\lambda=\SI{1600}{\nano\meter}$, $\Hext=\SI{50}{\milli\tesla}$. (a) Hrubá změřená data. (b) Stejná data po symetrizaci v poli a filtraci frekvencí $2\beta$ (body) a proložený model (čára).}
     \label{fig:ferh-fm-schema-data}
 \end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{./data/out/ferh-pmld.pdf}
+    \caption{Spektrální závislost reflexních MO koeficientů $P$ vzorku FeRh při teplotě \SI{420}{\kelvin}, $\Hext=\SI{50}{\milli\tesla}$.}
+    \label{fig:ferh-fm-pmld}
+\end{figure}
+
+\subsubsection*{Magnetická anizotropie v nepřesném poli}
+
+Vzorek byl měřen s dvěma velikostmi magnetického pole $\Hext=50$, \SI{207}{\milli\tesla} a dvěma úhly in-plane rotace $\gamma\approx0$, \SI{-90}{\degree}.
+Výsledná magnetická anizotropie je znázorněná na obr. \ref{fig:ferh-anizotropie}.
+Souhrn pro všechny čtyři kombinace $\Hext$ a $\gamma$ je uveden v tabulce~\ref{tab:ferh-anizotropie}.
+I zde musíme mít na paměti definici $\gamma$ pro vzorek FeRh, protože kubická anizotropní konstanta $k_4$ je definovaná vzhledem k FeRh[100].
+Snadné osy jsou ve směru FeRh[100] (``experimentální'' směr \SI{45}{\degree}), takže $k_4>0$.
+
+Narážíme na zajímavý problém.
+Magnetická anizotropie je dobře konzistentní pro danou měřící proceduru (posloupnost nastavovaných proudů v cívkách elektro-magnetů) a danou orientaci vzorku.
+Potom jsou anizotropní konstanty určeny různými vlnovými délkami v dobré shodě (obr. \ref{fig:ferh-anizotropie} (a, b), modré body).
+Problém však nastává při porovnání různých měřicích procedur či pozic vzorku.
+
+Uvedeme několik poznatků.
+Směr osy\footnote{Kvůli definici $\gamma$ se zde jedná o těžkou osu magnetizace.} kubické anizotropie vyjádřený úhlem $\gamma_\textrm{SW}$ je nezávislý na $\Hext$, ale při otočení $\gamma$ o \SI{90}{\degree} se konzistentně změnil o $\approx\SI{4}{\degree}$\footnote{Z hlediska kubické anizotropie jsou $\gamma=\SI{0}{\degree}$ a $\gamma=\SI{90}{\degree}$ ekvivalentní.}, takže pravděpodobně reflektuje skutečné pootočení o \SI{94}{\degree}.
+Velikost $k_4$ je poměrně nezávislá na $\Hext$ i $\gamma$.
+
+Zcela jiná situace je u uniaxiální anizotropie.
+Při rotaci vzorku $\gamma \mapsto\gamma+\SI{90}{\degree}$ by podle \eqref{eqn:tilda-k} mělo dojít ke změně znaménka $\tilde{k}_u$.
+Jednoduššími slovy, osa uniaxiální anizotropie se musí otáčet zároveň se vzorkem, což se neděje, viz obr. \ref{fig:ferh-anizotropie} a tabulka \ref{tab:ferh-anizotropie}.
+Naopak, osa uniaxiální anizotropie zůstává ve stejném ``experimentálním'' směru popsaném úhlem $\phiu+\gamma_\textrm{SW}$.
+Navíc síla uniaxiální anizotropie $k_u$ je přímo úměrná použitému poli $\Hext$.
+
+Uvedené poznatky nás vedou k závěru, že vlastní metoda je sice velice citlivá a spolehlivá, ale skutečná magnetická pole $\vHext$ realizovaná v experimentu jsou (vlivem neideálně kompenzované hystereze jednotlivých pólových nástavců cívek v elektromagnetu) mírně odlišná od nominálních hodnot použitých při analýze.
+Pokud je magnetická anizotropie, jako v případě FeRh, slabá, tak měříme dominantně anizotropii magnetu a ne vzorku.
+
+V době odevzdání této práce jsou v přípravě dodatečná zpřesňující měření magnetického pole, které umožní z již naměřených dat určit správnou magnetickou anizotropii.
+Důsledky odlišnosti reálného a domnělého magnetického pole pro analýzu magnetické anizotropie se mimo jiné věnuje dodatek \ref{app:magneticka-anizotropie}.
+
+Určení kubické anizotropní konstanty považujeme za spolehlivé
+\begin{equation}
+    k_4=\SI{5.3(4)}{\milli\tesla} \,.
+\end{equation}
+
+\begin{table}[tp]
+    \centering
+    \begin{tabular}{cc|cccc}
+        \toprule
+        $\Hext$ (\si{\milli\tesla}) & $\gamma$ (\si{\degree}) & $k_4$ (\si{\milli\tesla}) & $k_u$ (\si{\milli\tesla}) & $\phiu+\gamma_\textrm{SW}$ (\si{\degree}) & $\gamma_\textrm{SW}$ (\si{\degree}) \\ \midrule[\heavyrulewidth]
+        50 & 0 & \num{5.3(4)} & \num{1.7(1)} & \num{126(4)} & \num{-1.9(5)} \\
+        207 & 0 & \num{5(1)} & \num{5.7(3)} & \num{130(1)} & \num{-3.5(1)} \\ \midrule[\heavyrulewidth]
+        50 & \num{-90} & \num{4.9} & \num{1.6} & \num{132} & \num{-97} \\
+        207 & \num{-90} & \num{5.9} & \num{5.7} & \num{127} & \num{-97} \\
+        \bottomrule 
+    \end{tabular} 
+    \caption{Změřená magnetická anizotropie FeRh.}
+    \label{tab:ferh-anizotropie}
+\end{table}
+
 
 \begin{figure}[htbp]
     \centering
@@ -45,28 +98,3 @@ Určení MLD koeficientů $P$ je necitlivé na nepřesnosti v $\vHext$, spektrá
     \caption{Výsledky magnetických anizotropních konstant FeRh. (a, c) Uniaxiální. (b, d) Kubická. Na (a, b) jsou zobrazeny pouze střední hodnoty odhadů pro čtyři kombinace různých velikostí pole a rotace vzorku, čtverci jsou naznačeny oblasti zobrazené v (c, d). (c, d) Zaměření na $\Hext=\SI{50}{\milli\tesla}$, $\gamma=\SI{0}{\degree}$, zobrazeny $2\sigma$ oblasti měřené jednotlivými vlnovými délkami.}
     \label{fig:ferh-anizotropie}
 \end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \missingfigure{}
-    \caption{Spektrální závislost reflexních MO koeficientů $P$ vzorku FeRh při teplotě \SI{420}{\kelvin}.}
-    \label{fig:ferh-fm-pmld}
-\end{figure}
-
-\subsubsection{Nepřesnosti magnetického pole}
-
-Z experimentálních výsledků uvedených dále v kapitole \ref{chap:5} vychází, že určení magnetické anizotropie uvedenou metodou je velice spolehlivé.
-Konkrétně, s danou měřicí procedurou (tj. nastavovanou posloupností proudů v cívkách elektro-magnetů) a neměnnou pozicí vzorku jsou téměř v dokonalé shodě anizotropní konstanty určené různými vlnovými délkami, jak by se dalo očekávat.
-Vzhledem k rozmanité spektrální závislosti MO koeficientů (viz výsledky v kap. \ref{chap:5}) to dokazuje, že měřený signál skutečně pochází od vzorku a je dobře popsán modelem \eqref{eqn:anizotropie-fit}.
-Problém však někdy nastává při porovnání různých měřicích procedur či pozic vzorku.
-Tato nepříjemnost byla pozorována se vzorkem FeRh (viz oddíl \ref{chap:ferh-fm}), kde je magnetická anizotropie velice slabá.
-
-Tento vzorek byl měřen se dvěma velikostmi $\Hext = 50$, \SI{207}{\milli\tesla}.
-V obou případech byla naměřená uniaxiální anizotropie ve stejném směru, avšak s jinou velikostí.
-Zachoval se však poměr $k_u/\Hext$, což napovědělo, že problém pochází od magnetu.
-Měření bylo následně zopakováno se vzorkem in-plane otočeným o \SI{90}{\degree} -- výsledkem byla uniaxiální anizotropie ve stejném \emph{experimentálním} směru, tzn. o \SI{-90}{\degree} otočená v soustavě spojené se vzorkem, což samozřejmě nedává fyzikální smysl.
-
-Pravděpodobnou příčinou tohoto problému je, že vlastní metoda je sice velice citlivá a spolehlivá, ale skutečná magnetická pole $\vHext$ realizovaná v experimentu jsou (vlivem neideálně kompenzované hystereze jednotlivých pólových nástavců cívek v elektromagnetu) mírně odlišná od nominálních hodnot použitých při analýze.
-V době odevzdání této práce jsou v přípravě dodatečná zpřesňující měření magnetického pole, které umožní z již naměřených dat určit správnou magnetickou anizotropii.
-
-Důsledky odlišnosti reálného a domnělého magnetického pole pro analýzu magnetické anizotropie se mimo jiné věnuje dodatek \ref{app:magneticka-anizotropie}.
