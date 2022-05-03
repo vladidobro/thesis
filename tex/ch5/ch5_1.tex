@@ -4,20 +4,47 @@
 \subsection{Měření při pokojové teplotě}
 \label{chap:vysledky-cofe-roomt}
 
-Měření v transmisní geometrii při pokojové teplotě je nejjednodušší, protože nevyžaduje žádných zrcadel mezi vzorkem a můstkem.
+Měření v transmisní geometrii při pokojové teplotě je ze všech testovaných verzí metody nejjednodušší, protože nevyžaduje žádných zrcadel mezi vzorkem a můstkem.
 Aparatura byla použita ve stejném stavu jako je znázorněna schématem na obr. \ref{fig:mustek-desticka-ilustrace} (b).
-Ilustrace změřených dat je na obr. \ref{fig:vysledky-cofe-schema-data}.
-Výsledky fitu MO koeficientů $P$ jsou na obr. \ref{fig:vysledky-cofe-PMLD}.
+Velikost pole byla pro vzorek CoFe vždy použita $\Hext=\SI{207}{\milli\tesla}$.
 
-Znázornění výsledků fitu magnetické anizotropie je na obr. \ref{fig:vysledky-cofe-roomt-anizotropie}.
-Výsledky určení magnetických anizotropních konstant pomocí různých vlnových délek se velice dobře shodují. 
-Z obrázků je také zřejmé, že nejistota konstant je pouze mírně podhodnocena.
+Ilustrace změřených dat je na obr. \ref{fig:vysledky-cofe-data} (a).
+Z obrázku jsou patrné oba dva rysy MLD, tj. změna znaménka při otočení $\beta \mapsto \beta+\SI{90}{\degree}$ a sudost v magnetickém poli $\Delta\beta(\phih)=\Delta\beta(\phih+\SI{180}{\degree})$ (lineární jevy jsou zanedbatelné).
+Po provedení standardní procedury předzpracování dat (obr. \ref{fig:vysledky-cofe-data} (b)) je signál téměř identický.
+
+Takto předzpracovaná data následně fitujeme modelem popsaným v oddílech \ref{chap:anizotropie-MLD}, \ref{chap:urceni-magneticke-anizotropie} a \ref{chap:zpracovani-dat}, tj. souběžně určímě MO koeficienty $P_{ij}$ a magnetické anizotropní konstanty.
+Na obr. \ref{fig:vysledky-cofe-data} (b) jsou vykreslené naměřené body společně s nafitovaným modelem.
+
+Takto byly určeny magnetické anizotropní konstanty pro všechny měřené vlnové délky.
+$2\sigma$ oblasti komplexních konstant $\tilde{k}_{u/4}$ jsou vykresleny na obr. \ref{fig:vysledky-cofe-roomt-anizotropie}.
+Z obrázků je patrné, že se určená anizotropie velice dobře shoduje pro většinu vlnových délek (jen modrý konec viditelného spektra nemá dobré výsledky, z neznámých důvodů je zde přítomný výrazně vyšší šum).
+Zároveň je vidět, že nejistota určená způsobem popsaným v dodatku \ref{app:zpracovani} je pouze velmi mírně podhodnocena (elipsy se téměř překrývají).
+
+V podobě reálných konstant $k_4$, $k_u$ a $\phiu$ jsou výsledky zaneseny do tabulky \ref{tab:cofe-anizotropie}.
+Velikosti konstant $k_4$ a $k_u$ se dobře shodují s těmi určenými autory článku \cite{zengIntrinsicMechanismAnisotropic2020} metodou torque-metry (viz oddíl \ref{chap:vzorek-cofe}).
+Co se týče směru uniaxiální anizotropie $\phiu$, autoři v korespondenci připustili, že naše výsledky se shodují s jedním kandidátem na definici $\phiu$, která mohla být při měření torque-metry použita.
+S touto pravděpodobnou definicí uvádíme výsledky torque-metrie také do tabulky \ref{tab:cofe-anizotropie} a příslušné funkcionály magnetické volné energie jsou vykresleny na obr.~\ref{fig:cofe-funkcional}.
+
+Konzistenci určené magnetické anizotropie v celém studovaném spektrálním rozsahu a zároveň s výsledky torque-metry\footnote{Naše výsledky souhlasí s výsledky torque-metry jen přibližně. Důvod, proč nás to zatím nenutí k obavám, je vysvětlen v oddíle \ref{chap:ferh-fm}.} považujeme za nesporný důkaz funkčnosti metody.
+Vzhledem k rozmanité spektrální závislosti MO koeficientů $P$ (viz obr.~\ref{fig:vysledky-cofe-PMLD}) je velice nepravděpodobná představa, že by měřený signál v sobě zahrnoval podstatnou část nějakého parazitního jevu, který by výsledky zkresloval.
+Dodatečný signál by totiž musel mít podobnou spektrální závislost.
+
+Spektrální závislost určených MO koeficientů $P$ je vynesena na obr.~\ref{fig:vysledky-cofe-PMLD}.
+Nejistota $P$ určená standardním způsobem je však zřejmě nesmyslně nízká ($<\SI{2}{\micro\radian}$), což je pravděpodobně způsobeno přizpůsobením dat modelu (symetrizace v poli a filtace frekvencí $2\beta$).
+Proto vizuální analýzou odhadujeme $2\sigma$ nejistotu jako hodnotou \SI{50}{\micro\radian}.
+
+Ve spektrální oblasti \num{1000}--\SI{1450}{\nano\meter} dominuje izotropní člen $P_+$, pro \num{460}--\SI{1000}{\nano\meter} jsou naopak $P_+$ a $P_-$ srovnatelné a oba protnou nulu.
+Pro kvantifikaci míry anizotropie MLD můžeme v zásadě postupovat dvěma způsoby.
+Buďto jako poměr $P_-$, které je dovoleno symetrií pouze u anizotropních vzorků, vůči izotropní části $P_+$, nebo pragmaticky jako poměr amplitud při měření se vstupní polarizací ve význačných směrech $\beta=\gamma$ a $\beta=\gamma+\SI{45}{\degree}$, tj. pomocí koeficientů $P_\gamma$ a $P_{\gamma+\SI{45}{\degree}}$ z \eqref{eqn:Pgamma}.
+Ve všech případech dosahuje vzorek CoFe v měřeném spektrálním rozsahu maximální možné anizotropie MLD, tzn. existují vlnové délky splňující $P_+=0$, $P_\gamma=0$ i $P_{\gamma+\SI{45}{\degree}}=0$.
+
+
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{./data/out/cofert-data.pdf}
-    \caption{CoFe v transmisní geometrii při pokojové teplotě. (a) Ilustrace měřených dat ($\lambda=\SI{620}{\nano\meter}$). (b) Stejná data po symetrizaci v poli a filtraci frekvencí $2\beta$.}
-    \label{fig:vysledky-cofe-schema-data}
+    \caption{CoFe v transmisní geometrii při pokojové teplotě, $\lambda=\SI{620}{\nano\meter}$. (a) Hrubá měřená data. (b) Stejná data po symetrizaci v poli a filtraci frekvencí $2\beta$ (body) a proložený model (čára).}
+    \label{fig:vysledky-cofe-data}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -27,48 +54,73 @@ Z obrázků je také zřejmé, že nejistota konstant je pouze mírně podhodnoc
     \label{fig:vysledky-cofe-roomt-anizotropie}
 \end{figure}
 
+\begin{table}[tp]
+    \centering
+    \begin{tabular}{ccccc}
+        \toprule
+        $\Lambda$ (\si{\nano\meter}) & $k_4$ (\si{\milli\tesla}) & $k_u$ (\si{\milli\tesla}) & $\phiu$ (\si{\degree}) & $\gamma_\textrm{SW}$ (\si{\degree}) \\ \midrule[\heavyrulewidth]
+        \num{460} & \num{-34.6} & \num{3.9} & \num{128.2} & \num{-3.7} \\
+\num{530} & \num{-31.6} & \num{8.7} & \num{154.6} & \num{-3.3} \\
+\num{620} & \num{-32.7} & \num{8.7} & \num{158.1} & \num{-3.1} \\
+\num{710} & \num{-32.9} & \num{8.6} & \num{158.2} & \num{-3.1} \\
+\num{810} & \num{-32.6} & \num{9.0} & \num{157.9} & \num{-3.1} \\
+\num{920} & \num{-32.7} & \num{9.4} & \num{157.9} & \num{-3.0} \\
+\num{1050} & \num{-32.1} & \num{8.3} & \num{158.1} & \num{-3.3} \\
+\num{1200} & \num{-32.5} & \num{7.7} & \num{158.4} & \num{-3.2} \\
+\num{1450} & \num{-32.5} & \num{9.1} & \num{158.4} & \num{-3.2} \\ \midrule[\heavyrulewidth]
+        \SI{295}{\kelvin} & \num{-32.6(2)} & \num{8.7(5)} & \num{158.1(5)} & \num{-3.1(1)} \\
+        \SI{15}{\kelvin} & \num{-37.0(5)} & \num{10.8(6)} & \num{162.0(13)} & \num{-1.7(3)} \\
+        torque-metry & \num{-30.25} & \num{6.3} & \num{156} & --- \\
+        \bottomrule 
+    \end{tabular} 
+    \caption{Magnetická anizotropie CoFe. Uvedená spektrální závislost je pro pokojovou teplotu. Směr uniaxiální anizotropie $\phiu$ je odečítán od směru CoFe[100] daném průměrným $\gamma_\textrm{SW}$ (tedy ne $\gamma_\textrm{SW}$ určeným konkrétní vlnovou délkou).}
+    \label{tab:cofe-anizotropie}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{./data/out/cofe-funkcional.pdf}
+    \caption{Funkcionál magnetické volné energie vzorku CoFe při pokojové teplotě určen naší metodou a metodou torque-metry provedenou autory článku \cite{zengIntrinsicMechanismAnisotropic2020}.}
+    \label{fig:cofe-funkcional}
+\end{figure}
+
 \begin{figure}[htbp]
     \centering
     \includegraphics{./data/out/cofe-pmld.pdf}
-    \caption{PMLD cofe roomt, lowt}
+    \caption{Určené magneto-optické koeficienty $P$ vzorku CoFe v transmisní geometrii při pokojové a snížené teplotě.}
     \label{fig:vysledky-cofe-PMLD}
 \end{figure}
 
 
-\begin{table}[tp]
-    \caption{Magnetická anizotropie CoFe.}
-    \label{tab:cofe-anizotropie}
-    \centering
-    \begin{tabular}{cccc}
-        \toprule
-        $T$ (\si{\kelvin}) & $k_4$ (\si{\milli\tesla}) & $k_u$ (\si{\milli\tesla}) & $\phiu$ (\si{\degree}) \\ \midrule[\heavyrulewidth]
-        295 & 0 & 0 & 0 \\
-        15 & 0 & 0 & 0 \\
-        \bottomrule 
-    \end{tabular} 
-\end{table}
 
 \subsection{Měření při kryogenní teplotě}
 \label{chap:vysledky-cofe-lowt}
 
-Měření proběhlo při nejnižší teplotě dosažitelné kryostatem, tj. přibližně \SI{15}{\kelvin}.
-Měření v transmisní geometrii je při zchlazeném kryostatu výrazně složitější, viz obr. \ref{fig:vysledky-cofe-lowt-schema-data} (a).
+Po úspěchu při pokojové teplotě jsme přistoupili k měření s kryostatem, který je jednou z hlavních předností naší metody oproti příbuzným dostupným metodám.
+Měření proběhlo při nejnižší teplotě dosažitelné kryostatem, tj. přibližně \SI{15}{\kelvin}, v transmisní geometrii podle schématu na obr.~\ref{fig:vysledky-cofe-lowt-schema}.
+
+Oproti měření při pokojové teplotě se při zchlazeném kryostatu vyskytuje podstatně více ``artefaktů''.
+Pro vyvedení svazku z komory kryostatu je nutné použití zrcadla, které je nutné kompenzovat druhým zrcadlem (oddíl \ref{chap:kompenzace}).
 První ze zkřížených zrcadel je umístěno uvnitř komory kryostatu, druhé -- kompenzační -- je venku.
 Není proto apriori zřejmé, zda se zrcadla skutečně kompenzují, když jsou udržovány na tak rozdílných teplotách.
-Překvapivě tomu tak ale je: i při zběžném nastavení zrcadel byla po obou odrazech naměřena v celém spektru elipticita $<\SI{1}{\degree}$ pro vstupní polarizaci $\beta=45$, \SI{135}{\degree} (rovnoměrný mix s- a p-).
+Překvapivě tomu tak ale je: i při zběžném nastavení zrcadel byla po obou odrazech naměřena v celém spektru elipticita $<\SI{1}{\degree}$ pro vstupní polarizaci $\beta=\SI{45}{\degree}$, \SI{135}{\degree} (rovnoměrný mix s- a p-).
 
-Druhý problém činí okénka komory kryostatu, na rozdíl od reflexní geometrie totiž světlo prochází postranním okénkem, ve kterém se indukuje Faradayův jev.
-Důsledkem je pak měřené stočení téměř nezávislé na $\beta$, viz obr. \ref{fig:vysledky-cofe-lowt-schema-data} (b).
+Druhá nepřijemnost je způsobena okénkem komory kryostatu, světlo totiž prochází i postranním okénkem, ve kterém má magnetické pole pro jistá $\phih$ polární směr, viz obr. \ref{fig:vysledky-cofe-lowt-schema} (b).
+V měřeném signálu pak pozorujeme příspěvek Faradayovy rotace v okénku téměř nezávislý na vstupní polarizaci $\beta$, viz obr. \ref{fig:vysledky-cofe-lowt-data} (a).
+
 Provedli jsme pokus o oddělení Faradayova jevu od MLD na základě jejich symetrie.
 Faradayův jev je lichý v magnetizaci (okénka) a je nezávislý na natočení vstupní lineární polarizace\footnote{V aparatuře se okénko vyskytuje až za prvním zrcadlem, takže není striktně pravda, že by stočení okénkem bylo nezávislé na $\beta$. Je nezávislé na natočení lineární polarizace vstupující do okénka.}.
-Stočení po symetrizaci ve vnějším poli a vybrání $\beta$-závislosti s frekvencí $2\beta$ je na obr. \ref{fig:vysledky-cofe-lowt-schema-data} (c).
-Signál je posléze fitovaný modelem popsaným v kap. \ref{chap:4} a poměrně překvapivě dává přibližně stejnou magnetickou anizotropii pro většinu vlnových délek, viz obr. \ref{fig:vysledky-cofe-lowt-schema-data} (d).
-Právě kvůli Faradayově jevu v okénkách považujeme transmisní geometrii při nízké teplotě za nejméně spolehlivou.
-Obecně je amplituda vysoká ve viditelné oblasti, zatímco v infračervené jsou data téměř neovlivněna.
+Standardním postupem bychom tedy měli být schopni oba příspěvky oddělit, stočení po symetrizaci ve vnějším poli a filtraci frekvencí $2\beta$ je na obr. \ref{fig:vysledky-cofe-lowt-data} (b).
+Výsledný signál je již vizuálně velmi podobný tomu změřenému při pokojové teplotě (obr. \ref{fig:vysledky-cofe-data} (b)).
 
-Spektrální závislost výsledných MO koeficientů je vynesena na obr. \ref{fig:vysledky-cofe-PMLD}, společně s těmi měřenými při pokojové teplotě.
-Výsledná magnetická anizotropie je na obr. \ref{fig:vysledky-cofe-lowt-anizotropie}.
-Shrnutí magnetických anizotropních konstant pro obě měřené teploty je v tabulce \ref{tab:cofe-anizotropie}.
+Dále postupujeme stejně jako v případě měření při pokojové teplotě.
+Výsledné $2\sigma$ oblasti spolehlivosti magnetických anizotropních konstant jsou vykresleny na obr. \ref{fig:vysledky-cofe-lowt-anizotropie}.
+Jejich shrnutí je lze nalézt v tabulce \ref{tab:cofe-anizotropie}.
+I zde se magnetické anizotropní konstanty určené pomocí různých vlnových délek dobře shodují, což nám dodává jistotu, že uvedený způsob odstranění Faradayovy rotace okének kryostatu je spolehlivý.
+Spektrální závislost výsledných MO koeficientů $P$ je vynesena na obr.~\ref{fig:vysledky-cofe-PMLD} společně s těmi měřenými při pokojové teplotě.
+
+Ani magnetická anizotropie ani spektrální závislost MO koeficientů téměř nezávisí na teplotě, což je pochopitelné pro materiál s Curieovou teplotou $T_C\approx \SI{950}{\kelvin}$\cite{sundarSoftMagneticFeCo2005}.
+
 
 \begin{figure}[htbp]
     \centering
@@ -81,7 +133,7 @@ Shrnutí magnetických anizotropních konstant pro obě měřené teploty je v t
 \begin{figure}[htbp]
     \centering
         \includegraphics{./data/out/cofelt-data.pdf}
-        \caption{Měření CoFe v transmisní geometrii při \SI{15}{\kelvin}, $\lambda=\SI{620}{\nano\meter}$, $\Hext=\SI{207}{\milli\tesla}$. (a) Hrubá změřená data. (b) Stejná data po symetrizaci v poli a filtraci frekvencí $2\beta$.}
+        \caption{CoFe v transmisní geometrii při teplotě \SI{15}{\kelvin}, $\lambda=\SI{620}{\nano\meter}$. (a) Hrubá měřená data. (b) Stejná data po symetrizaci v poli a filtraci frekvencí $2\beta$ (body) a proložený model (čára).}
     \label{fig:vysledky-cofe-lowt-data}
 \end{figure}
 
