@@ -2,11 +2,102 @@
 \label{app:berreman}
 
 Navazujeme zde na oddíl \ref{chap:optika-v-multivrstvach} a ukážeme, jak spočítat Jonesovy transmisní a reflexní matice při malých změnách tenzoru permitivity.
-Výpočet byl naznačen v 
+Podobný výpočet byl do jisté míry naznačen v článku \cite{bertrandGeneralAnalyticalTreatment2001}.
 
 Omezíme se na reálný normovaný příčný vlnový vektor $N$ pro popis laserových svazků.
 
-\subsection*{Řešení pro izotropní vrstvu}
+\subsection*{Porucha reflexní a transmisní matice}
+
+Označíme celkovou přenosovou matici \eqref{eqn:prenosova-matice-M} v bázi módových amplitud vstupního a výstupního prostředí
+\begin{equation}
+    \Nfr = \mathfrak{D}_{(L)}^{-1} \Mfr  \mathfrak{D}_{(R)} \,.
+\end{equation}
+Také zavedeme blokové značení $2\times2$ bloků $4\times4$ matic
+\begin{equation}
+    \Nfr = \begin{pmatrix} \Nfr^\nwarrow & \Nfr^\nearrow \\
+    \Nfr^\swarrow & \Nfr^\searrow \end{pmatrix} .
+\end{equation}
+S tímto značením jsou Jonesovy matice průchodu a odrazu po vyřešení rovnice \eqref{eqn:rovnice-odraz-pruchod} dány
+\begin{equation}
+    \Tjs = \left(\Nfr^\nwarrow\right)^{-1} \,, \quad \Rjs=\Nfr^\swarrow \mathcal{T} \,.
+\end{equation}
+Poruchy matice $\delta\Nfr$ se v Jonesových maticích projeví\footnote{Derivace inverzní matice $(A^{-1})'=-AA'A$.}
+\begin{equation}
+    \label{eqn:app-derivace-RT}
+    \delta\Tjs = -\Tjs \left(\delta\Nfr^\nwarrow \right) \Tjs \,, \quad \delta\Rjs=\left(\delta\Nfr^\swarrow\right) \Tjs + \Nfr^\swarrow (\delta\Tjs)
+\end{equation}
+
+\subsection*{Porucha přenosové matice}
+\subsubsection*{Sendvičová struktura}
+
+Zde se zaměříme na výpočet $\delta\Nfr$ v případě, kdy vrstva s porušenou permitivitou není přímo výstupní prostředí.
+Potom $\DfrL$ i $\DfrR$ zůstávají neměnné a $\delta\Nfr = \DfrL^{-1}\delta\Mfr\DfrR$.
+Celková přenosová matice $\Mfr$ je dána součinem tří dílčích přenosových matic: nadvrstev $\Mfr_i$, zkoumané (magnetické) vrstvy s porušenou permitivitou $\Mfr_m$ a podvrstev $\Mfr_o$, takže $\Mfr = \Mfr_i \Mfr_m \Mfr_o$.
+Na poruchu pak reaguje pouze $\Mfr_m$, tzn. $\delta\Mfr = \Mfr_i (\delta\Mfr_m) \Mfr_o$.
+
+Přenosová matice je dána řešením \eqref{eqn:Berreman-master}, maticovou exponenciálou
+\begin{equation}
+    \Mfr_m + \delta \Mfr_m = e^{ik_0d(\Delta+\delta\Delta)} = e^{ik_0d\Delta} + \delta \Mfr_m
+\end{equation}
+kde $d$ je tloušťka vrstvy.
+
+První derivaci maticové exponenciály lze spočítat podle vzorce\cite{najfeldDerivativesMatrixExponential1995a}
+\begin{equation}
+    \label{eqn:app-derivace}
+    \delta\Mfr_m = \delta(e^{ik_0d\Delta}) = ik_0d\int_0^1 e^{ik_0d\Delta(1-\tau)} (\delta\Delta) e^{ik_0d\Delta \tau} \textrm{d}\tau \,.
+\end{equation}
+Není tedy třeba počítat exponenciálu porušených $\Delta+\delta\Delta$, ale pouze neporušeného $\Delta$.
+Pokud dokážeme neporušenou matici $\Delta$ diagonalizovat dynamickou maticí $\Dfr$, má vzorec \eqref{eqn:app-derivace} jednodušší tvar
+\begin{equation}
+    \label{eqn:app-lepsi-derivace}
+    \delta\Mfr_m = ik_0d \Dfr \int_0^1 e^{ik_0d (\Dfr^{-1}\Delta\Dfr)(1-\tau)} (\Dfr^{-1}\delta\Delta\Dfr) e^{ik_0d(\Dfr^{-1}\Delta\Dfr)\tau} \textrm{d}\tau \Dfr^{-1}\,,
+\end{equation}
+kde se už vyskytuje exponenciála pouze diagonálních matic $\Dfr^{-1}\Delta\Dfr$, která se spočítá triviálně.
+Pro přehlednost explicitně spočítáme derivaci v případě, kdy neporušená permitivita je izotropní, tj. v $2\times2$ blokové notaci
+\begin{equation}
+    \Dfr^{-1}\Delta\Dfr = \begin{pmatrix} -n\cos\alpha_t & 0 \\ 0 & n\cos\alpha_t \end{pmatrix} ,
+\end{equation}
+kde $n$ je index lomu a $\alpha_t$ úhel lomu\footnote{Pro absorbující prostředí je komplexní, nicméně stále platí $\cos\alpha_t\equiv\sqrt{1-N^TN/n^2}$.}.
+Pak
+\begin{multline}
+    \delta \exp \left[ik_0d\Delta+ \begin{pmatrix} 
+\mathfrak{A}^\nwarrow & \mathfrak{A}^\nearrow \\
+\mathfrak{A}^\swarrow & \mathfrak{A}^\searrow
+\end{pmatrix} \right] = \\
+= ik_0d \, \Dfr
+\begin{pmatrix} 
+    e^{-ix}\mathfrak{B}^\nwarrow & \frac{\sin x}{x}\mathfrak{B}^\nearrow \\
+    \frac{\sin x}{x}\mathfrak{B}^\swarrow & e^{ix}\mathfrak{B}^\searrow
+\end{pmatrix} \Dfr^{-1} \,,
+\end{multline}
+kde jsme označili $m = k_0 d n \cos\alpha_t$ a matice $\mathfrak{B} = (b_{ij})$ vznikne z poruchy $\mathfrak{A} = (a_{ij})$ transformací $\mathfrak{B} = \Dfr^{-1} \mathfrak{A} \Dfr$ jako \eqref{eqn:app-lepsi-derivace}.
+Každý z $2\times2$ bloků je násoben svým vlastním činitelem, takže výsledek není možné zapisovat pomocí notace klasického maticového násobení.
+
+\subsubsection*{Odraz od bulku}
+
+Druhý případ, kdy magnetická vrstva je přímo výstupní prostředí, je složitější.
+Pokud se zajímáme i o prošlé světlo, narážíme na problém, který je jinak všudypřítomný v Yehově formalismu, totiž dynamická matice je v okolí degenerací (izotropní vrstva či šíření podél optické osy) singulární.
+Ta v anizotropním prostředí nutně definuje bázi Jonesových vektorů\footnote{Protože oba svazky jsou oddělené.}, což má za následek neexistenci derivace $\delta\mathcal{T}$.
+Pokud bychom přece jen chtěli popsat změny prošlého světla, museli bychom ho místo módovými amplitudami (Jonesovými vektory) popisovat pomocí složek polí $\vec{E}$, $\vec{H}$, které singularitami netrpí.
+
+Častější situace, na kterou se zde zaměříme, je taková, že se zajímáme pouze o odražené světlo (odraz na anizotropním bulku).
+Zmíněná singularita $\Tjs$ se pak objevuje pouze v mezivýpočtech a je možné jí obejít.
+
+Z přenosové matice jsou nyní neměné činitele $\DfrL$ a $\Mfr$, tzn. $\delta\Nfr=\DfrL^{-1}\Mfr(\delta\DfrR)$.
+Rovnici \eqref{eqn:rovnice-odraz-pruchod} přepíšeme do vhodnějšího tvaru
+\begin{equation}
+    \Nfr^{-1} \begin{pmatrix} \J^i \\ \J^r \end{pmatrix}
+    = \begin{pmatrix} \J^t \\ 0 \end{pmatrix} ,
+\end{equation}
+takže řešení pro $\J^r$ je pak
+\begin{equation}
+    \Kfr^\swarrow \J^i + \Kfr^\searrow \J^r = 0
+\end{equation}
+s označením $\Kfr=\Nfr^{-1} = \DfrR^{-1}\Mfr^{-1}\DfrL^{-1}$.
+
+
+
+\subsection*{Dynamická matice izotropní vrstvy}
 
 Pro izotropní prostředí s indexem lomu $n$ je Berremanova matice $\Delta$ diagonalizována dynamickou maticí
 \begin{equation}
@@ -20,65 +111,9 @@ takže
 Tato volba $\mathfrak{D}$ má oproti \eqref{eqn:D-sp} výhodu, že v okolí kolmého dopadu je nezávislá na rovině dopadu, která je v experimentu volena v podstatě náhodně.
 Báze Jonesových vektorů je tak volena přirozeným způsobem: pokud je rovina dopadu ve směru $\alpha_r$, pak p-polarizace je dána $\beta=\alpha_r$.
 
-\subsection*{Reflexní a transmisní matice}
-
-Zavedeme blokové značení $2\times2$ bloků, např. pro přenosové matice $\mathfrak{M}$ z \eqref{eqn:prenosova-matice-M}
-\begin{equation}
-    \Mfr = \begin{pmatrix} \Mfr^\nwarrow & \Mfr^\nearrow \\
-    \Mfr^\swarrow & \Mfr^\searrow \end{pmatrix} \,.
-\end{equation}
-
-S tímto značením jsou Jonesovy matice průchodu a odrazu vyřešením rovnice \eqref{eqn:rovnice-odraz-pruchod}
-\begin{equation}
-    \mathcal{T} = \left(\Nfr^\nwarrow\right)^{-1} \,, \quad \mathcal{R}=\Nfr^\swarrow \mathcal{T} \,,
-\end{equation}
-kde $\Nfr = \mathfrak{D}_{(L)}^{-1} \Mfr \mathfrak{D}_{(R)}$.
-Poruchy matice $\delta\Nfr$ se v Jonesových maticích projeví\footnote{Derivace inverzní matice $(A^{-1})'=-AA'A$.}
-\begin{equation}
-    \label{eqn:app-derivace-RT}
-    \delta\mathcal{T} = -\mathcal{T} \left(\delta\Nfr^\nwarrow \right) \mathcal{T} \,, \quad \delta\mathcal{R}=\left(\delta\Nfr^\swarrow\right) \mathcal{T} + \Nfr^\swarrow (\delta\mathcal{T})
-\end{equation}
 
 
-\subsection*{Přenosová matice}
-
-Spočítáme, jak se při změnách permitivity magnetické vrstvy změní přenosová matice v bázi módových amplitud $\Nfr$.
-Naším cílem je vyjádřit $\delta\Nfr$ pomocí poruchy Berremanovy matice $\delta\Delta$.
-
-Nejprve se zaměříme na případ, kdy magnetická vrstva není přímo výstupním prostředím.
-Celkovou přenosovou matici $\Mfr$ rozdělíme na součin tří dílčích přenosových matic: nadvrstev $\Mfr_i$, vrstvy s porušenou permitivitou (magnetická vrstva) $\Mfr_m$ a podvrstev $\Mfr_o$, takže $\Mfr = \Mfr_i \Mfr_m \Mfr_o$.
-Při poruchách permitivity se pak změní pouze $\Mfr_m$, tzn. $\delta\Mfr = \Mfr_i (\delta\Mfr_m) \Mfr_o$.
-
-Přenosová matice je dána řešením \eqref{eqn:Berreman-master}, maticovou exponenciálou
-\begin{equation}
-    \Mfr_m + \delta \Mfr_m = e^{ik_0\Delta}+\delta(e^{ik_0\Delta}) \,.
-\end{equation}
-
-První derivaci maticové exponenciály lze spočítat podle vzorce\cite{najfeldDerivativesMatrixExponential1995a}
-\begin{equation}
-    \label{eqn:app-derivace}
-    \delta(e^{ik_0\Delta}) = ik_0\int_0^1 e^{ik_0\Delta(1-\tau)} (\delta\Delta) e^{ik_0\Delta \tau} \textrm{d}\tau \,.
-\end{equation}
-Pro výpočet derivací podle složek permitivity tedy není třeba počítat exponenciálu porušených $\Delta+\delta\Delta$, ale pouze neporušeného $\Delta$.
-Pokud dokážeme diagonalizovat neporušenou matici $\Delta$ dynamickou maticí $\Dfr$, má vzorec \eqref{eqn:app-derivace} jednodušší tvar
-\begin{equation}
-    \label{eqn:app-lepsi-derivace}
-    \delta\Mfr_m = ik_0 \Dfr \int_0^1 e^{ik_0 (\Dfr^{-1}\Delta\Dfr)(1-\tau)} (\Dfr^{-1}\delta\Delta\Dfr) e^{ik_0(\Dfr^{-1}\Delta\Dfr)\tau} \textrm{d}\tau \Dfr^{-1}\,,
-\end{equation}
-kde se už vyskytuje exponenciála pouze diagonálních matic $\Dfr^{-1}\Delta\Dfr$, která se spočítá triviálně.
-Tímto je analytický výpočet derivace $\mathcal{T}$ a $\mathcal{R}$ dokončen, protože při znalosti $\Dfr$ již stačí dosadit do \eqref{eqn:app-lepsi-derivace} a následně do \eqref{eqn:app-derivace-RT}.
-
-Druhý případ, kdy magnetická vrstva je přímo výstupní prostředí, je složitější.
-Pokud se zajímáme i o prošlé světlo, narážíme opět na problém, který je jinak všudypřítomný v Yehově formalismu, totiž dynamická matice je v okolí degenerací (izotropní vrstva či šíření podél optické osy) singulární.
-Ta v anizotropním prostředí nutně definuje bázi Jonesových vektorů\footnote{Protože oba svazky jsou oddělené.}, což má za následek neexistenci derivace $\delta\mathcal{T}$.
-Pokud bychom přece jen chtěli popsat změny prošlého světla, museli bychom ho místo módovými amplitudami (Jonesovými vektory) popisovat pomocí složek polí $\vec{E}$, $\vec{H}$, které singularitami netrpí.
-
-Častější situace je ale, že se zajímáme pouze o odražené světlo (odraz na anizotropním bulku).
-Neexistence derivace $\delta\mathcal{T}$ se pak podobně jako v Yehově formalismu objevuje pouze v mezivýpočtech a je možné jí obejít.
-
-
-
-\subsection*{Výpočet pro kubický vzorek}
+\subsection*{Diskuze}
 
 Po dosazení tvaru $\varepsilon(\vec{M})$ z \eqref{eqn:permitivita-kub-K} a \eqref{eqn:permitivita-kub-G-xy} pro kubický vzorek orientovaný hlavními krystalografickými směry v osách $x$, $y$, $z$ se saturovanou magnetizací v rovině $xy$ má levý spodní blok Berremanovy matice $\Delta$ \eqref{eqn:Berreman-master} zodpovědný za MLD tvar
 \begin{align}
