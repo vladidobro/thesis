@@ -12,7 +12,7 @@
     \draw[<->] (-3.5,1.45) -- node[anchor=south,rotate=20] {CoFe[100]/MgO[110]} (-1,1.45);
 
 \end{scope}
-    \path (3.5,0) node {\includegraphics[width=7cm]{./img/static/cofe-torque-sampleinfo.pdf}};
+    \path (3.5,0) node {\includegraphics[width=7cm]{./img/static/a/cofe-torque-sampleinfo_a.pdf}};
     \path (-5,2) node {(a)};
     \path (0,2) node {(b)};
 \end{tikzpicture}

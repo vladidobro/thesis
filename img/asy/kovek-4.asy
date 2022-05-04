@@ -3,7 +3,7 @@ settings.outformat="pdf";
 settings.prc=false;
 settings.render=16; 
 import three; 
-size(5cm,0);
+size(4cm,0);
 
 draw(-1.5X -- 1.5X, arrow=Arrow3(TeXHead2), L=Label("$s_1$", position=EndPoint,align=S));
 draw(-1.5Y -- 1.5Y, arrow=Arrow3(TeXHead2), L=Label("$s_2$", position=EndPoint,align=S));

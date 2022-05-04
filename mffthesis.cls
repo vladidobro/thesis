@@ -8,7 +8,7 @@
 %%%%%%%%%%%
 
 % nahraje xcolor a hyperref automaticky
-%\RequirePackage[a-2u]{pdfx}
+\RequirePackage[a-2u]{pdfx}
 \RequirePackage{xcolor}
 \RequirePackage{hyperref}
 \hypersetup{unicode, breaklinks=true}
