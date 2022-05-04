@@ -53,6 +53,9 @@ data:
 svg:
 	$(MAKE) -C img/svg all
 
+imgstaticpdfa:
+	$(MAKE) -C img/static pdfa
+
 updateverapdf:
 	curl https://cuni.cz/UK-7987-version1-custom8.xml > verapdf_profile.xml
 
