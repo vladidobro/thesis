@@ -152,7 +152,7 @@
 }
 
 \newcommand{\makemetapage}{
-  \vbox to 0.5\vsize{
+{%\vbox to 0.5\vsize{
   \setlength\parindent{0mm}
   \setlength\parskip{5mm}
 
@@ -168,13 +168,23 @@
   Vedoucí diplomové práce:
   \@supervisor, \@supervisordepartmentCS
 
+  \vspace{3mm}
+
   Abstrakt:
   \@abstractCS
 
   Klíčová slova:
   \@keywordsCS
 
-  \vss}\nobreak\vbox to 0.49\vsize{
+  %\vss}\nobreak\vbox to 0.49\vsize{
+  %\setlength\parindent{0mm}
+  %\setlength\parskip{5mm}
+
+}
+  %\vss}
+  \clearpage
+
+{%\vbox to 0.5\vsize{
   \setlength\parindent{0mm}
   \setlength\parskip{5mm}
 
@@ -190,13 +200,15 @@
   Supervisor:
   \@supervisor, \@supervisordepartmentEN
 
+  \vspace{3mm}
+
   Abstract:
   \@abstractEN
 
   Keywords:
   \@keywordsEN
+}
 
-  \vss}
-  \clearpage
+\clearpage
 }
 

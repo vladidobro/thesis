@@ -1,5 +1,13 @@
 \Author{Vladislav Wohlrath}
 \Title{Laserová spektroskopie spintronických materiálů}
-\Keywords{klíčová slova\sep další taková\sep ještě jiná}
-\Subject{Abstrakt práce}
+\Keywords{spintronika\sep kvadratická magneto-optika\sep Voigtův jev, CoFe, FeRh}
+
+\Subject{V Laboratoři OptoSpintroniky je dlouhodobě vyvíjena experimentální metoda pro studium magnetických vzorků pomocí magneto-optických jevů kvadratických v magnetizaci vzorku, jako je například Voigtův jev.
+Vlivem použité experimentální geometrie je v našem případě, na rozdíl od obdobných metod, možné používat také kryostat.
+Díky tomu je možné příslušné vzorky studovat jak za snížené, tak i za zvýšené teploty.
+V rámci této diplomové práce bylo identifikováno a následně odstraněno několik problémů, které praktické využití této metody doposud znemožňovaly.
+Použití metody bylo demonstrováno v transmisní i reflexní geometrii pro feromagnetické vzorky CoFe a FeRh.
+Naše měření ukázala, že koeficient popisující kvadratickou magneto-optickou odezvu může být silně anizotropní, přičemž velikost této anizotropie i její znaménko silně závisí na použité vlnové délce světla.
+To má poměrně zásadní důsledky pro plánování a/nebo vyhodnocování příslušných experimentů využívajících kvadratickou magneto-optiku, která v současné době přitahuje rostoucí pozornost díky nástupu zájmu o antiferomagnetickou spintroniku.}
+
 \Publisher{Univerzita Karlova}
