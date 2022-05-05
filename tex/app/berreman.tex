@@ -21,7 +21,7 @@ S tímto značením jsou Jonesovy matice průchodu a odrazu po vyřešení rovni
 \begin{equation}
     \Tjs = \left(\Nfr^\nwarrow\right)^{-1} \,, \quad \Rjs=\Nfr^\swarrow \mathcal{T} \,.
 \end{equation}
-Poruchy matice $\delta\Nfr$ se v Jonesových maticích projeví\footnote{Derivace inverzní matice $(A^{-1})'=-AA'A$.}
+Poruchy matice $\delta\Nfr$ se v Jonesových maticích projeví\footnote{Derivace inverzní matice $(A^{-1})'=-A^{-1}A'A^{-1}$.}
 \begin{equation}
     \label{eqn:app-derivace-RT}
     \delta\Tjs = -\Tjs \left(\delta\Nfr^\nwarrow \right) \Tjs \,, \quad \delta\Rjs=\left(\delta\Nfr^\swarrow\right) \Tjs + \Nfr^\swarrow (\delta\Tjs)
@@ -60,6 +60,7 @@ Pro přehlednost explicitně spočítáme derivaci v případě, kdy neporušen�
 kde $n$ je index lomu a $\alpha_t$ úhel lomu\footnote{Pro absorbující prostředí je komplexní, nicméně stále platí $\cos\alpha_t\equiv\sqrt{1-N^TN/n^2}$.}.
 Pak
 \begin{equation}
+    \label{eqn:app-zmena-exp}
     \delta \exp \left[ik_0d\Delta+ \begin{pmatrix} 
 \mathfrak{A}^\nwarrow & \mathfrak{A}^\nearrow \\
 \mathfrak{A}^\swarrow & \mathfrak{A}^\searrow
@@ -70,11 +71,11 @@ Pak
 \end{pmatrix} \Dfr^{-1} \,,
 \end{equation}
 kde jsme označili $x = k_0 d n \cos\alpha_t$ a matice $\mathfrak{B} = (b_{ij})$ vznikne z poruchy $\mathfrak{A} = (a_{ij})$ transformací $\mathfrak{B} = \Dfr^{-1} \mathfrak{A} \Dfr$ jako \eqref{eqn:app-lepsi-derivace}.
-Každý z $2\times2$ bloků je násoben svým vlastním činitelem, takže výsledek není možné zapisovat pomocí notace klasického maticového násobení.
+Každý z $2\times2$ bloků je násoben svým vlastním činitelem, takže výsledek nelze jednoduše zapisovat pomocí notace klasického maticového násobení.
 
 \subsubsection*{Odraz od bulku}
 
-Druhý případ, kdy magnetická vrstva je přímo výstupní prostředí, je složitější.
+Druhý případ, kdy magnetická vrstva je přímo výstupní prostředí (ale mezi ní a vstupním prostředím můžou být další vrstvy), je složitější.
 Pokud se zajímáme i o prošlé světlo, narážíme na problém, který je jinak všudypřítomný v Yehově formalismu, totiž dynamická matice je v okolí degenerací (izotropní vrstva či šíření podél optické osy) singulární.
 Ta v anizotropním prostředí nutně definuje bázi Jonesových vektorů\footnote{Protože oba svazky jsou oddělené.}, což má za následek neexistenci derivace $\delta\mathcal{T}$.
 Pokud bychom přece jen chtěli popsat změny prošlého světla, museli bychom ho místo módovými amplitudami (Jonesovými vektory) popisovat pomocí složek polí $\vec{E}$, $\vec{H}$, které singularitami netrpí.
@@ -82,47 +83,120 @@ Pokud bychom přece jen chtěli popsat změny prošlého světla, museli bychom 
 Častější situace, na kterou se zde zaměříme, je taková, že se zajímáme pouze o odražené světlo (odraz na anizotropním bulku).
 Zmíněná singularita $\Tjs$ se pak objevuje pouze v mezivýpočtech a je možné jí obejít.
 
-Z přenosové matice jsou nyní neměné činitele $\DfrL$ a $\Mfr$, tzn. $\delta\Nfr=\DfrL^{-1}\Mfr(\delta\DfrR)$.
+Z činitelů přenosové matice jsou nyní neměné $\DfrL$ a $\Mfr$, takže po derivaci $\delta\Nfr=\DfrL^{-1}\Mfr(\delta\DfrR)$.
 Rovnici \eqref{eqn:rovnice-odraz-pruchod} přepíšeme do vhodnějšího tvaru
 \begin{equation}
     \Nfr^{-1} \begin{pmatrix} \J^i \\ \J^r \end{pmatrix}
     = \begin{pmatrix} \J^t \\ 0 \end{pmatrix} ,
 \end{equation}
-takže řešení pro $\J^r$ je pak
+řešením pro $\J^r$ je pak
 \begin{equation}
     \label{eqn:app-projekce}
     \Kfr^\swarrow \J^i + \Kfr^\searrow \J^r = 0
 \end{equation}
-s označením $\Kfr=\Nfr^{-1} = \DfrR^{-1}\Mfr^{-1}\DfrL^{-1}$.
-Výsledná reflexní matice $\Rjs=(\Kfr^\searrow)^{-1}\Kfr^\swarrow$ má derivaci, ale nelze jí počítat tímto způsobem, protože derivace $\DfrR^{-1}$ neexistuje v okolí degenerací.
-Rovnice \eqref{eqn:app-projekce} má takový fyzikální význam, že amplitudy polí odpovídající módům přicházejícím zevnitř výstupního prostředí musí být nulové, a singularity jsou do ní zaneseny kvůli sejmutí degenerace těchto dvou módů.
-Řešením je přejít od dynamických matic ke spektrálním projektorům -- projektorům na podprostor tvořený zmíněnými dvěma módy.
-Zjednodušeně řečeno, nahradíme $\Kfr$ v rovnici \eqref{eqn:app-projekce} takovým $\tilde{\Kfr}$, se kterým je rovnice ekvivalentní a zároveň $\tilde{\Kfr}$ netrpí singularitami.
+s označením $\Kfr=\Nfr^{-1} = \DfrR^{-1}\Mfr^{-1}\DfrL$.
+Výsledná reflexní matice je pak 
+\begin{equation}
+    \label{eqn:app-refl-bulk}
+\Rjs=-(\Kfr^\searrow)^{-1}\Kfr^\swarrow \,.
+\end{equation}
+Reflexní matice má derivaci, ale nelze jí počítat tímto způsobem, protože derivace $\DfrR^{-1}$ neexistuje v okolí degenerací.
+
+Kdybychom se pídili po původu této singularity, došli bychom k následujícímu závěru.
+Význam rovnice \eqref{eqn:app-projekce} je takový, že nutí ty kombinace složek příčných polí $\vec{G}$, které odpovídají módům přicházejícím ke struktuře z výstupního prostředí, aby byly nulové (z druhé strany nikdo nesvítí).
+Projekce $\vec{G}$ na dvou-dimenzionální podprostor\footnote{Projekce je šikmá, ve skutečnosti se jedná o doplněk kolmé projekce na podprostor dvou propuštěných módů.} těchto dvou módů musí být nulová.
+Singularita vzniká z toho důvodu, že v \eqref{eqn:app-projekce} je díky přítomnosti $\DfrR$ vždy volena báze vlastních vektorů příslušné porušené matice $\Delta+\delta\Delta$.
+Řešením je přejít od dynamických matic k projektorům na spektrální podprostory, nebo ekvivalentně používat takovou sadu\footnote{Sadou bází rozumíme bázi podprostoru pro každé dané $\delta\Delta$.} bází, která singulární není.
+Taková sada bází pak není tvořena přímo vlastními módy, ale tvoří stejný podprostor, takže je po zámeně s původní bází v \eqref{eqn:app-projekce} ekvivalentní.
+Výsledkem je, že v \eqref{eqn:app-projekce} nahradíme $\Kfr$ takovým $\tilde{\Kfr}$, se kterým je rovnice ekvivalentní, ale navíc $\tilde{\Kfr}$ lze derivovat.
+
+Nyní ukážeme, jak takové $\tilde{\Kfr}=(\DfrRt)^{-1}\Mfr^{-1}\DfrL$ spočítat a derivovat.
+Potom je porušená reflexní matice (derivací \eqref{eqn:app-refl-bulk})
+\begin{equation}
+    \label{eqn:app-dR-bulk}
+    \delta\Rjs = -(\Kfr^\searrow)^{-1} (\delta\Kfr^\swarrow) + (\Kfr^\searrow)^{-1} (\delta\Kfr^\searrow)(\Kfr^\searrow)^{-1}\Kfr^\swarrow
+\end{equation}
+a $\tilde{\Kfr}$
+\begin{equation}
+    \delta\tilde{\Kfr} = \left[-(\DfrRt)^{-1} (\delta\DfrRt) (\DfrRt)^{-1} \right]\Mfr^{-1}\DfrL \,.
+\end{equation}
+K singularitám dochází pouze, pokud jsou dva nežádoucí módy degenerované, tj. neporušená $\Delta$ má v bázi neporušených módů tvar
+\begin{equation}
+    \Dfr^{-1}\Delta\Dfr = \begin{pmatrix} 
+        -a_1&0&0&0\\0&-a_2&0&0\\
+        0&0&b&0\\0&0&0&b
+    \end{pmatrix},
+\end{equation}
+kde jsme už v neporušené $\Delta$ dovolili nedegenerované propuštěné módy ($-a_1$ a $-a_2$) a znaménkem jsme naznačili, které módy postupují kterým směrem.
+
+
 
 Pokud se zajímáme o poruchy v okolí již anizotropní permitivity, je možné derivace $\DfrR$ a tedy i $\Nfr$, $\Tjs$ a $\Rjs$ počítat standardními metodami poruchového počtu pro výpočet derivací vlastních vektorů\footnote{S tím rozdílem, že $\Delta$ není hermitovská.}.
 
-\subsection*{Dynamická matice izotropní vrstvy}
-
-Pro izotropní prostředí s indexem lomu $n$ je Berremanova matice $\Delta$ diagonalizována dynamickou maticí
-\begin{equation}
-    \mathfrak{D} = \begin{pmatrix} 0&0\\0&0 \end{pmatrix} \,,
-\end{equation}
-takže
-\begin{equation}
-    \Delta = n\cos\alpha_t \cdot\mathfrak{D} \begin{pmatrix} -1&0\\0&1 \end{pmatrix} \mathfrak{D}^{-1} \,.
-\end{equation}
-
-Tato volba $\mathfrak{D}$ má oproti \eqref{eqn:D-sp} výhodu, že v okolí kolmého dopadu je nezávislá na rovině dopadu, která je v experimentu volena v podstatě náhodně.
-Báze Jonesových vektorů je tak volena přirozeným způsobem: pokud je rovina dopadu ve směru $\alpha_r$, pak p-polarizace je dána $\beta=\alpha_r$.
-
-
-
 \subsection*{Diskuze}
 
-Po dosazení tvaru $\varepsilon(\vec{M})$ z \eqref{eqn:permitivita-kub-K} a \eqref{eqn:permitivita-kub-G-xy} pro kubický vzorek orientovaný hlavními krystalografickými směry v osách $x$, $y$, $z$ se saturovanou magnetizací v rovině $xy$ má levý spodní blok Berremanovy matice $\Delta$ \eqref{eqn:Berreman-master} zodpovědný za MLD tvar
+Uvedený výpočet je sice nepřehledný a vyžaduje dávku účetnického talentu, na druhou stranu je ale přímočarý a dovoluje počítat změny stočení a elipticity za pomoci pouze lineární algebry a znalosti přenosové a dynamické matice neporušených vrstev.
+V nejčastější situaci, kdy neporušená struktura je tvořena pouze izotropními vrstvami, je jejich výpočet navíc velice jednoduchý\cite{vigoureuxPolynomialFormulationReflection1991}, redukovaný na výpočet Abelových $2\times2$ přenosových matic v izotropních vrstvách.
+
+Podobný výpočet nebyl dosud proveden.
+V článku \cite{hamrleVicinalInterfaceSensitive2003} byl spočítán speciální případ ultra-tenké vrstvy, která odpovídá v rovnici \eqref{eqn:app-zmena-exp} limitě $x\to0$. 
+Naše rozšíření je platné i pro \emph{středně}-tenké vrstvy, pro které nemusí platit $nd\ll\lambda$ jako pro ultra-tenké vrstvy, ale slabší podmínka $(\Delta n)d\ll\lambda$, kde jsme označili míru zanesené anizotropie rozštěpením indexu lomu $\Delta n$.
+
+V článku \cite{postavaAnisotropyQuadraticMagnetooptic2002} byl spočítán odraz přímo od bulku (s izotropní neporušenou permitivitou) se stejným výsledkem \eqref{eqn:QMOKE-vzorec}, takže standardní postup je předpokládat platnost \eqref{eqn:QMOKE-vzorec} i mimo tyto dva limitující případy\cite{hamrleHugeQuadraticMagnetooptical2007,kuschelVectorialMagnetometryUsing2011}.
+Náš výpočet zaplňuje tuto důležitou mezeru a dovoluje počítat, jak MO koeficienty závisí na tloušťce vrstvy.
+
+Další výhodou našeho výpočtu je také to, že není nutné se omezovat na izotropní neporušené permitivity.
+Výsledky jsou platné i pokud zkoumáme odchylky permitivity již anizotropních struktur.
+
+Samozřejmě lze úlohu vždy řešit numericky, poskytujeme ale rychlý způsob určování analytických výrazů pro ``extrakční faktory'' (např. vážící konstanty $A_{s/p}$, $B_{s/p}$ z \eqref{eqn:QMOKE-vzorec}) v mnohem širší třídě situací, než bylo doposud možné.
+
+\subsubsection*{Obecné výsledky}
+
+Pokud je multivrstva tvořena pouze izotropními vrstvami, mají všechny dynamické i přenosové matice speciální tvar.
+Všechny jejich $2\times2$ bloky musí být diagonální (jako \eqref{eqn:D-sp}) a to nám umožňuje učinit určité závěry ohledně tvaru $\delta\Rjs$ a $\delta\Tjs$ bez konkrétních výpočtů.
+V obou případech sendvičové struktury i odrazu od bulku (v případě izotropní struktury $a_1=a_2$) je posloupnost kroků vedoucí k výpočtu $\delta\Rjs$ a $\delta\Rjs$ tvořena pouze několika druhy operací.
+Buď může být každý blok matice vynásoben svým vlastním faktorem (jako \eqref{eqn:app-zmena-exp}), nebo může být matice z obou stran násobena některou z přenosových nebo dynamických matic, a nebo z ní může být extrahován jeden z $2\times2$ bloků (jako např. \eqref{eqn:app-dR-bulk}).
+Výsledkem libovolné posloupnosti těchto tří operací může být pouze lineární kombinace bloků $\delta\Delta$ násobené zleva a zprava nějakými diagonálními maticemi.
+To znamená, že
+\begin{equation}
+    \label{eqn:app-ktere-cleny}
+    \begin{split}
+        \delta\Tjs \,, \delta\Rjs = \begin{pmatrix} c_{11}&0\\0&c_{12} \end{pmatrix} \delta\Delta^\nwarrow \begin{pmatrix} c_{13}&0\\0&c_{14} \end{pmatrix} 
+ +\begin{pmatrix} c_{21}&0\\0&c_{22} \end{pmatrix} \delta\Delta^\nearrow \begin{pmatrix} c_{23}&0\\0&c_{24} \end{pmatrix} + \ldots
+\end{split}
+\end{equation}
+s nějakými konstantami $c_{ij}$.
+Po uvážení tvaru Berremanovy matice \eqref{eqn:Berreman-master} nám to poskytuje užitečnou pomůcku jak určovat, v kterých prvcích Jonesových matic se mohou uplatňovat které prvky permitivity (např. $\varepsilon_{12}$ se může projevit pouze v $\Rjs_{sp}$ a nikoli $\Rjs_{ss}$, $\Rjs_{pp}$, $\Rjs_{ps}$).
+Závěrem je, že i v našem případě středně-tenké vrstvy platí obecnější tvar vzorce \eqref{eqn:QMOKE-vzorec}, který pochází z \cite{hamrleVicinalInterfaceSensitive2003}
 \begin{align}
-    \varepsilon^\perp - \frac{\varepsilon^\vert\varepsilon^-}{\varepsilon_{33}} =& \frac{1}{2}\left( \frac{G_s}{2}-\frac{K^2}{n^2} \right) (\sigma_1\cos2\phim + \sigma2\sin2\phim) \\
-                                                                                &+ \frac{1}{2}\frac{\Delta G}{2}(\sigma_1\cos2\phim - \sigma_2 \sin2\phim) \,.
+    r_{ps} &\propto A_s \left( \varepsilon_{21} - \frac{\varepsilon_{23}\varepsilon_{31}}{\varepsilon_{33}}\right) + B_s \varepsilon_{31} \\
+r_{sp} &\propto A_p \left( \varepsilon_{12} - \frac{\varepsilon_{32}\varepsilon_{13}}{\varepsilon_{33}}\right) + B_s \varepsilon_{13} \,.
 \end{align}
 
 
+\subsubsection*{Výsledky v kolmém dopadu}
+
+Pokud jsou všechny vrstvy izotropní a světlo dopadá kolmo ($N=0$), je výpočet velice jednoduchý.
+Jediný nenulový blok poruchy Berremanovy matice \eqref{eqn:Berreman-master} je levý spodní
+\begin{equation}
+    \delta\Delta = \begin{pmatrix} 0 & 0\\
+    \varepsilon^\perp - \frac{\varepsilon^\vert\varepsilon^-}{\varepsilon_{33}+n^2}& 0\end{pmatrix},
+\end{equation}
+kde $\varepsilon$ nyní značí pouze odchylku od izotropního indexu lomu $n$, a dynamické matice tvoří pouze bloky úměrné jednotkové matici (viz \eqref{eqn:D-sp})
+\begin{equation}
+    \Dfr = \begin{pmatrix} 1&1\\-n&n \end{pmatrix} .
+\end{equation}
+
+Ve vzorci \eqref{eqn:app-ktere-cleny} jsou pak všechny z $c$ matic diagonální a jediný člen je úměrný $\delta\Delta^\swarrow$, takže můžeme psát
+\begin{equation}
+    \Rjs + \delta\Rjs = R \left[ \begin{pmatrix} 1&0\\0&1 \end{pmatrix} + P_0 \left( \varepsilon^\perp - \frac{\varepsilon^\vert\varepsilon^-}{\varepsilon_{33}+n^2} \right) \right]
+\end{equation}
+a stejně pro transmisní matici.
+
+
+Pro kubický vzorek orientovaný hlavními krystalografickými směry v osách $x$, $y$, $z$ můžeme dosadit $\varepsilon(\vec{M})$ z \eqref{eqn:permitivita-kub-K} a \eqref{eqn:permitivita-kub-G-xy} a dostat relevantní část Berremanovy matice
+\begin{align}
+    \varepsilon^\perp - \frac{\varepsilon^\vert\varepsilon^-}{\varepsilon_{33}+n^2} =& \frac{1}{2}\left( \frac{G_s}{2}-\frac{K^2}{n^2} \right) (\sigma_1\cos2\phim + \sigma2\sin2\phim) \\
+                                                                                &+ \frac{1}{2}\frac{\Delta G}{2}(\sigma_1\cos2\phim - \sigma_2 \sin2\phim) \,.
+\end{align}
+Z toho již plyne model \eqref{eqn:PMLD-kubicke}.
