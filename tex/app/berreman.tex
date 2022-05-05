@@ -24,7 +24,7 @@ S tímto značením jsou Jonesovy matice průchodu a odrazu po vyřešení rovni
 Poruchy matice $\delta\Nfr$ se v Jonesových maticích projeví\footnote{Derivace inverzní matice $(A^{-1})'=-A^{-1}A'A^{-1}$.}
 \begin{equation}
     \label{eqn:app-derivace-RT}
-    \delta\Tjs = -\Tjs \left(\delta\Nfr^\nwarrow \right) \Tjs \,, \quad \delta\Rjs=\left(\delta\Nfr^\swarrow\right) \Tjs + \Nfr^\swarrow (\delta\Tjs)
+    \delta\Tjs = -\Tjs \left(\delta\Nfr^\nwarrow \right) \Tjs \,, \quad \delta\Rjs=\left(\delta\Nfr^\swarrow\right) \Tjs + \Nfr^\swarrow (\delta\Tjs) \,.
 \end{equation}
 
 \subsection*{Porucha přenosové matice}
@@ -75,7 +75,7 @@ Každý z $2\times2$ bloků je násoben svým vlastním činitelem, takže výsl
 
 \subsubsection*{Odraz od bulku}
 
-Druhý případ, kdy magnetická vrstva je přímo výstupní prostředí (ale mezi ní a vstupním prostředím můžou být další vrstvy), je složitější.
+Druhý případ, kdy magnetická vrstva je přímo výstupním prostředím (ale mezi ní a vstupním prostředím můžou být další vrstvy), je složitější.
 Pokud se zajímáme i o prošlé světlo, narážíme na problém, který je jinak všudypřítomný v Yehově formalismu, totiž dynamická matice je v okolí degenerací (izotropní vrstva či šíření podél optické osy) singulární.
 Ta v anizotropním prostředí nutně definuje bázi Jonesových vektorů\footnote{Protože oba svazky jsou oddělené.}, což má za následek neexistenci derivace $\delta\mathcal{T}$.
 Pokud bychom přece jen chtěli popsat změny prošlého světla, museli bychom ho místo módovými amplitudami (Jonesovými vektory) popisovat pomocí složek polí $\vec{E}$, $\vec{H}$, které singularitami netrpí.
@@ -102,43 +102,60 @@ Výsledná reflexní matice je pak
 \end{equation}
 Reflexní matice má derivaci, ale nelze jí počítat tímto způsobem, protože derivace $\DfrR^{-1}$ neexistuje v okolí degenerací.
 
-Kdybychom se pídili po původu této singularity, došli bychom k následujícímu závěru.
+Původ této singularity je následující.
 Význam rovnice \eqref{eqn:app-projekce} je takový, že nutí ty kombinace složek příčných polí $\vec{G}$, které odpovídají módům přicházejícím ke struktuře z výstupního prostředí, aby byly nulové (z druhé strany nikdo nesvítí).
 Projekce $\vec{G}$ na dvou-dimenzionální podprostor\footnote{Projekce je šikmá, ve skutečnosti se jedná o doplněk kolmé projekce na podprostor dvou propuštěných módů.} těchto dvou módů musí být nulová.
 Singularita vzniká z toho důvodu, že v \eqref{eqn:app-projekce} je díky přítomnosti $\DfrR$ vždy volena báze vlastních vektorů příslušné porušené matice $\Delta+\delta\Delta$.
-Řešením je přejít od dynamických matic k projektorům na spektrální podprostory, nebo ekvivalentně používat takovou sadu\footnote{Sadou bází rozumíme bázi podprostoru pro každé dané $\delta\Delta$.} bází, která singulární není.
-Taková sada bází pak není tvořena přímo vlastními módy, ale tvoří stejný podprostor, takže je po zámeně s původní bází v \eqref{eqn:app-projekce} ekvivalentní.
+Řešením je přejít od dynamických matic k projektorům na spektrální podprostory, nebo ekvivalentně používat sadu\footnote{Sadou bází rozumíme bázi podprostoru pro každé dané $\delta\Delta$.} bází, která singulární není.
+Taková sada bází pak nutně není daná přímo vlastními módy, ale tvoří stejný podprostor, takže je po zámeně s původní bází v \eqref{eqn:app-projekce} rovnice ekvivalentní.
 Výsledkem je, že v \eqref{eqn:app-projekce} nahradíme $\Kfr$ takovým $\tilde{\Kfr}$, se kterým je rovnice ekvivalentní, ale navíc $\tilde{\Kfr}$ lze derivovat.
 
-Nyní ukážeme, jak takové $\tilde{\Kfr}=(\DfrRt)^{-1}\Mfr^{-1}\DfrL$ spočítat a derivovat.
-Potom je porušená reflexní matice (derivací \eqref{eqn:app-refl-bulk})
+Nyní ukážeme, jak takové $\tilde{\Kfr}=\DfrRt^{-1}\Mfr^{-1}\DfrL$ spočítat a derivovat.
+Potom je porušená reflexní matice (vznikne derivací \eqref{eqn:app-refl-bulk})
 \begin{equation}
     \label{eqn:app-dR-bulk}
     \delta\Rjs = -(\Kfr^\searrow)^{-1} (\delta\Kfr^\swarrow) + (\Kfr^\searrow)^{-1} (\delta\Kfr^\searrow)(\Kfr^\searrow)^{-1}\Kfr^\swarrow
 \end{equation}
 a $\tilde{\Kfr}$
 \begin{equation}
-    \delta\tilde{\Kfr} = \left[-(\DfrRt)^{-1} (\delta\DfrRt) (\DfrRt)^{-1} \right]\Mfr^{-1}\DfrL \,.
+    \delta\tilde{\Kfr} = \delta\left(\DfrRt^{-1}\right)\Mfr^{-1}\DfrL \,.
 \end{equation}
 K singularitám dochází pouze, pokud jsou dva nežádoucí módy degenerované, tj. neporušená $\Delta$ má v bázi neporušených módů tvar
 \begin{equation}
-    \Dfr^{-1}\Delta\Dfr = \begin{pmatrix} 
-        -a_1&0&0&0\\0&-a_2&0&0\\
-        0&0&b&0\\0&0&0&b
+    \DfrRt^{-1}\Delta\DfrRt = \begin{pmatrix} 
+        a_1&0&0&0\\0&a_2&0&0\\
+        0&0&-b&0\\0&0&0&-b
     \end{pmatrix},
 \end{equation}
 kde jsme už v neporušené $\Delta$ dovolili nedegenerované propuštěné módy ($-a_1$ a $-a_2$) a znaménkem jsme naznačili, které módy postupují kterým směrem.
+Protože v rovnici \eqref{eqn:app-projekce} vystupují pouze dva spodní bloky matice $\Kfr$ a v té vystupuje matice $\DfrRt^{-1}$ v roli levého činitele, stačí nám počítat dva spodní bloky matice $\DfrRt^{-1}$.
+Potom porucha\footnote{Porucha je takto vyjádřená v bázi neporušených vlastních módů.}
+\begin{equation}
+    \DfrRt^{-1}(\delta\Delta)\DfrRt = \begin{pmatrix} 
+    p_{11}&p_{12}&p_{13}&p_{14} \\
+    p_{21}&p_{22}&p_{23}&p_{24} \\
+    p_{31}&p_{32}&p_{33}&p_{34} \\
+    p_{41}&p_{42}&p_{43}&p_{44} \\
+\end{pmatrix}
+\end{equation}
+vede na
+\begin{equation}
+    \begin{pmatrix}\left[\delta\DfrRt^{-1}\right]^\swarrow & \left[\delta\DfrRt^{-1} \right]^\searrow \end{pmatrix} =  -\begin{pmatrix} 
+    \frac{p_{31}}{b+a_1}&\frac{p_{32}}{b+a_2}&0&0 \\
+    \frac{p_{41}}{b+a_1}&\frac{p_{42}}{b+a_2}&0&0 \\
+\end{pmatrix} \Dfr^{-1} \,.
+\end{equation}
 
 
-
-Pokud se zajímáme o poruchy v okolí již anizotropní permitivity, je možné derivace $\DfrR$ a tedy i $\Nfr$, $\Tjs$ a $\Rjs$ počítat standardními metodami poruchového počtu pro výpočet derivací vlastních vektorů\footnote{S tím rozdílem, že $\Delta$ není hermitovská.}.
+Pokud bychom se zajímali o poruchy v okolí již anizotropní permitivity, je možné derivace $\DfrR$ a tedy i $\Nfr$, $\Tjs$ a $\Rjs$ počítat standardními metodami poruchového počtu pro výpočet derivací vlastních vektorů\footnote{S tím rozdílem, že $\Delta$ není hermitovská.}.
 
 \subsection*{Diskuze}
 
-Uvedený výpočet je sice nepřehledný a vyžaduje dávku účetnického talentu, na druhou stranu je ale přímočarý a dovoluje počítat změny stočení a elipticity za pomoci pouze lineární algebry a znalosti přenosové a dynamické matice neporušených vrstev.
+Výpočet je dokončen, postupným dosazováním do uvedených vzorců je možné v obou případech dojít od $\delta\Delta$ až ke kýženým $\delta\Tjs$ a $\delta\Rjs$.
+Výpočet je sice nepřehledný a vyžaduje dávku účetnického talentu, na druhou stranu je ale přímočarý a dovoluje počítat změny stočení a elipticity za pomoci pouze lineární algebry a znalosti přenosové a dynamické matice neporušených vrstev.
 V nejčastější situaci, kdy neporušená struktura je tvořena pouze izotropními vrstvami, je jejich výpočet navíc velice jednoduchý\cite{vigoureuxPolynomialFormulationReflection1991}, redukovaný na výpočet Abelových $2\times2$ přenosových matic v izotropních vrstvách.
 
-Podobný výpočet nebyl dosud proveden.
+Výpočet podobný tomu právě uvedenému nebyl dosud proveden.
 V článku \cite{hamrleVicinalInterfaceSensitive2003} byl spočítán speciální případ ultra-tenké vrstvy, která odpovídá v rovnici \eqref{eqn:app-zmena-exp} limitě $x\to0$. 
 Naše rozšíření je platné i pro \emph{středně}-tenké vrstvy, pro které nemusí platit $nd\ll\lambda$ jako pro ultra-tenké vrstvy, ale slabší podmínka $(\Delta n)d\ll\lambda$, kde jsme označili míru zanesené anizotropie rozštěpením indexu lomu $\Delta n$.
 
@@ -154,7 +171,7 @@ Samozřejmě lze úlohu vždy řešit numericky, poskytujeme ale rychlý způsob
 
 Pokud je multivrstva tvořena pouze izotropními vrstvami, mají všechny dynamické i přenosové matice speciální tvar.
 Všechny jejich $2\times2$ bloky musí být diagonální (jako \eqref{eqn:D-sp}) a to nám umožňuje učinit určité závěry ohledně tvaru $\delta\Rjs$ a $\delta\Tjs$ bez konkrétních výpočtů.
-V obou případech sendvičové struktury i odrazu od bulku (v případě izotropní struktury $a_1=a_2$) je posloupnost kroků vedoucí k výpočtu $\delta\Rjs$ a $\delta\Rjs$ tvořena pouze několika druhy operací.
+V obou případech sendvičové struktury i odrazu od bulku (v případě izotropní struktury $a_1=a_2$) je posloupnost kroků vedoucí k výpočtu $\delta\Tjs$ a $\delta\Rjs$ tvořena pouze několika druhy operací.
 Buď může být každý blok matice vynásoben svým vlastním faktorem (jako \eqref{eqn:app-zmena-exp}), nebo může být matice z obou stran násobena některou z přenosových nebo dynamických matic, a nebo z ní může být extrahován jeden z $2\times2$ bloků (jako např. \eqref{eqn:app-dR-bulk}).
 Výsledkem libovolné posloupnosti těchto tří operací může být pouze lineární kombinace bloků $\delta\Delta$ násobené zleva a zprava nějakými diagonálními maticemi.
 To znamená, že
@@ -166,7 +183,7 @@ To znamená, že
 \end{split}
 \end{equation}
 s nějakými konstantami $c_{ij}$.
-Po uvážení tvaru Berremanovy matice \eqref{eqn:Berreman-master} nám to poskytuje užitečnou pomůcku jak určovat, v kterých prvcích Jonesových matic se mohou uplatňovat které prvky permitivity (např. $\varepsilon_{12}$ se může projevit pouze v $\Rjs_{sp}$ a nikoli $\Rjs_{ss}$, $\Rjs_{pp}$, $\Rjs_{ps}$).
+Po uvážení tvaru Berremanovy matice \eqref{eqn:Berreman-master} nám to poskytuje užitečnou pomůcku jak určovat, v kterých prvcích Jonesových matic se mohou uplatňovat které prvky permitivity (např. $\varepsilon_{12}$ se může projevit pouze v $r_{sp}$ a nikoli $r_{ss}$, $r_{pp}$, $r_{ps}$).
 Závěrem je, že i v našem případě středně-tenké vrstvy platí obecnější tvar vzorce \eqref{eqn:QMOKE-vzorec}, který pochází z \cite{hamrleVicinalInterfaceSensitive2003}
 \begin{align}
     r_{ps} &\propto A_s \left( \varepsilon_{21} - \frac{\varepsilon_{23}\varepsilon_{31}}{\varepsilon_{33}}\right) + B_s \varepsilon_{31} \\

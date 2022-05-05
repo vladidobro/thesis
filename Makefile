@@ -55,6 +55,9 @@ data:
 svg:
 	$(MAKE) -C img/svg all
 
+absen:
+	$(LATEX) abstract/abs_EN.tex
+
 imgstaticpdfa:
 	$(MAKE) -C img/static pdfa
 
