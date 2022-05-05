@@ -23,7 +23,7 @@ Uvnitř každé vrstvy bude existovat i třetí složka $k_z$, bude se ale liši
 Obecný postup je tedy řešit Maxwellovy rovnice zvlášť v každém prostředí a řešení následně svázat pomocí okrajových podmínek.
  
 Budeme následovat řešení Berremanovou metodou přenosových matic\cite{berremanOpticsStratifiedAnisotropic1972}.
-S uvážením \eqref{eqn:pricne-vlnove-vektory} mají Maxwellovy rovnice maticový tvar
+Po vyjádření Maxwellových rovnic \eqref{eqn:pricne-vlnove-vektory} maticovou notací mají tvar
 \begin{equation}
 \label{eqn:Berreman-6x6}
     \begin{pmatrix}
@@ -84,7 +84,7 @@ v Berremanově metodě se uplatňuje pouze jako pomocný výpočet jinak již do
 Diagonalizace a hledání vlastních módů jsou vysoce nelineární operace, jsou singulární v okolí degenerací (limita izotropního $\varepsilon$, či směr paprsku shodný s optickou osou) a někdy v nich dokonce selhávají\cite{xuOpticalDegeneraciesAnisotropic2000,wuSingularitiesMatrixFormalisms2018,garibelloSingularityYehTransfer2020,bertrandGeneralAnalyticalTreatment2001}.
 
 Tento rozdíl je zásadní v magneto-optice, kde nás často zajímají právě drobné odchylky od izotropní $\varepsilon$, a výsledky jsou vyjádřeny do prvního řádu v těchto odchylkách.
-V Yehově formalismu je obtížné počítat derivace podle složek $\varepsilon$; v \eqref{eqn:Berreman-exponenciala} je to však jednoduché\cite{bertrandGeneralAnalyticalTreatment2001}.
+V Yehově formalismu je obtížné počítat derivace podle složek $\varepsilon$; v~\eqref{eqn:Berreman-exponenciala} je to však jednoduché\cite{bertrandGeneralAnalyticalTreatment2001}.
 Z uvedených důvodů v této práci používáme Berremanův formalismus, přestože magneto-optice z velké části dominuje Yehův.
 
 Poruchová teorie v Berremanově formalismu je rozvedena v dodatku \ref{app:berreman}.
