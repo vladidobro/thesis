@@ -43,6 +43,8 @@ LATEX=rubber --unsafe --pdf --synctex --module lualatex -W all
 
 all: thesis abstract defense ## compile everything
 
+bibtest: 
+	$(LATEX) bib/test.tex
 thesis: thesis.pdf ## compile thesis
 abstract: abstract.pdf ## compile abstract
 defense: defense.pdf ## compile defense

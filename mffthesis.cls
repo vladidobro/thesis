@@ -15,7 +15,6 @@
 
 % kodovani a cestina
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[english, czech]{babel}
 
 % bibliografie
 \RequirePackage{csquotes}

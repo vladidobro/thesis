@@ -1,11 +1,18 @@
 \documentclass{mffthesis}
 
-\usepackage[style=numeric]{biblatex}
 \usepackage{vladizlo}
 
+\usepackage[style=iso-numeric]{biblatex}
+\usepackage[english, czech]{babel}
 
 \input{./tex/metadata}
-\addbibresource{bib/zotero.bib}
+
+\addbibresource{bib/knihy.bib}
+\addbibresource{bib/lukas.bib}
+\addbibresource{bib/moje.bib}
+\addbibresource{bib/nemec.bib}
+\addbibresource{bib/prace.bib}
+\addbibresource{bib/extra.bib}
 
 \begin{document}
 
@@ -29,7 +36,7 @@
 
     \include{./tex/conclusion}
 
-    \printbibliography[heading=bibintoc, title=Seznam použité literatury]
+    \printbibliography[heading=bibintoc,title=Seznam použité literatury]
     \appendix
       \include{./tex/appendix}
 
