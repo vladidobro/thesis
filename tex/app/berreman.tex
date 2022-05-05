@@ -59,18 +59,17 @@ Pro přehlednost explicitně spočítáme derivaci v případě, kdy neporušen�
 \end{equation}
 kde $n$ je index lomu a $\alpha_t$ úhel lomu\footnote{Pro absorbující prostředí je komplexní, nicméně stále platí $\cos\alpha_t\equiv\sqrt{1-N^TN/n^2}$.}.
 Pak
-\begin{multline}
+\begin{equation}
     \delta \exp \left[ik_0d\Delta+ \begin{pmatrix} 
 \mathfrak{A}^\nwarrow & \mathfrak{A}^\nearrow \\
 \mathfrak{A}^\swarrow & \mathfrak{A}^\searrow
-\end{pmatrix} \right] = \\
-= ik_0d \, \Dfr
+\end{pmatrix} \right] = ik_0d \, \Dfr
 \begin{pmatrix} 
     e^{-ix}\mathfrak{B}^\nwarrow & \frac{\sin x}{x}\mathfrak{B}^\nearrow \\
     \frac{\sin x}{x}\mathfrak{B}^\swarrow & e^{ix}\mathfrak{B}^\searrow
 \end{pmatrix} \Dfr^{-1} \,,
-\end{multline}
-kde jsme označili $m = k_0 d n \cos\alpha_t$ a matice $\mathfrak{B} = (b_{ij})$ vznikne z poruchy $\mathfrak{A} = (a_{ij})$ transformací $\mathfrak{B} = \Dfr^{-1} \mathfrak{A} \Dfr$ jako \eqref{eqn:app-lepsi-derivace}.
+\end{equation}
+kde jsme označili $x = k_0 d n \cos\alpha_t$ a matice $\mathfrak{B} = (b_{ij})$ vznikne z poruchy $\mathfrak{A} = (a_{ij})$ transformací $\mathfrak{B} = \Dfr^{-1} \mathfrak{A} \Dfr$ jako \eqref{eqn:app-lepsi-derivace}.
 Každý z $2\times2$ bloků je násoben svým vlastním činitelem, takže výsledek není možné zapisovat pomocí notace klasického maticového násobení.
 
 \subsubsection*{Odraz od bulku}
@@ -91,11 +90,16 @@ Rovnici \eqref{eqn:rovnice-odraz-pruchod} přepíšeme do vhodnějšího tvaru
 \end{equation}
 takže řešení pro $\J^r$ je pak
 \begin{equation}
+    \label{eqn:app-projekce}
     \Kfr^\swarrow \J^i + \Kfr^\searrow \J^r = 0
 \end{equation}
 s označením $\Kfr=\Nfr^{-1} = \DfrR^{-1}\Mfr^{-1}\DfrL^{-1}$.
+Výsledná reflexní matice $\Rjs=(\Kfr^\searrow)^{-1}\Kfr^\swarrow$ má derivaci, ale nelze jí počítat tímto způsobem, protože derivace $\DfrR^{-1}$ neexistuje v okolí degenerací.
+Rovnice \eqref{eqn:app-projekce} má takový fyzikální význam, že amplitudy polí odpovídající módům přicházejícím zevnitř výstupního prostředí musí být nulové, a singularity jsou do ní zaneseny kvůli sejmutí degenerace těchto dvou módů.
+Řešením je přejít od dynamických matic ke spektrálním projektorům -- projektorům na podprostor tvořený zmíněnými dvěma módy.
+Zjednodušeně řečeno, nahradíme $\Kfr$ v rovnici \eqref{eqn:app-projekce} takovým $\tilde{\Kfr}$, se kterým je rovnice ekvivalentní a zároveň $\tilde{\Kfr}$ netrpí singularitami.
 
-
+Pokud se zajímáme o poruchy v okolí již anizotropní permitivity, je možné derivace $\DfrR$ a tedy i $\Nfr$, $\Tjs$ a $\Rjs$ počítat standardními metodami poruchového počtu pro výpočet derivací vlastních vektorů\footnote{S tím rozdílem, že $\Delta$ není hermitovská.}.
 
 \subsection*{Dynamická matice izotropní vrstvy}
 
