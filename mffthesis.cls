@@ -29,6 +29,16 @@
 \RequirePackage{indentfirst}
 \RequirePackage{icomma}
 
+
+\setlength\textwidth{145mm}
+\setlength\textheight{247mm}
+\setlength\oddsidemargin{15mm}
+\setlength\evensidemargin{15mm}
+\setlength\topmargin{0mm}
+\setlength\headsep{0mm}
+\setlength\headheight{0mm}
+
+
 %%%%%%%%%%%%%%%%%%%%%
 % cislovani stranek %
 %%%%%%%%%%%%%%%%%%%%%
