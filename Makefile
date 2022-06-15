@@ -47,8 +47,8 @@ bibtest:
 	$(LATEX) bib/test.tex
 thesis: thesis.pdf ## compile thesis
 abstract: abstract.pdf ## compile abstract
-defense: defense.pdf ## compile defense
-
+defense: ## compile defense
+	$(MAKE) -C defense all
 data:
 	$(MAKE) -C $(DATADIR) out
 

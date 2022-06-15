@@ -1,0 +1,239 @@
+\documentclass{beamer}
+
+\usepackage{siunitx}
+\usepackage{bm}
+\usetheme{default}
+\usecolortheme{CVUTFIT}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]
+
+\title{Laserová spektroskopie magneticky uspořádaných materiálů}
+\author{Vladislav Wohlrath}
+\institute{Matematicko-fyzikální fakulta UK\\ \vspace{0.2cm} Katedra chemické fyziky a optiky (KChFO) \\ \vspace{0.2cm} Vedoucí: prof. RNDr. Petr Němec, Ph.D.}
+\date{16. června 2022}
+
+
+\begin{document}
+\frame[plain]{\titlepage}
+
+\begin{frame}{Motivace a kontext}
+\begin{itemize}
+    \item Materiálový výzkum pro spintroniku
+        \begin{itemize}
+            \item Důležité jsou magnetické materiály
+        \end{itemize}
+    \item Kvadratická magneto-optika ($\propto \bm{M}^2$)
+        \begin{itemize}
+            \item Širší třída materiálů než lineární ($\propto \bm{M}$) -- např. jistý druh antiferomagnetů     
+            \item Voigtův jev, magnetický lineární dichorismus, Cottonův-Moutonův jev
+        \end{itemize}
+        \item Probíhající experiment v laboratoři optospintroniky (LOS)
+            \begin{itemize}
+                \item Předchozí práce
+                    \begin{itemize}
+                        \item Kimák, bakalářská práce 2017
+                        \item Wohlrath, bakalářská práce 2018
+                        \item Kubaščík, bakalářská práce 2019
+                        \item Kimák, diplomová práce 2019
+                    \end{itemize}
+                \item Neuspokojivé výsledky, metoda dosud nepoužitelná
+            \end{itemize}
+        \item \textbf{Cíl práce:} metodu vyšetřit a opravit
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Popis experimentu}
+    \begin{block}{}
+        \textbf{Změna magnetického pole} $\Rightarrow$ změna magnetizace ve vzorku $\Rightarrow$ změna optických vlastností $\Rightarrow$ změna polarizačního stavu odraženého (prošlého) světla $\Rightarrow$ \textbf{změna napětí na detektorech} \\
+    \end{block}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+           
+    \includegraphics{tesarova.pdf}
+       \end{column}
+       \begin{column}{0.45\textwidth} 
+
+        \includegraphics[width=4cm]{magnet.pdf}
+        Kimák, diplomová práce, 2019
+        \end{column}
+    \end{columns}
+    
+\end{frame}
+
+
+\begin{frame}{Popis experimentu}
+    \begin{itemize}
+        \item (Téměř) kolmý dopad a transversální magnetizace
+        \begin{itemize}
+            \item Vymizení lineárních jevů
+        \end{itemize}
+    \end{itemize}
+    \begin{centering}
+        \includegraphics{asy/schema-hlavni.drawio.pdf}
+    \end{centering}
+\end{frame}
+
+\begin{frame}{Popis experimentu}
+    \includegraphics[width=\textwidth]{exp.jpg}
+\end{frame}
+
+\begin{frame}{Popis experimentu}
+    \begin{itemize}
+        \item Nastavená vlnová délka $\lambda$
+        \item Rotující vnější pole $\varphi_{H} \in (\SI{0}{\degree},\SI{360}{\degree})$
+        \item Měřeno stočení polarizace $\Delta\beta = P \sin 2 (\varphi_M - \beta)$
+            \begin{itemize}
+                \item Určení $P(\lambda)$ a $\varphi_M(\varphi_H)$
+            \end{itemize}
+        \item Změřená data neodpovídala modelu
+    \end{itemize}
+    \includegraphics[width=\textwidth]{uvod-data.pdf}
+\end{frame}
+
+\begin{frame}{Řešení}
+    \begin{itemize}
+        \item Objeveny 2 druhy problémů
+            \begin{enumerate}
+                \item Optika
+                    \begin{itemize}
+                        \item $\lambda/2$ vlnové destičky nemají fázové zpoždění přesně $\pi/2$
+
+                        \item Zrcadla zanáší fázové zpoždění mezi s- a p- (pokrytí)
+                        \item Oba problémy způsobují, že měřený signál neodpovídá čisté rotaci polarizace ($\Delta\beta$), ale v podstatě náhodnému mixu rotace a elipticity (tj. jinou projekci komplexní Kerrovy rotace)
+                        \item Nutná buď kompenzace nebo charakterizace
+                        \item Navrženo a vyzkoušeno několik metod, vybrána ta nejjednodušší
+                    \end{itemize}
+                \item Magneto-optika
+                    \begin{itemize}
+                        \item \ldots
+                    \end{itemize}
+            \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Řešení}
+    \begin{itemize}
+        \item Objeveny 2 druhy problémů
+            \begin{enumerate}
+                \item Optika
+                    \begin{itemize}
+                        \item \ldots
+                    \end{itemize}
+                \item Magneto-optika
+                    \begin{itemize}
+                        \item Dříve používaný vzorec $\Delta\beta = P \sin 2 (\varphi_M - \beta)$ neplatí pro krystaly
+                        \item Důkladné přezkoumání relevantní fyziky $\Rightarrow$ vzorec platný pro kubický vzorek s normálou [001] ($\gamma = $ úhel in-plane rotace) $\Delta\beta = P_+ \sin 2 (\varphi_M - \beta) +  P_- \sin 2 (-\varphi_M - \beta+2\gamma)$
+                        \item Po mnoha stránkách vylepšena metodika zpracování dat
+                    \end{itemize}
+            \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Výsledky}
+    \begin{itemize}
+        \item Všechny problémy opraveny a metoda je konzistentní
+        \item Ověření funkčnosti metody s feromagnetickými vzorky
+            \begin{itemize}
+                \item Transmisní geometrie: CoFe
+                \item Reflexní geometrie: FeRh
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Výsledky -- CoFe}
+    \begin{itemize}
+        \item Magnetická anizotropie změřená různými vlnovými délkami se velmi přesně shoduje
+        \item Shoduje se i s výsledky torque-metrie provedené výrobci vzorku
+    \end{itemize}
+    \begin{center}
+    \includegraphics[width=0.8\textwidth]{cofe_tab.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Výsledky -- CoFe}
+    \begin{itemize}
+        \item Funkcionál magnetické volné energie
+            \begin{itemize}
+                \item Určení snadných/těžkých os magnetizace
+            \end{itemize}
+    \end{itemize}
+    \includegraphics{cofe-funkcional.pdf}    
+\end{frame}
+
+\begin{frame}{Výsledky -- CoFe}
+   \begin{itemize}
+       \item Spektrum MO koeficientů
+           \begin{itemize}
+               \item Pro izotropní vzorek $P_- = 0$
+           \end{itemize}
+   \end{itemize} 
+   \includegraphics[width=\textwidth]{cofe-pmld.pdf}
+\end{frame}
+
+\begin{frame}{Výsledky -- FeRh}
+    \begin{itemize}
+        \item Magnetická anizotropie pro různá $\lambda$ se opět shoduje
+        \item Spektrum MO koeficientů
+            \begin{itemize}
+                \item Vysoká anizotropie
+            \end{itemize}
+    \end{itemize}
+    \includegraphics{ferh-pmld.pdf}
+\end{frame}
+
+\begin{frame}{Výsledky -- Diskuze}
+    \begin{itemize}
+        \item Všechny problémy opraveny a metoda je konzistentní
+        \item Určení magnetické anizotropie ($\bm{M}(\bm{H}_{\textrm{ext}})$) pouze z kvadratických jevů
+            \begin{itemize}
+                \item Dosud neprovedeno (pokud je nám známo)
+            \end{itemize}
+        \item Není nutné otáčet vzorek $\Rightarrow$ možnost použití kryostatu
+            \begin{itemize}
+                \item Doposud nemožné
+            \end{itemize}
+        \item Otevřené dveře pro použití metody k výzkumy antiferomagnetů
+            \begin{itemize}
+                \item Již probíhá (Zeynab Sadeghi)
+            \end{itemize}
+        \item Změřená silná anizotropie kvadratického MO jevu se silnou spektrální závislostí
+            \begin{itemize}
+                \item Důsledky pro ostatní metody, které ho využívají (a často zanedbávají anizotropii)
+                    \begin{itemize}
+                        \item Pump and probe metody, studium hysterezních smyček, \ldots
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+% Vedlejší přínosy
+\input{vedlejsi.tex}
+
+
+\begin{frame}{Shrnutí}
+    \begin{itemize}
+        \item Konečné opravení dlouhodobě problematické metody studia kvadratických MO jevů ve feromagnetech
+            \begin{itemize}
+                \item Problém se zrcadly měnícími polarizaci
+                \item Správné pochopení kvadratických MO jevů $\Rightarrow$ opravený způsob zpracování dat
+            \end{itemize}
+        \item Demonstrace a první úspěšné použití metody
+            \begin{itemize}
+                \item Transmisní geometrie: CoFe
+                \item Reflexní geometrie: FeRh
+                \item První experimenty svého druhu s kryostatem
+            \end{itemize}
+        \item Změřena silná anizotropie kvadratického jevu
+            \begin{itemize}
+                \item Důsledky pro ostatní metody využívající kvadratické MO jevy (pump-probe, studium hysterezních smyček, \ldots)
+            \end{itemize}
+        \item Využití pro studium antiferomagnetů
+    \end{itemize}
+\end{frame}
+
+% Otázky oponenta
+\input{otazky.tex}
+\begin{frame}
+\centering \huge Diskuze 
+\end{frame}
+
+\end{document}
