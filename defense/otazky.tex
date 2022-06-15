@@ -47,6 +47,10 @@
 \end{frame}
 
 \begin{frame}{Otázky oponenta}
+    \begin{block}{Otázka 1b)}
+        [Jak se projeví Kerrova rotace (rozvážení můstku)?]
+    \end{block}
+    
     \begin{exampleblock}{Odpověď 1b)}
         \begin{columns}
             \begin{column}{0.5\textwidth}
@@ -55,7 +59,7 @@
                     \item Vyklopení do $s_3$ 
                     \item V signálu se projeví elipticita
                 \end{itemize} 
-                \includegraphics[width=\textwidth]{asy/kovek-4.pdf}
+                \includegraphics[width=4cm]{asy/kovek-4.pdf}
             \end{column}
             \begin{column}{0.5\textwidth}
                 \begin{itemize}
@@ -63,7 +67,7 @@
                     \item Posunutí v rovině $s_1s_2$
                     \item Snížení faktoru stočení
                 \end{itemize} 
-                \includegraphics[width=\textwidth]{asy/kovek-6.pdf}
+                \includegraphics[width=4cm]{asy/kovek-6.pdf}
             \end{column}
         \end{columns}
     \end{exampleblock}
@@ -77,37 +81,18 @@
     \end{block}
 \end{frame}
 \begin{frame}{Otázky oponenta}
-    \begin{block}{Otázka 2}
+    \begin{block}{Otázka 2)}
         [Oddělené zpracování magnetické a magneto-optické odezvy?]
     \end{block}
     
     \begin{exampleblock}{Odpověď 2)}
         \begin{itemize}
         \item Analýza $\equiv$ globální minimalizace chybové funkce $\mathcal{L} = \sum \left( U_{\textrm{experiment}} - U_{\textrm{model}} \right)^2$, kde $U_{\textrm{model}}(\textrm{M},\,\textrm{MO})$
-%            \item Oddělené zpracování má význam ve dvou případech
-%                \begin{enumerate}
-%                    \item Nemáme k dispozici model magnetické odezvy, zajímá nás pouze MO
-%                        \begin{itemize}
-%                            \item Určení MO je pouze slabě vázané na M (MO odezvu lze poměrně přesně určit položením $\bm{M}=\bm{H}_{\textrm{ext}}$, pokud magnetická anizotropie není příliš silná)
-%                        \end{itemize}
-%                    \item Nemáme k dispozici model MO odezvy (např. nízká symetrie materiálu, nekompenzovaná zrcadla mezi vzorkem a můstkem), zajímá nás pouze M
-%                        \begin{itemize}
-%                            \item Určení M je zcela nezávislé na MO (i experimentálně ověřeno), popsáno v práci (kap. 4.4)
-%                        \end{itemize}
-%                \end{enumerate}
-%            \item Jinak oddělení nemá smysl
-%        \end{itemize}
-%    \end{exampleblock}
-%\end{frame}
-%
-%\begin{frame}{Otázky oponenta}
-%    \begin{exampleblock}{Odpověď 2)}
-%        \begin{itemize}
         \item Je možné zpracovávat všechny vlnové délky zároveň, pak $U_{\textrm{model}}(\textrm{M},\,\textrm{MO}(\lambda_1),\,\textrm{MO}(\lambda_2),\,\ldots)$
                 \begin{itemize}
                     \item Různé $\lambda$ mají různou hladinou šumu, je nutné to zohlednit přidáním vah do chybové funkce $\mathcal{L}=\sum_\lambda w^2(\lambda) \left(U_{\textrm{experiment}} - U_{\textrm{model}}\right)^2$
-                    \item Pro slabou magnetickou anizotropii (oba studované případy, $\mathcal{L}$ je přibližně kvadratický v anizotropních konstantách) je to ekvivalentní váženému průměru výsledků jednotlivých $\lambda$
-                    \item Vyzkoušeno, ale kvůli bodu 2 nepoužíváno. Teoreticky má smysl při silných magnetických anizotropiích
+                    \item Pokud jsou výsledky podobné (v jejich rozsahu je model přibližně lineární) je to ekvivalentní váženému průměru výsledků jednotlivých $\lambda$
+                    \item Vyzkoušeno, ale kvůli předchozímu bodu nepoužíváno
                 \end{itemize}
         \end{itemize}
     \end{exampleblock}
