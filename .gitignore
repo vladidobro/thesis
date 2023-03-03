@@ -3,16 +3,15 @@ feedback
 data/files
 data/out
 data/out-nemec
+bach
+!release/*
 
 # python
 .ipynb_checkpoints
 __pycache__
 
-# pdf
+# binary
 *.pdf
-!version/*
-
-# images
 img/static
 *.png
 *.jpg

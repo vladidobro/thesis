@@ -21,7 +21,7 @@ imgstatic_pdfa:
 	$(MAKE) -C img/static pdfa
 
 verapdf_update:
-	curl https://cuni.cz/UK-7987-version1-custom8.xml > utils/verapdf_profile.xml
+	curl https://cuni.cz/UK-7987-version1-custom8.xml > utils/verapdf-profile.xml
 
 verapdf: thesis
-	verapdf -p utils/verapdf_profile.xml thesis.pdf
+	verapdf -p utils/verapdf-profile.xml thesis.pdf
