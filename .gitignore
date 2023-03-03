@@ -1,9 +1,8 @@
 # dont track
 feedback
-
-# data
 data/files
 data/out
+data/out-nemec
 
 # python
 .ipynb_checkpoints
