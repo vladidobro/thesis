@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Convert to pdf/a using ghostscript
+#
+# usage: pdfa thesis.pdf
+
+pdf_input="$1"
+pdfa_output="$2"
+ps_output="$(mktemp)"
+pdftops ${pdf_input} ${ps_output}
+
+gs -dPDFA -dBATCH -dNOPAUSE -dNOOUTERSAVE -dUseCIEColor -sProcessColorModel=DeviceCMYK -sDEVICE=pdfwrite -sPDFACompatibilityPolicy=1 -sOutputFile=${pdfa_output} ${ps_output}
