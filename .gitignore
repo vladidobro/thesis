@@ -1,21 +1,22 @@
-untracked/*
-
-img/static
-img/old
-
+# data
 data/files
-data/out/
-data/makefile
-.ipynb_checkpoints
+data/out
 
+# python
+.ipynb_checkpoints
+__pycache__
+
+# pdf
 *.pdf
 !version/*
-__pycache__/
-*.bkp
 
-#begin clean
-thesis-*
+# images
+img/static
 *.png
+*.jpg
+
+# clean
+thesis-*
 *.pre
 *.log
 *.dvi
@@ -35,4 +36,4 @@ thesis-*
 *.run.xml
 *.rubbercache
 *.tdo
-#end clean
+*.bkp
