@@ -1,0 +1,23 @@
+v teto slozce jsou hruba namerena data
+vetsina slozek jsou jen stability a testy
+
+slozka toceni obsahuje zpracovane data ze vsech merenych toceni (merene i preskladane)
+-50 mT, 12 K
+-210 mT, 12 K
+-210 mT, 40 K
+-soubor chyby.txt jsou od oka urcene chyby k nekterym fitum, kteryma normuju originovskou chybu fitu
+
+dulezite slozky:
+-kalibrace magnetu v ruznych smerech: 180327, 180509
+
+-nekolinearni hystereze polarizacni zavislost pri 12K, mag=0deg: 180323/hyst90
+-nekolinearni hystereze polarizacni zavislost pri 12K, mag=135deg: 180323/hyst135
+
+-kolinearni hystereze polarizacni zavislost pri 12K, mag=135deg: 180412/135m
+-kolinearni hystereze teplotni zavislost pri mag=135deg, polarizace=0deg: 180412/135m_T
+
+-kolinearni toceni pole polarizacni zavislost pri 12K, 50mT: 180413/toceni50mT
+-kolinearni toceni pole polarizacni zavislost pri 12K, 210mT: 180413/toceni210mT
+-kolinearni toceni pole polarizacni zavislost pri 40K, 210mT: 180503/toceni_20K
+
+-kolinearni hystereze zavislost na smeru pole pri 12K, gamma-beta=90deg: 180503/hystereze_okolo

@@ -1,20 +1,10 @@
 # dont track
 feedback
-data/files
-data/out
-data/out-nemec
-bach
 !release/*
 
 # python
 .ipynb_checkpoints
 __pycache__
-
-# binary
-*.pdf
-img/static
-*.png
-*.jpg
 
 # clean
 thesis-*

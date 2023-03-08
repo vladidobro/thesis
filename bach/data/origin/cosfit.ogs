@@ -1,0 +1,123 @@
+[Main]
+run.section( , FitLoop);
+run.section( , FitNC);
+
+[Import50]
+impASC fname:=C:\Users\Vladislav\Documents\BP_toceni\MA50.dat options.ImpMode:=3 options.FileStruct.NumericSeparator:=0;
+
+[Import210]
+impASC fname:=C:\Users\Vladislav\Documents\BP_toceni\MA210.dat options.ImpMode:=3 options.FileStruct.NumericSeparator:=0;
+
+[Import20K]
+impASC fname:=C:\Users\Vladislav\Documents\BP_toceni\MAt.dat options.ImpMode:=3 options.FileStruct.NumericSeparator:=0;
+
+[InitSheet]
+newsheet name:=FitLines c:=1;
+newsheet name:=FitParams c:=7;
+newsheet name:=FitNC c:=5;
+range aa=1!;
+range bb=FitLines!;
+range c=FitParams!1;
+range d=FitNC!1;
+bb.ncols=aa.ncols;
+c=data(270,-90,-5);
+d=data(270,-90,-5);
+range b=%(bb)1, a=%(aa)1;
+b=a;
+
+[FitLoop]
+range aa=1!;
+range bb=FitLines!;
+range cc=FitParams!;
+dataset amplitudy, faze, konstanty, erramplitudy, errfaze, errkonstanty;
+amplitudy.SetSize(aa.ncols-1);
+erramplitudy.SetSize(amplitudy.GetSize());
+faze.SetSize(amplitudy.GetSize());
+errfaze.SetSize(amplitudy.GetSize());
+konstanty.SetSize(amplitudy.GetSize());
+errkonstanty.SetSize(amplitudy.GetSize());
+
+loop(ii,2,aa.ncols){
+	range xy=%(aa)(1,$(ii));
+	range x=%(aa)$(ii);
+	nlbegin iy:=xy func:=mld nltree:=ParamTree;
+	ParamTree.PMLD=max(x)-mean(x);
+	ParamTree.phiM=xvalue(list(max(x),x),x)-135;
+	ParamTree.c=mean(x);
+	nlfit;
+	amplitudy[ii-1]=ParamTree.PMLD;
+	erramplitudy[ii-1]=ParamTree.e_PMLD;
+	faze[ii-1]=ParamTree.phiM;
+	errfaze[ii-1]=ParamTree.e_phiM;
+	konstanty[ii-1]=ParamTree.c;
+	errkonstanty[ii-1]=ParamTree.e_c;
+	nlend;
+}
+range rp=3!2;
+range rf=3!4;
+range rc=3!6;
+range gp=[??]!amplitudy;
+range gf=[??]!faze;
+range gc=[??]!konstanty;
+rp=gp;
+rf=gf;
+rc=gc;
+range rpe=3!3;
+range rfe=3!5;
+range rce=3!7;
+range gpe=[??]!erramplitudy;
+range gfe=[??]!errfaze;
+range gce=[??]!errkonstanty;
+rpe=gpe;
+rfe=gfe;
+rce=gce;
+
+ty Ahoj
+
+[FitNC]
+range aa=1!;
+range bb=FitLines!;
+range cc=FitNC!;
+dataset amplitudy, faze, erramplitudy, errfaze;
+amplitudy.SetSize(aa.ncols-1);
+erramplitudy.SetSize(amplitudy.GetSize());
+faze.SetSize(amplitudy.GetSize());
+errfaze.SetSize(amplitudy.GetSize());
+
+loop(ii,2,aa.ncols){
+	range xy=%(aa)(1,$(ii));
+	range x=%(aa)$(ii);
+	nlbegin iy:=xy func:=mld nltree:=ParamTree;
+	ParamTree.PMLD=max(x)-mean(x);
+	ParamTree.phiM=xvalue(list(max(x),x),x)-135;
+	ParamTree.c=0;
+	ParamTree.f_c=1;
+	nlfit;
+	amplitudy[ii-1]=ParamTree.PMLD;
+	erramplitudy[ii-1]=ParamTree.e_PMLD;
+	faze[ii-1]=ParamTree.phiM;
+	errfaze[ii-1]=ParamTree.e_phiM;
+	konstanty[ii-1]=ParamTree.c;
+	errkonstanty[ii-1]=ParamTree.e_c;
+	nlend;
+}
+range rp=%(cc)2;
+range rf=%(cc)4;
+
+range gp=[??]!amplitudy;
+range gf=[??]!faze;
+
+rp=gp;
+rf=gf;
+
+range rpe=%(cc)3;
+range rfe=%(cc)5;
+
+range gpe=[??]!erramplitudy;
+range gfe=[??]!errfaze;
+
+rpe=gpe;
+rfe=gfe;
+
+
+ty AhojNC

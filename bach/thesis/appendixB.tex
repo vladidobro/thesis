@@ -1,0 +1,34 @@
+\section{Odvození korekcí v kolineární geometrii}
+\label{odvozeni_kolinearni}
+
+V kolineární geometrii jsme od sebe nedokázali oddělit svazek odražený od vzorku a svazek odražený od okénka kryostatu, což nám do měřených napětí zanáší parazitní signál. Získání magnetooptických signálů $\Delta\beta$ a $B$ pak vyžaduje korekci.
+
+Předpokládáme, že polarizační stav světla odraženého od sklíčka je nezávislý na vnějším magnetickém poli. Na sklíčko dopadá intenzita $I_0$. Označíme $R_S=\SI{4}{\percent}$ intenzitní odrazivost sklíčka a $R_V=\SI{33}{\percent}$ intenzitní odrazivost vzorku.
+Světlo odražené od sklíčka má intenzitu (odraz od přední a zadní strany sklíčka, další odrazy jsou zanedbatelné)
+\begin{equation}
+I^S=(R_S+R_S(1-R_S)^2) I_0:=\rho_S I_0
+\end{equation}
+a světlo odražené od vzorku má intenzitu (odraz od vzorku a čtyřnásobný průchod rozhraní sklíčka)
+\begin{equation}
+I^V=(1-R_S)^4 R_V I_0 := \rho_V I_0 \,.
+\end{equation}
+Celková intenzita je dána jejich součtem. Spočteme, čemu se rovná výraz, kterým jsme v nekolineární geometrii počítali $\Delta\beta$
+\begin{equation}
+\begin{aligned}
+\frac{I_A-I_B}{2(I_A+I_B)}&=\frac{I^S_A-I^S_B}{2I}+\frac{I^V_A-I^V_B}{2(I^V_A+I^V_B)}\frac{I^V}{I^S+I^V} \\
+&=\text{konst}+\Delta\beta \frac{\rho_V}{\rho_S+\rho_V} \,.
+\end{aligned}
+\end{equation}
+První člen je konstanta vzhledem k vnějšímu magnetickému poli ($I$ se sice vlivem MLD mění, tento vliv je však zanedbatelný při $r_\paral/r_\perpen\approx 1$), které se zbavíme vyvážením můstku.
+$\Delta\beta$ tedy získáme stejně jako v nekolineární geometrii, pouze navíc vynásobíme konstantou
+\begin{equation}
+\frac{\rho_S+\rho_V}{\rho_V}\approx \num{1,27} \,.
+\end{equation}
+
+Pro celkovou intenzitu platí
+\begin{equation}
+I=I_S+I_V=I_0\rho_S+I_0\rho_V(1+B)=I_0(\rho_S+\rho_V)\left(1+B\frac{\rho_V}{\rho_S+\rho_V}\right) \,.
+\end{equation}
+Pokud součtový signál zpracujeme stejným způsobem jako v nekolineární geometrii, pak opět vynásobením $(\rho_S+\rho_V)/\rho_V$ obdržíme už správnou hodnotu $B$.
+
+Zpracování hrubých dat je v kolineární geometrii totožné jako nekolineární, pouze konečné veličiny $\Delta\beta$ a $B$ vynásobíme číslem \num{1,27}.

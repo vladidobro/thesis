@@ -1,0 +1,7 @@
+% Metadata k uložení do PDF, podrobnější popis viz dokumentace balíčku pdfx.
+
+\Author{Vladislav Wohlrath}
+\Title{Magneto-optická charakterizace spintronických materiálů}
+\Keywords{Magneto-optika\sep Voigtův jev\sep MLD\sep GaMnAs\sep spintronika}
+\Subject{Práce se zabývá magnetooptickým měřením za použití nově postaveného prototypu 2D elektromagnetu. Bylo postaveno experimentální uspořádání pro studium Voigtova jevu a MLD ve vzorku feromagnetického polovodiče GaMnAs. Zopakovali jsme měření hysterezních smyček provedená v práci [1] se stejným vzorkem za účelem prokázání funkčnosti magnetu. Poté jsme vyzkoušeli novou variantu experimentálního uspořádání s kolmým dopadem. Nakonec jsme vyzkoušeli nový typ magnetooptického měření, který plně využívá dvoudimenzionality magnetu. Při konstantní velikosti vnějšího magnetického pole je měněn jeho směr v plném rozsahu úhlů. Tato metoda může být v budoucnu použita ke studiu materiálů vhodných pro spintroniku.}
+\Publisher{Univerzita Karlova}

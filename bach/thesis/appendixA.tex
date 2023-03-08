@@ -1,0 +1,38 @@
+\section{Odvození polarizační závislosti MLD} \label{odvozeni_mld}
+Na vzorek kolmo dopadá světlo s intenzitou $I_0$ lineárně polarizované ve směru $\beta$. Magnetizace je v rovině vzorku pod úhlem $\phM$ a koeficienty reflexe pro polarizaci rovnoběžnou, resp. kolmou na magnetizaci jsou $r_\paral$, $r_\perpen$.
+
+Intenzita je úměrná čtverci $\vec{E}$
+\begin{equation}
+I_0 \propto E^2 \,,
+\end{equation}
+stejně odražená intenzita $I^\prime$ je úměrná čtverci odražené $\vec{E^\prime}$
+\begin{equation}
+\begin{aligned}
+I^\prime \propto {E^\prime_\paral}^2 + {E^\prime_\perpen}^2 &= ({r_\paral E \cos(\phM-\beta)})^2+({r_\perpen E \sin(\phM-\beta)})^2 \\
+&=E^2 \left[r_\paral^2 \cos^2(\phM-\beta)+ r_\perpen^2 \sin^2(\phM-\beta)\right] \\
+&=E^2 \left[ \frac{r_\paral^2+r_\perpen^2}{2}  +  \left( \frac{r_\paral^2}{2} - \frac{r_\perpen^2}{2}\right) \cos[2(\phM-\beta)]\right] \\
+&=E^2 \frac{r_\paral^2+r_\perpen^2}{2} \left[1 + 2\pmld \cos[2(\phM-\beta)]\right]
+\end{aligned}
+\end{equation}
+a tedy
+\begin{equation}
+I^\prime=I_0 R \left[1 + 2\pmld \cos[2(\phM-\beta)]\right] \,,
+\end{equation}
+kde jsme označili $R=(r_\paral^2+r_\perpen^2)/2$ a použili přiblížení $r_\paral /r_\perpen \approx 1$, ve kterém platí $\pmld =\num{0,5}(r_\paral^2-r_\perpen^2)/(r_\paral^2+r_\perpen^2)$.
+
+Zavedeme veličinu $B:=I^\prime/(I_0R)-1$. Potom
+\begin{equation}
+B=2\pmld \cos[2(\phM-\beta)] \,.
+\end{equation}
+
+Při měření hysterezních smyček bude mít intenzita podobný průběh jako v~případě Voigtova jevu. Při přeskoku mezi snadnými osami dojde ke skoku v intenzitě, který bude mít amplitudu $\Delta B=B_4-B_1$.
+\begin{equation}
+\Delta B=2 \pmld \left( \cos[2({\phM}_4-\beta)] -\cos[2({\phM}_4-\beta)] \right) \,,
+\end{equation}
+kde ${\phM}_1$ a ${\phM}_2$ jsou směry snadných os, mezi kterými došlo k přeskoku magnetizace. Při stejném označení úhlů jako v \ref{revsci_mld} (d) platí
+\begin{equation}
+\begin{aligned}
+\Delta B &=2 \pmld \left( \cos\left[2\left(\gamma+\frac{\xi}{2}-\beta\right)\right] -\cos\left[2\left(\gamma-\frac{\xi}{2}-\beta\right)\right] \right) \\
+&=-4\pmld  \sin[2(\gamma-\beta)]\sin(\xi) \,.
+\end{aligned}
+\end{equation}

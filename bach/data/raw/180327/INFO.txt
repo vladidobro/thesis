@@ -1,0 +1,1 @@
+stare znaceni (0deg zameneno s 90deg)

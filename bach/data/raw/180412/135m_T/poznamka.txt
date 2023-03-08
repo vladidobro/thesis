@@ -1,0 +1,2 @@
+ty nazvy neodpovidaj teplote, na zacatku byla Pt=under a to odpovida asi 5K.
+zaroven bylo TC=2.5K priblizne a zvedali jsme po 5K na TC

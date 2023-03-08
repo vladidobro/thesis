@@ -136,7 +136,7 @@ class bridge_tests(ExperimentRotmld):
 
 class stokes_tests(ExperimentRotmld):
     def __init__(self):
-        super().__init__('stokes', 'stokes', set_template='rotmld_stokes', filelist='fl_stokes')
+        super().__init__('stokes', 'stokes', set_template='rotmld_stokes', filelist='filelist_stokes')
         self[0].df['f_sens'] = self[0].df.apply(lambda row: f"files/stokes/stokes/1050_xA/stokes/{int(row['beta']):03d}_0/sens.csv", axis=1)
         self[0].df['f_full'] = self[0].df.apply(lambda row: f"files/stokes/stokes/1050_xA/stokes/{int(row['beta']):03d}_0/full.csv", axis=1)
 

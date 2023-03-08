@@ -1,0 +1,9 @@
+file_path,file_template,sample,experiment,set,wavelength,flags,beta
+stokes/stokes/1050_xA/150_0.dat,femtik_standard,stokes,stokes,1050_xA,1050,xA,150.0
+stokes/stokes/1050_xA/090_0.dat,femtik_standard,stokes,stokes,1050_xA,1050,xA,090.0
+stokes/stokes/1050_xA/045_0.dat,femtik_standard,stokes,stokes,1050_xA,1050,xA,045.0
+stokes/stokes/1050_xA/135_0.dat,femtik_standard,stokes,stokes,1050_xA,1050,xA,135.0
+stokes/stokes/1050_xA/060_0.dat,femtik_standard,stokes,stokes,1050_xA,1050,xA,060.0
+stokes/stokes/1050_xA/015_0.dat,femtik_standard,stokes,stokes,1050_xA,1050,xA,015.0
+stokes/stokes/1050_xA/000_0.dat,femtik_standard,stokes,stokes,1050_xA,1050,xA,000.0
+stokes/stokes/1050_xA/105_0.dat,femtik_standard,stokes,stokes,1050_xA,1050,xA,105.0
